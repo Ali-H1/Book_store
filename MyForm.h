@@ -4,6 +4,7 @@
 #include "signin-signup.h"
 #include "bookmadule.h"
 #include "BookDetail.h"
+//#include "Headers/appendData.h"
 #include <vector>
 #include <string>
 #include <tuple>
@@ -15,11 +16,15 @@ namespace bookstore {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Threading;
+	using namespace System::Runtime::InteropServices;
+
 	using std::vector;
 	using std::string;
 	using std::tuple;
 	using std::make_tuple;
 	using std::get;
+	using std::to_string;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -28,7 +33,6 @@ namespace bookstore {
 	{
 	public:
 		
-		
 		MyForm(void)
 		{
 			InitializeComponent();
@@ -36,6 +40,7 @@ namespace bookstore {
 			//TODO: Add the constructor code here
 			//
 			set_book_test();
+			//set_data();
 			
 
 		}
@@ -58,17 +63,7 @@ namespace bookstore {
 	private: System::Windows::Forms::Panel^ header;
 
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-
-
-
-
-
-
-
-	private: System::Windows::Forms::Panel^ panel22;
-
-
-
+	public: System::Windows::Forms::Panel^ main_page_panel;
 
 	private: System::Windows::Forms::Panel^ panel9;
 
@@ -77,15 +72,12 @@ namespace bookstore {
 	private: System::Windows::Forms::Panel^ panel10;
 
 
-
 	private: System::Windows::Forms::Panel^ panel4;
 
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Panel^ panel19;
 	private: System::Windows::Forms::PictureBox^ pictureBox8;
 	private: System::Windows::Forms::Label^ label7;
-
-
 
 	private: System::Windows::Forms::Panel^ panel23;
 	private: System::Windows::Forms::PictureBox^ pictureBox9;
@@ -127,38 +119,12 @@ namespace bookstore {
 	private: System::Windows::Forms::Panel^ panel32;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::FlowLayoutPanel^ main_page_panel;
-private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-private: System::Windows::Forms::Label^ label11;
+	public: System::Windows::Forms::FlowLayoutPanel^ recent_books;
+
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+	private: System::Windows::Forms::Label^ label11;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	protected:
-
-	protected:
-
-	protected:
 
 	private:
 		/// <summary>
@@ -209,14 +175,13 @@ private: System::Windows::Forms::Label^ label11;
 			this->pictureBox10 = (gcnew System::Windows::Forms::PictureBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->panel22 = (gcnew System::Windows::Forms::Panel());
-			this->main_page_panel = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->main_page_panel = (gcnew System::Windows::Forms::Panel());
+			this->recent_books = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->panel10 = (gcnew System::Windows::Forms::Panel());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panel9 = (gcnew System::Windows::Forms::Panel());
-			this->panel11 = (gcnew System::Windows::Forms::Panel());
 			this->panel30 = (gcnew System::Windows::Forms::Panel());
 			this->panel29 = (gcnew System::Windows::Forms::Panel());
 			this->panel8 = (gcnew System::Windows::Forms::Panel());
@@ -231,6 +196,7 @@ private: System::Windows::Forms::Label^ label11;
 			this->panel26 = (gcnew System::Windows::Forms::Panel());
 			this->panel20 = (gcnew System::Windows::Forms::Panel());
 			this->panel15 = (gcnew System::Windows::Forms::Panel());
+			this->panel11 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox12 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->maxbtn))->BeginInit();
@@ -257,8 +223,8 @@ private: System::Windows::Forms::Label^ label11;
 			this->panel24->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			this->panel22->SuspendLayout();
 			this->main_page_panel->SuspendLayout();
+			this->recent_books->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -534,38 +500,38 @@ private: System::Windows::Forms::Label^ label11;
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->TabStop = false;
 			// 
-			// panel22
-			// 
-			resources->ApplyResources(this->panel22, L"panel22");
-			this->panel22->BackColor = System::Drawing::Color::White;
-			this->panel22->Controls->Add(this->main_page_panel);
-			this->panel22->Controls->Add(this->pictureBox12);
-			this->panel22->Name = L"panel22";
-			// 
 			// main_page_panel
 			// 
-			this->main_page_panel->Controls->Add(this->panel2);
-			this->main_page_panel->Controls->Add(this->panel4);
-			this->main_page_panel->Controls->Add(this->panel10);
-			this->main_page_panel->Controls->Add(this->panel3);
-			this->main_page_panel->Controls->Add(this->panel9);
-			this->main_page_panel->Controls->Add(this->panel11);
-			this->main_page_panel->Controls->Add(this->panel30);
-			this->main_page_panel->Controls->Add(this->panel29);
-			this->main_page_panel->Controls->Add(this->panel8);
-			this->main_page_panel->Controls->Add(this->panel27);
-			this->main_page_panel->Controls->Add(this->panel7);
-			this->main_page_panel->Controls->Add(this->panel21);
-			this->main_page_panel->Controls->Add(this->panel6);
-			this->main_page_panel->Controls->Add(this->panel17);
-			this->main_page_panel->Controls->Add(this->panel5);
-			this->main_page_panel->Controls->Add(this->panel16);
-			this->main_page_panel->Controls->Add(this->panel28);
-			this->main_page_panel->Controls->Add(this->panel26);
-			this->main_page_panel->Controls->Add(this->panel20);
-			this->main_page_panel->Controls->Add(this->panel15);
 			resources->ApplyResources(this->main_page_panel, L"main_page_panel");
+			this->main_page_panel->BackColor = System::Drawing::Color::White;
+			this->main_page_panel->Controls->Add(this->recent_books);
+			this->main_page_panel->Controls->Add(this->pictureBox12);
 			this->main_page_panel->Name = L"main_page_panel";
+			// 
+			// recent_books
+			// 
+			this->recent_books->Controls->Add(this->panel2);
+			this->recent_books->Controls->Add(this->panel4);
+			this->recent_books->Controls->Add(this->panel10);
+			this->recent_books->Controls->Add(this->panel3);
+			this->recent_books->Controls->Add(this->panel9);
+			this->recent_books->Controls->Add(this->panel30);
+			this->recent_books->Controls->Add(this->panel29);
+			this->recent_books->Controls->Add(this->panel8);
+			this->recent_books->Controls->Add(this->panel27);
+			this->recent_books->Controls->Add(this->panel7);
+			this->recent_books->Controls->Add(this->panel21);
+			this->recent_books->Controls->Add(this->panel6);
+			this->recent_books->Controls->Add(this->panel17);
+			this->recent_books->Controls->Add(this->panel5);
+			this->recent_books->Controls->Add(this->panel16);
+			this->recent_books->Controls->Add(this->panel28);
+			this->recent_books->Controls->Add(this->panel26);
+			this->recent_books->Controls->Add(this->panel20);
+			this->recent_books->Controls->Add(this->panel15);
+			this->recent_books->Controls->Add(this->panel11);
+			resources->ApplyResources(this->recent_books, L"recent_books");
+			this->recent_books->Name = L"recent_books";
 			// 
 			// panel2
 			// 
@@ -602,13 +568,6 @@ private: System::Windows::Forms::Label^ label11;
 			this->panel9->Cursor = System::Windows::Forms::Cursors::Hand;
 			resources->ApplyResources(this->panel9, L"panel9");
 			this->panel9->Name = L"panel9";
-			// 
-			// panel11
-			// 
-			this->panel11->BackColor = System::Drawing::SystemColors::Window;
-			this->panel11->Cursor = System::Windows::Forms::Cursors::Hand;
-			resources->ApplyResources(this->panel11, L"panel11");
-			this->panel11->Name = L"panel11";
 			// 
 			// panel30
 			// 
@@ -708,6 +667,13 @@ private: System::Windows::Forms::Label^ label11;
 			resources->ApplyResources(this->panel15, L"panel15");
 			this->panel15->Name = L"panel15";
 			// 
+			// panel11
+			// 
+			this->panel11->BackColor = System::Drawing::SystemColors::Window;
+			this->panel11->Cursor = System::Windows::Forms::Cursors::Hand;
+			resources->ApplyResources(this->panel11, L"panel11");
+			this->panel11->Name = L"panel11";
+			// 
 			// pictureBox12
 			// 
 			resources->ApplyResources(this->pictureBox12, L"pictureBox12");
@@ -720,7 +686,7 @@ private: System::Windows::Forms::Label^ label11;
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Dpi;
 			this->AutoValidate = System::Windows::Forms::AutoValidate::Disable;
 			this->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->Controls->Add(this->panel22);
+			this->Controls->Add(this->main_page_panel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -761,14 +727,57 @@ private: System::Windows::Forms::Label^ label11;
 			this->panel24->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			this->panel22->ResumeLayout(false);
 			this->main_page_panel->ResumeLayout(false);
+			this->recent_books->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 		bool drag = false;
 		Point start_point;
+		//void set_data()
+		//{
+		//	DataBase db("db.db");
+		//	db.Open();
+		//	string row = "(ID,Cover,Title,Author,Price)";
+
+		//	vector<tuple<std::string, std::string, std::string, string>> alpha;
+		//	alpha.push_back(make_tuple("covers\\3264_68232_normal.jpg", "پیرمرد و دریا", "ارنست همینگوی", "20,000"));
+		//	alpha.push_back(make_tuple("covers\\86104_42858_normal.jpg", "عقاید یک دلقک", "هاینریش بل", "26,000"));
+		//	alpha.push_back(make_tuple("covers\\1.jpg", "من پیش از تو", "جوجو مویز", "16,000"));
+		//	alpha.push_back(make_tuple("covers\\2.jpg", "کتاب مغازه خودکشی", "ژان تولی", "20,000"));
+		//	alpha.push_back(make_tuple("covers\\3.jpg", "جزء از کل", "استیو تولتز", "40,000"));
+		//	alpha.push_back(make_tuple("covers\\4.jpg", "مزرعه حیوانات", "جورج اورول", "17,000"));
+		//	alpha.push_back(make_tuple("covers\\5.jpg", "سمفونی مردگان", "عباس معروفی", "23,000"));
+		//	alpha.push_back(make_tuple("covers\\6.jpg", "مردی به نام اوه", "", "27,000"));
+		//	alpha.push_back(make_tuple("covers\\7.jpg", "چشم هایش", "بزرگ علوی", "30,000"));
+		//	alpha.push_back(make_tuple("covers\\8.jpg", "دور دنیا در 80 روز", "ژول ورن", "33,000"));
+		//	alpha.push_back(make_tuple("covers\\9.jpg", "قمارباز", "فئودور داستایوفسکی", "25,000"));
+		//	alpha.push_back(make_tuple("covers\\10.jpg", "استیو جابز", "والتر ایساکسون", "19,000"));
+		//	alpha.push_back(make_tuple("covers\\11.jpg", "ناتور دشت", "جی دی سلینجر", "34,000"));
+		//	alpha.push_back(make_tuple("covers\\12.jpg", "سینوهه", "میکا والتری", "67,000"));
+		//	alpha.push_back(make_tuple("covers\\13.jpg", "فانوس های لرزان", "نسرین تبریزی", "33,000"));
+		//	alpha.push_back(make_tuple("covers\\14.jpg", "جهان هولوگرافیک", "مایکل تالبوت", "54,000"));
+		//	alpha.push_back(make_tuple("covers\\15.jpg", "آدم آهنی", "نادر ابراهیمی", "43,000"));
+		//	alpha.push_back(make_tuple("covers\\16.jpg", "تکنیک های بازار یابی", "حسین یاغچی", "23,000"));
+		//	alpha.push_back(make_tuple("covers\\17.jpg", "بازار یابی و فروش نرم افزار", "خدایار عبداللهی", "17,000"));
+		//	alpha.push_back(make_tuple("covers\\18.jpg", "تحلیل تکنیکال بازار سرمایه", "جان مورفی", "27,000"));
+		//	alpha.push_back(make_tuple("covers\\19.jpg", "", "", ""));
+		//	alpha.push_back(make_tuple("covers\\20.jpg", "", "", ""));
+		//	int a = 0;
+
+		//	while (a < alpha.size() - 1)
+		//	{
+
+		//		string value = "(" + to_string(db.generating_id(1000, 9000)) + "," + get<0>(alpha[a]).c_str() + "," + get<1>(alpha[a]).c_str() + "," + get<2>(alpha[a]).c_str() + "," + get<3>(alpha[a]).c_str() + ")";
+		//		db.Insert("Book_Detail", row, value);
+
+		//		a++;
+		//		//MessageBox::Show("added : "+a, "added");
+		//	}
+
+
+		//}
 		void set_book_test()
 		{
 			vector<tuple<std::wstring, std::wstring, std::wstring,string>> alpha;
@@ -795,7 +804,7 @@ private: System::Windows::Forms::Label^ label11;
 			alpha.push_back(make_tuple(L"covers\\19.jpg",L"",L"",""));
 			alpha.push_back(make_tuple(L"covers\\20.jpg",L"",L"",""));
 			int a = 0;
-			for each (Panel ^ ctrl in main_page_panel->Controls) {
+			for each (Panel ^ ctrl in recent_books->Controls) {
 				bookmadule^ page = gcnew bookmadule();
 				for each (PictureBox ^ imagebox in page->Controls->Find("book_pic",true))
 				{
@@ -858,7 +867,7 @@ private: System::Windows::Forms::Label^ label11;
 			}
 
 		}
-		BookDetail^ tt(Panel^ panel)
+		BookDetail^ get_detail_for_book_page(Panel^ panel)
 		{
 			String^ image , ^title, ^author, ^price;
 			for each (PictureBox ^ imagebox in panel->Controls->Find("book_pic", true))
@@ -907,6 +916,11 @@ private: System::Windows::Forms::Label^ label11;
 			}
 
 			return page;
+		}
+		public: void link_bookdetail_mainpage(BookDetail^ panel)
+		{
+			recent_books->Hide();
+			main_page_panel->Controls->Add(panel);
 		}
 #pragma endregion
 	private: System::Void exitbtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1009,12 +1023,8 @@ private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArg
 }
 private: System::Void panel32_Click(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	MessageBox::Show("jjj","k");
-}
 private: System::Void panel2_Click(System::Object^ sender, System::EventArgs^ e) {
-	MessageBox::Show("ddddd", "ssss");
-	tt(panel2);
+
 }
 };
 }

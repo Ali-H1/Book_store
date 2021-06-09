@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "BookDetail.h"
 #include "signin-signup.h"
+
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -10,21 +11,22 @@ using namespace System::Drawing;
 
 
 namespace bookstore {
-
 	/// <summary>
 	/// Summary for bookmadule
 	/// </summary>
 	public ref class bookmadule : public System::Windows::Forms::UserControl
 	{
+
 	public:
 		bookmadule(void)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
+
 			//
 		}
-
+	public: delegate void delPassData(BookDetail^ Item);
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -189,9 +191,13 @@ namespace bookstore {
 
 			return page;
 		}
-
+		private: void PassData(BookDetail^ sender)
+		{
+			// Set de text of the textbox to the value of the textbox of form 2
+			MessageBox::Show("success", "success");
+		}
 #pragma endregion
-		BookDetail^ page;
+	BookDetail^ page;
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void book_pic_Click(System::Object^ sender, System::EventArgs^ e) {
