@@ -2,14 +2,15 @@
 Book store server side and client side app in cpp 
 
 ## Clients side
+- [X] Client Winform Template.
 - [ ] 1-Display books with detail.
 - - [ ]	Display books in a specific genre.
 - - [ ]	Display books of a specific author.
 - - [ ]	Display all books.
 - [ ] 2-Log-in and sign-up system.
-- - [ ] Get costumer information such as : name, age, gender, birth date, address, postal code, Email, username, password.
+- - [X] Get costumer information such as : name, age, gender, birth date, address, postal code, Email, username, password.
 - - [ ] ‘Forgotten password’ solution.
-- [ ] 3-by choosing each book , user can see more detail and can purchase book.
+- [X] 3-by choosing each book , user can see more detail and can purchase book.
 - - [ ]	Virtual purchase system.
 - [ ] 4-if the purchased book was digital , it should be added to library and should be visible and downloadable .
 - [ ] 5-user must log-in before purchase.
