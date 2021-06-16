@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="BookDetail.cpp" />
     <ClCompile Include="bookmadule.cpp" />
+    <ClCompile Include="Category_Pagel.cpp" />
     <ClCompile Include="Form2.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="signup.cpp" />
@@ -140,6 +141,9 @@
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="bookmadule.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="Category_Pagel.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Form2.h">
@@ -165,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="bookmadule.resx">
       <DependentUpon>bookmadule.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Category_Pagel.resx">
+      <DependentUpon>Category_Pagel.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>

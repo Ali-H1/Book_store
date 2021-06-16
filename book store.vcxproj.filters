@@ -36,6 +36,9 @@
     <ClCompile Include="BookDetail.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Category_Pagel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BookDetail.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Category_Pagel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

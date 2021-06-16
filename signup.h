@@ -15,6 +15,7 @@ using std::wstring;
 
 
 namespace bookstore {
+	static bool signed_in = false;
 
 	/// <summary>
 	/// Summary for MyUserControl
@@ -798,6 +799,7 @@ private: System::Void signup_bttn_Click(System::Object^ sender, System::EventArg
 		email_bar->BackColor = Color::RoyalBlue;
 		pass1_bar->BackColor = Color::RoyalBlue;
 		lname_bar->BackColor = Color::RoyalBlue;
+		signed_in = true;
 
 	}
 
