@@ -59,11 +59,15 @@ namespace bookstore {
 	private: System::Windows::Forms::RichTextBox^ richTextBox1;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::PictureBox^ book_image;
+	private: System::Windows::Forms::RichTextBox^ book_price;
+
+
+	private: System::ComponentModel::IContainer^ components;
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -81,9 +85,11 @@ namespace bookstore {
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->book_image = (gcnew System::Windows::Forms::PictureBox());
+			this->book_price = (gcnew System::Windows::Forms::RichTextBox());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->book_image))->BeginInit();
 			this->SuspendLayout();
+			this->panel1->Controls->Add(this->book_price);
 			this->panel1->Controls->Add(this->book_publisher);
 			this->panel1->Controls->Add(this->book_author);
 			this->panel1->Controls->Add(this->book_translator);
@@ -115,6 +121,7 @@ namespace bookstore {
 				static_cast<System::Byte>(178)));
 			this->book_author->ForeColor = System::Drawing::SystemColors::MenuHighlight;
 			this->book_author->Location = System::Drawing::Point(276, 124);
+			this->book_author->Multiline = false;
 			this->book_author->Name = L"book_author";
 			this->book_author->ReadOnly = true;
 			this->book_author->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
@@ -140,6 +147,7 @@ namespace bookstore {
 			this->book_title->Font = (gcnew System::Drawing::Font(L"B Nazanin", 16.2, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->book_title->Location = System::Drawing::Point(262, 68);
+			this->book_title->Multiline = false;
 			this->book_title->Name = L"book_title";
 			this->book_title->ReadOnly = true;
 			this->book_title->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
@@ -162,7 +170,7 @@ namespace bookstore {
 			this->button1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(716, 390);
+			this->button1->Location = System::Drawing::Point(716, 451);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(124, 42);
 			this->button1->TabIndex = 11;
@@ -176,6 +184,19 @@ namespace bookstore {
 			this->book_image->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->book_image->TabIndex = 10;
 			this->book_image->TabStop = false;
+			this->book_price->BackColor = System::Drawing::Color::White;
+			this->book_price->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->book_price->Font = (gcnew System::Drawing::Font(L"B Nazanin", 13.15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(178)));
+			this->book_price->ForeColor = System::Drawing::Color::DarkGreen;
+			this->book_price->Location = System::Drawing::Point(716, 393);
+			this->book_price->Multiline = false;
+			this->book_price->Name = L"book_price";
+			this->book_price->ReadOnly = true;
+			this->book_price->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->book_price->Size = System::Drawing::Size(105, 38);
+			this->book_price->TabIndex = 17;
+			this->book_price->Text = L"20,000";
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;

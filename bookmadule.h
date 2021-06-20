@@ -70,12 +70,12 @@ namespace bookstore {
 			this->book_author = (gcnew System::Windows::Forms::Label());
 			this->book_title = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->book_price = (gcnew System::Windows::Forms::Label());
 			this->additional_detail_panel = (gcnew System::Windows::Forms::Panel());
-			this->genre_label = (gcnew System::Windows::Forms::Label());
-			this->publisher_label = (gcnew System::Windows::Forms::Label());
-			this->translator_label = (gcnew System::Windows::Forms::Label());
 			this->summery_label = (gcnew System::Windows::Forms::Label());
+			this->translator_label = (gcnew System::Windows::Forms::Label());
+			this->publisher_label = (gcnew System::Windows::Forms::Label());
+			this->genre_label = (gcnew System::Windows::Forms::Label());
+			this->book_price = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->book_pic))->BeginInit();
 			this->panel1->SuspendLayout();
 			this->additional_detail_panel->SuspendLayout();
@@ -83,6 +83,7 @@ namespace bookstore {
 			// 
 			// book_pic
 			// 
+			this->book_pic->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->book_pic->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"book_pic.Image")));
 			this->book_pic->Location = System::Drawing::Point(35, 3);
 			this->book_pic->Name = L"book_pic";
@@ -95,6 +96,7 @@ namespace bookstore {
 			// book_author
 			// 
 			this->book_author->AutoSize = true;
+			this->book_author->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->book_author->Font = (gcnew System::Drawing::Font(L"B Nazanin", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->book_author->Location = System::Drawing::Point(76, 226);
@@ -107,6 +109,7 @@ namespace bookstore {
 			// 
 			this->book_title->AutoSize = true;
 			this->book_title->BackColor = System::Drawing::Color::Transparent;
+			this->book_title->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->book_title->Font = (gcnew System::Drawing::Font(L"B Nazanin", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->book_title->Location = System::Drawing::Point(63, 196);
@@ -122,24 +125,13 @@ namespace bookstore {
 			this->panel1->Controls->Add(this->book_pic);
 			this->panel1->Controls->Add(this->book_title);
 			this->panel1->Controls->Add(this->book_author);
+			this->panel1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->panel1->Location = System::Drawing::Point(1, 2);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(190, 297);
 			this->panel1->TabIndex = 3;
+			this->panel1->Click += gcnew System::EventHandler(this, &bookmadule::book_pic_Click);
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &bookmadule::panel1_Paint);
-			// 
-			// book_price
-			// 
-			this->book_price->AutoSize = true;
-			this->book_price->BackColor = System::Drawing::Color::Transparent;
-			this->book_price->Font = (gcnew System::Drawing::Font(L"B Nazanin", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(178)));
-			this->book_price->ForeColor = System::Drawing::Color::Green;
-			this->book_price->Location = System::Drawing::Point(65, 252);
-			this->book_price->Name = L"book_price";
-			this->book_price->Size = System::Drawing::Size(71, 38);
-			this->book_price->TabIndex = 3;
-			this->book_price->Text = L"20,000";
 			// 
 			// additional_detail_panel
 			// 
@@ -153,23 +145,14 @@ namespace bookstore {
 			this->additional_detail_panel->TabIndex = 4;
 			this->additional_detail_panel->Visible = false;
 			// 
-			// genre_label
+			// summery_label
 			// 
-			this->genre_label->AutoSize = true;
-			this->genre_label->Location = System::Drawing::Point(2, 31);
-			this->genre_label->Name = L"genre_label";
-			this->genre_label->Size = System::Drawing::Size(46, 17);
-			this->genre_label->TabIndex = 0;
-			this->genre_label->Text = L"label1";
-			// 
-			// publisher_label
-			// 
-			this->publisher_label->AutoSize = true;
-			this->publisher_label->Location = System::Drawing::Point(3, 3);
-			this->publisher_label->Name = L"publisher_label";
-			this->publisher_label->Size = System::Drawing::Size(46, 17);
-			this->publisher_label->TabIndex = 1;
-			this->publisher_label->Text = L"label2";
+			this->summery_label->AutoSize = true;
+			this->summery_label->Location = System::Drawing::Point(-4, 104);
+			this->summery_label->Name = L"summery_label";
+			this->summery_label->Size = System::Drawing::Size(46, 17);
+			this->summery_label->TabIndex = 3;
+			this->summery_label->Text = L"label1";
 			// 
 			// translator_label
 			// 
@@ -180,14 +163,37 @@ namespace bookstore {
 			this->translator_label->TabIndex = 2;
 			this->translator_label->Text = L"label1";
 			// 
-			// summery_label
+			// publisher_label
 			// 
-			this->summery_label->AutoSize = true;
-			this->summery_label->Location = System::Drawing::Point(-4, 104);
-			this->summery_label->Name = L"summery_label";
-			this->summery_label->Size = System::Drawing::Size(46, 17);
-			this->summery_label->TabIndex = 3;
-			this->summery_label->Text = L"label1";
+			this->publisher_label->AutoSize = true;
+			this->publisher_label->Location = System::Drawing::Point(3, 3);
+			this->publisher_label->Name = L"publisher_label";
+			this->publisher_label->Size = System::Drawing::Size(46, 17);
+			this->publisher_label->TabIndex = 1;
+			this->publisher_label->Text = L"label2";
+			// 
+			// genre_label
+			// 
+			this->genre_label->AutoSize = true;
+			this->genre_label->Location = System::Drawing::Point(2, 31);
+			this->genre_label->Name = L"genre_label";
+			this->genre_label->Size = System::Drawing::Size(46, 17);
+			this->genre_label->TabIndex = 0;
+			this->genre_label->Text = L"label1";
+			// 
+			// book_price
+			// 
+			this->book_price->AutoSize = true;
+			this->book_price->BackColor = System::Drawing::Color::Transparent;
+			this->book_price->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->book_price->Font = (gcnew System::Drawing::Font(L"B Nazanin", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(178)));
+			this->book_price->ForeColor = System::Drawing::Color::Green;
+			this->book_price->Location = System::Drawing::Point(65, 252);
+			this->book_price->Name = L"book_price";
+			this->book_price->Size = System::Drawing::Size(71, 38);
+			this->book_price->TabIndex = 3;
+			this->book_price->Text = L"20,000";
 			// 
 			// bookmadule
 			// 
@@ -270,6 +276,13 @@ namespace bookstore {
 				bookauthor->Text = author;
 
 			}
+			for each (RichTextBox ^ bookprice in page->Controls->Find("book_price", true))
+			{
+
+				bookprice->Text = price;
+
+			}
+
 			for each (RichTextBox ^ bookauthor in page->Controls->Find("book_publisher", true))
 			{
 
