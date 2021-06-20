@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "signup.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -70,6 +70,9 @@ namespace bookstore {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(signin::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -77,9 +80,6 @@ namespace bookstore {
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -95,6 +95,38 @@ namespace bookstore {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(477, 639);
 			this->panel1->TabIndex = 0;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(176, 613);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(122, 17);
+			this->label2->TabIndex = 17;
+			this->label2->Text = L"All rights reserved";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Magneto", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(71, 330);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(336, 73);
+			this->label1->TabIndex = 16;
+			this->label1->Text = L"Amazone";
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(142, 167);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(195, 104);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 15;
+			this->pictureBox1->TabStop = false;
 			// 
 			// label4
 			// 
@@ -135,6 +167,7 @@ namespace bookstore {
 			this->button1->TabIndex = 10;
 			this->button1->Text = L"ورود";
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &signin::button1_Click);
 			// 
 			// textBox1
 			// 
@@ -181,38 +214,6 @@ namespace bookstore {
 			this->textBox4->Size = System::Drawing::Size(290, 10);
 			this->textBox4->TabIndex = 14;
 			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(142, 167);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(195, 104);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox1->TabIndex = 15;
-			this->pictureBox1->TabStop = false;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Magneto", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(71, 330);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(336, 73);
-			this->label1->TabIndex = 16;
-			this->label1->Text = L"Amazone";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(176, 613);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(122, 17);
-			this->label2->TabIndex = 17;
-			this->label2->Text = L"All rights reserved";
-			// 
 			// signin
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -240,5 +241,8 @@ namespace bookstore {
 	}
 	private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	signed_in = true;
+}
 };
 }

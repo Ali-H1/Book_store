@@ -22,7 +22,7 @@ struct validation
     }
     static String^ check_fa_name(wstring name)
     {
-        wstring list[33] = {L"آ", L"ا", L"ب", L"پ", L"ت", L"ث", L"ج", L"چ", L"ح", L"خ", L"د", L"ذ", L"ر", L"ز", L"ژ", L"س", L"ش", L"ص", L"ض", L"ط", L"ظ", L"ع", L"غ", L"ف", L"ق",
+        wstring list[34] = {L"a",L"آ", L"ا", L"ب", L"پ", L"ت", L"ث", L"ج", L"چ", L"ح", L"خ", L"د", L"ذ", L"ر", L"ز", L"ژ", L"س", L"ش", L"ص", L"ض", L"ط", L"ظ", L"ع", L"غ", L"ف", L"ق",
             L"ک", L"گ", L"ل", L"م", L"ن", L"و", L"ه", L"ی"};
         if (name.length() > 20)
             return L"نام وارد شده باید کمتر از 20 حرف باشد";
@@ -32,7 +32,7 @@ struct validation
         {
             if (list->find_first_of(i) == -1)
                 return L"نام وارد معتبر نمی باشد";
-               
+
         }
         return "ok";
     }

@@ -44,6 +44,12 @@ namespace bookstore {
 	private: System::Windows::Forms::Label^ book_title;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Label^ book_price;
+	private: System::Windows::Forms::Panel^ additional_detail_panel;
+
+	private: System::Windows::Forms::Label^ publisher_label;
+	private: System::Windows::Forms::Label^ genre_label;
+	private: System::Windows::Forms::Label^ summery_label;
+	private: System::Windows::Forms::Label^ translator_label;
 
 
 	private:
@@ -65,8 +71,14 @@ namespace bookstore {
 			this->book_title = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->book_price = (gcnew System::Windows::Forms::Label());
+			this->additional_detail_panel = (gcnew System::Windows::Forms::Panel());
+			this->genre_label = (gcnew System::Windows::Forms::Label());
+			this->publisher_label = (gcnew System::Windows::Forms::Label());
+			this->translator_label = (gcnew System::Windows::Forms::Label());
+			this->summery_label = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->book_pic))->BeginInit();
 			this->panel1->SuspendLayout();
+			this->additional_detail_panel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// book_pic
@@ -105,6 +117,7 @@ namespace bookstore {
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->additional_detail_panel);
 			this->panel1->Controls->Add(this->book_price);
 			this->panel1->Controls->Add(this->book_pic);
 			this->panel1->Controls->Add(this->book_title);
@@ -128,6 +141,54 @@ namespace bookstore {
 			this->book_price->TabIndex = 3;
 			this->book_price->Text = L"20,000";
 			// 
+			// additional_detail_panel
+			// 
+			this->additional_detail_panel->Controls->Add(this->summery_label);
+			this->additional_detail_panel->Controls->Add(this->translator_label);
+			this->additional_detail_panel->Controls->Add(this->publisher_label);
+			this->additional_detail_panel->Controls->Add(this->genre_label);
+			this->additional_detail_panel->Location = System::Drawing::Point(0, 0);
+			this->additional_detail_panel->Name = L"additional_detail_panel";
+			this->additional_detail_panel->Size = System::Drawing::Size(29, 149);
+			this->additional_detail_panel->TabIndex = 4;
+			this->additional_detail_panel->Visible = false;
+			// 
+			// genre_label
+			// 
+			this->genre_label->AutoSize = true;
+			this->genre_label->Location = System::Drawing::Point(2, 31);
+			this->genre_label->Name = L"genre_label";
+			this->genre_label->Size = System::Drawing::Size(46, 17);
+			this->genre_label->TabIndex = 0;
+			this->genre_label->Text = L"label1";
+			// 
+			// publisher_label
+			// 
+			this->publisher_label->AutoSize = true;
+			this->publisher_label->Location = System::Drawing::Point(3, 3);
+			this->publisher_label->Name = L"publisher_label";
+			this->publisher_label->Size = System::Drawing::Size(46, 17);
+			this->publisher_label->TabIndex = 1;
+			this->publisher_label->Text = L"label2";
+			// 
+			// translator_label
+			// 
+			this->translator_label->AutoSize = true;
+			this->translator_label->Location = System::Drawing::Point(-9, 66);
+			this->translator_label->Name = L"translator_label";
+			this->translator_label->Size = System::Drawing::Size(46, 17);
+			this->translator_label->TabIndex = 2;
+			this->translator_label->Text = L"label1";
+			// 
+			// summery_label
+			// 
+			this->summery_label->AutoSize = true;
+			this->summery_label->Location = System::Drawing::Point(-4, 104);
+			this->summery_label->Name = L"summery_label";
+			this->summery_label->Size = System::Drawing::Size(46, 17);
+			this->summery_label->TabIndex = 3;
+			this->summery_label->Text = L"label1";
+			// 
 			// bookmadule
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -138,12 +199,14 @@ namespace bookstore {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->book_pic))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			this->additional_detail_panel->ResumeLayout(false);
+			this->additional_detail_panel->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
-		BookDetail^ tt(Panel^ panel)
+		BookDetail^ get_detail_for_book_page(Panel^ panel)
 		{
-			String^ image, ^ title, ^ author, ^ price;
+			String^ image, ^ title, ^ author, ^ price, ^ genre, ^ translator, ^ publisher;
 			for each (PictureBox ^ imagebox in panel->Controls->Find("book_pic", true))
 			{
 
@@ -168,6 +231,25 @@ namespace bookstore {
 				price = labelprice->Text;
 
 			}
+			for each (Label ^ labelprice in panel->Controls->Find("genre_label", true))
+			{
+
+				genre = labelprice->Text;
+
+			}
+			for each (Label ^ labelprice in panel->Controls->Find("publisher_label", true))
+			{
+
+				publisher = labelprice->Text;
+
+			}
+			for each (Label ^ labelprice in panel->Controls->Find("translator_label", true))
+			{
+
+				translator = labelprice->Text;
+
+			}
+
 
 			BookDetail^ page = gcnew BookDetail();
 			for each (PictureBox ^ bookimage in page->Controls->Find("book_image", true))
@@ -188,6 +270,19 @@ namespace bookstore {
 				bookauthor->Text = author;
 
 			}
+			for each (RichTextBox ^ bookauthor in page->Controls->Find("book_publisher", true))
+			{
+
+				bookauthor->Text = publisher;
+
+			}
+			for each (RichTextBox ^ bookauthor in page->Controls->Find("book_translator", true))
+			{
+
+				bookauthor->Text = translator;
+
+			}
+
 
 			return page;
 		}
@@ -201,7 +296,7 @@ namespace bookstore {
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void book_pic_Click(System::Object^ sender, System::EventArgs^ e) {
-	page = tt(panel1);
+	page = get_detail_for_book_page(panel1);
 	signinsignup^ form2 = gcnew signinsignup();
 	form2->Height = page->Height+30;
 	form2->Width = page->Width+10;

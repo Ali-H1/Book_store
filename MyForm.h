@@ -8,7 +8,15 @@
 #include <vector>
 #include <string>
 #include <tuple>
+#define booklist vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>>
+using std::vector;
+using std::string;
+using std::tuple;
+using std::make_tuple;
+using std::get;
+using std::to_string;
 
+vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>> alpha;
 
 namespace bookstore {
 
@@ -21,12 +29,6 @@ namespace bookstore {
 	using namespace System::Threading;
 	using namespace System::Runtime::InteropServices;
 
-	using std::vector;
-	using std::string;
-	using std::tuple;
-	using std::make_tuple;
-	using std::get;
-	using std::to_string;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -46,7 +48,7 @@ namespace bookstore {
 			set_book_test(set_book());
 			//set_data();
 			Genres.push_back(L"روانشناسی");
-			Genres.push_back(L"علمی");
+			Genres.push_back(L"فیزیک");
 			Genres.push_back(L"رمان");
 			Genres.push_back(L"کامپیوتر");
 			Genres.push_back(L"ادبیات");
@@ -264,8 +266,8 @@ namespace bookstore {
 			// 
 			// maxbtn
 			// 
-			this->maxbtn->BackColor = System::Drawing::Color::Transparent;
 			resources->ApplyResources(this->maxbtn, L"maxbtn");
+			this->maxbtn->BackColor = System::Drawing::Color::Transparent;
 			this->maxbtn->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->maxbtn->Name = L"maxbtn";
 			this->maxbtn->TabStop = false;
@@ -273,31 +275,31 @@ namespace bookstore {
 			// 
 			// minbtn
 			// 
+			resources->ApplyResources(this->minbtn, L"minbtn");
 			this->minbtn->BackColor = System::Drawing::Color::Transparent;
 			this->minbtn->Cursor = System::Windows::Forms::Cursors::Hand;
-			resources->ApplyResources(this->minbtn, L"minbtn");
 			this->minbtn->Name = L"minbtn";
 			this->minbtn->TabStop = false;
 			this->minbtn->Click += gcnew System::EventHandler(this, &MyForm::minbtn_Click);
 			// 
 			// exitbtn
 			// 
+			resources->ApplyResources(this->exitbtn, L"exitbtn");
 			this->exitbtn->BackColor = System::Drawing::Color::Transparent;
 			this->exitbtn->Cursor = System::Windows::Forms::Cursors::Hand;
-			resources->ApplyResources(this->exitbtn, L"exitbtn");
 			this->exitbtn->Name = L"exitbtn";
 			this->exitbtn->TabStop = false;
 			this->exitbtn->Click += gcnew System::EventHandler(this, &MyForm::exitbtn_Click);
 			// 
 			// header
 			// 
+			resources->ApplyResources(this->header, L"header");
 			this->header->BackColor = System::Drawing::Color::MidnightBlue;
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->signin_panel);
 			this->header->Controls->Add(this->signup_panel);
 			this->header->Controls->Add(this->pictureBox1);
-			resources->ApplyResources(this->header, L"header");
 			this->header->Name = L"header";
 			// 
 			// label11
@@ -350,6 +352,7 @@ namespace bookstore {
 			this->Shoping_cart_panel->Cursor = System::Windows::Forms::Cursors::Hand;
 			resources->ApplyResources(this->Shoping_cart_panel, L"Shoping_cart_panel");
 			this->Shoping_cart_panel->Name = L"Shoping_cart_panel";
+			this->Shoping_cart_panel->Click += gcnew System::EventHandler(this, &MyForm::Shoping_cart_panel_Click);
 			// 
 			// pictureBox11
 			// 
@@ -536,6 +539,7 @@ namespace bookstore {
 			// 
 			// recent_books
 			// 
+			resources->ApplyResources(this->recent_books, L"recent_books");
 			this->recent_books->Controls->Add(this->panel2);
 			this->recent_books->Controls->Add(this->panel4);
 			this->recent_books->Controls->Add(this->panel10);
@@ -556,7 +560,6 @@ namespace bookstore {
 			this->recent_books->Controls->Add(this->panel20);
 			this->recent_books->Controls->Add(this->panel15);
 			this->recent_books->Controls->Add(this->panel11);
-			resources->ApplyResources(this->recent_books, L"recent_books");
 			this->recent_books->Name = L"recent_books";
 			// 
 			// panel2
@@ -804,34 +807,33 @@ namespace bookstore {
 
 
 		//}
-		vector<tuple<std::wstring, std::wstring, std::wstring, string>> set_book()
+		vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>> set_book()
 		{
-			vector<tuple<std::wstring, std::wstring, std::wstring, string>> alpha;
-			alpha.push_back(make_tuple(L"covers\\3264_68232_normal.jpg", L"پیرمرد و دریا", L"ارنست همینگوی", "20,000"));
-			alpha.push_back(make_tuple(L"covers\\86104_42858_normal.jpg", L"عقاید یک دلقک", L"هاینریش بل", "26,000"));
-			alpha.push_back(make_tuple(L"covers\\1.jpg", L"من پیش از تو", L"جوجو مویز", "16,000"));
-			alpha.push_back(make_tuple(L"covers\\2.jpg", L"کتاب مغازه خودکشی", L"ژان تولی", "20,000"));
-			alpha.push_back(make_tuple(L"covers\\3.jpg", L"جزء از کل", L"استیو تولتز", "40,000"));
-			alpha.push_back(make_tuple(L"covers\\4.jpg", L"مزرعه حیوانات", L"جورج اورول", "17,000"));
-			alpha.push_back(make_tuple(L"covers\\5.jpg", L"سمفونی مردگان", L"عباس معروفی", "23,000"));
-			alpha.push_back(make_tuple(L"covers\\6.jpg", L"مردی به نام اوه", L"", "27,000"));
-			alpha.push_back(make_tuple(L"covers\\7.jpg", L"چشم هایش", L"بزرگ علوی", "30,000"));
-			alpha.push_back(make_tuple(L"covers\\8.jpg", L"دور دنیا در 80 روز", L"ژول ورن", "33,000"));
-			alpha.push_back(make_tuple(L"covers\\9.jpg", L"قمارباز", L"فئودور داستایوفسکی", "25,000"));
-			alpha.push_back(make_tuple(L"covers\\10.jpg", L"استیو جابز", L"والتر ایساکسون", "19,000"));
-			alpha.push_back(make_tuple(L"covers\\11.jpg", L"ناتور دشت", L"جی دی سلینجر", "34,000"));
-			alpha.push_back(make_tuple(L"covers\\12.jpg", L"سینوهه", L"میکا والتری", "67,000"));
-			alpha.push_back(make_tuple(L"covers\\13.jpg", L"فانوس های لرزان", L"نسرین تبریزی", "33,000"));
-			alpha.push_back(make_tuple(L"covers\\14.jpg", L"جهان هولوگرافیک", L"مایکل تالبوت", "54,000"));
-			alpha.push_back(make_tuple(L"covers\\15.jpg", L"آدم آهنی", L"نادر ابراهیمی", "43,000"));
-			alpha.push_back(make_tuple(L"covers\\16.jpg", L"تکنیک های بازار یابی", L"حسین یاغچی", "23,000"));
-			alpha.push_back(make_tuple(L"covers\\17.jpg", L"بازار یابی و فروش نرم افزار", L"خدایار عبداللهی", "17,000"));
-			alpha.push_back(make_tuple(L"covers\\18.jpg", L"تحلیل تکنیکال بازار سرمایه", L"جان مورفی", "27,000"));
-			alpha.push_back(make_tuple(L"covers\\19.jpg", L"", L"", ""));
-			alpha.push_back(make_tuple(L"covers\\20.jpg", L"", L"", ""));
+			alpha.push_back(make_tuple(L"covers\\1.jpg",				  L"من پیش از تو",					L"جوجو مویز",				L"16,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\3264_68232_normal.jpg",  L"پیرمرد و دریا",				L"ارنست همینگوی",			L"20,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\86104_42858_normal.jpg", L"عقاید یک دلقک",				L"هاینریش بل",				L"26,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\2.jpg",				  L"کتاب مغازه خودکشی",			L"ژان تولی",				L"20,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\3.jpg",				  L"جزء از کل",						L"استیو تولتز",				L"40,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\4.jpg",				  L"مزرعه حیوانات",				L"جورج اورول",				L"17,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\5.jpg",				  L"سمفونی مردگان",				L"عباس معروفی",				L"23,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\6.jpg",				  L"مردی به نام اوه",				L"فردریک بکمن",				L"27,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\7.jpg",				  L"چشم هایش",						L"بزرگ علوی",				L"30,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\8.jpg",				  L"دور دنیا در 80 روز",			L"ژول ورن",					L"33,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\9.jpg",				  L"قمارباز",						L"فئودور داستایوفسکی",		L"25,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\10.jpg",				  L"استیو جابز",					L"والتر ایساکسون",			L"19,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\11.jpg",				  L"ناتور دشت",						L"جی دی سلینجر",			L"34,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\12.jpg",				  L"سینوهه",						L"میکا والتری",				L"67,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\13.jpg",				  L"فانوس های لرزان",				L"نسرین تبریزی",			L"33,000"	,L"روانشناسی"	,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\14.jpg",				  L"جهان هولوگرافیک",				L"مایکل تالبوت",			L"54,000"	,L"فیزیک"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\15.jpg",				  L"آدم آهنی",						L"نادر ابراهیمی",			L"43,000"	,L"روانسناسی"	,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\16.jpg",				  L"تکنیک های بازار یابی",			L"حسین یاغچی",				L"23,000"	,L"بازاریابی"	,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\17.jpg",				  L"بازار یابی و فروش نرم افزار", L"خدایار عبداللهی",		L"17,000"	,L"بازاریابی"	,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\18.jpg",				  L"تحلیل تکنیکال بازار سرمایه",	L"جان مورفی",				L"27,000"	,L"بازاریابی"	,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
+			alpha.push_back(make_tuple(L"covers\\19.jpg",				  L"",								L"",						L""			,L""			,L""					,L""			  ,L""));
+			alpha.push_back(make_tuple(L"covers\\20.jpg",				  L"",								L"",						L""			,L""			,L""					,L""			  ,L""));
 			return alpha;
 		}
-		void set_book_test(vector<tuple<std::wstring, std::wstring, std::wstring, string>> alpha)
+		void set_book_test(vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>> alpha)
 		{
 
 			int a = 0;
@@ -885,8 +887,6 @@ namespace bookstore {
 					}
 
 
-
-
 				}
 				for each (Label ^ labelprice in page->Controls->Find("book_price", true))
 				{
@@ -898,9 +898,30 @@ namespace bookstore {
 						labelprice->Left -= (labelprice->Width - 71) / 2;
 					}
 
+				}
+				for each (Label ^ labelprice in page->Controls->Find("genre_label", true))
+				{
 
+					String^ Text = gcnew String(get<4>(alpha[a]).c_str());
+					labelprice->Text = Text;
 
 				}
+				for each (Label ^ labelprice in page->Controls->Find("publisher_label", true))
+				{
+
+					String^ Text = gcnew String(get<5>(alpha[a]).c_str());
+					labelprice->Text = Text;
+
+				}
+				for each (Label ^ labelprice in page->Controls->Find("translator_label", true))
+				{
+
+					String^ Text = gcnew String(get<6>(alpha[a]).c_str());
+					labelprice->Text = Text;
+
+				}
+
+
 				ctrl->Width = page->Width;
 				ctrl->Height = page->Height;
 				ctrl->Controls->Add(page);
@@ -911,7 +932,7 @@ namespace bookstore {
 		}
 		BookDetail^ get_detail_for_book_page(Panel^ panel)
 		{
-			String^ image , ^title, ^author, ^price;
+			String^ image , ^title, ^author, ^price,^genre,^translator,^publisher;
 			for each (PictureBox ^ imagebox in panel->Controls->Find("book_pic", true))
 			{
 
@@ -936,6 +957,25 @@ namespace bookstore {
 				price = labelprice->Text;
 
 			}
+			for each (Label ^ labelprice in panel->Controls->Find("genre_label", true))
+			{
+
+				genre = labelprice->Text;
+
+			}
+			for each (Label ^ labelprice in panel->Controls->Find("publisher_label", true))
+			{
+
+				publisher = labelprice->Text;
+
+			}
+			for each (Label ^ labelprice in panel->Controls->Find("translator_label", true))
+			{
+
+				translator = labelprice->Text;
+
+			}
+			
 
 			BookDetail^ page = gcnew BookDetail();
 			for each (PictureBox ^ bookimage in page->Controls->Find("book_image", true))
@@ -956,6 +996,19 @@ namespace bookstore {
 				bookauthor->Text = author;
 
 			}
+			for each (RichTextBox ^ bookauthor in page->Controls->Find("book_publisher", true))
+			{
+
+				bookauthor->Text = publisher;
+
+			}
+			for each (RichTextBox ^ bookauthor in page->Controls->Find("book_translator", true))
+			{
+
+				bookauthor->Text = translator;
+
+			}
+
 
 			return page;
 		}
@@ -1080,49 +1133,83 @@ private: System::Void panel32_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void panel2_Click(System::Object^ sender, System::EventArgs^ e) {
 
 }
-
-private: System::Void category_label_Click(System::Object^ sender, System::EventArgs^ e) {
-	Category_Pagel^ catpanel = gcnew Category_Pagel();
-	for (int i = 0; i < Genres.size()-1; i++)
+private: Void category_button_Click(System::Object^ sender, System::EventArgs^ e) {
+	Button^ btn = (Button^)sender;
+	String ^ genre = btn->Text;
+	booklist result;
+	for (int i = 0; i < alpha.size(); i++)
 	{
-		Button^ cat = gcnew Button();
-		cat->BackColor =Color::DeepSkyBlue;
-		cat->FlatStyle = FlatStyle::Flat;
-		cat->Font = (gcnew System::Drawing::Font(L"B Nazanin", 16.2F, FontStyle::Regular, GraphicsUnit::Point,
-			static_cast<System::Byte>(178)));
-		String^ txt = gcnew String(Genres[i].c_str());
-		cat->Text = txt;
-		cat->UseVisualStyleBackColor = false;
-		cat->Height = 100;
-		cat->Width = 850;
-		catpanel->category_panel_layout->Controls->Add(cat);
+		String^ Text = gcnew String(get<4>(alpha[i]).c_str());
+		if (Text == genre)
+		{
+			result.push_back(alpha[i]);
+		}
+		
 	}
-	catpanel->category_panel_layout->Height = Genres.size() * 100;
 	main_page_panel->Controls->Clear();
-	main_page_panel->Controls->Add(catpanel);
-	int index = main_page_panel->Controls->IndexOf(catpanel);
-	main_page_panel->Controls[index]->Location = Point(20, 10);
-	//int i = 0;
-	//auto table = main_page_panel->Controls[index]->Controls->Find("category_panel_layout", true);
+	main_page_panel->Controls->Add(recent_books);
+	recent_books->Controls->Clear();
+	set_book_test(result);
+	recent_books->Show();
+}
+	void category_click()
+	{
 
-	//for each (Button ^ btn in catpanel->category_panel_layout->Controls)
-	//{
-	//	String^ txt = gcnew String(Genres[i].c_str());
-	//	btn->Text = txt;
-	//	i++;
-	//}
+		Category_Pagel^ catpanel = gcnew Category_Pagel();
+		catpanel->Anchor = (AnchorStyles::Top | AnchorStyles::Right | AnchorStyles::Left);
+		catpanel->AutoScroll = true;
+		for (int i = 0; i < Genres.size() - 1; i++)
+		{
+			Button^ cat = gcnew Button();
+			cat->Anchor = (AnchorStyles::Right | AnchorStyles::Left);
+			cat->Click += gcnew EventHandler(this,&MyForm::category_button_Click);
+			cat->BackColor = Color::DeepSkyBlue;
+			cat->FlatStyle = FlatStyle::Flat;
+			cat->Font = (gcnew System::Drawing::Font(L"B Nazanin", 16.2F, FontStyle::Regular, GraphicsUnit::Point,
+				static_cast<System::Byte>(178)));
+			String^ txt = gcnew String(Genres[i].c_str());
+			cat->Text = txt;
+			cat->UseVisualStyleBackColor = false;
+			cat->Height = 100;
+			cat->Width = 600;
+			cat->AutoSize = true;
+			catpanel->category_panel_layout->Controls->Add(cat);
+		}
+		catpanel->category_panel_layout->Height = Genres.size() * 100;
+		main_page_panel->Controls->Clear();
+		main_page_panel->Controls->Add(catpanel);
+		int index = main_page_panel->Controls->IndexOf(catpanel);
 
+	}
+private: System::Void category_label_Click(System::Object^ sender, System::EventArgs^ e) {
+	category_click();
 }
 private: System::Void category_icon_Click(System::Object^ sender, System::EventArgs^ e) {
+	category_click();
 }
 
 private: System::Void category_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+	category_click();
 }
 private: System::Void Home_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+	main_page_panel->AutoScroll = false;
+	main_page_panel->HorizontalScroll->Enabled = false;
+	main_page_panel->HorizontalScroll->Visible = false;
+	main_page_panel->HorizontalScroll->Maximum = 0;
+	main_page_panel->AutoScroll = true;
 	main_page_panel->Controls->Clear();
 	main_page_panel->Controls->Add(recent_books);
 	main_page_panel->Controls->Add(pictureBox12);
 
+}
+private: System::Void Shoping_cart_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+	Control::ControlCollection^ ctrlCollection = CartPage::Cart->Controls;
+	int countChild = ctrlCollection->Count;
+
+	CartPage::Cart->Height = countChild*358;
+	CartPage::Cart->Width = 1177;
+	main_page_panel->Controls->Clear();
+	main_page_panel->Controls->Add(CartPage::Cart);
 }
 };
 }

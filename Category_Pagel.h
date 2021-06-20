@@ -61,18 +61,22 @@ namespace bookstore {
 			// panel1
 			// 
 			this->panel1->Controls->Add(this->label1);
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel1->ForeColor = System::Drawing::Color::DarkOrange;
-			this->panel1->Location = System::Drawing::Point(272, 24);
+			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(605, 118);
+			this->panel1->Size = System::Drawing::Size(1227, 127);
 			this->panel1->TabIndex = 1;
 			// 
 			// label1
 			// 
+			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label1->Location = System::Drawing::Point(213, 11);
+			this->label1->Location = System::Drawing::Point(552, 36);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(180, 52);
 			this->label1->TabIndex = 0;
@@ -80,9 +84,13 @@ namespace bookstore {
 			// 
 			// category_panel_layout
 			// 
-			this->category_panel_layout->Location = System::Drawing::Point(16, 180);
+			this->category_panel_layout->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->category_panel_layout->BackColor = System::Drawing::Color::White;
+			this->category_panel_layout->FlowDirection = System::Windows::Forms::FlowDirection::RightToLeft;
+			this->category_panel_layout->Location = System::Drawing::Point(25, 178);
 			this->category_panel_layout->Name = L"category_panel_layout";
-			this->category_panel_layout->Size = System::Drawing::Size(1147, 312);
+			this->category_panel_layout->Size = System::Drawing::Size(1164, 312);
 			this->category_panel_layout->TabIndex = 2;
 			// 
 			// Category_Pagel
@@ -93,7 +101,7 @@ namespace bookstore {
 			this->Controls->Add(this->category_panel_layout);
 			this->Controls->Add(this->panel1);
 			this->Name = L"Category_Pagel";
-			this->Size = System::Drawing::Size(1177, 818);
+			this->Size = System::Drawing::Size(1227, 818);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
