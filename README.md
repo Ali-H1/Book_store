@@ -19,13 +19,13 @@ Book store server side and client side app in cpp
 - [ ] 8-option to see shopping cart.
 
 ## Server side 
-- [ ] 1-log-in system
+- [X] 1-log-in system
 - - [ ] ‘forgotten password’ solution
 - [ ] 2-option to add admins if server is logged in as ‘chief’ account.
 - - [ ] Its not possible to do this with admin accounts.
 - [ ] 3-option to add, change or deleting books.
-- - [ ] Minimum book information needed: photo, title, author, translator(if it has), publish date , version number, digital/printed(if its digital, show its size), price, genre, publisher, language, availability, book intro.
+- - [X] Minimum book information needed: photo, title, author, translator(if it has), publish date , version number, digital/printed(if its digital, show its size), price, genre, publisher, language, availability, book intro.
 - [ ] 4-option to delete, block, add, change costumers information.
 - [ ] 5-viewing costumers orders and submitting them.
 - - [ ] If book was not available , email costumer.
-- [ ] 6-option to send costume email to costumers.
+- [X] 6-option to send costume email to costumers.
