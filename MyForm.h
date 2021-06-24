@@ -56,7 +56,6 @@ namespace bookstore {
 			Genres.push_back(L"زبان خارجی");
 			Genres.push_back(L"کتاب دیجیتال");
 
-
 		}
 
 	protected:
@@ -805,8 +804,8 @@ namespace bookstore {
 		//		//MessageBox::Show("added : "+a, "added");
 		//	}
 
-
 		//}
+
 		vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>> set_book()
 		{
 			alpha.push_back(make_tuple(L"covers\\1.jpg",				  L"من پیش از تو",					L"جوجو مویز",				L"16,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
