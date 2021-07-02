@@ -146,24 +146,29 @@ int main()
 	tcpConnection = CleintConnection("127.0.0.1", 7071, Client, Reciev);
 	if (tcpConnection.Init())
 	{
-		thread ConnectionThread = thread([&]() {tcpConnection.Start(); });
-		thread SendThread = thread([&]() {
+		while (1)
+		{
+			thread ConnectionThread = thread([&]() {tcpConnection.Start(); });
+			thread SendThread = thread([&]() {
 
-			string str, str2, str3, res;
+				//sendmessage();
+				string str, str2, str3, res;
 
-			cout << "Hello & Welcome" << endl;
-			cout << "Type file name that you want to send " << endl;
-			getline(cin, str);
-			cout << "Type format file ?? " << endl;
-			getline(cin, str2);
-			str3 = str + "." + str2;
-			res = "C:\\Users\\Home 02\\source\\repos\\Test _Client\\" + str3;
+				cout << "Hello & Welcome" << endl;
+				cout << "Type file name that you want to send " << endl;
+				getline(cin, str);
+				cout << "Type format file ?? " << endl;
+				getline(cin, str2);
+				str3 = str + "." + str2;
+				res = "..\\"+str3;
 			
 				SendFile(res);
 			
-			});
-		ConnectionThread.join();
-		SendThread.join();
+				});
+			ConnectionThread.join();
+			SendThread.join();
+
+		}
 	}
 	else
 	{
