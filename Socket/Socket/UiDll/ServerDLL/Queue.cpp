@@ -88,12 +88,20 @@ void Queue::Close()
 		this->SendThread.detach();
 	}
 }
+wstring s2ws(const string& str)
+{
+	int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
+	std::wstring wstrTo(size_needed, 0);
+	MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), &wstrTo[0], size_needed);
+	return wstrTo;
+}
 void Queue::Write(const char const* Buffer, int Read) 
 {
 	
 	if (this->writefile.is_open())
 	{
 		this->writefile.write(Buffer, Read);
+		wstring ws = s2ws(Buffer);
 		SetProgress(Read);
 	}
 }
