@@ -646,11 +646,11 @@ private: System::Void Dark_Click(System::Object^ sender, System::EventArgs^ e) {
 	Ligth->Checked = false;
 
 	this->BackColor = System::Drawing::Color::Black;
-	this->PBTreansfered->BackColor = System::Drawing::Color::DeepSkyBlue;
-	this->Clients->BackColor = System::Drawing::Color::DeepSkyBlue;
-	this->Port->BackColor = System::Drawing::Color::DeepSkyBlue;
+	this->PBTreansfered->BackColor = System::Drawing::Color::Blue;
+	this->Clients->BackColor = System::Drawing::Color::Blue;
+	this->Port->BackColor = System::Drawing::Color::Blue;
 	this->label2->BackColor = System::Drawing::Color::Black;
-	this->IP->BackColor = System::Drawing::Color::DeepSkyBlue;
+	this->IP->BackColor = System::Drawing::Color::Blue;
 	this->label1->BackColor = System::Drawing::Color::Black;
 	this->BTNStart->BackColor = System::Drawing::Color::Blue;
 	this->BTNDonwload->BackColor = System::Drawing::Color::Blue;
