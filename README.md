@@ -16,7 +16,7 @@ Book store server side and client side app in cpp
 - [ ] 5-user must log-in before purchase.
 - [ ] 6-writing information on file in server side .
 - [ ] 7-connecting to server using TCP SOCKET.
-- [ ] 8-option to see shopping cart.
+- [X] 8-option to see shopping cart.
 
 ## Server side 
 - [X] 1-log-in system
