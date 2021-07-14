@@ -137,7 +137,8 @@ void sendmessage()
 	{
 		cout << "Enter UserName : ";
 		getline(cin, username);
-	} while (ClientList.find(username) == ClientList.end());
+	} 
+	while (ClientList.find(username) == ClientList.end());
 	int ClinetID = ClientList.find(username)->second;
 	ClientLiatDoor.unlock();
 
@@ -197,3 +198,11 @@ void  Startup(string ip, int port, UIChangeProgress  uiChangeprogress, UINewClie
 		return;
 	}
 }
+
+void thread_wait() {
+	std::unique_lock<std::mutex> lck(mtx);
+	while (!ready) cv.wait(lck);
+	
+}
+
+

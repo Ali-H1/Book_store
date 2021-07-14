@@ -24,6 +24,9 @@ UIChangeProgress  uiChangeProgress;
 UINewClient  uiNewClient;
 UINewRecieve  uiNewRecieve;
 
+bool ready = false;
+std::mutex mtx;
+std::condition_variable cv;
 
 #ifdef UI_ALPI
 #define  UI_ALPI __declspec(dllexport)
@@ -36,10 +39,10 @@ void  Client(int Socketid, bool flag);
 void  changeprogress(int queueid, int i);
 void  Recieve(int socketid, char* buffer, int size);
 
-
 extern "C" UI_ALPI void  Startup(string ip, int port, UIChangeProgress  uiChangeprogress, UINewClient uiNewclient, UINewRecieve  uiNewrecieve);
 
 extern "C" UI_ALPI void StartDownload( int queueid);
 extern "C" UI_ALPI void sendmessage();
+extern "C" UI_ALPI void thread_wait();
 extern "C" UI_ALPI int SendFile(string path, string username);
 #endif // !SOURCE_H

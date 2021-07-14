@@ -5,11 +5,15 @@
 #include <thread>
 #include <mutex>
 #include <fstream>
+#include <vector>
 #include "FileHandler.h"
 #include "Packets.h"
 #include "Serialize.h"
 #include "TCPListener.h"
+#include "appendData.h"
+
 using namespace std;
+
 
 typedef  void (*ChanheProgress)(int Queueid , int value);
 enum QueueTYPE
@@ -48,6 +52,7 @@ public:
 	void Start();
 	void Close();
 	void Write(const char const* Buffer , int Read);
+
 
 };
 #endif // !QUEUE_H
