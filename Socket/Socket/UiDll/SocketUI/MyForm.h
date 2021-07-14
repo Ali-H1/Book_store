@@ -78,24 +78,6 @@ namespace SocketUI {
 	private: System::Windows::Forms::ToolStripMenuItem^ Dark;
 	private: System::Windows::Forms::ToolStripMenuItem^ Ligth;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Panel^ header;
 	private: System::Windows::Forms::Label^ label11;
@@ -103,8 +85,6 @@ namespace SocketUI {
 	private: System::Windows::Forms::Panel^ Home_panel;
 	private: System::Windows::Forms::PictureBox^ Home_icon;
 	private: System::Windows::Forms::Label^ Home_lable;
-
-
 
 	private: System::Windows::Forms::Panel^ category_panel;
 	private: System::Windows::Forms::PictureBox^ category_icon;
@@ -114,11 +94,9 @@ namespace SocketUI {
 	private: System::Windows::Forms::Label^ label8;
 
 
-
 	private: System::Windows::Forms::Panel^ panel18;
 	private: System::Windows::Forms::PictureBox^ pictureBox7;
 	private: System::Windows::Forms::Label^ label6;
-
 
 
 	private: System::Windows::Forms::Panel^ signin_panel;
@@ -141,6 +119,16 @@ namespace SocketUI {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::ProgressBar^ PBTreansfered;
 	private: System::Windows::Forms::Button^ BTNDonwload;
+
+
+
+
+
+
+
+	private: System::Windows::Forms::TextBox^ IP;
+	private: System::Windows::Forms::RadioButton^ autodownloadradio;
+	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::ListView^ QueueList;
 	private: System::Windows::Forms::ColumnHeader^ ID;
 	private: System::Windows::Forms::ColumnHeader^ FileName;
@@ -148,41 +136,6 @@ namespace SocketUI {
 	private: System::Windows::Forms::ColumnHeader^ Condition;
 	private: System::Windows::Forms::ColumnHeader^ DateTime;
 	private: System::Windows::Forms::ColumnHeader^ QueueType;
-	private: System::Windows::Forms::TextBox^ IP;
-	private: System::Windows::Forms::RadioButton^ autodownloadradio;
-	private: System::Windows::Forms::Panel^ panel1;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -237,33 +190,6 @@ namespace SocketUI {
 	private: System::Windows::Forms::ColumnHeader^ Type;
 	private: System::Windows::Forms::ColumnHeader^ Time;
 	private: System::Windows::Forms::ColumnHeader^ Date;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	private:
 		/// <summary>
@@ -330,6 +256,9 @@ namespace SocketUI {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->PBTreansfered = (gcnew System::Windows::Forms::ProgressBar());
 			this->BTNDonwload = (gcnew System::Windows::Forms::Button());
+			this->IP = (gcnew System::Windows::Forms::TextBox());
+			this->autodownloadradio = (gcnew System::Windows::Forms::RadioButton());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->QueueList = (gcnew System::Windows::Forms::ListView());
 			this->ID = (gcnew System::Windows::Forms::ColumnHeader());
 			this->FileName = (gcnew System::Windows::Forms::ColumnHeader());
@@ -337,9 +266,6 @@ namespace SocketUI {
 			this->Condition = (gcnew System::Windows::Forms::ColumnHeader());
 			this->DateTime = (gcnew System::Windows::Forms::ColumnHeader());
 			this->QueueType = (gcnew System::Windows::Forms::ColumnHeader());
-			this->IP = (gcnew System::Windows::Forms::TextBox());
-			this->autodownloadradio = (gcnew System::Windows::Forms::RadioButton());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->header->SuspendLayout();
@@ -433,14 +359,14 @@ namespace SocketUI {
 			this->fileToolStripMenuItem1->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->fileToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->uploadToolStripMenuItem });
 			this->fileToolStripMenuItem1->Name = L"fileToolStripMenuItem1";
-			this->fileToolStripMenuItem1->Size = System::Drawing::Size(224, 26);
+			this->fileToolStripMenuItem1->Size = System::Drawing::Size(92, 22);
 			this->fileToolStripMenuItem1->Text = L"File";
 			this->fileToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::fileToolStripMenuItem1_Click);
 			// 
 			// uploadToolStripMenuItem
 			// 
 			this->uploadToolStripMenuItem->Name = L"uploadToolStripMenuItem";
-			this->uploadToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->uploadToolStripMenuItem->Size = System::Drawing::Size(112, 22);
 			this->uploadToolStripMenuItem->Text = L"Upload";
 			// 
 			// Theme
@@ -453,7 +379,7 @@ namespace SocketUI {
 			// Dark
 			// 
 			this->Dark->Name = L"Dark";
-			this->Dark->Size = System::Drawing::Size(180, 22);
+			this->Dark->Size = System::Drawing::Size(101, 22);
 			this->Dark->Text = L"Dark";
 			this->Dark->Click += gcnew System::EventHandler(this, &MyForm::Dark_Click_1);
 			// 
@@ -462,7 +388,7 @@ namespace SocketUI {
 			this->Ligth->Checked = true;
 			this->Ligth->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->Ligth->Name = L"Ligth";
-			this->Ligth->Size = System::Drawing::Size(180, 22);
+			this->Ligth->Size = System::Drawing::Size(101, 22);
 			this->Ligth->Text = L"Ligth";
 			this->Ligth->Click += gcnew System::EventHandler(this, &MyForm::Ligth_Click);
 			// 
@@ -864,6 +790,7 @@ namespace SocketUI {
 			this->Clients->Size = System::Drawing::Size(103, 28);
 			this->Clients->TabIndex = 49;
 			this->Clients->Text = L"Client";
+			this->Clients->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::Clients_SelectedIndexChanged);
 			// 
 			// Port
 			// 
@@ -889,7 +816,7 @@ namespace SocketUI {
 			this->BTNStart->TabIndex = 43;
 			this->BTNStart->Text = L"Start";
 			this->BTNStart->UseVisualStyleBackColor = false;
-			this->BTNStart->Click += gcnew System::EventHandler(this, &MyForm::BTNStart_Click_1);
+			this->BTNStart->Click += gcnew System::EventHandler(this, &MyForm::BTNStart_Click);
 			// 
 			// label2
 			// 
@@ -913,6 +840,7 @@ namespace SocketUI {
 			this->PBTreansfered->Name = L"PBTreansfered";
 			this->PBTreansfered->Size = System::Drawing::Size(416, 32);
 			this->PBTreansfered->TabIndex = 50;
+			this->PBTreansfered->Click += gcnew System::EventHandler(this, &MyForm::PBTreansfered_Click);
 			// 
 			// BTNDonwload
 			// 
@@ -928,55 +856,6 @@ namespace SocketUI {
 			this->BTNDonwload->Text = L"Download";
 			this->BTNDonwload->UseVisualStyleBackColor = false;
 			this->BTNDonwload->Click += gcnew System::EventHandler(this, &MyForm::BTNDonwload_Click_1);
-			// 
-			// QueueList
-			// 
-			this->QueueList->BackColor = System::Drawing::Color::MediumSeaGreen;
-			this->QueueList->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(6) {
-				this->ID, this->FileName,
-					this->FileExtention, this->Condition, this->DateTime, this->QueueType
-			});
-			this->QueueList->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->QueueList->ForeColor = System::Drawing::Color::Black;
-			this->QueueList->HideSelection = false;
-			this->QueueList->Location = System::Drawing::Point(14, 72);
-			this->QueueList->Name = L"QueueList";
-			this->QueueList->Size = System::Drawing::Size(623, 278);
-			this->QueueList->TabIndex = 42;
-			this->QueueList->UseCompatibleStateImageBehavior = false;
-			this->QueueList->View = System::Windows::Forms::View::Details;
-			this->QueueList->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::QueueList_SelectedIndexChanged_1);
-			// 
-			// ID
-			// 
-			this->ID->Text = L"ID";
-			this->ID->Width = 78;
-			// 
-			// FileName
-			// 
-			this->FileName->Text = L"Name";
-			this->FileName->Width = 100;
-			// 
-			// FileExtention
-			// 
-			this->FileExtention->Text = L"Extention";
-			this->FileExtention->Width = 92;
-			// 
-			// Condition
-			// 
-			this->Condition->Text = L"Condition";
-			this->Condition->Width = 98;
-			// 
-			// DateTime
-			// 
-			this->DateTime->Text = L"Date and Time";
-			this->DateTime->Width = 127;
-			// 
-			// QueueType
-			// 
-			this->QueueType->Text = L"QueueType";
-			this->QueueType->Width = 115;
 			// 
 			// IP
 			// 
@@ -1018,11 +897,59 @@ namespace SocketUI {
 			this->panel1->Controls->Add(this->Port);
 			this->panel1->Controls->Add(this->Clients);
 			this->panel1->Controls->Add(this->label1);
-			this->panel1->Location = System::Drawing::Point(12, 39);
+			this->panel1->Location = System::Drawing::Point(12, 61);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(660, 430);
+			this->panel1->Size = System::Drawing::Size(660, 408);
 			this->panel1->TabIndex = 42;
-			this->panel1->Visible = false;
+			// 
+			// QueueList
+			// 
+			this->QueueList->BackColor = System::Drawing::Color::MediumSeaGreen;
+			this->QueueList->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(6) {
+				this->ID, this->FileName,
+					this->FileExtention, this->Condition, this->DateTime, this->QueueType
+			});
+			this->QueueList->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->QueueList->ForeColor = System::Drawing::Color::Black;
+			this->QueueList->HideSelection = false;
+			this->QueueList->Location = System::Drawing::Point(14, 72);
+			this->QueueList->Name = L"QueueList";
+			this->QueueList->Size = System::Drawing::Size(623, 278);
+			this->QueueList->TabIndex = 42;
+			this->QueueList->UseCompatibleStateImageBehavior = false;
+			this->QueueList->View = System::Windows::Forms::View::Details;
+			this->QueueList->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::QueueList_SelectedIndexChanged);
+			// 
+			// ID
+			// 
+			this->ID->Text = L"ID";
+			this->ID->Width = 78;
+			// 
+			// FileName
+			// 
+			this->FileName->Text = L"Name";
+			this->FileName->Width = 100;
+			// 
+			// FileExtention
+			// 
+			this->FileExtention->Text = L"Extention";
+			this->FileExtention->Width = 92;
+			// 
+			// Condition
+			// 
+			this->Condition->Text = L"Condition";
+			this->Condition->Width = 98;
+			// 
+			// DateTime
+			// 
+			this->DateTime->Text = L"Date and Time";
+			this->DateTime->Width = 127;
+			// 
+			// QueueType
+			// 
+			this->QueueType->Text = L"QueueType";
+			this->QueueType->Width = 115;
 			// 
 			// MyForm
 			// 
@@ -1164,12 +1091,12 @@ namespace SocketUI {
 
 
 		}
-private: System::Void ClientMode_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void ClientMode_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	ServerMode->Checked = false;
 	Clients->Visible = false;
 	BTNStart->Text = "Connect";
 }
-private: System::Void ServerMode_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void ServerMode_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	ServerMode->Checked = true;
 	Clients->Visible = true;
 	BTNStart->Text = "Start";
@@ -1181,7 +1108,7 @@ private: System::Void ServerMode_Click(System::Object^ sender, System::EventArgs
 		   IsRunning = true;
 		   Startup(ip, port, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
 	   }
-private: System::Void uploadToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void uploadToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	try
 	{
 		if (IsRunning && !IsTransfer)
@@ -1214,14 +1141,14 @@ private: System::Void uploadToolStripMenuItem_Click(System::Object^ sender, Syst
 	}
 }
 	   
-private: System::Void BTNStart_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void BTNStart_Click_1(System::Object^ sender, System::EventArgs^ e) {
 
 	Thread^ thread = gcnew Thread(gcnew ThreadStart(this , &MyForm::StartServer));
 	thread->Start();
 	BTNStart->Enabled = false;
 	
 }
-private: System::Void QueueList_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {	
+private: System::Void QueueList_SelectedIndexChanged_1(System::Object^ sender, System::EventArgs^ e) {
 	if ((((ListView^)sender)->SelectedItems->Count == 1) && IsRunning && !IsTransfer)
 	{
 		ListViewItem^ item = ((ListView^)sender)->SelectedItems[0];
@@ -1255,7 +1182,7 @@ private: System::Void QueueList_SelectedIndexChanged(System::Object^ sender, Sys
 			   CompeleteTransfer(queuid);
 
 	}
-private: System::Void BTNDonwload_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void BTNDonwload_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	BTNDonwload->Enabled = false;
 	int queueid = Convert::ToInt32(QueueList->SelectedItems[0]->SubItems[0]->Text);
 	StartDownload(queueid);
@@ -1269,19 +1196,19 @@ private: System::Void BTNDonwload_Click(System::Object^ sender, System::EventArg
 
 
 }
-private: System::Void messageToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void messageToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
 
-private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void label2_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void Clients_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void Clients_SelectedIndexChanged_1(System::Object^ sender, System::EventArgs^ e) {
 }
 
-private: System::Void Port_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void Port_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void MyForm_Load_1(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void ligthToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void ligthToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e) {
 
 	Dark->Checked = false;
 	Ligth->Checked = true;
@@ -1347,14 +1274,14 @@ private: System::Void Dark_Click(System::Object^ sender, System::EventArgs^ e) {
 
 
 }
-private: System::Void PBTreansfered_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void PBTreansfered_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void IP_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void IP_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
 }
 
 private: System::Void label2_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void category_label_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void category_label_Click_1(System::Object^ sender, System::EventArgs^ e) {
 
 
 }
@@ -1431,7 +1358,39 @@ private: System::Void Ligth_Click(System::Object^ sender, System::EventArgs^ e) 
 }
 private: System::Void BTNStart_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void QueueList_SelectedIndexChanged_1(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void QueueList_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	if ((((ListView^)sender)->SelectedItems->Count == 1) && IsRunning && !IsTransfer)
+	{
+		ListViewItem^ item = ((ListView^)sender)->SelectedItems[0];
+		if (item->SubItems[5]->Text == "Download" && item->SubItems[3]->Text == "0")
+		{
+			BTNDonwload->Enabled = true;
+			if (autodownloadradio->Checked)
+			{
+				int queueid = Convert::ToInt32(QueueList->SelectedItems[0]->SubItems[0]->Text);
+				PBTreansfered->Value = 0;
+				StartDownload(queueid);
+
+				auto last = QueueList->Items->Count - 1;
+				QueueList->Items[last]->Selected = false;
+
+			}
+
+		}
+		else
+			BTNDonwload->Enabled = false;
+	}
+	else
+		BTNDonwload->Enabled = false;
+}
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void PBTreansfered_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Clients_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void BTNStart_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
