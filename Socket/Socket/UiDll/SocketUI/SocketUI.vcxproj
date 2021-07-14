@@ -125,16 +125,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DownloadUpload.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Sever Winform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DownloadUpload.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Sever Winform.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DownloadUpload.resx">
+      <DependentUpon>DownloadUpload.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sever Winform.resx">
+      <DependentUpon>Sever Winform.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

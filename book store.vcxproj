@@ -132,6 +132,7 @@
     <ClCompile Include="Category_Pagel.cpp" />
     <ClCompile Include="Form2.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="MyForm1.cpp" />
     <ClCompile Include="ShoppingCart.cpp" />
     <ClCompile Include="signup.cpp" />
     <ClCompile Include="signin-signup.cpp" />
@@ -152,6 +153,9 @@
     </ClInclude>
     <ClInclude Include="Headers\check_validity.h" />
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MyForm1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ShoppingCart.h">
@@ -180,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm1.resx">
+      <DependentUpon>MyForm1.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShoppingCart.resx">
       <DependentUpon>ShoppingCart.h</DependentUpon>
