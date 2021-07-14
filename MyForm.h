@@ -5,6 +5,7 @@
 #include "bookmadule.h"
 #include "BookDetail.h"
 #include "Category_Pagel.h"
+#include "Author_Page.h"
 #include <vector>
 #include <string>
 #include <tuple>
@@ -35,6 +36,8 @@ namespace bookstore {
 	/// </summary>
 	
 	vector <wstring> Genres;
+	vector <wstring> Authors;
+
 
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
@@ -55,6 +58,15 @@ namespace bookstore {
 			Genres.push_back(L"فلسفه");
 			Genres.push_back(L"زبان خارجی");
 			Genres.push_back(L"کتاب دیجیتال");
+			Authors.push_back(L"جرج اورول");
+			Authors.push_back(L"ویکتور هوگو");
+			Authors.push_back(L"رضا امیرخانی");
+			Authors.push_back(L"ارنست همینگوی");
+			Authors.push_back(L"جان اشتاین بک");
+			Authors.push_back(L"شکسپیر");
+			Authors.push_back(L"ابر کامو");
+			Authors.push_back(L"استیو تولتز");
+
 
 		}
 
@@ -293,7 +305,7 @@ namespace bookstore {
 			// header
 			// 
 			resources->ApplyResources(this->header, L"header");
-			this->header->BackColor = System::Drawing::Color::MidnightBlue;
+			this->header->BackColor = System::Drawing::Color::SteelBlue;
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->signin_panel);
@@ -418,6 +430,7 @@ namespace bookstore {
 			this->panel13->Cursor = System::Windows::Forms::Cursors::Hand;
 			resources->ApplyResources(this->panel13, L"panel13");
 			this->panel13->Name = L"panel13";
+			this->panel13->Click += gcnew System::EventHandler(this, &MyForm::panel13_Click);
 			// 
 			// pictureBox5
 			// 
@@ -425,11 +438,13 @@ namespace bookstore {
 			resources->ApplyResources(this->pictureBox5, L"pictureBox5");
 			this->pictureBox5->Name = L"pictureBox5";
 			this->pictureBox5->TabStop = false;
+			this->pictureBox5->Click += gcnew System::EventHandler(this, &MyForm::panel13_Click);
 			// 
 			// label4
 			// 
 			resources->ApplyResources(this->label4, L"label4");
 			this->label4->Name = L"label4";
+			this->label4->Click += gcnew System::EventHandler(this, &MyForm::panel13_Click);
 			// 
 			// panel18
 			// 
@@ -1151,6 +1166,26 @@ private: Void category_button_Click(System::Object^ sender, System::EventArgs^ e
 	set_book_test(result);
 	recent_books->Show();
 }
+private: Void Author_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		   Button^ btn = (Button^)sender;
+		   String^ Author = btn->Text;
+		   booklist result;
+		   for (int i = 0; i < alpha.size(); i++)
+		   {
+			   String^ Text = gcnew String(get<2>(alpha[i]).c_str());
+			   if (Text == Author)
+			   {
+				   result.push_back(alpha[i]);
+			   }
+
+		   }
+		   main_page_panel->Controls->Clear();
+		   main_page_panel->Controls->Add(recent_books);
+		   recent_books->Controls->Clear();
+		   set_book_test(result);
+		   recent_books->Show();
+	   }
+
 	void category_click()
 	{
 
@@ -1180,6 +1215,36 @@ private: Void category_button_Click(System::Object^ sender, System::EventArgs^ e
 		int index = main_page_panel->Controls->IndexOf(catpanel);
 
 	}
+	void author_click()
+	{
+
+		Author_Page^ catpanel = gcnew Author_Page();
+		catpanel->Anchor = (AnchorStyles::Top | AnchorStyles::Right | AnchorStyles::Left);
+		catpanel->AutoScroll = true;
+		for (int i = 0; i < Authors.size() - 1; i++)
+		{
+			Button^ cat = gcnew Button();
+			cat->Anchor = (AnchorStyles::Right | AnchorStyles::Left);
+			cat->Click += gcnew EventHandler(this, &MyForm::category_button_Click);
+			cat->BackColor = Color::DeepSkyBlue;
+			cat->FlatStyle = FlatStyle::Flat;
+			cat->Font = (gcnew System::Drawing::Font(L"B Nazanin", 16.2F, FontStyle::Regular, GraphicsUnit::Point,
+				static_cast<System::Byte>(178)));
+			String^ txt = gcnew String(Authors[i].c_str());
+			cat->Text = txt;
+			cat->UseVisualStyleBackColor = false;
+			cat->Height = 100;
+			cat->Width = 600;
+			cat->AutoSize = true;
+			catpanel->Author_panel_layout->Controls->Add(cat);
+		}
+		catpanel->Author_panel_layout->Height = Genres.size() * 100;
+		main_page_panel->Controls->Clear();
+		main_page_panel->Controls->Add(catpanel);
+		int index = main_page_panel->Controls->IndexOf(catpanel);
+
+	}
+
 private: System::Void category_label_Click(System::Object^ sender, System::EventArgs^ e) {
 	category_click();
 }
@@ -1197,6 +1262,7 @@ private: System::Void Home_panel_Click(System::Object^ sender, System::EventArgs
 	main_page_panel->HorizontalScroll->Maximum = 0;
 	main_page_panel->AutoScroll = true;
 	main_page_panel->Controls->Clear();
+	set_book_test(alpha);
 	main_page_panel->Controls->Add(recent_books);
 	main_page_panel->Controls->Add(pictureBox12);
 
@@ -1209,6 +1275,9 @@ private: System::Void Shoping_cart_panel_Click(System::Object^ sender, System::E
 	CartPage::Cart->Width = 1177;
 	main_page_panel->Controls->Clear();
 	main_page_panel->Controls->Add(CartPage::Cart);
+}
+private: System::Void panel13_Click(System::Object^ sender, System::EventArgs^ e) {
+	author_click();
 }
 };
 }
