@@ -60,6 +60,41 @@ namespace SocketUI {
 		DelCompelete^ Event_Compelete;
 		Delrequest^ Event_request;
 		bool IsRunning;
+	public:
+		DownloadUpload^ UC = gcnew DownloadUpload();
+		MyForm()
+
+		{
+			InitializeComponent();
+			Rigster();
+			IsRunning = false;
+			IsTransfer = false;
+
+			this->Controls->Add(UC);
+		}
+		void Rigster()
+		{
+			Event_ADDCLIENT += gcnew DelADDCLIENT(this, &MyForm::AddClient);
+			Event_ADDQUEUE += gcnew DelADDQUEUE(this, &MyForm::AddNewQueue);
+			Event_Progress += gcnew DelProgressBar(this, &MyForm::ChangeProgress);
+			Event_UIChangeProgress += gcnew UIChangeProgress(this, &MyForm::ChangeProgress);
+			Event_UINewClient += gcnew UINewClient(this, &MyForm::ChangeClient);
+			Event_UINewRecieve += gcnew UINewRecieve(this, &MyForm::NewQueueRow);
+			Event_Compelete += gcnew DelCompelete(this, &MyForm::CompeleteTransfer);
+
+		}
+	protected:
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		~MyForm()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+
 
 
 
@@ -104,8 +139,6 @@ namespace SocketUI {
 	private: System::Windows::Forms::PictureBox^ Home_icon;
 	private: System::Windows::Forms::Label^ Home_lable;
 
-
-
 	private: System::Windows::Forms::Panel^ category_panel;
 	private: System::Windows::Forms::PictureBox^ category_icon;
 	private: System::Windows::Forms::Label^ category_label;
@@ -134,84 +167,6 @@ namespace SocketUI {
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::Label^ label7;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public:
-		DownloadUpload^ UC = gcnew DownloadUpload();
-		MyForm()
-
-		{
-			InitializeComponent();
-			Rigster();
-			IsRunning = false;
-			IsTransfer = false;
-
-			this->Controls->Add(UC);
-		}
-		  void Rigster()
-		  {
-			  Event_ADDCLIENT += gcnew DelADDCLIENT(this, &MyForm::AddClient);
-			  Event_ADDQUEUE	+= gcnew DelADDQUEUE(this, &MyForm::AddNewQueue);
-			  Event_Progress += gcnew DelProgressBar(this, &MyForm::ChangeProgress);
-			  Event_UIChangeProgress += gcnew UIChangeProgress(this, &MyForm::ChangeProgress);
-			  Event_UINewClient += gcnew UINewClient(this, &MyForm::ChangeClient);
-			  Event_UINewRecieve += gcnew UINewRecieve(this, &MyForm::NewQueueRow);
-			  Event_Compelete += gcnew DelCompelete(this, &MyForm::CompeleteTransfer);
-
-		  }
-	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~MyForm()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
-
 	protected:
 
 	private: System::Windows::Forms::ColumnHeader^ RowIndex;
@@ -220,34 +175,6 @@ namespace SocketUI {
 	private: System::Windows::Forms::ColumnHeader^ Type;
 	private: System::Windows::Forms::ColumnHeader^ Time;
 	private: System::Windows::Forms::ColumnHeader^ Date;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -395,8 +322,9 @@ namespace SocketUI {
 			this->ServerMode->Checked = true;
 			this->ServerMode->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->ServerMode->Name = L"ServerMode";
-			this->ServerMode->Size = System::Drawing::Size(133, 26);
+			this->ServerMode->Size = System::Drawing::Size(224, 26);
 			this->ServerMode->Text = L"Server";
+			this->ServerMode->Click += gcnew System::EventHandler(this, &MyForm::ServerMode_Click);
 			// 
 			// dataModeToolStripMenuItem
 			// 
@@ -411,15 +339,16 @@ namespace SocketUI {
 			this->fileToolStripMenuItem1->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->fileToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->uploadToolStripMenuItem });
 			this->fileToolStripMenuItem1->Name = L"fileToolStripMenuItem1";
-			this->fileToolStripMenuItem1->Size = System::Drawing::Size(115, 26);
+			this->fileToolStripMenuItem1->Size = System::Drawing::Size(224, 26);
 			this->fileToolStripMenuItem1->Text = L"File";
 			this->fileToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::fileToolStripMenuItem1_Click);
 			// 
 			// uploadToolStripMenuItem
 			// 
 			this->uploadToolStripMenuItem->Name = L"uploadToolStripMenuItem";
-			this->uploadToolStripMenuItem->Size = System::Drawing::Size(141, 26);
+			this->uploadToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->uploadToolStripMenuItem->Text = L"Upload";
+			this->uploadToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::uploadToolStripMenuItem_Click);
 			// 
 			// Theme
 			// 
@@ -431,16 +360,18 @@ namespace SocketUI {
 			// Dark
 			// 
 			this->Dark->Name = L"Dark";
-			this->Dark->Size = System::Drawing::Size(125, 26);
+			this->Dark->Size = System::Drawing::Size(224, 26);
 			this->Dark->Text = L"Dark";
+			this->Dark->Click += gcnew System::EventHandler(this, &MyForm::Dark_Click);
 			// 
 			// Ligth
 			// 
 			this->Ligth->Checked = true;
 			this->Ligth->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->Ligth->Name = L"Ligth";
-			this->Ligth->Size = System::Drawing::Size(125, 26);
+			this->Ligth->Size = System::Drawing::Size(224, 26);
 			this->Ligth->Text = L"Ligth";
+			this->Ligth->Click += gcnew System::EventHandler(this, &MyForm::ligthToolStripMenuItem_Click);
 			// 
 			// panel1
 			// 
@@ -474,7 +405,6 @@ namespace SocketUI {
 			this->autodownloadradio->TabStop = true;
 			this->autodownloadradio->Text = L"Auto Download";
 			this->autodownloadradio->UseVisualStyleBackColor = false;
-			this->autodownloadradio->CheckedChanged += gcnew System::EventHandler(this, &MyForm::autodownloadradio_CheckedChanged);
 			// 
 			// IP
 			// 
@@ -487,6 +417,7 @@ namespace SocketUI {
 			this->IP->Size = System::Drawing::Size(71, 30);
 			this->IP->TabIndex = 46;
 			this->IP->Text = L"127.0.0.1";
+			this->IP->TextChanged += gcnew System::EventHandler(this, &MyForm::IP_TextChanged);
 			// 
 			// QueueList
 			// 
@@ -505,6 +436,7 @@ namespace SocketUI {
 			this->QueueList->TabIndex = 42;
 			this->QueueList->UseCompatibleStateImageBehavior = false;
 			this->QueueList->View = System::Windows::Forms::View::Details;
+			this->QueueList->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::QueueList_SelectedIndexChanged);
 			// 
 			// ID
 			// 
@@ -549,6 +481,7 @@ namespace SocketUI {
 			this->BTNDonwload->TabIndex = 44;
 			this->BTNDonwload->Text = L"Download";
 			this->BTNDonwload->UseVisualStyleBackColor = false;
+			this->BTNDonwload->TextChanged += gcnew System::EventHandler(this, &MyForm::BTNDonwload_Click);
 			// 
 			// PBTreansfered
 			// 
@@ -558,6 +491,7 @@ namespace SocketUI {
 			this->PBTreansfered->Name = L"PBTreansfered";
 			this->PBTreansfered->Size = System::Drawing::Size(394, 32);
 			this->PBTreansfered->TabIndex = 50;
+			this->PBTreansfered->Click += gcnew System::EventHandler(this, &MyForm::PBTreansfered_Click);
 			// 
 			// label2
 			// 
@@ -585,6 +519,7 @@ namespace SocketUI {
 			this->BTNStart->TabIndex = 43;
 			this->BTNStart->Text = L"Start";
 			this->BTNStart->UseVisualStyleBackColor = false;
+			this->BTNStart->Click += gcnew System::EventHandler(this, &MyForm::BTNStart_Click);
 			// 
 			// Port
 			// 
@@ -597,6 +532,7 @@ namespace SocketUI {
 			this->Port->Size = System::Drawing::Size(51, 30);
 			this->Port->TabIndex = 48;
 			this->Port->Text = L"7071";
+			this->Port->TextChanged += gcnew System::EventHandler(this, &MyForm::Port_TextChanged);
 			// 
 			// Clients
 			// 
@@ -610,6 +546,7 @@ namespace SocketUI {
 			this->Clients->Size = System::Drawing::Size(66, 33);
 			this->Clients->TabIndex = 49;
 			this->Clients->Text = L"Client";
+			this->Clients->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::Clients_SelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -966,7 +903,6 @@ namespace SocketUI {
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->menuStrip1);
 			this->HelpButton = true;
-			this->Name = L"MyForm";
 			this->Opacity = 0.9;
 			this->Text = L"Server";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
