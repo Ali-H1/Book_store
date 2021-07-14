@@ -1,15 +1,12 @@
 ﻿#pragma once
 #include<msclr/marshal_cppstd.h>
 #include <string>
-<<<<<<< HEAD
 #include <Windows.h>
 #include <fstream>
 #include <thread>
 #include <thread>            
 #include <mutex>              
-=======
 #include "DownloadUpload.h"
->>>>>>> fda834761bbb11accc0478d4c05a88d40eef1a99
 namespace SocketUI {
 
 	using namespace System;
@@ -419,22 +416,14 @@ namespace SocketUI {
 			this->fileToolStripMenuItem1->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->fileToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->uploadToolStripMenuItem });
 			this->fileToolStripMenuItem1->Name = L"fileToolStripMenuItem1";
-<<<<<<< HEAD
 			this->fileToolStripMenuItem1->Size = System::Drawing::Size(224, 26);
-=======
-			this->fileToolStripMenuItem1->Size = System::Drawing::Size(92, 22);
->>>>>>> fda834761bbb11accc0478d4c05a88d40eef1a99
 			this->fileToolStripMenuItem1->Text = L"File";
 			this->fileToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::fileToolStripMenuItem1_Click);
 			// 
 			// uploadToolStripMenuItem
 			// 
 			this->uploadToolStripMenuItem->Name = L"uploadToolStripMenuItem";
-<<<<<<< HEAD
 			this->uploadToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-=======
-			this->uploadToolStripMenuItem->Size = System::Drawing::Size(112, 22);
->>>>>>> fda834761bbb11accc0478d4c05a88d40eef1a99
 			this->uploadToolStripMenuItem->Text = L"Upload";
 			// 
 			// Theme
@@ -1311,29 +1300,6 @@ private: System::Void Dark_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->label2->BackColor = System::Drawing::Color::Black;
 	this->IP->BackColor = System::Drawing::Color::MediumBlue;
 	this->label1->BackColor = System::Drawing::Color::Black;
-<<<<<<< HEAD
-	this->BTNStart->BackColor = System::Drawing::Color::Blue;
-	this->BTNDonwload->BackColor = System::Drawing::Color::Blue;
-	this->QueueList->BackColor = System::Drawing::Color::RoyalBlue;
-
-
-	this->PBTreansfered->ForeColor = System::Drawing::Color::White;
-	this->Clients->ForeColor = System::Drawing::Color::White;
-	this->Port->ForeColor = System::Drawing::Color::White;
-	this->label2->ForeColor = System::Drawing::Color::White;
-	this->IP->ForeColor = System::Drawing::Color::White;
-	this->label1->ForeColor = System::Drawing::Color::White;
-	this->BTNStart->ForeColor = System::Drawing::Color::White;
-	this->BTNDonwload->ForeColor = System::Drawing::Color::White;
-	this->QueueList->ForeColor = System::Drawing::Color::White;
-
-	for each (Control ^ ctl in this->Controls)
-	{
-		Button^ button = gcnew Button();
-		if (ctl->GetType() == button->GetType())		
-		ctl->BackColor = Color::BlueViolet;
-	}
-=======
 	this->BTNStart->BackColor = System::Drawing::Color::MediumBlue;
 	this->BTNDonwload->BackColor = System::Drawing::Color::MediumBlue;
 	this->autodownloadradio->BackColor = System::Drawing::Color::MediumBlue;
@@ -1368,10 +1334,12 @@ private: System::Void category_label_Click(System::Object^ sender, System::Event
 }
 private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	panel1->Show();
-}
-private: System::Void autodownloadradio_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
->>>>>>> fda834761bbb11accc0478d4c05a88d40eef1a99
+	for each (Control ^ ctl in this->Controls)
+	{
+		Button^ button = gcnew Button();
+		if (ctl->GetType() == button->GetType())		
+		ctl->BackColor = Color::BlueViolet;
+	}
 }
 private: System::Void fileToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
