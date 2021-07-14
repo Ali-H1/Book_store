@@ -1,7 +1,43 @@
 #include "pch.h"
 #include "Queue.h"
 
-Queue* Queue::Upload(int socketid, string path, int QueueID , ChanheProgress chanheprogress)
+map<string, int> ClientList2;
+static int ClientNum2 = 0;
+TCPListener tcpServer2;
+std::mutex ClientLiatDoor2;
+std::mutex QueueListDoor2;
+std::map<int, Queue*> Queue_List2;
+
+int SendFile(string path, int  username)
+{
+	ClientLiatDoor2.lock();
+	int ClinetID = username;
+	ClientLiatDoor2.unlock();
+	QueueListDoor2.lock();
+	int id;
+	do
+	{
+		id = rand() % 9000 + 1000;
+	} while (Queue_List2.find(id) != Queue_List2.end());
+	Queue* item = Queue::Upload(ClinetID, path, id,nullptr);
+	Queue_List2.insert(std::pair<int, Queue*>(id, item));
+	QueueListDoor2.unlock();
+
+	QueuePacket qp;
+	qp.header = Header::queue;
+	memcpy(qp.FileExtention, item->FileExtention.c_str(), item->FileExtention.size());
+	memcpy(qp.FileName, item->FileName.c_str(), item->FileName.size());
+	qp.QueueID = id;
+	qp.Size = item->Length;
+	const int size = sizeof(QueuePacket);
+	char Buffer[size];
+	memset(Buffer, 0, size);
+	Serialize< QueuePacket>::serialize(Buffer, qp);
+	send(ClinetID, Buffer, size, 0);
+	return item->QueueID;
+}
+
+Queue* Queue::Upload(int socketid, string path, int QueueID , ChanheProgress chanheprogress=nullptr)
 {
 	try
 	{
@@ -46,9 +82,9 @@ Queue* Queue::Download(int socketid,int QueueID,  string FileName, string FileEx
 		item->Progress = 0;
 		item->LastProgress = 0;
 		item->Type = QueueTYPE::download;
-		item->writefile = std::ofstream(item->FilePath, std::ios::binary);
-		if (!item->writefile.is_open())
-			return nullptr;
+		//item->writefile = std::ofstream(item->FilePath, std::ios::binary);
+		//if (!item->writefile.is_open())
+		//	return nullptr;
 		item->Length = size;
 		return item;
 	}
@@ -69,12 +105,12 @@ void Queue::SetProgress(int read)
 	if (chanheprogress != NULL)
 		chanheprogress(this->QueueID, this->LastProgress);
 }
-void Queue::Start() 
+void Queue::Start()
 {
 	this->Running = true;
 	this->SendThread = thread([&]() {TrenasferProc(this); });
 }
-void Queue::Close() 
+void Queue::Close()
 {
 	if (this->Type == QueueTYPE::download)
 	{
@@ -98,12 +134,16 @@ wstring s2ws(const string& str)
 void Queue::Write(const char const* Buffer, int Read) 
 {
 	
-	if (this->writefile.is_open())
-	{
-		this->writefile.write(Buffer, Read);
-		wstring ws = s2ws(Buffer);
+		//this->writefile.write(Buffer, Read);
+		Database req("ServerDataBase.db");
+		req.Open();
+		//ofstream request("REQUESTS.txt", ios::app | ios::binary);
+		string buffer = to_string(this->SocketID)+"_"+ Buffer+"\n";
+		int socket_id = stoi(buffer.substr(0, 4));
+		req.decode_massage(s2ws(buffer));
+		SendFile("C:\\Users\\ASUS\\source\\repos\\Ali-H1\\Book_store\\Socket\\Socket\\Test _Client\\test2.txt", SocketID);
+		//request.write(buffer.c_str(),Read+sizeof(this->SocketID)+2);
 		SetProgress(Read);
-	}
 }
 void Queue::TrenasferProc(Queue* item) 
 {

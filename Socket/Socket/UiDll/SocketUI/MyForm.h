@@ -1,6 +1,11 @@
 #pragma once
 #include<msclr/marshal_cppstd.h>
 #include <string>
+#include <Windows.h>
+#include <fstream>
+#include <thread>
+#include <thread>            
+#include <mutex>              
 namespace SocketUI {
 
 	using namespace System;
@@ -12,12 +17,14 @@ namespace SocketUI {
 	using namespace System::Threading;
 	using namespace System::IO;
 	using namespace System::Runtime::InteropServices;
-
-
+	using std::wstring;
+	using std::string;
+	using std::ifstream;
 	delegate void DelADDCLIENT(String^,bool);
 	delegate void DelADDQUEUE(array< String^>^);
 	delegate void DelProgressBar(int,int);
 	delegate void DelCompelete(int);
+	delegate void Delrequest();
 
 
 	[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
@@ -37,6 +44,10 @@ namespace SocketUI {
 	 [DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
 	 void StartDownload(int queueid);
 
+	 [DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	 void thread_wait();
+
+
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 		DelADDCLIENT^ Event_ADDCLIENT;
@@ -46,6 +57,7 @@ namespace SocketUI {
 		UINewClient^ Event_UINewClient;
 		UINewRecieve^ Event_UINewRecieve;
 		DelCompelete^ Event_Compelete;
+		Delrequest^ Event_request;
 		bool IsRunning;
 	private: System::Windows::Forms::ToolStripMenuItem^ Theme;
 	private: System::Windows::Forms::ToolStripMenuItem^ Dark;
@@ -345,13 +357,14 @@ namespace SocketUI {
 			this->fileToolStripMenuItem1->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->fileToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->uploadToolStripMenuItem });
 			this->fileToolStripMenuItem1->Name = L"fileToolStripMenuItem1";
-			this->fileToolStripMenuItem1->Size = System::Drawing::Size(115, 26);
+			this->fileToolStripMenuItem1->Size = System::Drawing::Size(224, 26);
 			this->fileToolStripMenuItem1->Text = L"File";
+			this->fileToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::fileToolStripMenuItem1_Click);
 			// 
 			// uploadToolStripMenuItem
 			// 
 			this->uploadToolStripMenuItem->Name = L"uploadToolStripMenuItem";
-			this->uploadToolStripMenuItem->Size = System::Drawing::Size(141, 26);
+			this->uploadToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->uploadToolStripMenuItem->Text = L"Upload";
 			this->uploadToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::uploadToolStripMenuItem_Click);
 			// 
@@ -469,6 +482,14 @@ namespace SocketUI {
 
 		}
 #pragma endregion
+		wstring s2ws(const string& str)
+		{
+			int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
+			std::wstring wstrTo(size_needed, 0);
+			MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), &wstrTo[0], size_needed);
+			return wstrTo;
+		}
+
 		std::string to_stirng(String^ str)
 		{
 			msclr::interop::marshal_context contex;
@@ -524,8 +545,17 @@ namespace SocketUI {
 			array<String^>^ row = { Queueid.ToString() , gcnew String(Name.c_str()) , gcnew String(Extention.c_str()) , "0" , DateTime::Now.ToString() , "Download" };
 			Event_ADDQUEUE(row);
 		}
+
+
 		void CompeleteTransfer(int Queueid)
 		{
+			std::this_thread::sleep_for(std::chrono::microseconds(10));
+			/// <summary>
+			/// ////////////////
+			/// </summary>
+			/// <param name="Queueid"></param>
+			Thread::Sleep(5000);
+
 			if (this->InvokeRequired)
 			{
 				this->Invoke(Event_Compelete, Queueid);
@@ -537,6 +567,8 @@ namespace SocketUI {
 				if (var->SubItems[0]->Text == Queueid.ToString())
 					var->SubItems[3]->Text = "1";
 			}
+
+
 		}
 private: System::Void ClientMode_Click(System::Object^ sender, System::EventArgs^ e) {
 	ServerMode->Checked = false;
@@ -605,10 +637,11 @@ private: System::Void QueueList_SelectedIndexChanged(System::Object^ sender, Sys
 			if (autodownloadradio->Checked)
 			{
 				int queueid = Convert::ToInt32(QueueList->SelectedItems[0]->SubItems[0]->Text);
+				PBTreansfered->Value = 0;
 				StartDownload(queueid);
+
 				auto last = QueueList->Items->Count - 1;
 				QueueList->Items[last]->Selected = false;
-
 
 			}
 
@@ -619,21 +652,27 @@ private: System::Void QueueList_SelectedIndexChanged(System::Object^ sender, Sys
 	else
 		BTNDonwload->Enabled = false;
 }
-	   void ChangeProgress(int queuid , int value)
-	   {
+    void ChangeProgress(int queuid , int value)
+	{
 		   if (this->InvokeRequired)
 			   this->Invoke(Event_Progress , queuid , value);
 		   PBTreansfered->Value = value;
 		   if (PBTreansfered->Value == 100)
 			   CompeleteTransfer(queuid);
 
-	   }
+	}
 private: System::Void BTNDonwload_Click(System::Object^ sender, System::EventArgs^ e) {
 	BTNDonwload->Enabled = false;
 	int queueid = Convert::ToInt32(QueueList->SelectedItems[0]->SubItems[0]->Text);
 	StartDownload(queueid);
 	auto last = QueueList->Items->Count - 1;
 	QueueList->Items[last]->Selected = false;
+	
+	//string txt;
+
+	//String^ Text = gcnew String(s2ws(txt).c_str());
+	//MessageBox::Show(Text, Text);
+
 
 }
 private: System::Void messageToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -653,6 +692,11 @@ private: System::Void ligthToolStripMenuItem_Click(System::Object^ sender, Syste
 
 	Dark->Checked = false;
 	Ligth->Checked = true;
+	//string txt;
+	//Message_client_(1041, txt);
+	//String^ Text = gcnew String(s2ws(txt).c_str());
+	//MessageBox::Show(Text, Text);
+
 
 	this->BackColor = System::Drawing::Color::White;
 	this->PBTreansfered->BackColor = System::Drawing::Color::Lime;
@@ -706,8 +750,10 @@ private: System::Void Dark_Click(System::Object^ sender, System::EventArgs^ e) {
 	{
 		Button^ button = gcnew Button();
 		if (ctl->GetType() == button->GetType())		
-		ctl->BackColor = Color::Red;
+		ctl->BackColor = Color::BlueViolet;
 	}
+}
+private: System::Void fileToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
