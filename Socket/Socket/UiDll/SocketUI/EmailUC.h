@@ -11,12 +11,12 @@ using namespace System::Drawing;
 namespace SocketUI {
 
 	/// <summary>
-	/// Summary for DownloadUpload
+	/// Summary for EmailUC
 	/// </summary>
-	public ref class DownloadUpload : public System::Windows::Forms::UserControl
+	public ref class EmailUC : public System::Windows::Forms::UserControl
 	{
 	public:
-		DownloadUpload(void)
+		EmailUC(void)
 		{
 			InitializeComponent();
 			//
@@ -28,39 +28,15 @@ namespace SocketUI {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~DownloadUpload()
+		~EmailUC()
 		{
 			if (components)
 			{
 				delete components;
 			}
 		}
-
+	private: System::Windows::Forms::Button^ button1;
 	protected:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	private:
 		/// <summary>
@@ -75,20 +51,28 @@ namespace SocketUI {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// DownloadUpload
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(145, 146);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"Email";
+			this->button1->UseVisualStyleBackColor = true;
+			// 
+			// EmailUC
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->Name = L"DownloadUpload";
-			this->Size = System::Drawing::Size(797, 481);
-			this->Load += gcnew System::EventHandler(this, &DownloadUpload::DownloadUpload_Load);
+			this->Controls->Add(this->button1);
+			this->Name = L"EmailUC";
+			this->Size = System::Drawing::Size(363, 337);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void DownloadUpload_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
 	};
 }

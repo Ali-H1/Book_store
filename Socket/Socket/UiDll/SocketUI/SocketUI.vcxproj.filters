@@ -18,10 +18,19 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sever Winform.cpp">
+    <ClCompile Include="EmailUC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DownloadUpload.cpp">
+    <ClCompile Include="SeeUC1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingUC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SighinAdminUC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnterUC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,10 +38,19 @@
     <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sever Winform.h">
+    <ClInclude Include="EmailUC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DownloadUpload.h">
+    <ClInclude Include="SeeUC1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingUC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SighinAdminUC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnterUC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

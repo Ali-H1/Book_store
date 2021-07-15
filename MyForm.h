@@ -34,7 +34,7 @@ namespace bookstore {
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
-	
+
 	vector <wstring> Genres;
 	vector <wstring> Authors;
 
@@ -164,7 +164,7 @@ namespace bookstore {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -734,7 +734,6 @@ namespace bookstore {
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"MyForm";
-			this->Opacity = 0.85;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->maxbtn))->EndInit();
@@ -824,28 +823,28 @@ namespace bookstore {
 
 		vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>> set_book()
 		{
-			alpha.push_back(make_tuple(L"covers\\1.jpg",				  L"من پیش از تو",					L"جوجو مویز",				L"16,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\3264_68232_normal.jpg",  L"پیرمرد و دریا",				L"ارنست همینگوی",			L"20,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\86104_42858_normal.jpg", L"عقاید یک دلقک",				L"هاینریش بل",				L"26,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\2.jpg",				  L"کتاب مغازه خودکشی",			L"ژان تولی",				L"20,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\3.jpg",				  L"جزء از کل",						L"استیو تولتز",				L"40,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\4.jpg",				  L"مزرعه حیوانات",				L"جورج اورول",				L"17,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\5.jpg",				  L"سمفونی مردگان",				L"عباس معروفی",				L"23,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\6.jpg",				  L"مردی به نام اوه",				L"فردریک بکمن",				L"27,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\7.jpg",				  L"چشم هایش",						L"بزرگ علوی",				L"30,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\8.jpg",				  L"دور دنیا در 80 روز",			L"ژول ورن",					L"33,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\9.jpg",				  L"قمارباز",						L"فئودور داستایوفسکی",		L"25,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\10.jpg",				  L"استیو جابز",					L"والتر ایساکسون",			L"19,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\11.jpg",				  L"ناتور دشت",						L"جی دی سلینجر",			L"34,000"	,L"رمان"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\12.jpg",				  L"سینوهه",						L"میکا والتری",				L"67,000"	,L"رمان"		,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\13.jpg",				  L"فانوس های لرزان",				L"نسرین تبریزی",			L"33,000"	,L"روانشناسی"	,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\14.jpg",				  L"جهان هولوگرافیک",				L"مایکل تالبوت",			L"54,000"	,L"فیزیک"		,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\15.jpg",				  L"آدم آهنی",						L"نادر ابراهیمی",			L"43,000"	,L"روانسناسی"	,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\16.jpg",				  L"تکنیک های بازار یابی",			L"حسین یاغچی",				L"23,000"	,L"بازاریابی"	,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\17.jpg",				  L"بازار یابی و فروش نرم افزار", L"خدایار عبداللهی",		L"17,000"	,L"بازاریابی"	,L"انتشارات افق"		,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\18.jpg",				  L"تحلیل تکنیکال بازار سرمایه",	L"جان مورفی",				L"27,000"	,L"بازاریابی"	,L"انتشارات مردارید"	,L"اسد الله امرایی" ,L""));
-			alpha.push_back(make_tuple(L"covers\\19.jpg",				  L"",								L"",						L""			,L""			,L""					,L""			  ,L""));
-			alpha.push_back(make_tuple(L"covers\\20.jpg",				  L"",								L"",						L""			,L""			,L""					,L""			  ,L""));
+			alpha.push_back(make_tuple(L"covers\\1.jpg", L"من پیش از تو", L"جوجو مویز", L"16,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\3264_68232_normal.jpg", L"پیرمرد و دریا", L"ارنست همینگوی", L"20,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\86104_42858_normal.jpg", L"عقاید یک دلقک", L"هاینریش بل", L"26,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\2.jpg", L"کتاب مغازه خودکشی", L"ژان تولی", L"20,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\3.jpg", L"جزء از کل", L"استیو تولتز", L"40,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\4.jpg", L"مزرعه حیوانات", L"جورج اورول", L"17,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\5.jpg", L"سمفونی مردگان", L"عباس معروفی", L"23,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\6.jpg", L"مردی به نام اوه", L"فردریک بکمن", L"27,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\7.jpg", L"چشم هایش", L"بزرگ علوی", L"30,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\8.jpg", L"دور دنیا در 80 روز", L"ژول ورن", L"33,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\9.jpg", L"قمارباز", L"فئودور داستایوفسکی", L"25,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\10.jpg", L"استیو جابز", L"والتر ایساکسون", L"19,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\11.jpg", L"ناتور دشت", L"جی دی سلینجر", L"34,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\12.jpg", L"سینوهه", L"میکا والتری", L"67,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\13.jpg", L"فانوس های لرزان", L"نسرین تبریزی", L"33,000", L"روانشناسی", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\14.jpg", L"جهان هولوگرافیک", L"مایکل تالبوت", L"54,000", L"فیزیک", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\15.jpg", L"آدم آهنی", L"نادر ابراهیمی", L"43,000", L"روانسناسی", L"انتشارات افق", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\16.jpg", L"تکنیک های بازار یابی", L"حسین یاغچی", L"23,000", L"بازاریابی", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\17.jpg", L"بازار یابی و فروش نرم افزار", L"خدایار عبداللهی", L"17,000", L"بازاریابی", L"انتشارات افق", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\18.jpg", L"تحلیل تکنیکال بازار سرمایه", L"جان مورفی", L"27,000", L"بازاریابی", L"انتشارات مردارید", L"اسد الله امرایی", L""));
+			alpha.push_back(make_tuple(L"covers\\19.jpg", L"", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\20.jpg", L"", L"", L"", L"", L"", L"", L""));
 			return alpha;
 		}
 		void set_book_test(vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>> alpha)
@@ -859,13 +858,13 @@ namespace bookstore {
 				{
 					Panel^ newpanel = gcnew Panel();
 					recent_books->Controls->Add(newpanel);
-				} 			
+				}
 
 			}
 
 			for each (Panel ^ ctrl in recent_books->Controls) {
 				bookmadule^ page = gcnew bookmadule();
-				for each (PictureBox ^ imagebox in page->Controls->Find("book_pic",true))
+				for each (PictureBox ^ imagebox in page->Controls->Find("book_pic", true))
 				{
 					String^ Text = gcnew String(get<0>(alpha[a]).c_str());
 					imagebox->ImageLocation = Text;
@@ -877,14 +876,14 @@ namespace bookstore {
 					labeltitle->Text = Text;
 					if (labeltitle->Width > 59)
 					{
-						labeltitle->Left -= (labeltitle->Width-59)/2;
+						labeltitle->Left -= (labeltitle->Width - 59) / 2;
 					}
 					else if (labeltitle->Width < 59)
 					{
 						labeltitle->Left += (59 - labeltitle->Width) / 2;
 
 					}
-					
+
 				}
 				for each (Label ^ labelauthor in page->Controls->Find("book_author", true))
 				{
@@ -940,14 +939,14 @@ namespace bookstore {
 				ctrl->Width = page->Width;
 				ctrl->Height = page->Height;
 				ctrl->Controls->Add(page);
-				if(a<alpha.size()-1)
-				a++;
+				if (a < alpha.size() - 1)
+					a++;
 			}
 
 		}
 		BookDetail^ get_detail_for_book_page(Panel^ panel)
 		{
-			String^ image , ^title, ^author, ^price,^genre,^translator,^publisher;
+			String^ image, ^ title, ^ author, ^ price, ^ genre, ^ translator, ^ publisher;
 			for each (PictureBox ^ imagebox in panel->Controls->Find("book_pic", true))
 			{
 
@@ -956,7 +955,7 @@ namespace bookstore {
 			}
 			for each (Label ^ labeltitle in panel->Controls->Find("book_title", true))
 			{
-				
+
 				title = labeltitle->Text;
 
 			}
@@ -990,7 +989,7 @@ namespace bookstore {
 				translator = labelprice->Text;
 
 			}
-			
+
 
 			BookDetail^ page = gcnew BookDetail();
 			for each (PictureBox ^ bookimage in page->Controls->Find("book_image", true))
@@ -1027,258 +1026,260 @@ namespace bookstore {
 
 			return page;
 		}
-		public: void link_bookdetail_mainpage(BookDetail^ panel)
-		{
-			recent_books->Hide();
-			main_page_panel->Controls->Add(panel);
-		}
+	public: void link_bookdetail_mainpage(BookDetail^ panel)
+	{
+		recent_books->Hide();
+		main_page_panel->Controls->Add(panel);
+	}
 #pragma endregion
-			  //////////////////////////////////////////////////////////////////////////////////////////////////
+		  //////////////////////////////////////////////////////////////////////////////////////////////////
 	private: System::Void exitbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
 	}
-private: System::Void minbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->WindowState = FormWindowState::Minimized;
-}
-private: System::Void maxbtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (this->WindowState != FormWindowState::Maximized)
-	{
-		this->WindowState = FormWindowState::Maximized;
+	private: System::Void minbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->WindowState = FormWindowState::Minimized;
 	}
-	else
-	{
-		this->WindowState = FormWindowState::Normal;
-	}
-
-}
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	if (signed_in)
-	{
-		Shoping_cart_panel->Show();
-		signin_panel->Hide();
-		signup_panel->Hide();
-	}
-	else
-	{
-		Shoping_cart_panel->Hide();
-
-	}
-}
-private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void panel1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {\
-
-	drag = true;
-	   start_point.X = e->X;
-	   start_point.Y = e->Y;
-}
-private: System::Void panel1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	if (drag)
-	{
-		Point  p = PointToScreen(Point(e->X,e->Y));
-		Point ^ final_pos = gcnew Point(p.X - start_point.X, p.Y - start_point.Y);
-		Location = Point(p.X - start_point.X , p.Y - start_point.Y);
-
-	}
-
-}
-private: System::Void panel1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	drag = false;
-}
-private: System::Void panel24_Click(System::Object^ sender, System::EventArgs^ e) {
-	signinsignup^ form2 = gcnew signinsignup();
-	signup^ page = gcnew signup();
-	form2->Text = "sign up";
-	form2->Height = 690;
-	form2->Width = 820;
-	form2->Controls->Add(page);
-	form2->Show();
-}
-private: System::Void label9_Click(System::Object^ sender, System::EventArgs^ e) {
-	signinsignup^ form2 = gcnew signinsignup();
-	signup^ page = gcnew signup();
-	form2->Text = "sign up";
-	form2->Height = 690;
-	form2->Width = 820;
-	form2->Controls->Add(page);
-	form2->Show();
-}
-private: System::Void pictureBox10_Click(System::Object^ sender, System::EventArgs^ e) {
-	signinsignup^ form2 = gcnew signinsignup();
-	signup^ page = gcnew signup();
-	form2->Text = "sign up";
-	form2->Height = page->Height+47;
-	form2->Width = page->Width;
-	form2->Controls->Add(page);
-	form2->Show();
-}
-private: System::Void panel31_Click(System::Object^ sender, System::EventArgs^ e) {
-	signinsignup^ form2 = gcnew signinsignup();
-	signin^ page = gcnew signin();
-	form2->Height = 560;
-	form2->Width = 725;
-	form2->Text = "sign in";
-	form2->Controls->Add(page);
-	form2->Show();
-
-}
-private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	signinsignup^ form2 = gcnew signinsignup();
-	signin^ page = gcnew signin();
-	form2->Height = 560;
-	form2->Width = 725;
-	form2->Text = "sign in";
-	form2->Controls->Add(page);
-	form2->Show();
-
-}
-private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-	signinsignup^ form2 = gcnew signinsignup();
-	signin^ page = gcnew signin();
-	form2->Height = 560;
-	form2->Width = 725;
-	form2->Text = "sign in";
-	form2->Controls->Add(page);
-	form2->Show();
-
-
-}
-private: System::Void panel32_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void panel2_Click(System::Object^ sender, System::EventArgs^ e) {
-
-}
-private: Void category_button_Click(System::Object^ sender, System::EventArgs^ e) {
-	Button^ btn = (Button^)sender;
-	String ^ genre = btn->Text;
-	booklist result;
-	for (int i = 0; i < alpha.size(); i++)
-	{
-		String^ Text = gcnew String(get<4>(alpha[i]).c_str());
-		if (Text == genre)
+	private: System::Void maxbtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->WindowState != FormWindowState::Maximized)
 		{
-			result.push_back(alpha[i]);
+			this->WindowState = FormWindowState::Maximized;
 		}
-		
+		else
+		{
+			this->WindowState = FormWindowState::Normal;
+		}
+
 	}
-	main_page_panel->Controls->Clear();
-	main_page_panel->Controls->Add(recent_books);
-	recent_books->Controls->Clear();
-	set_book_test(result);
-	recent_books->Show();
-}
-private: Void Author_button_Click(System::Object^ sender, System::EventArgs^ e) {
-		   Button^ btn = (Button^)sender;
-		   String^ Author = btn->Text;
-		   booklist result;
-		   for (int i = 0; i < alpha.size(); i++)
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		if (signed_in)
+		{
+			Shoping_cart_panel->Show();
+			signin_panel->Hide();
+			signup_panel->Hide();
+		}
+		else
+		{
+			Shoping_cart_panel->Hide();
+
+		}
+	}
+	private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void panel1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		\
+
+			drag = true;
+		start_point.X = e->X;
+		start_point.Y = e->Y;
+	}
+	private: System::Void panel1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		if (drag)
+		{
+			Point  p = PointToScreen(Point(e->X, e->Y));
+			Point^ final_pos = gcnew Point(p.X - start_point.X, p.Y - start_point.Y);
+			Location = Point(p.X - start_point.X, p.Y - start_point.Y);
+
+		}
+
+	}
+	private: System::Void panel1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		drag = false;
+	}
+	private: System::Void panel24_Click(System::Object^ sender, System::EventArgs^ e) {
+		signinsignup^ form2 = gcnew signinsignup();
+		signup^ page = gcnew signup();
+		form2->Text = "sign up";
+		form2->Height = 690;
+		form2->Width = 820;
+		form2->Controls->Add(page);
+		form2->Show();
+	}
+	private: System::Void label9_Click(System::Object^ sender, System::EventArgs^ e) {
+		signinsignup^ form2 = gcnew signinsignup();
+		signup^ page = gcnew signup();
+		form2->Text = "sign up";
+		form2->Height = 690;
+		form2->Width = 820;
+		form2->Controls->Add(page);
+		form2->Show();
+	}
+	private: System::Void pictureBox10_Click(System::Object^ sender, System::EventArgs^ e) {
+		signinsignup^ form2 = gcnew signinsignup();
+		signup^ page = gcnew signup();
+		form2->Text = "sign up";
+		form2->Height = page->Height + 47;
+		form2->Width = page->Width;
+		form2->Controls->Add(page);
+		form2->Show();
+	}
+	private: System::Void panel31_Click(System::Object^ sender, System::EventArgs^ e) {
+		signinsignup^ form2 = gcnew signinsignup();
+		signin^ page = gcnew signin();
+		form2->Height = 560;
+		form2->Width = 725;
+		form2->Text = "sign in";
+		form2->Controls->Add(page);
+		form2->Show();
+
+	}
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+		signinsignup^ form2 = gcnew signinsignup();
+		signin^ page = gcnew signin();
+		form2->Height = 560;
+		form2->Width = 725;
+		form2->Text = "sign in";
+		form2->Controls->Add(page);
+		form2->Show();
+
+	}
+	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
+		signinsignup^ form2 = gcnew signinsignup();
+		signin^ page = gcnew signin();
+		form2->Height = 560;
+		form2->Width = 725;
+		form2->Text = "sign in";
+		form2->Controls->Add(page);
+		form2->Show();
+
+
+	}
+	private: System::Void panel32_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void panel2_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+	private: Void category_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		Button^ btn = (Button^)sender;
+		String^ genre = btn->Text;
+		booklist result;
+		for (int i = 0; i < alpha.size(); i++)
+		{
+			String^ Text = gcnew String(get<4>(alpha[i]).c_str());
+			if (Text == genre)
+			{
+				result.push_back(alpha[i]);
+			}
+
+		}
+		main_page_panel->Controls->Clear();
+		main_page_panel->Controls->Add(recent_books);
+		recent_books->Controls->Clear();
+		set_book_test(result);
+		recent_books->Show();
+	}
+	private: Void Author_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		Button^ btn = (Button^)sender;
+		String^ Author = btn->Text;
+		booklist result;
+		for (int i = 0; i < alpha.size(); i++)
+		{
+			String^ Text = gcnew String(get<2>(alpha[i]).c_str());
+			if (Text == Author)
+			{
+				result.push_back(alpha[i]);
+			}
+
+		}
+		main_page_panel->Controls->Clear();
+		main_page_panel->Controls->Add(recent_books);
+		recent_books->Controls->Clear();
+		set_book_test(result);
+		recent_books->Show();
+	}
+
+		   void category_click()
 		   {
-			   String^ Text = gcnew String(get<2>(alpha[i]).c_str());
-			   if (Text == Author)
+
+			   Category_Pagel^ catpanel = gcnew Category_Pagel();
+			   catpanel->Anchor = (AnchorStyles::Top | AnchorStyles::Right | AnchorStyles::Left);
+			   catpanel->AutoScroll = true;
+			   for (int i = 0; i < Genres.size() - 1; i++)
 			   {
-				   result.push_back(alpha[i]);
+				   Button^ cat = gcnew Button();
+				   cat->Anchor = (AnchorStyles::Right | AnchorStyles::Left);
+				   cat->Click += gcnew EventHandler(this, &MyForm::category_button_Click);
+				   cat->BackColor = Color::DeepSkyBlue;
+				   cat->FlatStyle = FlatStyle::Flat;
+				   cat->Font = (gcnew System::Drawing::Font(L"B Nazanin", 16.2F, FontStyle::Regular, GraphicsUnit::Point,
+					   static_cast<System::Byte>(178)));
+				   String^ txt = gcnew String(Genres[i].c_str());
+				   cat->Text = txt;
+				   cat->UseVisualStyleBackColor = false;
+				   cat->Height = 100;
+				   cat->Width = 600;
+				   cat->AutoSize = true;
+				   catpanel->category_panel_layout->Controls->Add(cat);
 			   }
+			   catpanel->category_panel_layout->Height = Genres.size() * 100;
+			   main_page_panel->Controls->Clear();
+			   main_page_panel->Controls->Add(catpanel);
+			   int index = main_page_panel->Controls->IndexOf(catpanel);
 
 		   }
-		   main_page_panel->Controls->Clear();
-		   main_page_panel->Controls->Add(recent_books);
-		   recent_books->Controls->Clear();
-		   set_book_test(result);
-		   recent_books->Show();
-	   }
+		   void author_click()
+		   {
 
-	void category_click()
-	{
+			   Author_Page^ catpanel = gcnew Author_Page();
+			   catpanel->Anchor = (AnchorStyles::Top | AnchorStyles::Right | AnchorStyles::Left);
+			   catpanel->AutoScroll = true;
+			   for (int i = 0; i < Authors.size() - 1; i++)
+			   {
+				   Button^ cat = gcnew Button();
+				   cat->Anchor = (AnchorStyles::Right | AnchorStyles::Left);
+				   cat->Click += gcnew EventHandler(this, &MyForm::category_button_Click);
+				   cat->BackColor = Color::DeepSkyBlue;
+				   cat->FlatStyle = FlatStyle::Flat;
+				   cat->Font = (gcnew System::Drawing::Font(L"B Nazanin", 16.2F, FontStyle::Regular, GraphicsUnit::Point,
+					   static_cast<System::Byte>(178)));
+				   String^ txt = gcnew String(Authors[i].c_str());
+				   cat->Text = txt;
+				   cat->UseVisualStyleBackColor = false;
+				   cat->Height = 100;
+				   cat->Width = 600;
+				   cat->AutoSize = true;
+				   catpanel->Author_panel_layout->Controls->Add(cat);
+			   }
+			   catpanel->Author_panel_layout->Height = Genres.size() * 100;
+			   main_page_panel->Controls->Clear();
+			   main_page_panel->Controls->Add(catpanel);
+			   int index = main_page_panel->Controls->IndexOf(catpanel);
 
-		Category_Pagel^ catpanel = gcnew Category_Pagel();
-		catpanel->Anchor = (AnchorStyles::Top | AnchorStyles::Right | AnchorStyles::Left);
-		catpanel->AutoScroll = true;
-		for (int i = 0; i < Genres.size() - 1; i++)
-		{
-			Button^ cat = gcnew Button();
-			cat->Anchor = (AnchorStyles::Right | AnchorStyles::Left);
-			cat->Click += gcnew EventHandler(this,&MyForm::category_button_Click);
-			cat->BackColor = Color::DeepSkyBlue;
-			cat->FlatStyle = FlatStyle::Flat;
-			cat->Font = (gcnew System::Drawing::Font(L"B Nazanin", 16.2F, FontStyle::Regular, GraphicsUnit::Point,
-				static_cast<System::Byte>(178)));
-			String^ txt = gcnew String(Genres[i].c_str());
-			cat->Text = txt;
-			cat->UseVisualStyleBackColor = false;
-			cat->Height = 100;
-			cat->Width = 600;
-			cat->AutoSize = true;
-			catpanel->category_panel_layout->Controls->Add(cat);
-		}
-		catpanel->category_panel_layout->Height = Genres.size() * 100;
-		main_page_panel->Controls->Clear();
-		main_page_panel->Controls->Add(catpanel);
-		int index = main_page_panel->Controls->IndexOf(catpanel);
+		   }
 
+	private: System::Void category_label_Click(System::Object^ sender, System::EventArgs^ e) {
+		category_click();
 	}
-	void author_click()
-	{
-
-		Author_Page^ catpanel = gcnew Author_Page();
-		catpanel->Anchor = (AnchorStyles::Top | AnchorStyles::Right | AnchorStyles::Left);
-		catpanel->AutoScroll = true;
-		for (int i = 0; i < Authors.size() - 1; i++)
-		{
-			Button^ cat = gcnew Button();
-			cat->Anchor = (AnchorStyles::Right | AnchorStyles::Left);
-			cat->Click += gcnew EventHandler(this, &MyForm::category_button_Click);
-			cat->BackColor = Color::DeepSkyBlue;
-			cat->FlatStyle = FlatStyle::Flat;
-			cat->Font = (gcnew System::Drawing::Font(L"B Nazanin", 16.2F, FontStyle::Regular, GraphicsUnit::Point,
-				static_cast<System::Byte>(178)));
-			String^ txt = gcnew String(Authors[i].c_str());
-			cat->Text = txt;
-			cat->UseVisualStyleBackColor = false;
-			cat->Height = 100;
-			cat->Width = 600;
-			cat->AutoSize = true;
-			catpanel->Author_panel_layout->Controls->Add(cat);
-		}
-		catpanel->Author_panel_layout->Height = Genres.size() * 100;
-		main_page_panel->Controls->Clear();
-		main_page_panel->Controls->Add(catpanel);
-		int index = main_page_panel->Controls->IndexOf(catpanel);
-
+	private: System::Void category_icon_Click(System::Object^ sender, System::EventArgs^ e) {
+		category_click();
 	}
 
-private: System::Void category_label_Click(System::Object^ sender, System::EventArgs^ e) {
-	category_click();
-}
-private: System::Void category_icon_Click(System::Object^ sender, System::EventArgs^ e) {
-	category_click();
+	private: System::Void category_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+		category_click();
+	}
+	private: System::Void Home_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+		main_page_panel->AutoScroll = false;
+		main_page_panel->HorizontalScroll->Enabled = false;
+		main_page_panel->HorizontalScroll->Visible = false;
+		main_page_panel->HorizontalScroll->Maximum = 0;
+		main_page_panel->AutoScroll = true;
+		main_page_panel->Controls->Clear();
+		set_book_test(alpha);
+		main_page_panel->Controls->Add(recent_books);
+		main_page_panel->Controls->Add(pictureBox12);
+
+	}
+	private: System::Void Shoping_cart_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+		Control::ControlCollection^ ctrlCollection = CartPage::Cart->Controls;
+		int countChild = ctrlCollection->Count;
+
+		CartPage::Cart->Height = countChild * 358;
+		CartPage::Cart->Width = 1177;
+		main_page_panel->Controls->Clear();
+		main_page_panel->Controls->Add(CartPage::Cart);
+	}
+	private: System::Void panel13_Click(System::Object^ sender, System::EventArgs^ e) {
+		author_click();
+	}
+	};
 }
 
-private: System::Void category_panel_Click(System::Object^ sender, System::EventArgs^ e) {
-	category_click();
-}
-private: System::Void Home_panel_Click(System::Object^ sender, System::EventArgs^ e) {
-	main_page_panel->AutoScroll = false;
-	main_page_panel->HorizontalScroll->Enabled = false;
-	main_page_panel->HorizontalScroll->Visible = false;
-	main_page_panel->HorizontalScroll->Maximum = 0;
-	main_page_panel->AutoScroll = true;
-	main_page_panel->Controls->Clear();
-	set_book_test(alpha);
-	main_page_panel->Controls->Add(recent_books);
-	main_page_panel->Controls->Add(pictureBox12);
-
-}
-private: System::Void Shoping_cart_panel_Click(System::Object^ sender, System::EventArgs^ e) {
-	Control::ControlCollection^ ctrlCollection = CartPage::Cart->Controls;
-	int countChild = ctrlCollection->Count;
-
-	CartPage::Cart->Height = countChild*358;
-	CartPage::Cart->Width = 1177;
-	main_page_panel->Controls->Clear();
-	main_page_panel->Controls->Add(CartPage::Cart);
-}
-private: System::Void panel13_Click(System::Object^ sender, System::EventArgs^ e) {
-	author_click();
-}
-};
-}
