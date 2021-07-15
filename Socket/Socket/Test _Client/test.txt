@@ -1,9 +1,0 @@
-[command Type]-command
-
-_____________________________________
-+ [genre select]-genre(رمان)
-+ [recent books]
-+ [sign in]-Email:anjsnjdn@gmail.com|password:juu77HHH
-+ [forgot passsword]-Email:anjsnjdn@gmail.com
-+ [sign up]-fname:jksk|lname:kdmkni|username:jdhueh23|Email:anjsnjdn@gmail.com|password:jidi888HHH|birth:1378/5/9|postalcode:1902833|gender:male|address:(dehjhjde-dwdwd-dwdd-d)|
-+ [purchase book]-book id(1353,4887,...,8736)
