@@ -125,30 +125,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DownloadUpload.cpp" />
+    <ClCompile Include="EmailUC.cpp" />
+    <ClCompile Include="EnterUC.cpp" />
     <ClCompile Include="MyForm.cpp" />
-    <ClCompile Include="Sever Winform.cpp" />
+    <ClCompile Include="SeeUC1.cpp" />
+    <ClCompile Include="SettingUC.cpp" />
+    <ClCompile Include="SighinAdminUC.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DownloadUpload.h">
+    <ClInclude Include="EmailUC.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="EnterUC.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Sever Winform.h">
-      <FileType>CppForm</FileType>
+    <ClInclude Include="SeeUC1.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="SettingUC.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="SighinAdminUC.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DownloadUpload.resx">
-      <DependentUpon>DownloadUpload.h</DependentUpon>
+    <EmbeddedResource Include="EmailUC.resx">
+      <DependentUpon>EmailUC.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterUC.resx">
+      <DependentUpon>EnterUC.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sever Winform.resx">
-      <DependentUpon>Sever Winform.h</DependentUpon>
+    <EmbeddedResource Include="SeeUC1.resx">
+      <DependentUpon>SeeUC1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingUC.resx">
+      <DependentUpon>SettingUC.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SighinAdminUC.resx">
+      <DependentUpon>SighinAdminUC.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

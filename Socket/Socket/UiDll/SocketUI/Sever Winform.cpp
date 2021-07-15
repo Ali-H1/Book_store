@@ -1,2 +1,0 @@
-#include "Sever Winform.h"
-
