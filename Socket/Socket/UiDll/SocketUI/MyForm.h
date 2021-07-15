@@ -4,7 +4,6 @@
 #include <Windows.h>
 #include <fstream>
 #include <thread>
-#include <thread>            
 #include <mutex>              
 #include "DownloadUpload.h"
 namespace SocketUI {
@@ -43,10 +42,13 @@ namespace SocketUI {
 	int SendFile(std::string path, std::string username);
 
 	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	void StartDownload(int queueid);
+	int StartDownload(int queueid);
 
 	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
 	void thread_wait();
+	
+	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	void get_client_name(string& name,int id);
 
 
 	public ref class MyForm : public System::Windows::Forms::Form
@@ -81,7 +83,6 @@ namespace SocketUI {
 			Event_UINewClient += gcnew UINewClient(this, &MyForm::ChangeClient);
 			Event_UINewRecieve += gcnew UINewRecieve(this, &MyForm::NewQueueRow);
 			Event_Compelete += gcnew DelCompelete(this, &MyForm::CompeleteTransfer);
-
 		}
 	protected:
 		/// <summary>
@@ -94,15 +95,7 @@ namespace SocketUI {
 				delete components;
 			}
 		}
-
-
-
-
-
-
 		bool IsTransfer;
-
-
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ fileToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ServerMode;
@@ -1022,12 +1015,10 @@ namespace SocketUI {
 
 		void CompeleteTransfer(int Queueid)
 		{
-			std::this_thread::sleep_for(std::chrono::microseconds(10));
 			/// <summary>
 			/// ////////////////
 			/// </summary>
 			/// <param name="Queueid"></param>
-			Thread::Sleep(5000);
 
 			if (this->InvokeRequired)
 			{
@@ -1109,9 +1100,15 @@ namespace SocketUI {
 				BTNDonwload->Enabled = true;
 				if (autodownloadradio->Checked)
 				{
+
 					int queueid = Convert::ToInt32(QueueList->SelectedItems[0]->SubItems[0]->Text);
 					PBTreansfered->Value = 0;
-					StartDownload(queueid);
+					int socket_id =  StartDownload(queueid);
+					string path = "..\\respond"+ std::to_string(socket_id)+".txt";
+					string sock_name;
+
+					get_client_name(sock_name, socket_id);
+					//SendFile(path, sock_name);
 
 					auto last = QueueList->Items->Count - 1;
 					QueueList->Items[last]->Selected = false;
