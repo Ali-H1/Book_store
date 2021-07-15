@@ -127,6 +127,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Author_Page.cpp" />
     <ClCompile Include="BookDetail.cpp" />
     <ClCompile Include="bookmadule.cpp" />
     <ClCompile Include="Category_Pagel.cpp" />
@@ -139,6 +140,9 @@
     <ClCompile Include="signin.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Author_Page.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="BookDetail.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -173,6 +177,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Author_Page.resx">
+      <DependentUpon>Author_Page.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookDetail.resx">
       <DependentUpon>BookDetail.h</DependentUpon>
     </EmbeddedResource>

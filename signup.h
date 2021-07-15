@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Headers/check_validity.h"
 #include <string>
+#include<regex>
 //#include <msclr\marshal.h>
 //#include <msclr\marshal_cppstd.h>
 
@@ -10,6 +11,7 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
+using namespace System::Text::RegularExpressions;
 using std::string;
 using std::wstring;
 
@@ -723,7 +725,15 @@ private: System::Void signup_bttn_Click(System::Object^ sender, System::EventArg
 	d = validation::check_password(password_wstr);
 	f = validation::check_password_identical(password2_wstr,password_wstr);
 	g = validation::check_postalcode(postcode_wstr);
-
+	auto myregex = gcnew Regex("[\u0600-\u06FF\u0698\u067E\u0686\u06AF]+$");
+	if (myregex->IsMatch(fname))
+	{
+		a="ok";
+	}
+	else
+	{
+		a=L"نام وارد شده معتبر نیست";
+	}
 	if (a != "ok")
 	{
 		MessageBox::Show(a, "Invalid Input", MessageBoxButtons::OK, MessageBoxIcon::Warning);
