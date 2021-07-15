@@ -4,7 +4,15 @@
 #include <Windows.h>
 #include <fstream>
 #include <thread>
+#include <thread>            
 #include <mutex>              
+#include "EmailUC.h"
+#include "SeeUC1.h"
+#include "EnterUC.h"
+#include "SettingUC.h"
+#include "SighinAdminUC.h"
+
+
 namespace SocketUI {
 
 	using namespace System;
@@ -41,13 +49,10 @@ namespace SocketUI {
 	int SendFile(std::string path, std::string username);
 
 	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	int StartDownload(int queueid);
+	void StartDownload(int queueid);
 
 	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
 	void thread_wait();
-	
-	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	void get_client_name(string& name,int id);
 
 
 	public ref class MyForm : public System::Windows::Forms::Form
@@ -60,9 +65,11 @@ namespace SocketUI {
 		UINewRecieve^ Event_UINewRecieve;
 		DelCompelete^ Event_Compelete;
 		Delrequest^ Event_request;
-		bool IsRunning;
+	private: System::Windows::Forms::Panel^ MainPanel;
+
+		   bool IsRunning;
 	public:
-		DownloadUpload^ UC = gcnew DownloadUpload();
+
 		MyForm()
 
 		{
@@ -71,7 +78,7 @@ namespace SocketUI {
 			IsRunning = false;
 			IsTransfer = false;
 
-			this->Controls->Add(UC);
+
 		}
 		void Rigster()
 		{
@@ -82,6 +89,7 @@ namespace SocketUI {
 			Event_UINewClient += gcnew UINewClient(this, &MyForm::ChangeClient);
 			Event_UINewRecieve += gcnew UINewRecieve(this, &MyForm::NewQueueRow);
 			Event_Compelete += gcnew DelCompelete(this, &MyForm::CompeleteTransfer);
+
 		}
 	protected:
 		/// <summary>
@@ -94,7 +102,15 @@ namespace SocketUI {
 				delete components;
 			}
 		}
+
+
+
+
+
+
 		bool IsTransfer;
+
+
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ fileToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ServerMode;
@@ -239,6 +255,7 @@ namespace SocketUI {
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->MainPanel = (gcnew System::Windows::Forms::Panel());
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -298,7 +315,7 @@ namespace SocketUI {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(841, 24);
+			this->menuStrip1->Size = System::Drawing::Size(884, 24);
 			this->menuStrip1->TabIndex = 40;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -314,7 +331,7 @@ namespace SocketUI {
 			this->ServerMode->Checked = true;
 			this->ServerMode->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->ServerMode->Name = L"ServerMode";
-			this->ServerMode->Size = System::Drawing::Size(224, 26);
+			this->ServerMode->Size = System::Drawing::Size(106, 22);
 			this->ServerMode->Text = L"Server";
 			this->ServerMode->Click += gcnew System::EventHandler(this, &MyForm::ServerMode_Click);
 			// 
@@ -332,14 +349,14 @@ namespace SocketUI {
 			this->fileToolStripMenuItem1->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->fileToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->uploadToolStripMenuItem });
 			this->fileToolStripMenuItem1->Name = L"fileToolStripMenuItem1";
-			this->fileToolStripMenuItem1->Size = System::Drawing::Size(115, 26);
+			this->fileToolStripMenuItem1->Size = System::Drawing::Size(92, 22);
 			this->fileToolStripMenuItem1->Text = L"File";
 			this->fileToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::fileToolStripMenuItem1_Click);
 			// 
 			// uploadToolStripMenuItem
 			// 
 			this->uploadToolStripMenuItem->Name = L"uploadToolStripMenuItem";
-			this->uploadToolStripMenuItem->Size = System::Drawing::Size(141, 26);
+			this->uploadToolStripMenuItem->Size = System::Drawing::Size(112, 22);
 			this->uploadToolStripMenuItem->Text = L"Upload";
 			this->uploadToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::uploadToolStripMenuItem_Click);
 			// 
@@ -353,7 +370,7 @@ namespace SocketUI {
 			// Dark
 			// 
 			this->Dark->Name = L"Dark";
-			this->Dark->Size = System::Drawing::Size(180, 22);
+			this->Dark->Size = System::Drawing::Size(101, 22);
 			this->Dark->Text = L"Dark";
 			this->Dark->Click += gcnew System::EventHandler(this, &MyForm::Dark_Click);
 			// 
@@ -362,7 +379,7 @@ namespace SocketUI {
 			this->Ligth->Checked = true;
 			this->Ligth->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->Ligth->Name = L"Ligth";
-			this->Ligth->Size = System::Drawing::Size(180, 22);
+			this->Ligth->Size = System::Drawing::Size(101, 22);
 			this->Ligth->Text = L"Ligth";
 			this->Ligth->Click += gcnew System::EventHandler(this, &MyForm::ligthToolStripMenuItem_Click);
 			// 
@@ -378,9 +395,9 @@ namespace SocketUI {
 			this->panel1->Controls->Add(this->Port);
 			this->panel1->Controls->Add(this->Clients);
 			this->panel1->Controls->Add(this->label1);
-			this->panel1->Location = System::Drawing::Point(21, 47);
+			this->panel1->Location = System::Drawing::Point(9, 339);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(635, 410);
+			this->panel1->Size = System::Drawing::Size(613, 423);
 			this->panel1->TabIndex = 42;
 			this->panel1->Visible = false;
 			// 
@@ -391,7 +408,7 @@ namespace SocketUI {
 			this->autodownloadradio->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->autodownloadradio->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->autodownloadradio->Location = System::Drawing::Point(372, 26);
+			this->autodownloadradio->Location = System::Drawing::Point(361, 26);
 			this->autodownloadradio->Name = L"autodownloadradio";
 			this->autodownloadradio->Size = System::Drawing::Size(136, 24);
 			this->autodownloadradio->TabIndex = 51;
@@ -425,7 +442,7 @@ namespace SocketUI {
 			this->QueueList->HideSelection = false;
 			this->QueueList->Location = System::Drawing::Point(14, 72);
 			this->QueueList->Name = L"QueueList";
-			this->QueueList->Size = System::Drawing::Size(599, 278);
+			this->QueueList->Size = System::Drawing::Size(584, 278);
 			this->QueueList->TabIndex = 42;
 			this->QueueList->UseCompatibleStateImageBehavior = false;
 			this->QueueList->View = System::Windows::Forms::View::Details;
@@ -468,7 +485,7 @@ namespace SocketUI {
 			this->BTNDonwload->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BTNDonwload->ForeColor = System::Drawing::Color::Black;
-			this->BTNDonwload->Location = System::Drawing::Point(525, 369);
+			this->BTNDonwload->Location = System::Drawing::Point(510, 369);
 			this->BTNDonwload->Name = L"BTNDonwload";
 			this->BTNDonwload->Size = System::Drawing::Size(88, 32);
 			this->BTNDonwload->TabIndex = 44;
@@ -483,7 +500,7 @@ namespace SocketUI {
 			this->PBTreansfered->ForeColor = System::Drawing::Color::Black;
 			this->PBTreansfered->Location = System::Drawing::Point(14, 369);
 			this->PBTreansfered->Name = L"PBTreansfered";
-			this->PBTreansfered->Size = System::Drawing::Size(494, 32);
+			this->PBTreansfered->Size = System::Drawing::Size(483, 32);
 			this->PBTreansfered->TabIndex = 50;
 			this->PBTreansfered->Click += gcnew System::EventHandler(this, &MyForm::PBTreansfered_Click);
 			// 
@@ -507,7 +524,7 @@ namespace SocketUI {
 			this->BTNStart->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BTNStart->ForeColor = System::Drawing::Color::Black;
-			this->BTNStart->Location = System::Drawing::Point(525, 23);
+			this->BTNStart->Location = System::Drawing::Point(510, 23);
 			this->BTNStart->Name = L"BTNStart";
 			this->BTNStart->Size = System::Drawing::Size(88, 30);
 			this->BTNStart->TabIndex = 43;
@@ -537,7 +554,7 @@ namespace SocketUI {
 			this->Clients->FormattingEnabled = true;
 			this->Clients->Location = System::Drawing::Point(262, 25);
 			this->Clients->Name = L"Clients";
-			this->Clients->Size = System::Drawing::Size(66, 33);
+			this->Clients->Size = System::Drawing::Size(83, 28);
 			this->Clients->TabIndex = 49;
 			this->Clients->Text = L"Client";
 			this->Clients->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::Clients_SelectedIndexChanged);
@@ -576,10 +593,10 @@ namespace SocketUI {
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->pictureBox1);
-			this->header->Location = System::Drawing::Point(689, 26);
+			this->header->Location = System::Drawing::Point(677, 26);
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->Name = L"header";
-			this->header->Size = System::Drawing::Size(162, 526);
+			this->header->Size = System::Drawing::Size(162, 7312);
 			this->header->TabIndex = 45;
 			// 
 			// label11
@@ -645,7 +662,7 @@ namespace SocketUI {
 			this->Home_lable->Location = System::Drawing::Point(34, 6);
 			this->Home_lable->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->Home_lable->Name = L"Home_lable";
-			this->Home_lable->Size = System::Drawing::Size(35, 26);
+			this->Home_lable->Size = System::Drawing::Size(32, 24);
 			this->Home_lable->TabIndex = 3;
 			this->Home_lable->Text = L"خانه";
 			// 
@@ -661,6 +678,7 @@ namespace SocketUI {
 			this->signin_panel->Name = L"signin_panel";
 			this->signin_panel->Size = System::Drawing::Size(120, 37);
 			this->signin_panel->TabIndex = 6;
+			this->signin_panel->Click += gcnew System::EventHandler(this, &MyForm::signin_panel_Click);
 			this->signin_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::signin_panel_Paint);
 			// 
 			// pictureBox2
@@ -685,9 +703,10 @@ namespace SocketUI {
 			this->label5->Location = System::Drawing::Point(35, 4);
 			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(33, 26);
+			this->label5->Size = System::Drawing::Size(31, 24);
 			this->label5->TabIndex = 3;
 			this->label5->Text = L"ورود";
+			this->label5->Click += gcnew System::EventHandler(this, &MyForm::signin_panel_Click);
 			// 
 			// panel12
 			// 
@@ -701,6 +720,8 @@ namespace SocketUI {
 			this->panel12->Name = L"panel12";
 			this->panel12->Size = System::Drawing::Size(120, 37);
 			this->panel12->TabIndex = 6;
+			this->panel12->Click += gcnew System::EventHandler(this, &MyForm::panel12_Click);
+			this->panel12->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel12_Paint);
 			// 
 			// label4
 			// 
@@ -711,9 +732,10 @@ namespace SocketUI {
 			this->label4->Location = System::Drawing::Point(13, 4);
 			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(66, 26);
+			this->label4->Size = System::Drawing::Size(63, 24);
 			this->label4->TabIndex = 4;
 			this->label4->Text = L"ورود ادمین";
+			this->label4->Click += gcnew System::EventHandler(this, &MyForm::panel12_Click);
 			// 
 			// pictureBox4
 			// 
@@ -751,6 +773,8 @@ namespace SocketUI {
 			this->panel18->Name = L"panel18";
 			this->panel18->Size = System::Drawing::Size(120, 37);
 			this->panel18->TabIndex = 5;
+			this->panel18->Click += gcnew System::EventHandler(this, &MyForm::panel18_Click);
+			this->panel18->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel18_Paint);
 			// 
 			// pictureBox7
 			// 
@@ -776,9 +800,10 @@ namespace SocketUI {
 			this->label6->Location = System::Drawing::Point(19, 6);
 			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(63, 26);
+			this->label6->Size = System::Drawing::Size(57, 24);
 			this->label6->TabIndex = 3;
 			this->label6->Text = L"تنظیمات ";
+			this->label6->Click += gcnew System::EventHandler(this, &MyForm::panel18_Click);
 			// 
 			// panel23
 			// 
@@ -791,6 +816,7 @@ namespace SocketUI {
 			this->panel23->Name = L"panel23";
 			this->panel23->Size = System::Drawing::Size(120, 37);
 			this->panel23->TabIndex = 10;
+			this->panel23->Click += gcnew System::EventHandler(this, &MyForm::panel23_Click);
 			// 
 			// pictureBox9
 			// 
@@ -814,9 +840,10 @@ namespace SocketUI {
 			this->label8->Location = System::Drawing::Point(2, 6);
 			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(94, 26);
+			this->label8->Size = System::Drawing::Size(87, 24);
 			this->label8->TabIndex = 3;
 			this->label8->Text = L"مشاهده سفارش";
+			this->label8->Click += gcnew System::EventHandler(this, &MyForm::panel23_Click);
 			// 
 			// category_panel
 			// 
@@ -829,6 +856,8 @@ namespace SocketUI {
 			this->category_panel->Name = L"category_panel";
 			this->category_panel->Size = System::Drawing::Size(120, 37);
 			this->category_panel->TabIndex = 9;
+			this->category_panel->Click += gcnew System::EventHandler(this, &MyForm::category_panel_Click);
+			this->category_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::category_panel_Paint);
 			// 
 			// category_icon
 			// 
@@ -852,10 +881,10 @@ namespace SocketUI {
 			this->category_label->Location = System::Drawing::Point(25, 5);
 			this->category_label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->category_label->Name = L"category_label";
-			this->category_label->Size = System::Drawing::Size(41, 26);
+			this->category_label->Size = System::Drawing::Size(38, 24);
 			this->category_label->TabIndex = 3;
 			this->category_label->Text = L"ایمیل";
-			this->category_label->Click += gcnew System::EventHandler(this, &MyForm::category_label_Click);
+			this->category_label->Click += gcnew System::EventHandler(this, &MyForm::category_panel_Click);
 			// 
 			// panel2
 			// 
@@ -868,6 +897,8 @@ namespace SocketUI {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(120, 37);
 			this->panel2->TabIndex = 10;
+			this->panel2->Click += gcnew System::EventHandler(this, &MyForm::label7_Click);
+			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel2_Paint);
 			// 
 			// label7
 			// 
@@ -878,7 +909,7 @@ namespace SocketUI {
 			this->label7->Location = System::Drawing::Point(13, 6);
 			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(74, 26);
+			this->label7->Size = System::Drawing::Size(72, 24);
 			this->label7->TabIndex = 4;
 			this->label7->Text = L"دانلود و اپلود";
 			this->label7->Click += gcnew System::EventHandler(this, &MyForm::label7_Click);
@@ -895,191 +926,14 @@ namespace SocketUI {
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox3->TabIndex = 1;
 			this->pictureBox3->TabStop = false;
+			this->pictureBox3->Click += gcnew System::EventHandler(this, &MyForm::label7_Click);
 			// 
-			// label1
+			// MainPanel
 			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::White;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::Black;
-			this->label1->Location = System::Drawing::Point(10, 22);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(24, 20);
-			this->label1->TabIndex = 45;
-			this->label1->Text = L"IP";
-			// 
-			// Clients
-			// 
-			this->Clients->BackColor = System::Drawing::Color::Lime;
-			this->Clients->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Clients->ForeColor = System::Drawing::Color::Black;
-			this->Clients->FormattingEnabled = true;
-			this->Clients->Location = System::Drawing::Point(358, 17);
-			this->Clients->Name = L"Clients";
-			this->Clients->Size = System::Drawing::Size(103, 28);
-			this->Clients->TabIndex = 49;
-			this->Clients->Text = L"Client";
-			// 
-			// Port
-			// 
-			this->Port->BackColor = System::Drawing::Color::Lime;
-			this->Port->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Port->ForeColor = System::Drawing::Color::Black;
-			this->Port->Location = System::Drawing::Point(235, 18);
-			this->Port->Name = L"Port";
-			this->Port->Size = System::Drawing::Size(51, 26);
-			this->Port->TabIndex = 48;
-			this->Port->Text = L"7071";
-			// 
-			// BTNStart
-			// 
-			this->BTNStart->BackColor = System::Drawing::Color::SpringGreen;
-			this->BTNStart->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->BTNStart->ForeColor = System::Drawing::Color::Black;
-			this->BTNStart->Location = System::Drawing::Point(550, 371);
-			this->BTNStart->Name = L"BTNStart";
-			this->BTNStart->Size = System::Drawing::Size(87, 32);
-			this->BTNStart->TabIndex = 43;
-			this->BTNStart->Text = L"Start";
-			this->BTNStart->UseVisualStyleBackColor = false;
-			this->BTNStart->Click += gcnew System::EventHandler(this, &MyForm::BTNStart_Click_1);
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::White;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::Black;
-			this->label2->Location = System::Drawing::Point(173, 22);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(38, 20);
-			this->label2->TabIndex = 47;
-			this->label2->Text = L"Port";
-			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click_1);
-			// 
-			// PBTreansfered
-			// 
-			this->PBTreansfered->BackColor = System::Drawing::Color::Lime;
-			this->PBTreansfered->ForeColor = System::Drawing::Color::Black;
-			this->PBTreansfered->Location = System::Drawing::Point(14, 371);
-			this->PBTreansfered->Name = L"PBTreansfered";
-			this->PBTreansfered->Size = System::Drawing::Size(416, 32);
-			this->PBTreansfered->TabIndex = 50;
-			// 
-			// BTNDonwload
-			// 
-			this->BTNDonwload->BackColor = System::Drawing::Color::SpringGreen;
-			this->BTNDonwload->Enabled = false;
-			this->BTNDonwload->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->BTNDonwload->ForeColor = System::Drawing::Color::Black;
-			this->BTNDonwload->Location = System::Drawing::Point(445, 371);
-			this->BTNDonwload->Name = L"BTNDonwload";
-			this->BTNDonwload->Size = System::Drawing::Size(88, 32);
-			this->BTNDonwload->TabIndex = 44;
-			this->BTNDonwload->Text = L"Download";
-			this->BTNDonwload->UseVisualStyleBackColor = false;
-			this->BTNDonwload->Click += gcnew System::EventHandler(this, &MyForm::BTNDonwload_Click_1);
-			// 
-			// QueueList
-			// 
-			this->QueueList->BackColor = System::Drawing::Color::MediumSeaGreen;
-			this->QueueList->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(6) {
-				this->ID, this->FileName,
-					this->FileExtention, this->Condition, this->DateTime, this->QueueType
-			});
-			this->QueueList->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->QueueList->ForeColor = System::Drawing::Color::Black;
-			this->QueueList->HideSelection = false;
-			this->QueueList->Location = System::Drawing::Point(14, 72);
-			this->QueueList->Name = L"QueueList";
-			this->QueueList->Size = System::Drawing::Size(623, 278);
-			this->QueueList->TabIndex = 42;
-			this->QueueList->UseCompatibleStateImageBehavior = false;
-			this->QueueList->View = System::Windows::Forms::View::Details;
-			this->QueueList->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::QueueList_SelectedIndexChanged_1);
-			// 
-			// ID
-			// 
-			this->ID->Text = L"ID";
-			this->ID->Width = 78;
-			// 
-			// FileName
-			// 
-			this->FileName->Text = L"Name";
-			this->FileName->Width = 100;
-			// 
-			// FileExtention
-			// 
-			this->FileExtention->Text = L"Extention";
-			this->FileExtention->Width = 92;
-			// 
-			// Condition
-			// 
-			this->Condition->Text = L"Condition";
-			this->Condition->Width = 98;
-			// 
-			// DateTime
-			// 
-			this->DateTime->Text = L"Date and Time";
-			this->DateTime->Width = 127;
-			// 
-			// QueueType
-			// 
-			this->QueueType->Text = L"QueueType";
-			this->QueueType->Width = 115;
-			// 
-			// IP
-			// 
-			this->IP->BackColor = System::Drawing::Color::Lime;
-			this->IP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->IP->ForeColor = System::Drawing::Color::Black;
-			this->IP->Location = System::Drawing::Point(61, 19);
-			this->IP->Name = L"IP";
-			this->IP->Size = System::Drawing::Size(71, 26);
-			this->IP->TabIndex = 46;
-			this->IP->Text = L"127.0.0.1";
-			// 
-			// autodownloadradio
-			// 
-			this->autodownloadradio->AutoSize = true;
-			this->autodownloadradio->BackColor = System::Drawing::Color::Lime;
-			this->autodownloadradio->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->autodownloadradio->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->autodownloadradio->Location = System::Drawing::Point(501, 23);
-			this->autodownloadradio->Name = L"autodownloadradio";
-			this->autodownloadradio->Size = System::Drawing::Size(136, 24);
-			this->autodownloadradio->TabIndex = 51;
-			this->autodownloadradio->TabStop = true;
-			this->autodownloadradio->Text = L"Auto Download";
-			this->autodownloadradio->UseVisualStyleBackColor = false;
-			this->autodownloadradio->CheckedChanged += gcnew System::EventHandler(this, &MyForm::autodownloadradio_CheckedChanged);
-			// 
-			// panel1
-			// 
-			this->panel1->Controls->Add(this->autodownloadradio);
-			this->panel1->Controls->Add(this->IP);
-			this->panel1->Controls->Add(this->QueueList);
-			this->panel1->Controls->Add(this->BTNDonwload);
-			this->panel1->Controls->Add(this->PBTreansfered);
-			this->panel1->Controls->Add(this->label2);
-			this->panel1->Controls->Add(this->BTNStart);
-			this->panel1->Controls->Add(this->Port);
-			this->panel1->Controls->Add(this->Clients);
-			this->panel1->Controls->Add(this->label1);
-			this->panel1->Location = System::Drawing::Point(12, 39);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(660, 430);
-			this->panel1->TabIndex = 42;
-			this->panel1->Visible = false;
+			this->MainPanel->Location = System::Drawing::Point(12, 38);
+			this->MainPanel->Name = L"MainPanel";
+			this->MainPanel->Size = System::Drawing::Size(610, 266);
+			this->MainPanel->TabIndex = 46;
 			// 
 			// MyForm
 			// 
@@ -1087,12 +941,16 @@ namespace SocketUI {
 			this->AutoScroll = true;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-			this->ClientSize = System::Drawing::Size(841, 580);
+			this->ClientSize = System::Drawing::Size(901, 561);
+			this->Controls->Add(this->MainPanel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->menuStrip1);
 			this->HelpButton = true;
-			this->Opacity = 0.9;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximumSize = System::Drawing::Size(900, 600);
+			this->MinimumSize = System::Drawing::Size(900, 600);
+			this->Opacity = 0.85;
 			this->Text = L"Server";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
@@ -1196,10 +1054,12 @@ namespace SocketUI {
 
 		void CompeleteTransfer(int Queueid)
 		{
+			std::this_thread::sleep_for(std::chrono::microseconds(10));
 			/// <summary>
 			/// ////////////////
 			/// </summary>
 			/// <param name="Queueid"></param>
+			Thread::Sleep(5000);
 
 			if (this->InvokeRequired)
 			{
@@ -1281,15 +1141,9 @@ namespace SocketUI {
 				BTNDonwload->Enabled = true;
 				if (autodownloadradio->Checked)
 				{
-
 					int queueid = Convert::ToInt32(QueueList->SelectedItems[0]->SubItems[0]->Text);
 					PBTreansfered->Value = 0;
-					int socket_id =  StartDownload(queueid);
-					string path = "..\\respond"+ std::to_string(socket_id)+".txt";
-					string sock_name;
-
-					get_client_name(sock_name, socket_id);
-					//SendFile(path, sock_name);
+					StartDownload(queueid);
 
 					auto last = QueueList->Items->Count - 1;
 					QueueList->Items[last]->Selected = false;
@@ -1328,16 +1182,91 @@ namespace SocketUI {
 	}
 	private: System::Void messageToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void Clients_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-
 	private: System::Void Port_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
+	private: System::Void PBTreansfered_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void IP_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void category_label_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+	}
+	private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		panel1->Show();
+
+	}
+	private: System::Void fileToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+	private: System::Void dataModeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void signin_panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+
+
+	}
+	private: System::Void category_panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+
+
+	}
+	private: System::Void category_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		MainPanel->Controls->Clear();
+		EmailUC^ Uc = gcnew EmailUC();
+		MainPanel->Controls->Add(Uc);
+
+	}
+	private: System::Void panel23_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		MainPanel->Controls->Clear();
+		SeeUC1^ Uc1 = gcnew SeeUC1();
+		MainPanel->Controls->Add(Uc1);
+
+
+	}
+	private: System::Void panel18_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+
+
+
+	}
+	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+
+
+	}
+	private: System::Void panel18_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		MainPanel->Controls->Clear();
+		SettingUC^ Uc2 = gcnew SettingUC();
+		MainPanel->Controls->Add(Uc2);
+
+	}
+	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		MainPanel->Controls->Clear();
+		SighinAdminUC^ Uc3 = gcnew SighinAdminUC();
+		MainPanel->Controls->Add(Uc3);
+
+	}
+	private: System::Void signin_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		MainPanel->Controls->Clear();
+		EnterUC^ Uc4 = gcnew EnterUC();
+		MainPanel->Controls->Add(Uc4);
+
+	}
+
 	private: System::Void ligthToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		Dark->Checked = false;
@@ -1440,91 +1369,5 @@ namespace SocketUI {
 
 
 	}
-	private: System::Void PBTreansfered_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void IP_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-
-	private: System::Void label2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void category_label_Click(System::Object^ sender, System::EventArgs^ e) {
-
-
-}
-private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	for each (Control ^ ctl in this->Controls)
-	{
-		Button^ button = gcnew Button();
-		if (ctl->GetType() == button->GetType())		
-		ctl->BackColor = Color::BlueViolet;
-	}
-}
-private: System::Void fileToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void BTNDonwload_Click_1(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Dark_Click_1(System::Object^ sender, System::EventArgs^ e) {
-
-
-	Dark->Checked = true;
-	Ligth->Checked = false;
-	this->BackColor = System::Drawing::Color::Black;
-	this->PBTreansfered->BackColor = System::Drawing::Color::MediumBlue;
-	this->Clients->BackColor = System::Drawing::Color::MediumBlue;
-	this->Port->BackColor = System::Drawing::Color::MediumBlue;
-	this->label2->BackColor = System::Drawing::Color::Black;
-	this->IP->BackColor = System::Drawing::Color::MediumBlue;
-	this->label1->BackColor = System::Drawing::Color::Black;
-	this->BTNStart->BackColor = System::Drawing::Color::MediumBlue;
-	this->BTNDonwload->BackColor = System::Drawing::Color::MediumBlue;
-	this->autodownloadradio->BackColor = System::Drawing::Color::MediumBlue;
-	this->QueueList->BackColor = System::Drawing::Color::DarkBlue;
-
-
-	this->PBTreansfered->ForeColor = System::Drawing::Color::GhostWhite;
-	this->Clients->ForeColor = System::Drawing::Color::GhostWhite;
-	this->Port->ForeColor = System::Drawing::Color::GhostWhite;
-	this->label2->ForeColor = System::Drawing::Color::GhostWhite;
-	this->IP->ForeColor = System::Drawing::Color::GhostWhite;
-	this->label1->ForeColor = System::Drawing::Color::GhostWhite;
-	this->BTNStart->ForeColor = System::Drawing::Color::GhostWhite;
-	this->BTNDonwload->ForeColor = System::Drawing::Color::GhostWhite;
-	this->QueueList->ForeColor = System::Drawing::Color::GhostWhite;
-	this->autodownloadradio->ForeColor = System::Drawing::Color::GhostWhite;
-}
-private: System::Void Ligth_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	Dark->Checked = false;
-	Ligth->Checked = true;
-
-	this->BackColor = System::Drawing::Color::GhostWhite;
-	this->PBTreansfered->BackColor = System::Drawing::Color::Lime;
-	this->Clients->BackColor = System::Drawing::Color::Lime;
-	this->Port->BackColor = System::Drawing::Color::Lime;
-	this->label2->BackColor = System::Drawing::Color::GhostWhite;
-	this->IP->BackColor = System::Drawing::Color::Lime;
-	this->label1->BackColor = System::Drawing::Color::GhostWhite;
-	this->BTNStart->BackColor = System::Drawing::Color::Lime;
-	this->BTNDonwload->BackColor = System::Drawing::Color::Lime;
-	this->autodownloadradio->BackColor = System::Drawing::Color::Lime;
-	this->QueueList->BackColor = System::Drawing::Color::MediumSeaGreen;
-
-
-	this->PBTreansfered->ForeColor = System::Drawing::Color::Black;
-	this->Clients->ForeColor = System::Drawing::Color::Black;
-	this->Port->ForeColor = System::Drawing::Color::Black;
-	this->label2->ForeColor = System::Drawing::Color::Black;
-	this->IP->ForeColor = System::Drawing::Color::Black;
-	this->label1->ForeColor = System::Drawing::Color::Black;
-	this->BTNStart->ForeColor = System::Drawing::Color::Black;
-	this->BTNDonwload->ForeColor = System::Drawing::Color::Black;
-	this->QueueList->ForeColor = System::Drawing::Color::Black;
-	this->autodownloadradio->ForeColor = System::Drawing::Color::Black;
-}
-private: System::Void BTNStart_Click_1(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void QueueList_SelectedIndexChanged_1(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+	};
 }
