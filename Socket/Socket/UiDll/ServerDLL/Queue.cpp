@@ -1,41 +1,6 @@
 #include "pch.h"
 #include "Queue.h"
 
-map<string, int> ClientList2;
-static int ClientNum2 = 0;
-TCPListener tcpServer2;
-std::mutex ClientLiatDoor2;
-std::mutex QueueListDoor2;
-std::map<int, Queue*> Queue_List2;
-
-int SendFile(string path, int  username)
-{
-	ClientLiatDoor2.lock();
-	int ClinetID = username;
-	ClientLiatDoor2.unlock();
-	QueueListDoor2.lock();
-	int id;
-	do
-	{
-		id = rand() % 9000 + 1000;
-	} while (Queue_List2.find(id) != Queue_List2.end());
-	Queue* item = Queue::Upload(ClinetID, path, id,nullptr);
-	Queue_List2.insert(std::pair<int, Queue*>(id, item));
-	QueueListDoor2.unlock();
-
-	QueuePacket qp;
-	qp.header = Header::queue;
-	memcpy(qp.FileExtention, item->FileExtention.c_str(), item->FileExtention.size());
-	memcpy(qp.FileName, item->FileName.c_str(), item->FileName.size());
-	qp.QueueID = id;
-	qp.Size = item->Length;
-	const int size = sizeof(QueuePacket);
-	char Buffer[size];
-	memset(Buffer, 0, size);
-	Serialize< QueuePacket>::serialize(Buffer, qp);
-	send(ClinetID, Buffer, size, 0);
-	return item->QueueID;
-}
 
 Queue* Queue::Upload(int socketid, string path, int QueueID , ChanheProgress chanheprogress=nullptr)
 {
@@ -141,7 +106,7 @@ void Queue::Write(const char const* Buffer, int Read)
 		string buffer = to_string(this->SocketID)+"_"+ Buffer+"\n";
 		int socket_id = stoi(buffer.substr(0, 4));
 		req.decode_massage(s2ws(buffer));
-		SendFile("C:\\Users\\ASUS\\source\\repos\\Ali-H1\\Book_store\\Socket\\Socket\\Test _Client\\test2.txt", SocketID);
+		//SendFile("C:\\Users\\ASUS\\source\\repos\\Ali-H1\\Book_store\\Socket\\Socket\\Test _Client\\test2.txt", SocketID);
 		//request.write(buffer.c_str(),Read+sizeof(this->SocketID)+2);
 		SetProgress(Read);
 }

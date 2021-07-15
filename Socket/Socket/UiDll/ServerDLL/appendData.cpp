@@ -4,7 +4,12 @@
 #include <vector>
 #include <locale>
 #include <codecvt>
-vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>> Database::list;
+#include<fstream>
+#include <string>
+#include <codecvt>
+#include <locale>
+using std::get;
+vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>> Database::list;
 Database::Database(const char* name)
 {
 	dbname = name;
@@ -96,7 +101,7 @@ int Database::callback(void* NotUsed, int argc, char** argv, char** azColName)
 			// cout << argv[i] ? argv[i] : "NULL";
 			if (item == 12)
 			{
-				list.push_back(std::make_tuple(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5], arr[6], arr[7], arr[8], arr[9], arr[10], arr[11],arr[12]));
+				list.push_back(std::make_tuple(arr[0],arr[1],arr[2],arr[3],arr[4],arr[5], arr[6], arr[7], arr[8], arr[9], arr[10], arr[11],arr[12],arr[13]));
 				item = 0;
 			}
 			item++;
@@ -105,7 +110,7 @@ int Database::callback(void* NotUsed, int argc, char** argv, char** azColName)
 	return 0;
 }
 
-void Database::Select(vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>& result,string table, string item = "*", wstring condition = L"",string order="")
+void Database::Select(vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>& result,string table, string item = "*", wstring condition = L"",string order="")
 {
 	sqlite3_stmt* res;
 	list.clear();
@@ -134,7 +139,7 @@ void Database::Select(vector<tuple<wstring, wstring, wstring, wstring, wstring, 
 		list.push_back(std::make_tuple(static_cast<const wchar_t*>( sqlite3_column_text16(res, 0)), static_cast<const wchar_t*>( sqlite3_column_text16(res, 1)),static_cast<const wchar_t*>( sqlite3_column_text16(res, 2)),
 			static_cast<const wchar_t*>( sqlite3_column_text16(res, 3)),static_cast<const wchar_t*>( sqlite3_column_text16(res, 4)),static_cast<const wchar_t*>( sqlite3_column_text16(res, 5)),static_cast<const wchar_t*>( sqlite3_column_text16(res, 6)),
 			static_cast<const wchar_t*>( sqlite3_column_text16(res, 7)),static_cast<const wchar_t*>( sqlite3_column_text16(res, 8)),static_cast<const wchar_t*>( sqlite3_column_text16(res, 9)),static_cast<const wchar_t*>( sqlite3_column_text16(res, 10)),
-			static_cast<const wchar_t*>( sqlite3_column_text16(res, 11)), static_cast<const wchar_t*>( sqlite3_column_text16(res, 12))));
+			static_cast<const wchar_t*>( sqlite3_column_text16(res, 11)), static_cast<const wchar_t*>( sqlite3_column_text16(res, 12)), static_cast<const wchar_t*>(sqlite3_column_text16(res, 13))));
 			
 	}
 
@@ -161,19 +166,67 @@ int Database::decode_massage(wstring mssg)
 	}
 	if (request_type == L"[genre select]")
 	{
-		vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring,
+		vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring,
 			wstring, wstring, wstring, wstring>> result;
 		req = mssg.substr(mssg.find_first_of('-') + 1, mssg.length() - 2 - mssg.find_first_of('-'));
 		wstring genre  = req.substr(req.find_first_of('(') + 1, req.length() - 2- req.find_first_of('('));
 		Select(result, "Books", "*", L"WHERE Genre = '" + genre + L"'", "ORDER BY ID ASC");
+		wstring bookdata;
+		std::ofstream file(L"respond" + socket_id + L".txt", std::ios::out | std::ios::binary);
+		for (int i = 0; i < result.size(); i++)
+		{
+			bookdata += L"[genre select]-id=" + get<0>(result[i]) + L","
+				+ L"title=" + get<1>(result[i]) + L","
+				+ L"author=" + get<2>(result[i]) + L","
+				+ L"genre=" + get<3>(result[i]) + L","
+				+ L"year=" + get<4>(result[i]) + L","
+				+ L"edition=" + get<5>(result[i]) + L","
+				+ L"translator=" + get<6>(result[i]) + L","
+				+ L"price=" + get<7>(result[i]) + L","
+				+ L"publisher=" + get<8>(result[i]) + L","
+				+ L"language=" + get<9>(result[i]) + L","
+				+ L"summery=" + get<10>(result[i]) + L","
+				+ L"digital=" + get<12>(result[i]) + L","
+				+ L"cover=" + get<13>(result[i]) + L","
+				+ L"[[[End]]]\n";
+
+
+		}
+		std::string wstr_turned_to_str = std::wstring_convert<std::codecvt_utf8<wchar_t>>().to_bytes(bookdata);
+		file.write(wstr_turned_to_str.c_str(), wstr_turned_to_str.length());
+		file.close();
 
 	}
 	else if (request_type == L"[recent books]")
 	{
-		vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring,
+		vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring,
 			wstring, wstring, wstring, wstring>> result;
 		Select(result, "Books", "*", L"","");
 		result.erase(result.begin() + 9, result.end());
+		wstring bookdata;
+		std::ofstream file(L"respond" + socket_id + L".txt", std::ios::out | std::ios::binary);
+		for (int i = 0; i < result.size(); i++)
+		{
+			bookdata += L"[recent books]-id=" + get<0>(result[i]) + L","
+				+ L"title=" + get<1>(result[i]) + L","
+				+ L"author=" + get<2>(result[i]) + L","
+				+ L"genre=" + get<3>(result[i]) + L","
+				+ L"year=" + get<4>(result[i]) + L","
+				+ L"edition=" + get<5>(result[i]) + L","
+				+ L"translator=" + get<6>(result[i]) + L","
+				+ L"price=" + get<7>(result[i]) + L","
+				+ L"publisher=" + get<8>(result[i]) + L","
+				+ L"language=" + get<9>(result[i]) + L","
+				+ L"summery=" + get<10>(result[i]) + L","
+				+ L"digital=" + get<12>(result[i]) + L","
+				+ L"cover=" + get<13>(result[i]) + L","
+				+ L"[[[End]]]\n";
+
+
+		}
+		std::string wstr_turned_to_str = std::wstring_convert<std::codecvt_utf8<wchar_t>>().to_bytes(bookdata);
+		file.write(wstr_turned_to_str.c_str(), sizeof(wstr_turned_to_str.c_str()));
+		file.close();
 	}
 	else if (request_type == L"[sign in]")
 	{

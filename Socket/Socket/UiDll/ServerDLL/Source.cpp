@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Source.h"
 
-
 void  Client(int Socketid , bool flag)
 {
 	if (flag)
@@ -41,7 +40,7 @@ void  changeprogress(int queueid , int i )
 	QueueListDoor.unlock();
 	uiChangeProgress(queueid, i);
 }
-void StartDownload( int queueid)
+int StartDownload( int queueid)
 {
 	StartPacket sp;
 	sp.header = Header::start;
@@ -52,6 +51,7 @@ void StartDownload( int queueid)
 	QueueListDoor.lock();
 	send(Queue_List.find(queueid)->second->SocketID, Buffer , sizeof(StartPacket) , 0);
 	QueueListDoor.unlock();
+	return Queue_List.find(queueid)->second->SocketID ; 
 }
 void  Recieve(int socketid , char* buffer , int size)
 {
@@ -162,7 +162,7 @@ int SendFile(string path , string username)
 	Queue* item = Queue::Upload(ClinetID, path, id, changeprogress);
 	Queue_List.insert(std::pair<int, Queue*>(id, item));
 	QueueListDoor.unlock();
-
+	//QueueDoor.lock();
 	QueuePacket qp;
 	qp.header = Header::queue;
 	memcpy(qp.FileExtention, item->FileExtention.c_str(), item->FileExtention.size());
@@ -174,6 +174,8 @@ int SendFile(string path , string username)
 	memset(Buffer , 0 , size);
 	Serialize< QueuePacket>::serialize(Buffer, qp);
 	send(ClinetID , Buffer , size ,0);
+	//QueueDoor.unlock();
+
 	return item->QueueID;
 }
 
@@ -203,6 +205,16 @@ void thread_wait() {
 	std::unique_lock<std::mutex> lck(mtx);
 	while (!ready) cv.wait(lck);
 	
+}
+
+void get_client_name(string& name , int id)
+{
+	std::map<int, string> client_revers;
+	for (auto map : ClientList)
+	{
+		client_revers.insert(pair<int,string>(map.second,map.first));
+	}
+	name = client_revers.find(id)->second;
 }
 
 

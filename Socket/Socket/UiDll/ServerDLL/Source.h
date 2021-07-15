@@ -8,12 +8,14 @@
 #include <iostream>
 #include <mutex>
 #include "Queue.h"
-
+#include <algorithm>
 map<string, int> ClientList;
 static int ClientNum = 0;
 TCPListener tcpServer;
 std::mutex ClientLiatDoor;
 std::mutex QueueListDoor;
+std::mutex QueueDoor;
+
 std::map<int, Queue*> Queue_List;
 
 typedef void(* UIChangeProgress)(int queueid, int value);
@@ -41,8 +43,9 @@ void  Recieve(int socketid, char* buffer, int size);
 
 extern "C" UI_ALPI void  Startup(string ip, int port, UIChangeProgress  uiChangeprogress, UINewClient uiNewclient, UINewRecieve  uiNewrecieve);
 
-extern "C" UI_ALPI void StartDownload( int queueid);
+extern "C" UI_ALPI int StartDownload( int queueid);
 extern "C" UI_ALPI void sendmessage();
 extern "C" UI_ALPI void thread_wait();
+extern "C" UI_ALPI void get_client_name(string & name , int id);
 extern "C" UI_ALPI int SendFile(string path, string username);
 #endif // !SOURCE_H
