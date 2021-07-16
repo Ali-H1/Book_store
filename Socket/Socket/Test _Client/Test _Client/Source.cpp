@@ -159,7 +159,7 @@ int main()
 			str3 = str + "." + str2;
 			res = "..\\" + str3;
 			
-				SendFile(res);
+				SendFile("..\\test2.txt");
 			
 			});
 		ConnectionThread.join();

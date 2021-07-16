@@ -110,6 +110,7 @@ void  Recieve(int socketid , char* buffer , int size)
 			queue = item->second;
 		QueueListDoor.unlock();
 		queue->Write(fp.Buffer, fp.Read);
+		cv.notify_all();
 	}
 	break;
 	default:
@@ -159,10 +160,10 @@ int SendFile(string path , string username)
 	{
 		id = rand() % 9000 + 1000;
 	} while (Queue_List.find(id) != Queue_List.end());
+	QueueDoor.lock();
 	Queue* item = Queue::Upload(ClinetID, path, id, changeprogress);
 	Queue_List.insert(std::pair<int, Queue*>(id, item));
 	QueueListDoor.unlock();
-	//QueueDoor.lock();
 	QueuePacket qp;
 	qp.header = Header::queue;
 	memcpy(qp.FileExtention, item->FileExtention.c_str(), item->FileExtention.size());
@@ -172,13 +173,17 @@ int SendFile(string path , string username)
 	const int size = sizeof(QueuePacket);
 	char Buffer[size];
 	memset(Buffer , 0 , size);
+	QueueDoor.unlock();
 	Serialize< QueuePacket>::serialize(Buffer, qp);
 	send(ClinetID , Buffer , size ,0);
-	//QueueDoor.unlock();
 
 	return item->QueueID;
 }
+void sendfile_thread(string path, string name)
+{
+	std::thread thread_obj(SendFile, path,name);
 
+}
 void  Startup(string ip, int port, UIChangeProgress  uiChangeprogress, UINewClient uiNewclient, UINewRecieve  uiNewrecieve)
 {
 
@@ -203,7 +208,8 @@ void  Startup(string ip, int port, UIChangeProgress  uiChangeprogress, UINewClie
 
 void thread_wait() {
 	std::unique_lock<std::mutex> lck(mtx);
-	while (!ready) cv.wait(lck);
+	cv.wait(lck);
+	int a = 44;
 	
 }
 

@@ -230,10 +230,16 @@ int Database::decode_massage(wstring mssg)
 	}
 	else if (request_type == L"[sign in]")
 	{
+		req = mssg.substr(mssg.find_first_of('-') + 1, mssg.length() - 2 - mssg.find_first_of('-'));
+		wstring email = req.substr(req.find_first_of(':') + 1, req.find_first_of('|') - 1 - req.find_first_of(':'));
+		wstring password = req.substr(req.find_last_of(':') + 1, req.length() - 1 - req.find_last_of(':'));
+
 
 	}
 	else if (request_type == L"[forgot passsword]")
 	{
+		req = mssg.substr(mssg.find_first_of('-') + 1, mssg.length() - 2 - mssg.find_first_of('-'));
+		wstring email = req.substr(req.find_first_of(':') + 1, req.length() - 1 - req.find_last_of(':'));
 
 	}
 	else if (request_type == L"[sign up]")
