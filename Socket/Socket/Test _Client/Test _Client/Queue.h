@@ -5,6 +5,7 @@
 #include <thread>
 #include <mutex>
 #include <fstream>
+#include <vector>
 #include "FileHandler.h"
 #include "Packets.h"
 #include "Serialize.h"

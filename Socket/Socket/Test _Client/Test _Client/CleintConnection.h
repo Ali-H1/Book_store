@@ -29,8 +29,4 @@ private:
 	SOCKET CreateSocket();
 
 };
-
-
 #endif // !CLINETCONNECTION_H
-
-

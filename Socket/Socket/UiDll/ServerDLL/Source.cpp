@@ -179,11 +179,6 @@ int SendFile(string path , string username)
 
 	return item->QueueID;
 }
-void sendfile_thread(string path, string name)
-{
-	std::thread thread_obj(SendFile, path,name);
-
-}
 void  Startup(string ip, int port, UIChangeProgress  uiChangeprogress, UINewClient uiNewclient, UINewRecieve  uiNewrecieve)
 {
 

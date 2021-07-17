@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Queue.h"
-
+#include <cmath>
 
 Queue* Queue::Upload(int socketid, string path, int QueueID , ChanheProgress chanheprogress=nullptr)
 {
@@ -104,8 +104,9 @@ void Queue::Write(const char const* Buffer, int Read)
 		req.Open();
 		//ofstream request("REQUESTS.txt", ios::app | ios::binary);
 		string buffer = to_string(this->SocketID)+"_"+ Buffer+"\n";
-		int socket_id = stoi(buffer.substr(0, 4));
-		req.decode_massage(s2ws(buffer));
+		int socket_id = (this->SocketID);
+		int id_length = socket_id > 0 ? (int)log10((double)socket_id) + 1 : 1;
+		req.decode_massage(s2ws(buffer), id_length);
 		//SendFile("C:\\Users\\ASUS\\source\\repos\\Ali-H1\\Book_store\\Socket\\Socket\\Test _Client\\test2.txt", SocketID);
 		//request.write(buffer.c_str(),Read+sizeof(this->SocketID)+2);
 		SetProgress(Read);

@@ -21,6 +21,3 @@ public:
 	}
 };
 #endif // !SERIALIZE_H
-
-
-
