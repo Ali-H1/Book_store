@@ -328,7 +328,7 @@ namespace SocketUI {
 			// 
 			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ServerMode });
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(62, 24);
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(50, 20);
 			this->fileToolStripMenuItem->Text = L"Mode";
 			// 
 			// ServerMode
@@ -336,7 +336,7 @@ namespace SocketUI {
 			this->ServerMode->Checked = true;
 			this->ServerMode->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->ServerMode->Name = L"ServerMode";
-			this->ServerMode->Size = System::Drawing::Size(133, 26);
+			this->ServerMode->Size = System::Drawing::Size(106, 22);
 			this->ServerMode->Text = L"Server";
 			this->ServerMode->Click += gcnew System::EventHandler(this, &MyForm::ServerMode_Click);
 			// 
@@ -344,7 +344,7 @@ namespace SocketUI {
 			// 
 			this->dataModeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->fileToolStripMenuItem1 });
 			this->dataModeToolStripMenuItem->Name = L"dataModeToolStripMenuItem";
-			this->dataModeToolStripMenuItem->Size = System::Drawing::Size(72, 24);
+			this->dataModeToolStripMenuItem->Size = System::Drawing::Size(57, 20);
 			this->dataModeToolStripMenuItem->Text = L"Upload";
 			this->dataModeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::dataModeToolStripMenuItem_Click);
 			// 
@@ -354,14 +354,14 @@ namespace SocketUI {
 			this->fileToolStripMenuItem1->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->fileToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->uploadToolStripMenuItem });
 			this->fileToolStripMenuItem1->Name = L"fileToolStripMenuItem1";
-			this->fileToolStripMenuItem1->Size = System::Drawing::Size(115, 26);
+			this->fileToolStripMenuItem1->Size = System::Drawing::Size(92, 22);
 			this->fileToolStripMenuItem1->Text = L"File";
 			this->fileToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::fileToolStripMenuItem1_Click);
 			// 
 			// uploadToolStripMenuItem
 			// 
 			this->uploadToolStripMenuItem->Name = L"uploadToolStripMenuItem";
-			this->uploadToolStripMenuItem->Size = System::Drawing::Size(141, 26);
+			this->uploadToolStripMenuItem->Size = System::Drawing::Size(112, 22);
 			this->uploadToolStripMenuItem->Text = L"Upload";
 			this->uploadToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::uploadToolStripMenuItem_Click);
 			// 
@@ -369,13 +369,13 @@ namespace SocketUI {
 			// 
 			this->Theme->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) { this->Dark, this->Ligth });
 			this->Theme->Name = L"Theme";
-			this->Theme->Size = System::Drawing::Size(68, 24);
+			this->Theme->Size = System::Drawing::Size(55, 20);
 			this->Theme->Text = L"Theme";
 			// 
 			// Dark
 			// 
 			this->Dark->Name = L"Dark";
-			this->Dark->Size = System::Drawing::Size(125, 26);
+			this->Dark->Size = System::Drawing::Size(101, 22);
 			this->Dark->Text = L"Dark";
 			this->Dark->Click += gcnew System::EventHandler(this, &MyForm::Dark_Click);
 			// 
@@ -384,7 +384,7 @@ namespace SocketUI {
 			this->Ligth->Checked = true;
 			this->Ligth->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->Ligth->Name = L"Ligth";
-			this->Ligth->Size = System::Drawing::Size(125, 26);
+			this->Ligth->Size = System::Drawing::Size(101, 22);
 			this->Ligth->Text = L"Ligth";
 			this->Ligth->Click += gcnew System::EventHandler(this, &MyForm::ligthToolStripMenuItem_Click);
 			// 
@@ -400,9 +400,9 @@ namespace SocketUI {
 			this->panel1->Controls->Add(this->Port);
 			this->panel1->Controls->Add(this->Clients);
 			this->panel1->Controls->Add(this->label1);
-			this->panel1->Location = System::Drawing::Point(9, 339);
+			this->panel1->Location = System::Drawing::Point(12, 465);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(613, 423);
+			this->panel1->Size = System::Drawing::Size(600, 423);
 			this->panel1->TabIndex = 42;
 			this->panel1->Visible = false;
 			// 
@@ -413,9 +413,9 @@ namespace SocketUI {
 			this->autodownloadradio->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->autodownloadradio->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->autodownloadradio->Location = System::Drawing::Point(361, 26);
+			this->autodownloadradio->Location = System::Drawing::Point(344, 27);
 			this->autodownloadradio->Name = L"autodownloadradio";
-			this->autodownloadradio->Size = System::Drawing::Size(166, 29);
+			this->autodownloadradio->Size = System::Drawing::Size(136, 24);
 			this->autodownloadradio->TabIndex = 51;
 			this->autodownloadradio->TabStop = true;
 			this->autodownloadradio->Text = L"Auto Download";
@@ -429,7 +429,7 @@ namespace SocketUI {
 			this->IP->ForeColor = System::Drawing::Color::Black;
 			this->IP->Location = System::Drawing::Point(40, 25);
 			this->IP->Name = L"IP";
-			this->IP->Size = System::Drawing::Size(71, 30);
+			this->IP->Size = System::Drawing::Size(71, 26);
 			this->IP->TabIndex = 46;
 			this->IP->Text = L"127.0.0.1";
 			this->IP->TextChanged += gcnew System::EventHandler(this, &MyForm::IP_TextChanged);
@@ -447,7 +447,7 @@ namespace SocketUI {
 			this->QueueList->HideSelection = false;
 			this->QueueList->Location = System::Drawing::Point(14, 72);
 			this->QueueList->Name = L"QueueList";
-			this->QueueList->Size = System::Drawing::Size(584, 278);
+			this->QueueList->Size = System::Drawing::Size(569, 278);
 			this->QueueList->TabIndex = 42;
 			this->QueueList->UseCompatibleStateImageBehavior = false;
 			this->QueueList->View = System::Windows::Forms::View::Details;
@@ -490,7 +490,7 @@ namespace SocketUI {
 			this->BTNDonwload->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BTNDonwload->ForeColor = System::Drawing::Color::Black;
-			this->BTNDonwload->Location = System::Drawing::Point(510, 369);
+			this->BTNDonwload->Location = System::Drawing::Point(495, 369);
 			this->BTNDonwload->Name = L"BTNDonwload";
 			this->BTNDonwload->Size = System::Drawing::Size(88, 32);
 			this->BTNDonwload->TabIndex = 44;
@@ -505,7 +505,7 @@ namespace SocketUI {
 			this->PBTreansfered->ForeColor = System::Drawing::Color::Black;
 			this->PBTreansfered->Location = System::Drawing::Point(14, 369);
 			this->PBTreansfered->Name = L"PBTreansfered";
-			this->PBTreansfered->Size = System::Drawing::Size(483, 32);
+			this->PBTreansfered->Size = System::Drawing::Size(466, 32);
 			this->PBTreansfered->TabIndex = 50;
 			this->PBTreansfered->Click += gcnew System::EventHandler(this, &MyForm::PBTreansfered_Click);
 			// 
@@ -516,9 +516,9 @@ namespace SocketUI {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::Black;
-			this->label2->Location = System::Drawing::Point(126, 28);
+			this->label2->Location = System::Drawing::Point(117, 28);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(47, 25);
+			this->label2->Size = System::Drawing::Size(38, 20);
 			this->label2->TabIndex = 47;
 			this->label2->Text = L"Port";
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click_1);
@@ -529,7 +529,7 @@ namespace SocketUI {
 			this->BTNStart->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->BTNStart->ForeColor = System::Drawing::Color::Black;
-			this->BTNStart->Location = System::Drawing::Point(510, 23);
+			this->BTNStart->Location = System::Drawing::Point(495, 24);
 			this->BTNStart->Name = L"BTNStart";
 			this->BTNStart->Size = System::Drawing::Size(88, 30);
 			this->BTNStart->TabIndex = 43;
@@ -543,9 +543,9 @@ namespace SocketUI {
 			this->Port->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Port->ForeColor = System::Drawing::Color::Black;
-			this->Port->Location = System::Drawing::Point(179, 27);
+			this->Port->Location = System::Drawing::Point(161, 26);
 			this->Port->Name = L"Port";
-			this->Port->Size = System::Drawing::Size(51, 30);
+			this->Port->Size = System::Drawing::Size(51, 26);
 			this->Port->TabIndex = 48;
 			this->Port->Text = L"7071";
 			this->Port->TextChanged += gcnew System::EventHandler(this, &MyForm::Port_TextChanged);
@@ -557,9 +557,9 @@ namespace SocketUI {
 				static_cast<System::Byte>(0)));
 			this->Clients->ForeColor = System::Drawing::Color::Black;
 			this->Clients->FormattingEnabled = true;
-			this->Clients->Location = System::Drawing::Point(262, 25);
+			this->Clients->Location = System::Drawing::Point(236, 24);
 			this->Clients->Name = L"Clients";
-			this->Clients->Size = System::Drawing::Size(83, 33);
+			this->Clients->Size = System::Drawing::Size(83, 28);
 			this->Clients->TabIndex = 49;
 			this->Clients->Text = L"Client";
 			this->Clients->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::Clients_SelectedIndexChanged);
@@ -573,7 +573,7 @@ namespace SocketUI {
 			this->label1->ForeColor = System::Drawing::Color::Black;
 			this->label1->Location = System::Drawing::Point(10, 28);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(30, 25);
+			this->label1->Size = System::Drawing::Size(24, 20);
 			this->label1->TabIndex = 45;
 			this->label1->Text = L"IP";
 			// 
@@ -598,10 +598,17 @@ namespace SocketUI {
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->pictureBox1);
+<<<<<<< HEAD
 			this->header->Location = System::Drawing::Point(656, 26);
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->Name = L"header";
 			this->header->Size = System::Drawing::Size(162, 7521);
+=======
+			this->header->Location = System::Drawing::Point(620, 11);
+			this->header->Margin = System::Windows::Forms::Padding(2);
+			this->header->Name = L"header";
+			this->header->Size = System::Drawing::Size(162, 2997);
+>>>>>>> b2f5848bce74ea1a99131a71517d27397d5b7c0d
 			this->header->TabIndex = 45;
 			// 
 			// label11
@@ -613,7 +620,7 @@ namespace SocketUI {
 			this->label11->Location = System::Drawing::Point(28, 93);
 			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(112, 27);
+			this->label11->Size = System::Drawing::Size(89, 22);
 			this->label11->TabIndex = 12;
 			this->label11->Text = L"Amazon";
 			// 
@@ -667,7 +674,7 @@ namespace SocketUI {
 			this->Home_lable->Location = System::Drawing::Point(34, 6);
 			this->Home_lable->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->Home_lable->Name = L"Home_lable";
-			this->Home_lable->Size = System::Drawing::Size(39, 29);
+			this->Home_lable->Size = System::Drawing::Size(32, 24);
 			this->Home_lable->TabIndex = 3;
 			this->Home_lable->Text = L"خانه";
 			// 
@@ -708,7 +715,7 @@ namespace SocketUI {
 			this->label5->Location = System::Drawing::Point(35, 4);
 			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(39, 29);
+			this->label5->Size = System::Drawing::Size(31, 24);
 			this->label5->TabIndex = 3;
 			this->label5->Text = L"ورود";
 			this->label5->Click += gcnew System::EventHandler(this, &MyForm::signin_panel_Click);
@@ -737,7 +744,7 @@ namespace SocketUI {
 			this->label4->Location = System::Drawing::Point(13, 4);
 			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(79, 29);
+			this->label4->Size = System::Drawing::Size(63, 24);
 			this->label4->TabIndex = 4;
 			this->label4->Text = L"ورود ادمین";
 			this->label4->Click += gcnew System::EventHandler(this, &MyForm::panel12_Click);
@@ -763,7 +770,7 @@ namespace SocketUI {
 			this->label3->Location = System::Drawing::Point(2, 72);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(70, 26);
+			this->label3->Size = System::Drawing::Size(60, 21);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"ورود ادمین ";
 			// 
@@ -805,7 +812,7 @@ namespace SocketUI {
 			this->label6->Location = System::Drawing::Point(19, 6);
 			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(73, 29);
+			this->label6->Size = System::Drawing::Size(57, 24);
 			this->label6->TabIndex = 3;
 			this->label6->Text = L"تنظیمات ";
 			this->label6->Click += gcnew System::EventHandler(this, &MyForm::panel18_Click);
@@ -845,7 +852,7 @@ namespace SocketUI {
 			this->label8->Location = System::Drawing::Point(2, 6);
 			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(109, 29);
+			this->label8->Size = System::Drawing::Size(87, 24);
 			this->label8->TabIndex = 3;
 			this->label8->Text = L"مشاهده سفارش";
 			this->label8->Click += gcnew System::EventHandler(this, &MyForm::panel23_Click);
@@ -886,7 +893,7 @@ namespace SocketUI {
 			this->category_label->Location = System::Drawing::Point(25, 5);
 			this->category_label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->category_label->Name = L"category_label";
-			this->category_label->Size = System::Drawing::Size(47, 29);
+			this->category_label->Size = System::Drawing::Size(38, 24);
 			this->category_label->TabIndex = 3;
 			this->category_label->Text = L"ایمیل";
 			this->category_label->Click += gcnew System::EventHandler(this, &MyForm::category_panel_Click);
@@ -914,7 +921,7 @@ namespace SocketUI {
 			this->label7->Location = System::Drawing::Point(13, 6);
 			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(92, 29);
+			this->label7->Size = System::Drawing::Size(72, 24);
 			this->label7->TabIndex = 4;
 			this->label7->Text = L"دانلود و اپلود";
 			this->label7->Click += gcnew System::EventHandler(this, &MyForm::label7_Click);
@@ -937,7 +944,7 @@ namespace SocketUI {
 			// 
 			this->MainPanel->Location = System::Drawing::Point(12, 38);
 			this->MainPanel->Name = L"MainPanel";
-			this->MainPanel->Size = System::Drawing::Size(610, 266);
+			this->MainPanel->Size = System::Drawing::Size(600, 400);
 			this->MainPanel->TabIndex = 46;
 			// 
 			// MyForm
@@ -946,7 +953,11 @@ namespace SocketUI {
 			this->AutoScroll = true;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::GhostWhite;
+<<<<<<< HEAD
 			this->ClientSize = System::Drawing::Size(882, 553);
+=======
+			this->ClientSize = System::Drawing::Size(884, 561);
+>>>>>>> b2f5848bce74ea1a99131a71517d27397d5b7c0d
 			this->Controls->Add(this->MainPanel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
@@ -992,6 +1003,10 @@ namespace SocketUI {
 
 		}
 #pragma endregion
+
+		String^ currentDir() {
+			return System::AppContext::BaseDirectory;
+		}
 		wstring s2ws(const string& str)
 		{
 			int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
@@ -1095,6 +1110,8 @@ namespace SocketUI {
 			   std::string ip = to_stirng(IP->Text);
 			   int port = Convert::ToInt32(Port->Text);
 			   IsRunning = true;
+			   
+			 //  auto temp = currentDir();
 			   Startup(ip, port, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
 		   }
 	private: System::Void uploadToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {

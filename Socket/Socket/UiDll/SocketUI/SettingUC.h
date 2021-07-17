@@ -69,7 +69,7 @@ namespace SocketUI {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->Controls->Add(this->button1);
 			this->Name = L"SettingUC";
-			this->Size = System::Drawing::Size(525, 414);
+			this->Size = System::Drawing::Size(600, 400);
 			this->ResumeLayout(false);
 
 		}
