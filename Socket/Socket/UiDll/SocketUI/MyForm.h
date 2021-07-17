@@ -598,17 +598,10 @@ namespace SocketUI {
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->pictureBox1);
-<<<<<<< HEAD
-			this->header->Location = System::Drawing::Point(656, 26);
-			this->header->Margin = System::Windows::Forms::Padding(2);
-			this->header->Name = L"header";
-			this->header->Size = System::Drawing::Size(162, 7521);
-=======
 			this->header->Location = System::Drawing::Point(620, 11);
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->Name = L"header";
 			this->header->Size = System::Drawing::Size(162, 2997);
->>>>>>> b2f5848bce74ea1a99131a71517d27397d5b7c0d
 			this->header->TabIndex = 45;
 			// 
 			// label11
@@ -953,11 +946,7 @@ namespace SocketUI {
 			this->AutoScroll = true;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-<<<<<<< HEAD
-			this->ClientSize = System::Drawing::Size(882, 553);
-=======
 			this->ClientSize = System::Drawing::Size(884, 561);
->>>>>>> b2f5848bce74ea1a99131a71517d27397d5b7c0d
 			this->Controls->Add(this->MainPanel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
