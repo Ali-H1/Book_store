@@ -146,7 +146,7 @@ int main()
 	tcpConnection = CleintConnection("127.0.0.1", 7071, Client, Reciev);
 	if (tcpConnection.Init())
 	{
-		{
+		
 			thread ConnectionThread = thread([&]() {tcpConnection.Start(); });
 			thread SendThread = thread([&]() {
 
