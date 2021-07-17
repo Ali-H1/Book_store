@@ -598,10 +598,10 @@ namespace SocketUI {
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->pictureBox1);
-			this->header->Location = System::Drawing::Point(620, 11);
+			this->header->Location = System::Drawing::Point(688, 11);
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->Name = L"header";
-			this->header->Size = System::Drawing::Size(162, 2997);
+			this->header->Size = System::Drawing::Size(162, 3651);
 			this->header->TabIndex = 45;
 			// 
 			// label11
@@ -955,6 +955,7 @@ namespace SocketUI {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(900, 600);
 			this->MinimumSize = System::Drawing::Size(900, 600);
+			this->Name = L"MyForm";
 			this->Opacity = 0.85;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
