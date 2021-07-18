@@ -72,11 +72,11 @@ namespace SocketUI {
 			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(261, 193);
-			this->textBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->textBox2->Location = System::Drawing::Point(210, 215);
+			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->PasswordChar = '.';
-			this->textBox2->Size = System::Drawing::Size(291, 34);
+			this->textBox2->Size = System::Drawing::Size(218, 27);
 			this->textBox2->TabIndex = 19;
 			// 
 			// textBox1
@@ -85,10 +85,10 @@ namespace SocketUI {
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(261, 79);
-			this->textBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->textBox1->Location = System::Drawing::Point(210, 122);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(291, 34);
+			this->textBox1->Size = System::Drawing::Size(218, 28);
 			this->textBox1->TabIndex = 18;
 			// 
 			// button1
@@ -99,10 +99,10 @@ namespace SocketUI {
 			this->button1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button1->ForeColor = System::Drawing::Color::Black;
-			this->button1->Location = System::Drawing::Point(263, 271);
-			this->button1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->button1->Location = System::Drawing::Point(210, 278);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(111, 42);
+			this->button1->Size = System::Drawing::Size(83, 34);
 			this->button1->TabIndex = 17;
 			this->button1->Text = L"ورود";
 			this->button1->UseVisualStyleBackColor = false;
@@ -113,9 +113,10 @@ namespace SocketUI {
 			this->label3->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label3->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label3->Location = System::Drawing::Point(257, 161);
+			this->label3->Location = System::Drawing::Point(296, 178);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(56, 29);
+			this->label3->Size = System::Drawing::Size(46, 24);
 			this->label3->TabIndex = 16;
 			this->label3->Text = L"گذرواژه";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -126,31 +127,32 @@ namespace SocketUI {
 			this->label4->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label4->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label4->Location = System::Drawing::Point(257, 31);
+			this->label4->Location = System::Drawing::Point(289, 83);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(76, 29);
+			this->label4->Size = System::Drawing::Size(61, 24);
 			this->label4->TabIndex = 15;
 			this->label4->Text = L"نام کاربری";
 			// 
 			// button2
 			// 
-			this->button2->BackColor = System::Drawing::Color::MediumTurquoise;
+			this->button2->BackColor = System::Drawing::Color::Lime;
 			this->button2->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button2->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button2->ForeColor = System::Drawing::Color::Black;
-			this->button2->Location = System::Drawing::Point(400, 271);
-			this->button2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->button2->Location = System::Drawing::Point(314, 278);
+			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(152, 42);
+			this->button2->Size = System::Drawing::Size(114, 34);
 			this->button2->TabIndex = 20;
 			this->button2->Text = L"فراموشی رمز عبور";
 			this->button2->UseVisualStyleBackColor = false;
 			// 
 			// EnterUC
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::GhostWhite;
 			this->Controls->Add(this->button2);
@@ -159,9 +161,8 @@ namespace SocketUI {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label4);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"EnterUC";
-			this->Size = System::Drawing::Size(800, 369);
+			this->Size = System::Drawing::Size(650, 450);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

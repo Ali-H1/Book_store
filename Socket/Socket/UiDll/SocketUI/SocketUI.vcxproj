@@ -125,6 +125,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BookUC.cpp" />
     <ClCompile Include="EmailUC.cpp" />
     <ClCompile Include="EnterUC.cpp" />
     <ClCompile Include="MyForm.cpp" />
@@ -133,6 +134,9 @@
     <ClCompile Include="SighinAdminUC.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BookUC.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="EmailUC.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -153,6 +157,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BookUC.resx">
+      <DependentUpon>BookUC.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmailUC.resx">
       <DependentUpon>EmailUC.h</DependentUpon>
     </EmbeddedResource>
