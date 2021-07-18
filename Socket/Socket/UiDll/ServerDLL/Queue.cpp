@@ -100,13 +100,13 @@ void Queue::Write(const char const* Buffer, int Read)
 {
 	
 		//this->writefile.write(Buffer, Read);
-		Database req("ServerDataBase.db");
-		req.Open();
+		//Database req("ServerDataBase.db");
+		//req.Open();
 		//ofstream request("REQUESTS.txt", ios::app | ios::binary);
 		string buffer = to_string(this->SocketID)+"_"+ Buffer+"\n";
 		int socket_id = (this->SocketID);
 		int id_length = socket_id > 0 ? (int)log10((double)socket_id) + 1 : 1;
-		req.decode_massage(s2ws(buffer), id_length);
+		//req.decode_massage(s2ws(buffer), id_length);
 		//SendFile("C:\\Users\\ASUS\\source\\repos\\Ali-H1\\Book_store\\Socket\\Socket\\Test _Client\\test2.txt", SocketID);
 		//request.write(buffer.c_str(),Read+sizeof(this->SocketID)+2);
 		SetProgress(Read);

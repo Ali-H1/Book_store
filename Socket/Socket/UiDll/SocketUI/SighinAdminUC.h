@@ -94,7 +94,7 @@ namespace SocketUI {
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(147, 84);
+			this->textBox1->Location = System::Drawing::Point(148, 87);
 			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(218, 28);
@@ -108,7 +108,7 @@ namespace SocketUI {
 			this->button3->Font = (gcnew System::Drawing::Font(L"B Nazanin", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button3->ForeColor = System::Drawing::Color::Black;
-			this->button3->Location = System::Drawing::Point(212, 145);
+			this->button3->Location = System::Drawing::Point(214, 148);
 			this->button3->Margin = System::Windows::Forms::Padding(2);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(87, 49);
@@ -122,7 +122,7 @@ namespace SocketUI {
 			this->label4->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label4->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label4->Location = System::Drawing::Point(143, 30);
+			this->label4->Location = System::Drawing::Point(227, 33);
 			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(61, 24);
@@ -137,7 +137,7 @@ namespace SocketUI {
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->button1);
 			this->Name = L"SighinAdminUC";
-			this->Size = System::Drawing::Size(591, 382);
+			this->Size = System::Drawing::Size(650, 450);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->ResumeLayout(false);

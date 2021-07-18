@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -35,7 +35,10 @@ namespace SocketUI {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::ListView^ listView1;
 	private: System::Windows::Forms::Button^ button1;
+	protected:
+
 	protected:
 
 	private:
@@ -51,26 +54,42 @@ namespace SocketUI {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->listView1 = (gcnew System::Windows::Forms::ListView());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
+			// listView1
+			// 
+			this->listView1->BackColor = System::Drawing::Color::MediumSeaGreen;
+			this->listView1->HideSelection = false;
+			this->listView1->Location = System::Drawing::Point(20, 14);
+			this->listView1->Name = L"listView1";
+			this->listView1->Size = System::Drawing::Size(593, 313);
+			this->listView1->TabIndex = 0;
+			this->listView1->UseCompatibleStateImageBehavior = false;
+			this->listView1->View = System::Windows::Forms::View::Details;
+			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(173, 143);
+			this->button1->BackColor = System::Drawing::Color::Lime;
+			this->button1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(178)));
+			this->button1->Location = System::Drawing::Point(268, 367);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 0;
-			this->button1->Text = L"See";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &SeeUC1::button1_Click);
+			this->button1->Size = System::Drawing::Size(96, 30);
+			this->button1->TabIndex = 1;
+			this->button1->Text = L"ارسال ایمیل ";
+			this->button1->UseVisualStyleBackColor = false;
 			// 
 			// SeeUC1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::GhostWhite;
 			this->Controls->Add(this->button1);
+			this->Controls->Add(this->listView1);
 			this->Name = L"SeeUC1";
-			this->Size = System::Drawing::Size(414, 351);
+			this->Size = System::Drawing::Size(650, 450);
 			this->ResumeLayout(false);
 
 		}

@@ -33,6 +33,9 @@
     <ClCompile Include="EnterUC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BookUC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EnterUC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BookUC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

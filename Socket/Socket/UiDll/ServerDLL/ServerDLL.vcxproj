@@ -96,7 +96,11 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+<<<<<<< HEAD
       <AdditionalDependencies>sqlite3(x86).lib;%(AdditionalDependencies)</AdditionalDependencies>
+=======
+      <AdditionalDependencies>sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+>>>>>>> 2a263fd7f364ad79cee41f6f21d45d68b23ec1d2
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -157,7 +161,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\DataBaseDLL\sqlite3.h" />
     <ClInclude Include="..\..\..\..\..\..\DataBaseDLL\sqlite3ext.h" />
-    <ClInclude Include="appendData.h" />
     <ClInclude Include="FileHandler.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Packets.h" />
@@ -168,7 +171,6 @@
     <ClInclude Include="TCPListener.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="appendData.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
