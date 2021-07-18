@@ -69,7 +69,7 @@ namespace SocketUI {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::Black;
-			this->button1->Location = System::Drawing::Point(479, 60);
+			this->button1->Location = System::Drawing::Point(484, 108);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(97, 35);
 			this->button1->TabIndex = 2;
@@ -82,7 +82,7 @@ namespace SocketUI {
 			this->panel1->Controls->Add(this->textBox1);
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->label4);
-			this->panel1->Location = System::Drawing::Point(70, 120);
+			this->panel1->Location = System::Drawing::Point(75, 168);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(506, 248);
 			this->panel1->TabIndex = 3;
@@ -137,7 +137,7 @@ namespace SocketUI {
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->button1);
 			this->Name = L"SighinAdminUC";
-			this->Size = System::Drawing::Size(650, 450);
+			this->Size = System::Drawing::Size(650, 550);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->ResumeLayout(false);

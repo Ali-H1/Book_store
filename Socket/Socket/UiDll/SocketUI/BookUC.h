@@ -174,7 +174,7 @@ namespace SocketUI {
 			// 
 			this->panel1->Location = System::Drawing::Point(3, 47);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(640, 400);
+			this->panel1->Size = System::Drawing::Size(640, 500);
 			this->panel1->TabIndex = 0;
 			// 
 			// BookUC
@@ -187,7 +187,7 @@ namespace SocketUI {
 			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->panel1);
 			this->Name = L"BookUC";
-			this->Size = System::Drawing::Size(650, 450);
+			this->Size = System::Drawing::Size(650, 550);
 			this->Load += gcnew System::EventHandler(this, &BookUC::BookUC_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
