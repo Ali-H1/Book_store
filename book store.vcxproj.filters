@@ -48,6 +48,9 @@
     <ClCompile Include="Author_Page.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Virtual_Payment_System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -87,6 +90,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Author_Page.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Virtual_Payment_System.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -178,9 +178,6 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TCPListener.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\..\..\DataBaseDLL\bookdata.db" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1198,12 +1198,10 @@ namespace SocketUI {
 
 		void CompeleteTransfer(int Queueid)
 		{
-			std::this_thread::sleep_for(std::chrono::microseconds(10));
 			/// <summary>
 			/// ////////////////
 			/// </summary>
 			/// <param name="Queueid"></param>
-			Thread::Sleep(5000);
 
 			if (this->InvokeRequired)
 			{

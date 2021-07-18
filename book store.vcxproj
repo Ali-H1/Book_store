@@ -138,6 +138,7 @@
     <ClCompile Include="signup.cpp" />
     <ClCompile Include="signin-signup.cpp" />
     <ClCompile Include="signin.cpp" />
+    <ClCompile Include="Virtual_Payment_System.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Author_Page.h">
@@ -175,6 +176,9 @@
     <ClInclude Include="signin.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="Virtual_Payment_System.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Author_Page.resx">
@@ -207,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="signup.resx">
       <DependentUpon>signup.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Virtual_Payment_System.resx">
+      <DependentUpon>Virtual_Payment_System.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

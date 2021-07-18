@@ -54,6 +54,7 @@ namespace bookstore {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label5;
 
 	private:
 		/// <summary>
@@ -80,13 +81,14 @@ namespace bookstore {
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
-			this->panel1->BackColor = System::Drawing::Color::SandyBrown;
+			this->panel1->BackColor = System::Drawing::Color::SteelBlue;
 			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->pictureBox1);
@@ -111,6 +113,7 @@ namespace bookstore {
 			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Magneto", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::DarkOrange;
 			this->label1->Location = System::Drawing::Point(71, 330);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(336, 73);
@@ -155,7 +158,7 @@ namespace bookstore {
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::RoyalBlue;
+			this->button1->BackColor = System::Drawing::Color::SteelBlue;
 			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -194,7 +197,7 @@ namespace bookstore {
 			// 
 			// textBox3
 			// 
-			this->textBox3->BackColor = System::Drawing::Color::RoyalBlue;
+			this->textBox3->BackColor = System::Drawing::Color::SteelBlue;
 			this->textBox3->Cursor = System::Windows::Forms::Cursors::Default;
 			this->textBox3->Location = System::Drawing::Point(593, 347);
 			this->textBox3->Multiline = true;
@@ -205,7 +208,7 @@ namespace bookstore {
 			// 
 			// textBox4
 			// 
-			this->textBox4->BackColor = System::Drawing::Color::RoyalBlue;
+			this->textBox4->BackColor = System::Drawing::Color::SteelBlue;
 			this->textBox4->Cursor = System::Windows::Forms::Cursors::Default;
 			this->textBox4->Location = System::Drawing::Point(593, 225);
 			this->textBox4->Multiline = true;
@@ -214,11 +217,24 @@ namespace bookstore {
 			this->textBox4->Size = System::Drawing::Size(290, 10);
 			this->textBox4->TabIndex = 14;
 			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"B Nazanin", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(178)));
+			this->label5->ForeColor = System::Drawing::Color::DeepSkyBlue;
+			this->label5->Location = System::Drawing::Point(632, 516);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(168, 27);
+			this->label5->TabIndex = 15;
+			this->label5->Text = L"رمز عبورم را فراموش کردم";
+			// 
 			// signin
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->Controls->Add(this->label5);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
@@ -243,6 +259,7 @@ namespace bookstore {
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	signed_in = true;
+	signup::label1->Show();
 }
 };
 }

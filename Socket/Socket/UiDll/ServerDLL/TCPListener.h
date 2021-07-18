@@ -9,7 +9,7 @@
 #pragma comment (lib , "Ws2_32.lib")
 using namespace std;
 typedef void (* Client_Handler)(int SocketID, bool flag);
-typedef void (*Recive_Handler)(int SockerID, char* Buffer, int DataLegth);
+typedef void (*Recive_Handler)(int SocketID, char* Buffer, int DataLegth);
 
 class TCPListener
 {
