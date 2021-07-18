@@ -62,7 +62,7 @@ namespace SocketUI {
 			// 
 			this->listView1->BackColor = System::Drawing::Color::MediumSeaGreen;
 			this->listView1->HideSelection = false;
-			this->listView1->Location = System::Drawing::Point(20, 14);
+			this->listView1->Location = System::Drawing::Point(30, 36);
 			this->listView1->Name = L"listView1";
 			this->listView1->Size = System::Drawing::Size(593, 313);
 			this->listView1->TabIndex = 0;
@@ -74,7 +74,7 @@ namespace SocketUI {
 			this->button1->BackColor = System::Drawing::Color::Lime;
 			this->button1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->button1->Location = System::Drawing::Point(268, 367);
+			this->button1->Location = System::Drawing::Point(278, 389);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(96, 30);
 			this->button1->TabIndex = 1;

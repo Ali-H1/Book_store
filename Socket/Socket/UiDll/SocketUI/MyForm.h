@@ -75,6 +75,23 @@ namespace SocketUI {
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label14;
+	private: System::Windows::Forms::TextBox^ textBox4;
+	private: System::Windows::Forms::Label^ label13;
+	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ button3;
+
+
+
+
+
+
+
+
+
+
+
 
 		   bool IsRunning;
 	public:
@@ -152,9 +169,9 @@ namespace SocketUI {
 	private: System::Windows::Forms::Panel^ header;
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-	private: System::Windows::Forms::Panel^ Home_panel;
-	private: System::Windows::Forms::PictureBox^ Home_icon;
-	private: System::Windows::Forms::Label^ Home_lable;
+
+
+
 
 	private: System::Windows::Forms::Panel^ category_panel;
 	private: System::Windows::Forms::PictureBox^ category_icon;
@@ -242,9 +259,12 @@ namespace SocketUI {
 			this->header = (gcnew System::Windows::Forms::Panel());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->Home_panel = (gcnew System::Windows::Forms::Panel());
-			this->Home_icon = (gcnew System::Windows::Forms::PictureBox());
-			this->Home_lable = (gcnew System::Windows::Forms::Label());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->signin_panel = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -273,8 +293,6 @@ namespace SocketUI {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->header->SuspendLayout();
 			this->flowLayoutPanel1->SuspendLayout();
-			this->Home_panel->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Home_icon))->BeginInit();
 			this->signin_panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->panel12->SuspendLayout();
@@ -409,7 +427,7 @@ namespace SocketUI {
 			this->panel1->Controls->Add(this->Port);
 			this->panel1->Controls->Add(this->Clients);
 			this->panel1->Controls->Add(this->label1);
-			this->panel1->Location = System::Drawing::Point(12, 520);
+			this->panel1->Location = System::Drawing::Point(26, 514);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(650, 423);
 			this->panel1->TabIndex = 42;
@@ -607,10 +625,12 @@ namespace SocketUI {
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->pictureBox1);
-			this->header->Location = System::Drawing::Point(705, 26);
+			this->header->Location = System::Drawing::Point(673, 37);
 			this->header->Margin = System::Windows::Forms::Padding(2);
+			this->header->MaximumSize = System::Drawing::Size(160, 900);
+			this->header->MinimumSize = System::Drawing::Size(160, 900);
 			this->header->Name = L"header";
-			this->header->Size = System::Drawing::Size(162, 900);
+			this->header->Size = System::Drawing::Size(160, 900);
 			this->header->TabIndex = 45;
 			// 
 			// label11
@@ -628,7 +648,12 @@ namespace SocketUI {
 			// 
 			// flowLayoutPanel1
 			// 
-			this->flowLayoutPanel1->Controls->Add(this->Home_panel);
+			this->flowLayoutPanel1->Controls->Add(this->label14);
+			this->flowLayoutPanel1->Controls->Add(this->textBox4);
+			this->flowLayoutPanel1->Controls->Add(this->label13);
+			this->flowLayoutPanel1->Controls->Add(this->textBox3);
+			this->flowLayoutPanel1->Controls->Add(this->button4);
+			this->flowLayoutPanel1->Controls->Add(this->button3);
 			this->flowLayoutPanel1->Controls->Add(this->signin_panel);
 			this->flowLayoutPanel1->Controls->Add(this->panel12);
 			this->flowLayoutPanel1->Controls->Add(this->panel3);
@@ -636,50 +661,97 @@ namespace SocketUI {
 			this->flowLayoutPanel1->Controls->Add(this->panel23);
 			this->flowLayoutPanel1->Controls->Add(this->category_panel);
 			this->flowLayoutPanel1->Controls->Add(this->panel2);
-			this->flowLayoutPanel1->Location = System::Drawing::Point(15, 133);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(15, 148);
 			this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(2);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(136, 382);
+			this->flowLayoutPanel1->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->flowLayoutPanel1->Size = System::Drawing::Size(136, 550);
 			this->flowLayoutPanel1->TabIndex = 11;
 			// 
-			// Home_panel
+			// label14
 			// 
-			this->Home_panel->BackColor = System::Drawing::Color::GhostWhite;
-			this->Home_panel->Controls->Add(this->Home_icon);
-			this->Home_panel->Controls->Add(this->Home_lable);
-			this->Home_panel->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->Home_panel->Location = System::Drawing::Point(4, 4);
-			this->Home_panel->Margin = System::Windows::Forms::Padding(4);
-			this->Home_panel->Name = L"Home_panel";
-			this->Home_panel->Size = System::Drawing::Size(120, 37);
-			this->Home_panel->TabIndex = 7;
-			// 
-			// Home_icon
-			// 
-			this->Home_icon->BackColor = System::Drawing::Color::Transparent;
-			this->Home_icon->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Home_icon.Image")));
-			this->Home_icon->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->Home_icon->Location = System::Drawing::Point(85, 2);
-			this->Home_icon->Margin = System::Windows::Forms::Padding(2);
-			this->Home_icon->Name = L"Home_icon";
-			this->Home_icon->Size = System::Drawing::Size(35, 35);
-			this->Home_icon->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->Home_icon->TabIndex = 1;
-			this->Home_icon->TabStop = false;
-			// 
-			// Home_lable
-			// 
-			this->Home_lable->AutoSize = true;
-			this->Home_lable->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label14->AutoSize = true;
+			this->label14->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->label14->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->Home_lable->ForeColor = System::Drawing::Color::Black;
-			this->Home_lable->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->Home_lable->Location = System::Drawing::Point(26, 6);
-			this->Home_lable->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->Home_lable->Name = L"Home_lable";
-			this->Home_lable->Size = System::Drawing::Size(32, 24);
-			this->Home_lable->TabIndex = 3;
-			this->Home_lable->Text = L"خانه";
+			this->label14->Location = System::Drawing::Point(73, 0);
+			this->label14->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(61, 24);
+			this->label14->TabIndex = 21;
+			this->label14->Text = L"نام کاربری";
+			// 
+			// textBox4
+			// 
+			this->textBox4->BackColor = System::Drawing::Color::Lime;
+			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox4->Location = System::Drawing::Point(-2, 26);
+			this->textBox4->Margin = System::Windows::Forms::Padding(2);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(136, 28);
+			this->textBox4->TabIndex = 24;
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->label13->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(178)));
+			this->label13->Location = System::Drawing::Point(88, 56);
+			this->label13->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(46, 24);
+			this->label13->TabIndex = 22;
+			this->label13->Text = L"گذرواژه";
+			this->label13->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			// 
+			// textBox3
+			// 
+			this->textBox3->BackColor = System::Drawing::Color::Lime;
+			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox3->Location = System::Drawing::Point(-2, 82);
+			this->textBox3->Margin = System::Windows::Forms::Padding(2);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->PasswordChar = '.';
+			this->textBox3->Size = System::Drawing::Size(136, 27);
+			this->textBox3->TabIndex = 25;
+			// 
+			// button4
+			// 
+			this->button4->BackColor = System::Drawing::Color::Lime;
+			this->button4->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button4->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(178)));
+			this->button4->ForeColor = System::Drawing::Color::Black;
+			this->button4->Location = System::Drawing::Point(41, 113);
+			this->button4->Margin = System::Windows::Forms::Padding(2);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(93, 34);
+			this->button4->TabIndex = 23;
+			this->button4->Text = L"ورود";
+			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+			// 
+			// button3
+			// 
+			this->button3->BackColor = System::Drawing::Color::Lime;
+			this->button3->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(178)));
+			this->button3->ForeColor = System::Drawing::Color::Black;
+			this->button3->Location = System::Drawing::Point(41, 151);
+			this->button3->Margin = System::Windows::Forms::Padding(2);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(93, 34);
+			this->button3->TabIndex = 26;
+			this->button3->Text = L"فراموشی رمز عبور";
+			this->button3->UseVisualStyleBackColor = false;
 			// 
 			// signin_panel
 			// 
@@ -688,11 +760,12 @@ namespace SocketUI {
 			this->signin_panel->Controls->Add(this->pictureBox2);
 			this->signin_panel->Controls->Add(this->label5);
 			this->signin_panel->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->signin_panel->Location = System::Drawing::Point(2, 47);
+			this->signin_panel->Location = System::Drawing::Point(14, 189);
 			this->signin_panel->Margin = System::Windows::Forms::Padding(2);
 			this->signin_panel->Name = L"signin_panel";
 			this->signin_panel->Size = System::Drawing::Size(120, 37);
 			this->signin_panel->TabIndex = 6;
+			this->signin_panel->Visible = false;
 			this->signin_panel->Click += gcnew System::EventHandler(this, &MyForm::signin_panel_Click);
 			this->signin_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::signin_panel_Paint);
 			// 
@@ -730,11 +803,12 @@ namespace SocketUI {
 			this->panel12->Controls->Add(this->pictureBox4);
 			this->panel12->Controls->Add(this->label3);
 			this->panel12->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel12->Location = System::Drawing::Point(4, 90);
+			this->panel12->Location = System::Drawing::Point(12, 232);
 			this->panel12->Margin = System::Windows::Forms::Padding(4);
 			this->panel12->Name = L"panel12";
 			this->panel12->Size = System::Drawing::Size(120, 37);
 			this->panel12->TabIndex = 6;
+			this->panel12->Visible = false;
 			this->panel12->Click += gcnew System::EventHandler(this, &MyForm::panel12_Click);
 			this->panel12->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel12_Paint);
 			// 
@@ -783,11 +857,12 @@ namespace SocketUI {
 			this->panel3->Controls->Add(this->pictureBox5);
 			this->panel3->Controls->Add(this->label9);
 			this->panel3->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel3->Location = System::Drawing::Point(4, 135);
+			this->panel3->Location = System::Drawing::Point(12, 277);
 			this->panel3->Margin = System::Windows::Forms::Padding(4);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(120, 37);
 			this->panel3->TabIndex = 6;
+			this->panel3->Visible = false;
 			this->panel3->Click += gcnew System::EventHandler(this, &MyForm::panel3_Click);
 			// 
 			// pictureBox5
@@ -825,11 +900,12 @@ namespace SocketUI {
 			this->panel18->Controls->Add(this->pictureBox7);
 			this->panel18->Controls->Add(this->label6);
 			this->panel18->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel18->Location = System::Drawing::Point(4, 180);
+			this->panel18->Location = System::Drawing::Point(12, 322);
 			this->panel18->Margin = System::Windows::Forms::Padding(4);
 			this->panel18->Name = L"panel18";
 			this->panel18->Size = System::Drawing::Size(120, 37);
 			this->panel18->TabIndex = 5;
+			this->panel18->Visible = false;
 			this->panel18->Click += gcnew System::EventHandler(this, &MyForm::panel18_Click);
 			this->panel18->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel18_Paint);
 			// 
@@ -868,11 +944,12 @@ namespace SocketUI {
 			this->panel23->Controls->Add(this->pictureBox9);
 			this->panel23->Controls->Add(this->label8);
 			this->panel23->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel23->Location = System::Drawing::Point(4, 225);
+			this->panel23->Location = System::Drawing::Point(12, 367);
 			this->panel23->Margin = System::Windows::Forms::Padding(4);
 			this->panel23->Name = L"panel23";
 			this->panel23->Size = System::Drawing::Size(120, 37);
 			this->panel23->TabIndex = 10;
+			this->panel23->Visible = false;
 			this->panel23->Click += gcnew System::EventHandler(this, &MyForm::panel23_Click);
 			// 
 			// pictureBox9
@@ -908,11 +985,12 @@ namespace SocketUI {
 			this->category_panel->Controls->Add(this->category_icon);
 			this->category_panel->Controls->Add(this->category_label);
 			this->category_panel->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->category_panel->Location = System::Drawing::Point(4, 270);
+			this->category_panel->Location = System::Drawing::Point(12, 412);
 			this->category_panel->Margin = System::Windows::Forms::Padding(4);
 			this->category_panel->Name = L"category_panel";
 			this->category_panel->Size = System::Drawing::Size(120, 37);
 			this->category_panel->TabIndex = 9;
+			this->category_panel->Visible = false;
 			this->category_panel->Click += gcnew System::EventHandler(this, &MyForm::category_panel_Click);
 			this->category_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::category_panel_Paint);
 			// 
@@ -949,11 +1027,12 @@ namespace SocketUI {
 			this->panel2->Controls->Add(this->label7);
 			this->panel2->Controls->Add(this->pictureBox3);
 			this->panel2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel2->Location = System::Drawing::Point(4, 315);
+			this->panel2->Location = System::Drawing::Point(12, 457);
 			this->panel2->Margin = System::Windows::Forms::Padding(4);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(120, 37);
 			this->panel2->TabIndex = 10;
+			this->panel2->Visible = false;
 			this->panel2->Click += gcnew System::EventHandler(this, &MyForm::label7_Click);
 			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel2_Paint);
 			// 
@@ -987,7 +1066,10 @@ namespace SocketUI {
 			// 
 			// MainPanel
 			// 
-			this->MainPanel->Location = System::Drawing::Point(12, 38);
+			this->MainPanel->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->MainPanel->Location = System::Drawing::Point(8, 38);
+			this->MainPanel->MaximumSize = System::Drawing::Size(650, 454);
+			this->MainPanel->MinimumSize = System::Drawing::Size(650, 454);
 			this->MainPanel->Name = L"MainPanel";
 			this->MainPanel->Size = System::Drawing::Size(650, 454);
 			this->MainPanel->TabIndex = 46;
@@ -1017,9 +1099,7 @@ namespace SocketUI {
 			this->header->ResumeLayout(false);
 			this->header->PerformLayout();
 			this->flowLayoutPanel1->ResumeLayout(false);
-			this->Home_panel->ResumeLayout(false);
-			this->Home_panel->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Home_icon))->EndInit();
+			this->flowLayoutPanel1->PerformLayout();
 			this->signin_panel->ResumeLayout(false);
 			this->signin_panel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
@@ -1295,6 +1375,19 @@ namespace SocketUI {
 
 
 	}
+	
+	
+	private: System::Void panel18_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+
+
+
+	}
+	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+
+
+	}
 	private: System::Void category_panel_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		MainPanel->Controls->Clear();
@@ -1307,17 +1400,6 @@ namespace SocketUI {
 		MainPanel->Controls->Clear();
 		SeeUC1^ Uc1 = gcnew SeeUC1();
 		MainPanel->Controls->Add(Uc1);
-
-
-	}
-	private: System::Void panel18_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-
-
-
-	}
-	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 
 
 	}
@@ -1387,7 +1469,7 @@ namespace SocketUI {
 
 
 		this->header->BackColor = System::Drawing::Color::MediumSeaGreen;
-		this->Home_panel->BackColor = System::Drawing::Color::GhostWhite;
+	
 		this->signin_panel->BackColor = System::Drawing::Color::GhostWhite;
 		this->panel12->BackColor = System::Drawing::Color::GhostWhite;
 		this->panel23->BackColor = System::Drawing::Color::GhostWhite;
@@ -1401,7 +1483,6 @@ namespace SocketUI {
 		this->label7->ForeColor = System::Drawing::Color::Black;
 		this->label8->ForeColor = System::Drawing::Color::Black;
 		this->label9->ForeColor = System::Drawing::Color::Black;
-		this->Home_lable->ForeColor = System::Drawing::Color::Black;
 		this->category_label->ForeColor = System::Drawing::Color::Black;
 
 
@@ -1436,7 +1517,6 @@ namespace SocketUI {
 		this->autodownloadradio->ForeColor = System::Drawing::Color::GhostWhite;
 
 		this->header->BackColor = System::Drawing::Color::DarkBlue;
-		this->Home_panel->BackColor = System::Drawing::Color::Black;
 		this->signin_panel->BackColor = System::Drawing::Color::Black;
 		this->panel12->BackColor = System::Drawing::Color::Black;
 		this->panel23->BackColor = System::Drawing::Color::Black;
@@ -1450,7 +1530,6 @@ namespace SocketUI {
 		this->label7->ForeColor = System::Drawing::Color::GhostWhite;
 		this->label8->ForeColor = System::Drawing::Color::GhostWhite;
 		this->label9->ForeColor = System::Drawing::Color::GhostWhite;
-		this->Home_lable->ForeColor = System::Drawing::Color::GhostWhite;
 		this->category_label->ForeColor = System::Drawing::Color::GhostWhite;
 
 
@@ -1458,5 +1537,26 @@ namespace SocketUI {
 
 	}
 	
+
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	panel12->Visible = true;
+	panel3->Visible = true;
+	panel18->Visible = true;
+	panel23->Visible = true;
+	panel2->Visible = true;
+	category_panel->Visible = true;
+
+	textBox3->Visible = false;
+	textBox4->Visible = false;
+
+	label13->Visible = false;
+	label14->Visible = false;
+
+	button3->Visible = false;
+	button4->Visible = false;
+
+
+}
 };
 }

@@ -159,6 +159,7 @@
         SaKlt7BQ0gAAAAAASUVORK5CYII=
 </value>
   </data>
+<<<<<<< HEAD
   <data name="Home_icon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAATVJREFUWEft
@@ -170,6 +171,8 @@
         xRV9DUnPh7wmowAAAABJRU5ErkJggg==
 </value>
   </data>
+=======
+>>>>>>> 6d508d63973b63f6077e271b249ac51ffc7bea0c
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAABGdBTUEAALGPC/xhBQAAAJZQTFRF////
