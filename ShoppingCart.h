@@ -153,12 +153,12 @@ namespace bookstore {
 			this->Title->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->Title->Font = (gcnew System::Drawing::Font(L"B Nazanin", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->Title->Location = System::Drawing::Point(837, 43);
+			this->Title->Location = System::Drawing::Point(839, 43);
 			this->Title->Multiline = false;
 			this->Title->Name = L"Title";
 			this->Title->ReadOnly = true;
 			this->Title->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->Title->Size = System::Drawing::Size(163, 47);
+			this->Title->Size = System::Drawing::Size(161, 47);
 			this->Title->TabIndex = 10;
 			this->Title->Text = L"نام کتاب";
 			// 
@@ -210,13 +210,14 @@ namespace bookstore {
 			this->Summery->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->Summery->CausesValidation = false;
 			this->Summery->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->Summery->DetectUrls = false;
 			this->Summery->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->Summery->Location = System::Drawing::Point(256, 155);
 			this->Summery->Name = L"Summery";
 			this->Summery->ReadOnly = true;
 			this->Summery->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->Summery->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::Vertical;
+			this->Summery->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::None;
 			this->Summery->Size = System::Drawing::Size(659, 175);
 			this->Summery->TabIndex = 6;
 			this->Summery->Text = resources->GetString(L"Summery.Text");

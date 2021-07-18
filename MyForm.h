@@ -397,11 +397,13 @@ private:
 			resources->ApplyResources(this->pictureBox11, L"pictureBox11");
 			this->pictureBox11->Name = L"pictureBox11";
 			this->pictureBox11->TabStop = false;
+			this->pictureBox11->Click += gcnew System::EventHandler(this, &MyForm::Shoping_cart_panel_Click);
 			// 
 			// label10
 			// 
 			resources->ApplyResources(this->label10, L"label10");
 			this->label10->Name = L"label10";
+			this->label10->Click += gcnew System::EventHandler(this, &MyForm::Shoping_cart_panel_Click);
 			// 
 			// category_panel
 			// 
@@ -480,6 +482,7 @@ private:
 			this->panel18->Cursor = System::Windows::Forms::Cursors::Hand;
 			resources->ApplyResources(this->panel18, L"panel18");
 			this->panel18->Name = L"panel18";
+			this->panel18->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
 			// 
 			// pictureBox7
 			// 
@@ -487,6 +490,7 @@ private:
 			resources->ApplyResources(this->pictureBox7, L"pictureBox7");
 			this->pictureBox7->Name = L"pictureBox7";
 			this->pictureBox7->TabStop = false;
+			this->pictureBox7->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
 			// 
 			// label6
 			// 
