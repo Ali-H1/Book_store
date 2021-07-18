@@ -36,6 +36,12 @@
     <ClCompile Include="BookUC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BookAddUC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BookRemoveUC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -57,6 +63,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BookUC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BookAddUC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BookRemoveUC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
