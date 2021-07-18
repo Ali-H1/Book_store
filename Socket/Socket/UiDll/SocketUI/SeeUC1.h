@@ -62,9 +62,9 @@ namespace SocketUI {
 			// 
 			this->listView1->BackColor = System::Drawing::Color::MediumSeaGreen;
 			this->listView1->HideSelection = false;
-			this->listView1->Location = System::Drawing::Point(30, 36);
+			this->listView1->Location = System::Drawing::Point(26, 39);
 			this->listView1->Name = L"listView1";
-			this->listView1->Size = System::Drawing::Size(593, 313);
+			this->listView1->Size = System::Drawing::Size(593, 351);
 			this->listView1->TabIndex = 0;
 			this->listView1->UseCompatibleStateImageBehavior = false;
 			this->listView1->View = System::Windows::Forms::View::Details;
@@ -74,9 +74,9 @@ namespace SocketUI {
 			this->button1->BackColor = System::Drawing::Color::Lime;
 			this->button1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->button1->Location = System::Drawing::Point(278, 389);
+			this->button1->Location = System::Drawing::Point(276, 423);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(96, 30);
+			this->button1->Size = System::Drawing::Size(96, 31);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"ارسال ایمیل ";
 			this->button1->UseVisualStyleBackColor = false;
@@ -89,7 +89,7 @@ namespace SocketUI {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->listView1);
 			this->Name = L"SeeUC1";
-			this->Size = System::Drawing::Size(650, 450);
+			this->Size = System::Drawing::Size(650, 550);
 			this->ResumeLayout(false);
 
 		}

@@ -162,7 +162,7 @@ namespace SocketUI {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label4);
 			this->Name = L"EnterUC";
-			this->Size = System::Drawing::Size(650, 450);
+			this->Size = System::Drawing::Size(650, 550);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

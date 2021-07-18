@@ -65,7 +65,12 @@ namespace SocketUI {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::ListView^ listView1;
+	private: System::Windows::Forms::ColumnHeader^ columnHeader1;
+	private: System::Windows::Forms::ColumnHeader^ columnHeader2;
+	private: System::Windows::Forms::ColumnHeader^ columnHeader3;
+	private: System::Windows::Forms::ColumnHeader^ columnHeader4;
+
 
 	protected:
 
@@ -138,7 +143,11 @@ namespace SocketUI {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->listView1 = (gcnew System::Windows::Forms::ListView());
+			this->columnHeader1 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader2 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader3 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader4 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -172,16 +181,16 @@ namespace SocketUI {
 			this->panel1->Controls->Add(this->textBox1);
 			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->label4);
-			this->panel1->Location = System::Drawing::Point(131, 43);
+			this->panel1->Location = System::Drawing::Point(3, 168);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(506, 354);
+			this->panel1->Size = System::Drawing::Size(634, 314);
 			this->panel1->TabIndex = 2;
 			// 
 			// panel2
 			// 
 			this->panel2->Controls->Add(this->textBox7);
 			this->panel2->Controls->Add(this->label12);
-			this->panel2->Location = System::Drawing::Point(377, 268);
+			this->panel2->Location = System::Drawing::Point(445, 251);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(114, 57);
 			this->panel2->TabIndex = 102;
@@ -222,7 +231,7 @@ namespace SocketUI {
 			this->checkBox2->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->checkBox2->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->checkBox2->Location = System::Drawing::Point(431, 200);
+			this->checkBox2->Location = System::Drawing::Point(496, 183);
 			this->checkBox2->Name = L"checkBox2";
 			this->checkBox2->Size = System::Drawing::Size(60, 28);
 			this->checkBox2->TabIndex = 101;
@@ -235,7 +244,7 @@ namespace SocketUI {
 			this->textBox10->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox10->Location = System::Drawing::Point(138, 142);
+			this->textBox10->Location = System::Drawing::Point(206, 145);
 			this->textBox10->Margin = System::Windows::Forms::Padding(2);
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->Size = System::Drawing::Size(103, 28);
@@ -247,7 +256,7 @@ namespace SocketUI {
 			this->textBox9->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox9->Location = System::Drawing::Point(388, 86);
+			this->textBox9->Location = System::Drawing::Point(456, 89);
 			this->textBox9->Margin = System::Windows::Forms::Padding(2);
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->Size = System::Drawing::Size(103, 28);
@@ -259,7 +268,7 @@ namespace SocketUI {
 			this->textBox8->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox8->Location = System::Drawing::Point(388, 142);
+			this->textBox8->Location = System::Drawing::Point(456, 145);
 			this->textBox8->Margin = System::Windows::Forms::Padding(2);
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->Size = System::Drawing::Size(103, 28);
@@ -271,7 +280,7 @@ namespace SocketUI {
 			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox6->Location = System::Drawing::Point(261, 30);
+			this->textBox6->Location = System::Drawing::Point(329, 33);
 			this->textBox6->Margin = System::Windows::Forms::Padding(2);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(103, 28);
@@ -283,7 +292,7 @@ namespace SocketUI {
 			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox5->Location = System::Drawing::Point(261, 86);
+			this->textBox5->Location = System::Drawing::Point(329, 89);
 			this->textBox5->Margin = System::Windows::Forms::Padding(2);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(103, 28);
@@ -295,7 +304,7 @@ namespace SocketUI {
 			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox4->Location = System::Drawing::Point(261, 139);
+			this->textBox4->Location = System::Drawing::Point(329, 142);
 			this->textBox4->Margin = System::Windows::Forms::Padding(2);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(103, 28);
@@ -307,7 +316,7 @@ namespace SocketUI {
 			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(138, 30);
+			this->textBox3->Location = System::Drawing::Point(206, 33);
 			this->textBox3->Margin = System::Windows::Forms::Padding(2);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(103, 28);
@@ -319,7 +328,7 @@ namespace SocketUI {
 			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(138, 86);
+			this->textBox2->Location = System::Drawing::Point(206, 89);
 			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(103, 28);
@@ -330,7 +339,7 @@ namespace SocketUI {
 			this->button5->BackColor = System::Drawing::Color::Lime;
 			this->button5->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->button5->Location = System::Drawing::Point(14, 195);
+			this->button5->Location = System::Drawing::Point(81, 201);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(75, 31);
 			this->button5->TabIndex = 92;
@@ -342,7 +351,7 @@ namespace SocketUI {
 			this->button2->BackColor = System::Drawing::Color::Lime;
 			this->button2->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->button2->Location = System::Drawing::Point(14, 248);
+			this->button2->Location = System::Drawing::Point(81, 251);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 31);
 			this->button2->TabIndex = 91;
@@ -355,7 +364,7 @@ namespace SocketUI {
 			this->checkBox1->BackColor = System::Drawing::Color::Lime;
 			this->checkBox1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->checkBox1->Location = System::Drawing::Point(420, 234);
+			this->checkBox1->Location = System::Drawing::Point(488, 217);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(71, 28);
 			this->checkBox1->TabIndex = 90;
@@ -366,16 +375,16 @@ namespace SocketUI {
 			// richTextBox1
 			// 
 			this->richTextBox1->BackColor = System::Drawing::Color::MediumSeaGreen;
-			this->richTextBox1->Location = System::Drawing::Point(138, 200);
+			this->richTextBox1->Location = System::Drawing::Point(206, 191);
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(226, 125);
+			this->richTextBox1->Size = System::Drawing::Size(226, 91);
 			this->richTextBox1->TabIndex = 89;
 			this->richTextBox1->Text = L"";
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::MediumSeaGreen;
-			this->pictureBox1->Location = System::Drawing::Point(3, 30);
+			this->pictureBox1->Location = System::Drawing::Point(71, 33);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(103, 137);
 			this->pictureBox1->TabIndex = 88;
@@ -387,7 +396,7 @@ namespace SocketUI {
 			this->label5->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label5->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label5->Location = System::Drawing::Point(229, 328);
+			this->label5->Location = System::Drawing::Point(297, 285);
 			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(43, 24);
@@ -401,7 +410,7 @@ namespace SocketUI {
 			this->label7->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label7->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label7->Location = System::Drawing::Point(333, 60);
+			this->label7->Location = System::Drawing::Point(401, 63);
 			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(31, 24);
@@ -415,7 +424,7 @@ namespace SocketUI {
 			this->label8->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label8->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label8->Location = System::Drawing::Point(460, 60);
+			this->label8->Location = System::Drawing::Point(528, 63);
 			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(31, 24);
@@ -428,7 +437,7 @@ namespace SocketUI {
 			this->label9->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label9->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label9->Location = System::Drawing::Point(215, 60);
+			this->label9->Location = System::Drawing::Point(283, 63);
 			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(26, 24);
@@ -442,7 +451,7 @@ namespace SocketUI {
 			this->label10->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label10->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label10->Location = System::Drawing::Point(203, 116);
+			this->label10->Location = System::Drawing::Point(271, 119);
 			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(38, 24);
@@ -455,7 +464,7 @@ namespace SocketUI {
 			this->label6->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label6->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label6->Location = System::Drawing::Point(285, 116);
+			this->label6->Location = System::Drawing::Point(353, 119);
 			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(79, 24);
@@ -469,7 +478,7 @@ namespace SocketUI {
 			this->label1->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label1->Location = System::Drawing::Point(429, 116);
+			this->label1->Location = System::Drawing::Point(497, 119);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(62, 24);
@@ -483,7 +492,7 @@ namespace SocketUI {
 			this->label2->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label2->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label2->Location = System::Drawing::Point(182, 4);
+			this->label2->Location = System::Drawing::Point(250, 7);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(59, 24);
@@ -496,7 +505,7 @@ namespace SocketUI {
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(388, 30);
+			this->textBox1->Location = System::Drawing::Point(456, 33);
 			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(103, 28);
@@ -508,7 +517,7 @@ namespace SocketUI {
 			this->label3->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label3->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label3->Location = System::Drawing::Point(297, 4);
+			this->label3->Location = System::Drawing::Point(365, 7);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(67, 24);
@@ -522,34 +531,62 @@ namespace SocketUI {
 			this->label4->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label4->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label4->Location = System::Drawing::Point(434, 4);
+			this->label4->Location = System::Drawing::Point(502, 7);
 			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(57, 24);
 			this->label4->TabIndex = 77;
 			this->label4->Text = L"نام کتاب ";
 			// 
-			// comboBox1
+			// listView1
 			// 
-			this->comboBox1->BackColor = System::Drawing::Color::Lime;
-			this->comboBox1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->listView1->BackColor = System::Drawing::Color::MediumSeaGreen;
+			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(4) {
+				this->columnHeader1, this->columnHeader2,
+					this->columnHeader3, this->columnHeader4
+			});
+			this->listView1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Book 1", L"Book 2", L"Book 3" });
-			this->comboBox1->Location = System::Drawing::Point(4, 50);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 32);
-			this->comboBox1->TabIndex = 3;
+			this->listView1->HideSelection = false;
+			this->listView1->Location = System::Drawing::Point(74, 13);
+			this->listView1->Name = L"listView1";
+			this->listView1->Size = System::Drawing::Size(488, 138);
+			this->listView1->TabIndex = 3;
+			this->listView1->UseCompatibleStateImageBehavior = false;
+			this->listView1->View = System::Windows::Forms::View::Details;
+			// 
+			// columnHeader1
+			// 
+			this->columnHeader1->Text = L"نام کتاب ";
+			this->columnHeader1->Width = 110;
+			// 
+			// columnHeader2
+			// 
+			this->columnHeader2->Text = L"نام نویسنده ";
+			this->columnHeader2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->columnHeader2->Width = 128;
+			// 
+			// columnHeader3
+			// 
+			this->columnHeader3->Text = L"نام مترجم";
+			this->columnHeader3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->columnHeader3->Width = 150;
+			// 
+			// columnHeader4
+			// 
+			this->columnHeader4->Text = L"ناشر";
+			this->columnHeader4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->columnHeader4->Width = 85;
 			// 
 			// BookRemoveUC
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->panel1);
 			this->Name = L"BookRemoveUC";
-			this->Size = System::Drawing::Size(640, 400);
+			this->Size = System::Drawing::Size(640, 500);
 			this->Load += gcnew System::EventHandler(this, &BookRemoveUC::BookRemoveUC_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();

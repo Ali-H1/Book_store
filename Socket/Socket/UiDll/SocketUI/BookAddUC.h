@@ -143,7 +143,7 @@ namespace SocketUI {
 			this->panel1->Controls->Add(this->label4);
 			this->panel1->Location = System::Drawing::Point(3, 3);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(634, 394);
+			this->panel1->Size = System::Drawing::Size(637, 494);
 			this->panel1->TabIndex = 1;
 			// 
 			// panel2
@@ -506,7 +506,7 @@ namespace SocketUI {
 			this->BackColor = System::Drawing::Color::GhostWhite;
 			this->Controls->Add(this->panel1);
 			this->Name = L"BookAddUC";
-			this->Size = System::Drawing::Size(640, 400);
+			this->Size = System::Drawing::Size(640, 500);
 			this->Load += gcnew System::EventHandler(this, &BookAddUC::BookAddUC_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
