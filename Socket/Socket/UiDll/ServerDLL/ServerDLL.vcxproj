@@ -96,11 +96,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-<<<<<<< HEAD
-      <AdditionalDependencies>sqlite3(x86).lib;%(AdditionalDependencies)</AdditionalDependencies>
-=======
       <AdditionalDependencies>sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
->>>>>>> 2a263fd7f364ad79cee41f6f21d45d68b23ec1d2
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

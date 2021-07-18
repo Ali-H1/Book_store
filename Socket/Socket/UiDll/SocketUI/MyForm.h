@@ -329,11 +329,7 @@ namespace SocketUI {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-<<<<<<< HEAD
-			this->menuStrip1->Size = System::Drawing::Size(882, 28);
-=======
 			this->menuStrip1->Size = System::Drawing::Size(867, 24);
->>>>>>> 2a263fd7f364ad79cee41f6f21d45d68b23ec1d2
 			this->menuStrip1->TabIndex = 40;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -614,11 +610,7 @@ namespace SocketUI {
 			this->header->Location = System::Drawing::Point(705, 26);
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->Name = L"header";
-<<<<<<< HEAD
-			this->header->Size = System::Drawing::Size(162, 3667);
-=======
 			this->header->Size = System::Drawing::Size(162, 900);
->>>>>>> 2a263fd7f364ad79cee41f6f21d45d68b23ec1d2
 			this->header->TabIndex = 45;
 			// 
 			// label11
@@ -1006,25 +998,16 @@ namespace SocketUI {
 			this->AutoScroll = true;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-<<<<<<< HEAD
-			this->ClientSize = System::Drawing::Size(903, 553);
-=======
 			this->ClientSize = System::Drawing::Size(884, 661);
->>>>>>> 2a263fd7f364ad79cee41f6f21d45d68b23ec1d2
 			this->Controls->Add(this->MainPanel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->menuStrip1);
 			this->HelpButton = true;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-<<<<<<< HEAD
-			this->MaximumSize = System::Drawing::Size(900, 600);
-			this->MinimumSize = System::Drawing::Size(900, 600);
-=======
 			this->MaximumSize = System::Drawing::Size(900, 700);
 			this->MinimumSize = System::Drawing::Size(900, 700);
 			this->Name = L"MyForm";
->>>>>>> 2a263fd7f364ad79cee41f6f21d45d68b23ec1d2
 			this->Opacity = 0.85;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
