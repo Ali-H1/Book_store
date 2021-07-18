@@ -53,7 +53,7 @@ int StartDownload( int queueid)
 	QueueListDoor.unlock();
 	return Queue_List.find(queueid)->second->SocketID ; 
 }
-void  Recieve(int socketid , char* buffer , int size)
+void  Recieve (int socketid , char* buffer , int size)
 {
 	Packet pk;
 	Serialize<Packet>::deserialize(buffer, pk);

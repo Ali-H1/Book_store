@@ -320,7 +320,7 @@ namespace SocketUI {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(861, 28);
+			this->menuStrip1->Size = System::Drawing::Size(882, 28);
 			this->menuStrip1->TabIndex = 40;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -601,7 +601,7 @@ namespace SocketUI {
 			this->header->Location = System::Drawing::Point(599, 11);
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->Name = L"header";
-			this->header->Size = System::Drawing::Size(162, 3332);
+			this->header->Size = System::Drawing::Size(162, 3667);
 			this->header->TabIndex = 45;
 			// 
 			// label11
@@ -946,7 +946,7 @@ namespace SocketUI {
 			this->AutoScroll = true;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-			this->ClientSize = System::Drawing::Size(882, 553);
+			this->ClientSize = System::Drawing::Size(903, 553);
 			this->Controls->Add(this->MainPanel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
@@ -955,7 +955,6 @@ namespace SocketUI {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(900, 600);
 			this->MinimumSize = System::Drawing::Size(900, 600);
-			this->Name = L"MyForm";
 			this->Opacity = 0.85;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
@@ -1063,12 +1062,10 @@ namespace SocketUI {
 
 		void CompeleteTransfer(int Queueid)
 		{
-			std::this_thread::sleep_for(std::chrono::microseconds(10));
 			/// <summary>
 			/// ////////////////
 			/// </summary>
 			/// <param name="Queueid"></param>
-			Thread::Sleep(5000);
 
 			if (this->InvokeRequired)
 			{

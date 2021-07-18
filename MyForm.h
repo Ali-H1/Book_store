@@ -6,10 +6,19 @@
 #include "BookDetail.h"
 #include "Category_Pagel.h"
 #include "Author_Page.h"
+#include "Virtual_Payment_System.h"
 #include <vector>
 #include <string>
 #include <tuple>
 #define booklist vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>>
+	using namespace System;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
+	using namespace System::Threading;
+	using namespace System::Runtime::InteropServices;
 using std::vector;
 using std::string;
 using std::tuple;
@@ -19,25 +28,36 @@ using std::to_string;
 
 vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>> alpha;
 
+		vector <wstring> Genres;
+		vector <wstring> Authors;
+
 namespace bookstore {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
-	using namespace System::Threading;
-	using namespace System::Runtime::InteropServices;
 
 
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
+	/// 
+	//[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
+	//delegate void UIChangeProgress(int queueid, int value);
+	//[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
+	//delegate void UINewClient(std::string, bool flag);
+	//[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
+	//delegate void UINewRecieve(int Queueid, std::string Name, std::string Extention);
 
-	vector <wstring> Genres;
-	vector <wstring> Authors;
 
+	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	//void  Startup(std::string, int, UIChangeProgress^, UINewClient^, UINewRecieve^);
+
+	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	//int SendFile(std::string path, std::string username);
+
+	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	//int StartDownload(int queueid);
+
+	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	//void thread_wait();
 
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
@@ -81,7 +101,9 @@ namespace bookstore {
 				delete components;
 			}
 		}
+
 	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Label^ label_title;
 	private: System::Windows::Forms::PictureBox^ exitbtn;
 	private: System::Windows::Forms::PictureBox^ maxbtn;
 	private: System::Windows::Forms::PictureBox^ minbtn;
@@ -113,11 +135,13 @@ namespace bookstore {
 	private: System::Windows::Forms::Panel^ panel12;
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Panel^ signup_panel;
+	public: System::Windows::Forms::Panel^ signup_panel;
+	private:
 
 	private: System::Windows::Forms::PictureBox^ pictureBox10;
 	private: System::Windows::Forms::Label^ label9;
-	private: System::Windows::Forms::Panel^ Shoping_cart_panel;
+	public: System::Windows::Forms::Panel^ Shoping_cart_panel;
+	private:
 
 	private: System::Windows::Forms::PictureBox^ pictureBox11;
 	private: System::Windows::Forms::Label^ label10;
@@ -143,7 +167,8 @@ namespace bookstore {
 	private: System::Windows::Forms::Panel^ panel28;
 	private: System::Windows::Forms::Panel^ panel29;
 	private: System::Windows::Forms::Panel^ panel30;
-	private: System::Windows::Forms::Panel^ signin_panel;
+public: System::Windows::Forms::Panel^ signin_panel;
+private:
 
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Label^ label1;
@@ -210,6 +235,7 @@ namespace bookstore {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->main_page_panel = (gcnew System::Windows::Forms::Panel());
+			this->label_title = (gcnew System::Windows::Forms::Label());
 			this->recent_books = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
@@ -466,6 +492,7 @@ namespace bookstore {
 			// 
 			resources->ApplyResources(this->label6, L"label6");
 			this->label6->Name = L"label6";
+			this->label6->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
 			// 
 			// panel12
 			// 
@@ -475,6 +502,7 @@ namespace bookstore {
 			this->panel12->Cursor = System::Windows::Forms::Cursors::Hand;
 			resources->ApplyResources(this->panel12, L"panel12");
 			this->panel12->Name = L"panel12";
+			this->panel12->Click += gcnew System::EventHandler(this, &MyForm::panel12_Click);
 			// 
 			// pictureBox4
 			// 
@@ -547,9 +575,16 @@ namespace bookstore {
 			// 
 			resources->ApplyResources(this->main_page_panel, L"main_page_panel");
 			this->main_page_panel->BackColor = System::Drawing::Color::White;
+			this->main_page_panel->Controls->Add(this->label_title);
 			this->main_page_panel->Controls->Add(this->recent_books);
 			this->main_page_panel->Controls->Add(this->pictureBox12);
 			this->main_page_panel->Name = L"main_page_panel";
+			// 
+			// label_title
+			// 
+			resources->ApplyResources(this->label_title, L"label_title");
+			this->label_title->ForeColor = System::Drawing::Color::Orange;
+			this->label_title->Name = L"label_title";
 			// 
 			// recent_books
 			// 
@@ -1050,23 +1085,27 @@ namespace bookstore {
 		}
 
 	}
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	public:void check_if_sighned_in()
+	{
 		if (signed_in)
 		{
-			Shoping_cart_panel->Show();
-			signin_panel->Hide();
-			signup_panel->Hide();
+		 Shoping_cart_panel->Show();
+		 signin_panel->Hide();
+		 signup_panel->Hide();
 		}
 		else
 		{
-			Shoping_cart_panel->Hide();
-
+		 Shoping_cart_panel->Hide();
+	
 		}
+
+	}
+	public: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		check_if_sighned_in();
 	}
 	private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void panel1_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		\
 
 			drag = true;
 		start_point.X = e->X;
@@ -1163,6 +1202,11 @@ namespace bookstore {
 		}
 		main_page_panel->Controls->Clear();
 		main_page_panel->Controls->Add(recent_books);
+		label_title->Dock = DockStyle::Top;
+		label_title->Height = 200;
+		label_title->Text = L" کتاب های " + genre;
+		label_title->Show();
+		main_page_panel->Controls->Add(label_title);
 		recent_books->Controls->Clear();
 		set_book_test(result);
 		recent_books->Show();
@@ -1182,6 +1226,12 @@ namespace bookstore {
 		}
 		main_page_panel->Controls->Clear();
 		main_page_panel->Controls->Add(recent_books);
+		recent_books->Location.Y = 90;
+		main_page_panel->Controls->Add(label_title);
+		label_title->Text = L" آثار  " + Author;
+		label_title->Show();
+		label_title->Dock = DockStyle::Top;
+		label_title->Height = 200;
 		recent_books->Controls->Clear();
 		set_book_test(result);
 		recent_books->Show();
@@ -1226,7 +1276,7 @@ namespace bookstore {
 			   {
 				   Button^ cat = gcnew Button();
 				   cat->Anchor = (AnchorStyles::Right | AnchorStyles::Left);
-				   cat->Click += gcnew EventHandler(this, &MyForm::category_button_Click);
+				   cat->Click += gcnew EventHandler(this, &MyForm::Author_button_Click);
 				   cat->BackColor = Color::DeepSkyBlue;
 				   cat->FlatStyle = FlatStyle::Flat;
 				   cat->Font = (gcnew System::Drawing::Font(L"B Nazanin", 16.2F, FontStyle::Regular, GraphicsUnit::Point,
@@ -1245,6 +1295,24 @@ namespace bookstore {
 			   int index = main_page_panel->Controls->IndexOf(catpanel);
 
 		   }
+			private: Void All_Books() {
+				booklist result;
+				for (int i = 0; i < alpha.size(); i++)
+				{
+						result.push_back(alpha[i]);
+
+				}
+				main_page_panel->Controls->Clear();
+				main_page_panel->Controls->Add(recent_books);
+				main_page_panel->Controls->Add(label_title);
+				label_title->Show();
+				label_title->Text = L"همه کتاب ها ";
+				label_title->Dock = DockStyle::Top;
+				label_title->Height = 200;
+				recent_books->Controls->Clear();
+				set_book_test(result);
+				recent_books->Show();
+			}
 
 	private: System::Void category_label_Click(System::Object^ sender, System::EventArgs^ e) {
 		category_click();
@@ -1276,10 +1344,36 @@ namespace bookstore {
 		CartPage::Cart->Width = 1177;
 		main_page_panel->Controls->Clear();
 		main_page_panel->Controls->Add(CartPage::Cart);
+		Button^ button1 = gcnew Button();
+		button1->BackColor = System::Drawing::Color::SteelBlue;
+		button1->FlatAppearance->BorderColor = System::Drawing::Color::CadetBlue;
+		button1->ForeColor = System::Drawing::Color::White;
+		button1->Name = L"button1";
+		button1->Text=L"پرداخت";
+		button1->UseVisualStyleBackColor = false;
+
+
 	}
 	private: System::Void panel13_Click(System::Object^ sender, System::EventArgs^ e) {
 		author_click();
 	}
-	};
+		   void StartServer()
+		   {
+
+			   //  auto temp = currentDir();
+			  // Startup("127.0.0.1", 7979, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
+		   }
+
+	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
+		Thread^ thread = gcnew Thread(gcnew ThreadStart(this, &MyForm::StartServer));
+		thread->Start();
+		this->Enabled = false;
+
+
+	}
+private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
+	All_Books();
+}
+};
 }
 

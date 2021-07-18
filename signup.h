@@ -17,7 +17,7 @@ using std::wstring;
 
 
 namespace bookstore {
-	static bool signed_in = false;
+	static bool signed_in = true;
 
 	/// <summary>
 	/// Summary for MyUserControl
@@ -59,7 +59,7 @@ namespace bookstore {
 
 
 
-	private: System::Windows::Forms::Label^ label1;
+	public: static System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ fname_bar;
 	private: System::Windows::Forms::TextBox^ lname_bar;

@@ -69,7 +69,4 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\..\..\DataBaseDLL\bookdata.db" />
-  </ItemGroup>
 </Project>

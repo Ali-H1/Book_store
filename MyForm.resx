@@ -803,14 +803,13 @@
   </data>
   <data name="category_icon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAWVJREFUWEft
-        lbtOxDAQRdOAqCho0DqAoESU/AP8BRXfQJ2SBjtARU3Bo96/YFskwBseAkTDs6JcZqIrxEZe29hZROEj
-        XSl7JzMeOTuaLJH4t1S7YqGvxAnpljRoQ1qJTZS3g8NfmwUidX9erEziCDv08jGSuhf7s0uwg6hkfoha
-        W7Dc0MuPddKOmIcVTCXFNde6Up1lWG7Q8QA/o+iX4pNr3RSLU7DcUNITJ13KuRxWMGE3UIoj3EI3tomw
-        /wB9e0p4Q2Ir0ip/6B2sTuAIO/UYSvFuKhSlMt/AEXbo5egxpNwzrqHLzjosfygxegwpv/6Eem9mGpY/
-        rimom/sh2EOQ/8Gx0AasU4CYq4Eex7QUa7D8GTUFCI9soOk39btlZJgChEMbaG8ZIfYt2EbGsow4Rte5
-        zeJn2EbGsozo4AKPQ88m0jIKXkZ0tS9IbEt33suI4VGslDilxOdGoXD5LqNE4u/Isi9tmZMj+g0AVwAA
-        AABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAT1JREFUSEvt
+        VEtuwjAQzRFgAUVcB5U4ZcORepk2tRfttuquLCoEOxAkUX8I0XO0dvzsGmeI4u4ojPTk+T2/zChyVPDk
+        KefsuyEeI1gu2ISok8h4/BxRhTpAJ5xHJesAHctDeNBsn3GaAvyz0FnoFISaIspEPKUKB/ACnaAnSPWC
+        9p8s+BWGHdHrfcc2uEvVtn4dJctb3g4uch6vdRyvV+Kq9yqSjowXpkeB+rIt7lK1nVerCGWcrcypRD0R
+        K+YKfUnsspRdy/NDTvYOv8xLaALMxCUEmy9uRu08vezLuEB+9vkwbpkeSwBfxb/r2l+j36d7eLJ8ux92
+        /UlUjJzmWQcmfXdd7hr9vjJ2LqREyNVV1uWuET3Viah17ec0zw1KBP51EnWTkBMZBP11ACmCWPOM0xTQ
+        Cef99RUO47HJD65BQPy1uRm/AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="category_icon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1046,32 +1045,14 @@
   </data>
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
 </value>
   </data>
   <data name="pictureBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1111,16 +1092,16 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 6</value>
+    <value>10, 6</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 26</value>
+    <value>74, 26</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>ثبت نام</value>
+    <value>آثار نویسنده</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -1184,32 +1165,14 @@
   </data>
   <data name="pictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        AABJRU5ErkJggg==
 </value>
   </data>
   <data name="pictureBox7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1249,16 +1212,16 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 5</value>
+    <value>7, 5</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 26</value>
+    <value>80, 26</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
-    <value>ثبت نام</value>
+    <value>همه کتاب ها</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
@@ -1322,14 +1285,20 @@
   </data>
   <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAXtJREFUSEvt
-        lb9KA0EQxlMr/sEHsLLQdxCtrCzt1LtdFNJbWQhiKSiIwd14aLTwJQQRURAsREylZG+TQrCxsBCE00T9
-        dh0F43F7FxUs8oOPZCcz8yW3k91cmx/BpB5nMixDz9CrQ3e+UKWpguqm8mR4UBtEUcSK+piJcMGXej5J
-        yFlF/iMrhrvUIhkm1Jz5Znyt1kshJzBZR809LZPhQi0ZA1qmIlPNnxtggxeR3KClxRd6GLGtfHDbQaEv
-        ZDKYFuGAL0NGSwvfrI6hQR3xwziTVn71NzBVE2jyBJPTmdJ1F4UtTgMzx0g4d0tV8frCZbhPpRanAT4M
-        oAOXuFSXGMkG3p9QqeVXHhGXehJN6tCRt1LupLAlk4Ef6P7mTfakGkWDCCZn+UD3UPiTTAZxY8o2KiOI
-        78U1N2QyaOV5/i+Dj8Nudvumj0JOsGcF1KQ77DxRGUJyBF1gLJddQp4ZcRzvKY9rg71whLpCYdwF06wH
-        /AF3Ul84bd7J5d4ACvKEH386KgUAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAvVJREFUaEPt
+        mLtuE1EYhA2Igh4Ql4JHSIF4ASTwbgSlK6iBHgro8gA06cILgHel8AIIIS4SDSXEu4CUgnSpSZHGnDHD
+        2Kxnkz1gyK7kT/qkxDPnP79vjXtLDmG8tna8yJLbxTD9TG/hMcbtZ5wPTozy9E54EtvBccVtZOiw3j7G
+        496xYpgMymHy0TyB35x0QhdneLwdFHl6tcyS927pg5ycCWc55ugIr+yVUZa8cEvGiBmYxbH/j3LYX1nE
+        E6j68wn1V3jNv6PMb1wMF24E92cXqHG/zJOHW5urlyD+xmOVjhOdDdzFaxdH+fTm6TJLH4cL9mYuPFAs
+        zuMivOKPXLfGPdyJu3n8z/n6/PrZMHA9+H3mgkZubfbPc4zAY657iLh7HbtwTHO+5YNToyx9EAbszgyM
+        8lO+eo7jRPHs2gXXbejuKOvfx24cV8+HJ5dPFln/Xji0UxkS7QI+WnXujIbJXezKsfOE0rvKob9x8mX/
+        kqdnYMSXvZl58oZrz2MPtFiuPY8rt1muPU8I31bLbTV88V9z7SXdwr2ds7J2ZL3GhEO135fZz2f4/0h6
+        UbhhkLFwHchYuA5kLFwHMo7HDYOMhetAxsJ1IGPhOpBxPG4YZCxcBzIWrgMZC9eBjONxwyBj4TqQsXAd
+        yFi4DmQcjxsGGQvXgYyF60DGwnUg43jcMMhYuA5kLFwHMhauAxnH44ZBxsJ1IGPhOpCxcB3IOB43DDIW
+        rgMZC9eBjIXrQMbxuGGQsXAdyFi4DmQsXAcyjscNg4yF60DGwnUgY+E6kHE8bhhkLFwHMhauAxkL14GM
+        43HDIGPhOpCxcB3IWLgOZByPGwYZC9eBjIXrQMbCdSDjeNwwyFi4DmQsXAcyFq4DGcfjhkHGwnUgY+E6
+        kLFwHcg4HjcMMhauAxkL14GMhetAxku6SZEnr9zb2jJfct16zKFWynXrcYfaKNedpyMfqarzHzFT6oRc
+        f4ordUGuP8WVuiDXnxIe7Mwv8b9c/iK/ZElTer0fWOI6yGWURMEAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="pictureBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1369,16 +1338,16 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 5</value>
+    <value>21, 5</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 26</value>
+    <value>53, 26</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>ورود</value>
+    <value>کتابخانه</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -1712,20 +1681,44 @@
   <data name="main_page_panel.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="label_title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>B Nazanin, 24.2pt</value>
+  </data>
+  <data name="label_title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>442, 3</value>
+  </data>
+  <data name="label_title.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 0, 3, 15</value>
+  </data>
+  <data name="label_title.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 54</value>
+  </data>
+  <data name="label_title.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="label_title.Text" xml:space="preserve">
+    <value>همه کتاب ها </value>
+  </data>
+  <data name="label_title.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="label_title.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;label_title.Name" xml:space="preserve">
+    <value>label_title</value>
+  </data>
+  <data name="&gt;&gt;label_title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label_title.Parent" xml:space="preserve">
+    <value>main_page_panel</value>
+  </data>
+  <data name="&gt;&gt;label_title.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="recent_books.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1007, 20</value>
-  </data>
-  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
   </data>
   <data name="&gt;&gt;panel2.Name" xml:space="preserve">
     <value>panel2</value>
@@ -1739,18 +1732,6 @@
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>840, 20</value>
-  </data>
-  <data name="panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
   <data name="&gt;&gt;panel4.Name" xml:space="preserve">
     <value>panel4</value>
   </data>
@@ -1762,18 +1743,6 @@
   </data>
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="panel10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>673, 20</value>
-  </data>
-  <data name="panel10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel10.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
   </data>
   <data name="&gt;&gt;panel10.Name" xml:space="preserve">
     <value>panel10</value>
@@ -1787,18 +1756,6 @@
   <data name="&gt;&gt;panel10.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>506, 20</value>
-  </data>
-  <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
   <data name="&gt;&gt;panel3.Name" xml:space="preserve">
     <value>panel3</value>
   </data>
@@ -1810,18 +1767,6 @@
   </data>
   <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="panel9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 20</value>
-  </data>
-  <data name="panel9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel9.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
   </data>
   <data name="&gt;&gt;panel9.Name" xml:space="preserve">
     <value>panel9</value>
@@ -1835,18 +1780,6 @@
   <data name="&gt;&gt;panel9.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="panel30.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 20</value>
-  </data>
-  <data name="panel30.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel30.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
   <data name="&gt;&gt;panel30.Name" xml:space="preserve">
     <value>panel30</value>
   </data>
@@ -1858,18 +1791,6 @@
   </data>
   <data name="&gt;&gt;panel30.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="panel29.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1007, 330</value>
-  </data>
-  <data name="panel29.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel29.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel29.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
   </data>
   <data name="&gt;&gt;panel29.Name" xml:space="preserve">
     <value>panel29</value>
@@ -1883,18 +1804,6 @@
   <data name="&gt;&gt;panel29.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="panel8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>840, 330</value>
-  </data>
-  <data name="panel8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel8.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
   <data name="&gt;&gt;panel8.Name" xml:space="preserve">
     <value>panel8</value>
   </data>
@@ -1906,18 +1815,6 @@
   </data>
   <data name="&gt;&gt;panel8.ZOrder" xml:space="preserve">
     <value>7</value>
-  </data>
-  <data name="panel27.Location" type="System.Drawing.Point, System.Drawing">
-    <value>673, 330</value>
-  </data>
-  <data name="panel27.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel27.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel27.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
   </data>
   <data name="&gt;&gt;panel27.Name" xml:space="preserve">
     <value>panel27</value>
@@ -1931,18 +1828,6 @@
   <data name="&gt;&gt;panel27.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>506, 330</value>
-  </data>
-  <data name="panel7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel7.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
   <data name="&gt;&gt;panel7.Name" xml:space="preserve">
     <value>panel7</value>
   </data>
@@ -1954,18 +1839,6 @@
   </data>
   <data name="&gt;&gt;panel7.ZOrder" xml:space="preserve">
     <value>9</value>
-  </data>
-  <data name="panel21.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 330</value>
-  </data>
-  <data name="panel21.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel21.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
   </data>
   <data name="&gt;&gt;panel21.Name" xml:space="preserve">
     <value>panel21</value>
@@ -1979,18 +1852,6 @@
   <data name="&gt;&gt;panel21.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 330</value>
-  </data>
-  <data name="panel6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel6.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
   <data name="&gt;&gt;panel6.Name" xml:space="preserve">
     <value>panel6</value>
   </data>
@@ -2002,18 +1863,6 @@
   </data>
   <data name="&gt;&gt;panel6.ZOrder" xml:space="preserve">
     <value>11</value>
-  </data>
-  <data name="panel17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1007, 640</value>
-  </data>
-  <data name="panel17.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel17.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
   </data>
   <data name="&gt;&gt;panel17.Name" xml:space="preserve">
     <value>panel17</value>
@@ -2027,18 +1876,6 @@
   <data name="&gt;&gt;panel17.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>840, 640</value>
-  </data>
-  <data name="panel5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel5.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
   <data name="&gt;&gt;panel5.Name" xml:space="preserve">
     <value>panel5</value>
   </data>
@@ -2050,18 +1887,6 @@
   </data>
   <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
     <value>13</value>
-  </data>
-  <data name="panel16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>673, 640</value>
-  </data>
-  <data name="panel16.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel16.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
   </data>
   <data name="&gt;&gt;panel16.Name" xml:space="preserve">
     <value>panel16</value>
@@ -2075,18 +1900,6 @@
   <data name="&gt;&gt;panel16.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="panel28.Location" type="System.Drawing.Point, System.Drawing">
-    <value>506, 640</value>
-  </data>
-  <data name="panel28.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel28.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
   <data name="&gt;&gt;panel28.Name" xml:space="preserve">
     <value>panel28</value>
   </data>
@@ -2098,18 +1911,6 @@
   </data>
   <data name="&gt;&gt;panel28.ZOrder" xml:space="preserve">
     <value>15</value>
-  </data>
-  <data name="panel26.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 640</value>
-  </data>
-  <data name="panel26.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel26.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel26.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
   </data>
   <data name="&gt;&gt;panel26.Name" xml:space="preserve">
     <value>panel26</value>
@@ -2123,18 +1924,6 @@
   <data name="&gt;&gt;panel26.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
-  <data name="panel20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 640</value>
-  </data>
-  <data name="panel20.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel20.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
   <data name="&gt;&gt;panel20.Name" xml:space="preserve">
     <value>panel20</value>
   </data>
@@ -2147,18 +1936,6 @@
   <data name="&gt;&gt;panel20.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="panel15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1007, 950</value>
-  </data>
-  <data name="panel15.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel15.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
   <data name="&gt;&gt;panel15.Name" xml:space="preserve">
     <value>panel15</value>
   </data>
@@ -2170,18 +1947,6 @@
   </data>
   <data name="&gt;&gt;panel15.ZOrder" xml:space="preserve">
     <value>18</value>
-  </data>
-  <data name="panel11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>840, 950</value>
-  </data>
-  <data name="panel11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 20, 10, 20</value>
-  </data>
-  <data name="panel11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 270</value>
-  </data>
-  <data name="panel11.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
   </data>
   <data name="&gt;&gt;panel11.Name" xml:space="preserve">
     <value>panel11</value>
@@ -2196,10 +1961,10 @@
     <value>19</value>
   </data>
   <data name="recent_books.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 309</value>
+    <value>25, 309</value>
   </data>
   <data name="recent_books.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1164, 1600</value>
+    <value>1023, 1600</value>
   </data>
   <data name="recent_books.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -2214,7 +1979,7 @@
     <value>main_page_panel</value>
   </data>
   <data name="&gt;&gt;recent_books.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="pictureBox12.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -11506,7 +11271,7 @@
     <value>main_page_panel</value>
   </data>
   <data name="&gt;&gt;pictureBox12.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="main_page_panel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 44</value>
@@ -11531,6 +11296,486 @@
   </data>
   <data name="&gt;&gt;main_page_panel.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>866, 20</value>
+  </data>
+  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>699, 20</value>
+  </data>
+  <data name="panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>532, 20</value>
+  </data>
+  <data name="panel10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel10.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;panel10.Name" xml:space="preserve">
+    <value>panel10</value>
+  </data>
+  <data name="&gt;&gt;panel10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel10.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel10.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 20</value>
+  </data>
+  <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="panel9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="panel9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel9.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;panel9.Name" xml:space="preserve">
+    <value>panel9</value>
+  </data>
+  <data name="&gt;&gt;panel9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel9.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel9.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="panel30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 20</value>
+  </data>
+  <data name="panel30.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel30.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;panel30.Name" xml:space="preserve">
+    <value>panel30</value>
+  </data>
+  <data name="&gt;&gt;panel30.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel30.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel30.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="panel29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>866, 330</value>
+  </data>
+  <data name="panel29.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel29.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;panel29.Name" xml:space="preserve">
+    <value>panel29</value>
+  </data>
+  <data name="&gt;&gt;panel29.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel29.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel29.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="panel8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>699, 330</value>
+  </data>
+  <data name="panel8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel8.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;panel8.Name" xml:space="preserve">
+    <value>panel8</value>
+  </data>
+  <data name="&gt;&gt;panel8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel8.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel8.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="panel27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>532, 330</value>
+  </data>
+  <data name="panel27.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel27.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;panel27.Name" xml:space="preserve">
+    <value>panel27</value>
+  </data>
+  <data name="&gt;&gt;panel27.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel27.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel27.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 330</value>
+  </data>
+  <data name="panel7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel7.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;panel7.Name" xml:space="preserve">
+    <value>panel7</value>
+  </data>
+  <data name="&gt;&gt;panel7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel7.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel7.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="panel21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 330</value>
+  </data>
+  <data name="panel21.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel21.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;panel21.Name" xml:space="preserve">
+    <value>panel21</value>
+  </data>
+  <data name="&gt;&gt;panel21.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel21.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel21.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 330</value>
+  </data>
+  <data name="panel6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel6.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;panel6.Name" xml:space="preserve">
+    <value>panel6</value>
+  </data>
+  <data name="&gt;&gt;panel6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel6.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel6.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="panel17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>866, 640</value>
+  </data>
+  <data name="panel17.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel17.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;panel17.Name" xml:space="preserve">
+    <value>panel17</value>
+  </data>
+  <data name="&gt;&gt;panel17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel17.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel17.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>699, 640</value>
+  </data>
+  <data name="panel5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel5.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;panel5.Name" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="panel16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>532, 640</value>
+  </data>
+  <data name="panel16.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel16.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;panel16.Name" xml:space="preserve">
+    <value>panel16</value>
+  </data>
+  <data name="&gt;&gt;panel16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel16.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel16.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="panel28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 640</value>
+  </data>
+  <data name="panel28.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel28.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;panel28.Name" xml:space="preserve">
+    <value>panel28</value>
+  </data>
+  <data name="&gt;&gt;panel28.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel28.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel28.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="panel26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 640</value>
+  </data>
+  <data name="panel26.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel26.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;panel26.Name" xml:space="preserve">
+    <value>panel26</value>
+  </data>
+  <data name="&gt;&gt;panel26.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel26.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel26.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="panel20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 640</value>
+  </data>
+  <data name="panel20.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel20.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="&gt;&gt;panel20.Name" xml:space="preserve">
+    <value>panel20</value>
+  </data>
+  <data name="&gt;&gt;panel20.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel20.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel20.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="panel15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>866, 950</value>
+  </data>
+  <data name="panel15.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel15.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;panel15.Name" xml:space="preserve">
+    <value>panel15</value>
+  </data>
+  <data name="&gt;&gt;panel15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel15.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel15.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="panel11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>699, 950</value>
+  </data>
+  <data name="panel11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 20, 10, 20</value>
+  </data>
+  <data name="panel11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 270</value>
+  </data>
+  <data name="panel11.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;panel11.Name" xml:space="preserve">
+    <value>panel11</value>
+  </data>
+  <data name="&gt;&gt;panel11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel11.Parent" xml:space="preserve">
+    <value>recent_books</value>
+  </data>
+  <data name="&gt;&gt;panel11.ZOrder" xml:space="preserve">
+    <value>19</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
