@@ -46,7 +46,9 @@ namespace bookstore {
 
 
 	private: System::Windows::Forms::RichTextBox^ Summery;
-	private: System::Windows::Forms::Label^ Prize;
+	private: System::Windows::Forms::Label^ price_label;
+
+
 	private: System::Windows::Forms::Button^ Delete;
 
 
@@ -56,6 +58,7 @@ namespace bookstore {
 	private: System::Windows::Forms::RichTextBox^ Title;
 	private: System::Windows::Forms::RichTextBox^ Author;
 	private: System::Windows::Forms::RichTextBox^ Translator;
+	private: System::Windows::Forms::Label^ amount;
 
 
 
@@ -80,21 +83,23 @@ namespace bookstore {
 			this->Title = (gcnew System::Windows::Forms::RichTextBox());
 			this->Cover = (gcnew System::Windows::Forms::PictureBox());
 			this->Delete = (gcnew System::Windows::Forms::Button());
-			this->Prize = (gcnew System::Windows::Forms::Label());
+			this->price_label = (gcnew System::Windows::Forms::Label());
 			this->Summery = (gcnew System::Windows::Forms::RichTextBox());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->amount = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Cover))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->amount);
 			this->panel1->Controls->Add(this->Author);
 			this->panel1->Controls->Add(this->Translator);
 			this->panel1->Controls->Add(this->Title);
 			this->panel1->Controls->Add(this->Cover);
 			this->panel1->Controls->Add(this->Delete);
-			this->panel1->Controls->Add(this->Prize);
+			this->panel1->Controls->Add(this->price_label);
 			this->panel1->Controls->Add(this->Summery);
 			this->panel1->Controls->Add(this->flowLayoutPanel1);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -183,19 +188,19 @@ namespace bookstore {
 			this->Delete->UseVisualStyleBackColor = false;
 			this->Delete->Click += gcnew System::EventHandler(this, &ShoppingCart::Delete_Click);
 			// 
-			// Prize
+			// price_label
 			// 
-			this->Prize->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->price_label->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->Prize->AutoSize = true;
-			this->Prize->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Prize->Font = (gcnew System::Drawing::Font(L"B Nazanin", 18.2F, System::Drawing::FontStyle::Bold));
-			this->Prize->ForeColor = System::Drawing::Color::DarkGreen;
-			this->Prize->Location = System::Drawing::Point(57, 50);
-			this->Prize->Name = L"Prize";
-			this->Prize->Size = System::Drawing::Size(87, 49);
-			this->Prize->TabIndex = 7;
-			this->Prize->Text = L"20.000";
+			this->price_label->AutoSize = true;
+			this->price_label->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->price_label->Font = (gcnew System::Drawing::Font(L"B Nazanin", 18.2F, System::Drawing::FontStyle::Bold));
+			this->price_label->ForeColor = System::Drawing::Color::DarkGreen;
+			this->price_label->Location = System::Drawing::Point(57, 50);
+			this->price_label->Name = L"price_label";
+			this->price_label->Size = System::Drawing::Size(87, 49);
+			this->price_label->TabIndex = 7;
+			this->price_label->Text = L"20.000";
 			// 
 			// Summery
 			// 
@@ -223,6 +228,17 @@ namespace bookstore {
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
 			this->flowLayoutPanel1->Size = System::Drawing::Size(0, 0);
 			this->flowLayoutPanel1->TabIndex = 1;
+			// 
+			// amount
+			// 
+			this->amount->AutoSize = true;
+			this->amount->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->amount->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F));
+			this->amount->Location = System::Drawing::Point(41, 254);
+			this->amount->Name = L"amount";
+			this->amount->Size = System::Drawing::Size(20, 24);
+			this->amount->TabIndex = 13;
+			this->amount->Text = L"1";
 			// 
 			// ShoppingCart
 			// 

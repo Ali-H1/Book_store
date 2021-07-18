@@ -211,7 +211,7 @@ namespace bookstore {
 #pragma endregion
 		ShoppingCart^ get_data(Panel^ panel)
 		{
-			String^ image, ^ title, ^ author, ^ price;
+			String^ image, ^ title, ^ author, ^ price,^translator;
 			for each (PictureBox ^ imagebox in panel->Controls->Find("book_image", true))
 			{
 
@@ -230,12 +230,20 @@ namespace bookstore {
 				author = labelauthor->Text;
 
 			}
-			//for each (Label ^ labelprice in panel->Controls->Find("book_price", true))
-			//{
+			for each (RichTextBox ^ labelprice in panel->Controls->Find("book_price", true))
+			{
 
-			//	price = labelprice->Text;
+				price = labelprice->Text;
 
-			//}
+			}
+			for each (RichTextBox ^ translatorlabel in panel->Controls->Find("book_translator", true))
+			{
+
+				translator = translatorlabel->Text;
+
+			}
+
+
 
 			ShoppingCart^ page = gcnew ShoppingCart();
 			for each (PictureBox ^ bookimage in page->Controls->Find("Cover", true))
@@ -254,8 +262,24 @@ namespace bookstore {
 			{
 
 				bookauthor->Text = author;
+				bookauthor->ForeColor = Color::LightSteelBlue;
 
 			}
+			for each (Label ^ bookprice in page->Controls->Find("price_label", true))
+			{
+
+				bookprice->Text = price;
+
+			}
+			for each (RichTextBox ^ bookprice in page->Controls->Find("Translator", true))
+			{
+
+				bookprice->Text = translator;
+
+			}
+
+
+
 
 			return page;
 		}

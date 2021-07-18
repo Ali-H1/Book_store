@@ -1336,6 +1336,18 @@ private:
 		main_page_panel->Controls->Add(pictureBox12);
 
 	}
+	private: Void purchase_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		signinsignup^ form2 = gcnew signinsignup();
+		Virtual_Payment_System^ page = gcnew Virtual_Payment_System();
+		form2->Text = "sign up";
+		form2->Height = page->Height+30;
+		form2->Width = page->Width + 30;
+		form2->Text = L"صفحه پرداخت";
+		form2->Controls->Add(page);
+		form2->Show();
+
+	}
+
 	private: System::Void Shoping_cart_panel_Click(System::Object^ sender, System::EventArgs^ e) {
 		Control::ControlCollection^ ctrlCollection = CartPage::Cart->Controls;
 		int countChild = ctrlCollection->Count;
@@ -1344,13 +1356,31 @@ private:
 		CartPage::Cart->Width = 1177;
 		main_page_panel->Controls->Clear();
 		main_page_panel->Controls->Add(CartPage::Cart);
-		Button^ button1 = gcnew Button();
-		button1->BackColor = System::Drawing::Color::SteelBlue;
-		button1->FlatAppearance->BorderColor = System::Drawing::Color::CadetBlue;
-		button1->ForeColor = System::Drawing::Color::White;
-		button1->Name = L"button1";
-		button1->Text=L"پرداخت";
-		button1->UseVisualStyleBackColor = false;
+		ShoppingCart^ Item = gcnew ShoppingCart();
+		bool book_in_cart= false;
+		if (CartPage::Cart->Controls->Count > 0)
+			book_in_cart = true;
+		for each (Control ^ ctrl in CartPage::Cart->Controls->Find("button1", true))
+		{
+			delete ctrl;
+		}
+		if (book_in_cart)
+		{
+			Button^ button1 = gcnew Button();
+			button1->BackColor = System::Drawing::Color::SteelBlue;
+			button1->FlatAppearance->BorderColor = System::Drawing::Color::CadetBlue;
+			button1->ForeColor = System::Drawing::Color::White;
+			button1->Name = L"button1";
+			button1->Text=L"پرداخت";
+			button1->UseVisualStyleBackColor = false;
+			button1->Height = 50;
+			button1->Width=1000;
+			button1->Click += gcnew EventHandler(this, &MyForm::purchase_button_Click);
+
+			CartPage::Cart->Controls->Add(button1);
+
+
+		}
 
 
 	}
