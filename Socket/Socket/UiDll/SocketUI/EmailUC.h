@@ -84,7 +84,7 @@ namespace SocketUI {
 			// 
 			// textBox2
 			// 
-			this->textBox2->BackColor = System::Drawing::Color::Lime;
+			this->textBox2->BackColor = System::Drawing::Color::SpringGreen;
 			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -97,7 +97,7 @@ namespace SocketUI {
 			// 
 			// textBox1
 			// 
-			this->textBox1->BackColor = System::Drawing::Color::Lime;
+			this->textBox1->BackColor = System::Drawing::Color::SpringGreen;
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -136,7 +136,7 @@ namespace SocketUI {
 			// 
 			// textBox3
 			// 
-			this->textBox3->BackColor = System::Drawing::Color::Lime;
+			this->textBox3->BackColor = System::Drawing::Color::SpringGreen;
 			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -149,7 +149,7 @@ namespace SocketUI {
 			// 
 			// textBox4
 			// 
-			this->textBox4->BackColor = System::Drawing::Color::Lime;
+			this->textBox4->BackColor = System::Drawing::Color::SpringGreen;
 			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -188,7 +188,7 @@ namespace SocketUI {
 			// 
 			// textBox5
 			// 
-			this->textBox5->BackColor = System::Drawing::Color::Lime;
+			this->textBox5->BackColor = System::Drawing::Color::SpringGreen;
 			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -224,7 +224,7 @@ namespace SocketUI {
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::Lime;
+			this->button1->BackColor = System::Drawing::Color::SpringGreen;
 			this->button1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button1->Location = System::Drawing::Point(124, 388);
@@ -236,7 +236,7 @@ namespace SocketUI {
 			// 
 			// textBox6
 			// 
-			this->textBox6->BackColor = System::Drawing::Color::Lime;
+			this->textBox6->BackColor = System::Drawing::Color::SpringGreen;
 			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));

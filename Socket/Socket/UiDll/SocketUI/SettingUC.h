@@ -184,7 +184,7 @@ namespace SocketUI {
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::Lime;
+			this->button1->BackColor = System::Drawing::Color::SpringGreen;
 			this->button1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button1->Location = System::Drawing::Point(505, 447);
@@ -196,7 +196,7 @@ namespace SocketUI {
 			// 
 			// button2
 			// 
-			this->button2->BackColor = System::Drawing::Color::Lime;
+			this->button2->BackColor = System::Drawing::Color::SpringGreen;
 			this->button2->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button2->Location = System::Drawing::Point(80, 447);
@@ -208,7 +208,7 @@ namespace SocketUI {
 			// 
 			// button3
 			// 
-			this->button3->BackColor = System::Drawing::Color::Lime;
+			this->button3->BackColor = System::Drawing::Color::SpringGreen;
 			this->button3->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button3->Location = System::Drawing::Point(231, 447);
@@ -220,7 +220,7 @@ namespace SocketUI {
 			// 
 			// button4
 			// 
-			this->button4->BackColor = System::Drawing::Color::Lime;
+			this->button4->BackColor = System::Drawing::Color::SpringGreen;
 			this->button4->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button4->Location = System::Drawing::Point(379, 447);
