@@ -39,29 +39,35 @@ namespace bookstore {
 	/// Summary for MyForm
 	/// </summary>
 	/// 
-	//[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
-	//delegate void UIChangeProgress(int queueid, int value);
-	//[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
-	//delegate void UINewClient(std::string, bool flag);
-	//[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
-	//delegate void UINewRecieve(int Queueid, std::string Name, std::string Extention);
+	[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
+	delegate void UIChangeProgress(int queueid, int value);
+	[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
+	delegate void UINewClient(std::string, bool flag);
+	[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
+	delegate void UINewRecieve(int Queueid, std::string Name, std::string Extention);
 
 
-	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	//void  Startup(std::string, int, UIChangeProgress^, UINewClient^, UINewRecieve^);
+	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	void  Startup(std::string, int, UIChangeProgress^, UINewClient^, UINewRecieve^);
 
-	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	//int SendFile(std::string path, std::string username);
+	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	int SendFile(std::string path, std::string username);
 
-	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	//int StartDownload(int queueid);
+	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	int StartDownload(int queueid);
 
-	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	//void thread_wait();
+	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	void thread_wait();
 
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
+
+		UIChangeProgress^ Event_UIChangeProgress;
+		UINewClient^ Event_UINewClient;
+		UINewRecieve^ Event_UINewRecieve;
+		
+
 		MyForm(void)
 		{
 			InitializeComponent();
@@ -1390,8 +1396,7 @@ private:
 		   void StartServer()
 		   {
 
-			   //  auto temp = currentDir();
-			  // Startup("127.0.0.1", 7979, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
+			     Startup("127.0.0.1", 7979, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
 		   }
 
 	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
