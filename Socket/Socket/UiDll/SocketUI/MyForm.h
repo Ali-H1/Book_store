@@ -625,7 +625,7 @@ namespace SocketUI {
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->pictureBox1);
-			this->header->Location = System::Drawing::Point(650, 38);
+			this->header->Location = System::Drawing::Point(633, 38);
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->MaximumSize = System::Drawing::Size(180, 1000);
 			this->header->MinimumSize = System::Drawing::Size(180, 1000);
@@ -1069,7 +1069,7 @@ namespace SocketUI {
 			// MainPanel
 			// 
 			this->MainPanel->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->MainPanel->Location = System::Drawing::Point(-10, 40);
+			this->MainPanel->Location = System::Drawing::Point(-19, 40);
 			this->MainPanel->MaximumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->MinimumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->Name = L"MainPanel";
@@ -1092,7 +1092,6 @@ namespace SocketUI {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(900, 700);
 			this->MinimumSize = System::Drawing::Size(900, 700);
-			this->Name = L"MyForm";
 			this->Opacity = 0.85;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
