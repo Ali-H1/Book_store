@@ -153,15 +153,15 @@ int main()
 				//sendmessage();
 				string str, str2, str3, res;
 				char* bufferrr;
-				//cout << "Hello & Welcome" << endl;
-				//cout << "Type file name that you want to send " << endl;
-				//getline(cin, str);
-				//cout << "Type format file ?? " << endl;
+				cout << "Hello & Welcome" << endl;
+				cout << "Type file name that you want to send " << endl;
+				getline(cin, str);
+				cout << "Type format file ?? " << endl;
 				getline(cin, str2);
-				//str3 = str + "." + str2;
-				res = "..\\test2.txt";
+				str3 = str + "." + str2;
+				res = "..\\" + str3;
 			
-				SendFile("..\\test2.txt");
+				SendFile(res);
 			
 			});
 		ConnectionThread.join();

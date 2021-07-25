@@ -65,7 +65,7 @@ namespace SocketUI {
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::Lime;
+			this->button1->BackColor = System::Drawing::Color::SpringGreen;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::Black;
@@ -90,7 +90,7 @@ namespace SocketUI {
 			// 
 			// textBox1
 			// 
-			this->textBox1->BackColor = System::Drawing::Color::Lime;
+			this->textBox1->BackColor = System::Drawing::Color::SpringGreen;
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -102,7 +102,7 @@ namespace SocketUI {
 			// 
 			// button3
 			// 
-			this->button3->BackColor = System::Drawing::Color::Lime;
+			this->button3->BackColor = System::Drawing::Color::SpringGreen;
 			this->button3->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button3->Font = (gcnew System::Drawing::Font(L"B Nazanin", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
