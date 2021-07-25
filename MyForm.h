@@ -39,6 +39,12 @@ namespace bookstore {
 	/// Summary for MyForm
 	/// </summary>
 	/// 
+	delegate void DelADDCLIENT(String^, bool);
+	delegate void DelADDQUEUE(array< String^>^);
+	delegate void DelProgressBar(int, int);
+	delegate void DelCompelete(int);
+	delegate void Delrequest();
+
 	[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
 	delegate void UIChangeProgress(int queueid, int value);
 	[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
@@ -62,11 +68,14 @@ namespace bookstore {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
-
+		DelADDCLIENT^ Event_ADDCLIENT;
+		DelADDQUEUE^ Event_ADDQUEUE;
+		DelProgressBar^ Event_Progress;
 		UIChangeProgress^ Event_UIChangeProgress;
 		UINewClient^ Event_UINewClient;
 		UINewRecieve^ Event_UINewRecieve;
-		
+		DelCompelete^ Event_Compelete;
+		Delrequest^ Event_request;
 
 		MyForm(void)
 		{
@@ -403,11 +412,13 @@ private:
 			resources->ApplyResources(this->pictureBox11, L"pictureBox11");
 			this->pictureBox11->Name = L"pictureBox11";
 			this->pictureBox11->TabStop = false;
+			this->pictureBox11->Click += gcnew System::EventHandler(this, &MyForm::Shoping_cart_panel_Click);
 			// 
 			// label10
 			// 
 			resources->ApplyResources(this->label10, L"label10");
 			this->label10->Name = L"label10";
+			this->label10->Click += gcnew System::EventHandler(this, &MyForm::Shoping_cart_panel_Click);
 			// 
 			// category_panel
 			// 
@@ -486,6 +497,7 @@ private:
 			this->panel18->Cursor = System::Windows::Forms::Cursors::Hand;
 			resources->ApplyResources(this->panel18, L"panel18");
 			this->panel18->Name = L"panel18";
+			this->panel18->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
 			// 
 			// pictureBox7
 			// 
@@ -493,6 +505,7 @@ private:
 			resources->ApplyResources(this->pictureBox7, L"pictureBox7");
 			this->pictureBox7->Name = L"pictureBox7";
 			this->pictureBox7->TabStop = false;
+			this->pictureBox7->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
 			// 
 			// label6
 			// 
@@ -509,6 +522,7 @@ private:
 			resources->ApplyResources(this->panel12, L"panel12");
 			this->panel12->Name = L"panel12";
 			this->panel12->Click += gcnew System::EventHandler(this, &MyForm::panel12_Click);
+			this->panel12->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel12_Paint);
 			// 
 			// pictureBox4
 			// 
@@ -1377,10 +1391,10 @@ private:
 			button1->FlatAppearance->BorderColor = System::Drawing::Color::CadetBlue;
 			button1->ForeColor = System::Drawing::Color::White;
 			button1->Name = L"button1";
-			button1->Text=L"پرداخت";
+			button1->Text = L"پرداخت";
 			button1->UseVisualStyleBackColor = false;
 			button1->Height = 50;
-			button1->Width=1000;
+			button1->Width = 1000;
 			button1->Click += gcnew EventHandler(this, &MyForm::purchase_button_Click);
 
 			CartPage::Cart->Controls->Add(button1);
@@ -1395,8 +1409,8 @@ private:
 	}
 		   void StartServer()
 		   {
-
-			     Startup("127.0.0.1", 7979, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
+			   
+			   Startup("127.0.0.1", 7071, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
 		   }
 
 	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1408,6 +1422,8 @@ private:
 	}
 private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
 	All_Books();
+}
+private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }

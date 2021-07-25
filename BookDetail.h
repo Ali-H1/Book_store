@@ -209,8 +209,9 @@ namespace bookstore {
 
 		}
 #pragma endregion
-		ShoppingCart^ get_data(Panel^ panel)
+		void get_data(Panel^ panel)
 		{
+			bool book_is_in_cart = false;
 			String^ image, ^ title, ^ author, ^ price,^translator;
 			for each (PictureBox ^ imagebox in panel->Controls->Find("book_image", true))
 			{
@@ -243,50 +244,75 @@ namespace bookstore {
 
 			}
 
-
-
-			ShoppingCart^ page = gcnew ShoppingCart();
-			for each (PictureBox ^ bookimage in page->Controls->Find("Cover", true))
+			for each (RichTextBox ^ txtbox in CartPage::Cart->Controls->Find("Title", true))
 			{
-
-				bookimage->ImageLocation = image;
-
-			}
-			for each (RichTextBox ^ booktitle in page->Controls->Find("Title", true))
-			{
-
-				booktitle->Text = title;
-
-			}
-			for each (RichTextBox ^ bookauthor in page->Controls->Find("Author", true))
-			{
-
-				bookauthor->Text = author;
-				bookauthor->ForeColor = Color::LightSteelBlue;
-
-			}
-			for each (Label ^ bookprice in page->Controls->Find("price_label", true))
-			{
-
-				bookprice->Text = price;
-
-			}
-			for each (RichTextBox ^ bookprice in page->Controls->Find("Translator", true))
-			{
-
-				bookprice->Text = translator;
+				if (txtbox->Text == title)
+				{ 
+					book_is_in_cart = true;
+				}
 
 			}
 
+			if (!book_is_in_cart)
+			{
+				ShoppingCart^ page = gcnew ShoppingCart();
+				for each (PictureBox ^ bookimage in page->Controls->Find("Cover", true))
+				{
 
+					bookimage->ImageLocation = image;
 
+				}
+				for each (RichTextBox ^ booktitle in page->Controls->Find("Title", true))
+				{
 
-			return page;
+					booktitle->Text = title;
+
+				}
+				for each (RichTextBox ^ bookauthor in page->Controls->Find("Author", true))
+				{
+
+					bookauthor->Text = author;
+					bookauthor->ForeColor = Color::LightSteelBlue;
+
+				}
+				for each (Label ^ bookprice in page->Controls->Find("price_label", true))
+				{
+
+					bookprice->Text = price;
+
+				}
+				for each (RichTextBox ^ bookprice in page->Controls->Find("Translator", true))
+				{
+
+					bookprice->Text = translator;
+
+				}
+
+				CartPage::Cart->Controls->Add(page);
+
+			}
+			else
+			{
+				for each (RichTextBox ^ txtbox in CartPage::Cart->Controls->Find("Title", true))
+				{
+					if (txtbox->Text == title)
+					{
+						for each (Label ^ amount in txtbox->Parent->Controls->Find("amount", true))
+						{
+							int num = int::Parse(amount->Text);
+							num += 1;
+							amount->Text = num.ToString();
+							
+						}
+						
+					}
+
+				}
+
+			}
 		}
 private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-		ShoppingCart^ Item = gcnew ShoppingCart();
-		Item = get_data(this->panel1);
-		CartPage::Cart->Controls->Add(Item);
+		get_data(this->panel1);
 }
 private: System::Void book_translator_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
