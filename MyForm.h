@@ -39,29 +39,44 @@ namespace bookstore {
 	/// Summary for MyForm
 	/// </summary>
 	/// 
-	//[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
-	//delegate void UIChangeProgress(int queueid, int value);
-	//[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
-	//delegate void UINewClient(std::string, bool flag);
-	//[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
-	//delegate void UINewRecieve(int Queueid, std::string Name, std::string Extention);
+	delegate void DelADDCLIENT(String^, bool);
+	delegate void DelADDQUEUE(array< String^>^);
+	delegate void DelProgressBar(int, int);
+	delegate void DelCompelete(int);
+	delegate void Delrequest();
+
+	[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
+	delegate void UIChangeProgress(int queueid, int value);
+	[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
+	delegate void UINewClient(std::string, bool flag);
+	[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
+	delegate void UINewRecieve(int Queueid, std::string Name, std::string Extention);
 
 
-	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	//void  Startup(std::string, int, UIChangeProgress^, UINewClient^, UINewRecieve^);
+	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	void  Startup(std::string, int, UIChangeProgress^, UINewClient^, UINewRecieve^);
 
-	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	//int SendFile(std::string path, std::string username);
+	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	int SendFile(std::string path, std::string username);
 
-	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	//int StartDownload(int queueid);
+	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	int StartDownload(int queueid);
 
-	//[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	//void thread_wait();
+	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	void thread_wait();
 
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
+		DelADDCLIENT^ Event_ADDCLIENT;
+		DelADDQUEUE^ Event_ADDQUEUE;
+		DelProgressBar^ Event_Progress;
+		UIChangeProgress^ Event_UIChangeProgress;
+		UINewClient^ Event_UINewClient;
+		UINewRecieve^ Event_UINewRecieve;
+		DelCompelete^ Event_Compelete;
+		Delrequest^ Event_request;
+
 		MyForm(void)
 		{
 			InitializeComponent();
@@ -507,6 +522,7 @@ private:
 			resources->ApplyResources(this->panel12, L"panel12");
 			this->panel12->Name = L"panel12";
 			this->panel12->Click += gcnew System::EventHandler(this, &MyForm::panel12_Click);
+			this->panel12->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel12_Paint);
 			// 
 			// pictureBox4
 			// 
@@ -1375,10 +1391,10 @@ private:
 			button1->FlatAppearance->BorderColor = System::Drawing::Color::CadetBlue;
 			button1->ForeColor = System::Drawing::Color::White;
 			button1->Name = L"button1";
-			button1->Text=L"پرداخت";
+			button1->Text = L"پرداخت";
 			button1->UseVisualStyleBackColor = false;
 			button1->Height = 50;
-			button1->Width=1000;
+			button1->Width = 1000;
 			button1->Click += gcnew EventHandler(this, &MyForm::purchase_button_Click);
 
 			CartPage::Cart->Controls->Add(button1);
@@ -1393,9 +1409,8 @@ private:
 	}
 		   void StartServer()
 		   {
-
-			   //  auto temp = currentDir();
-			  // Startup("127.0.0.1", 7979, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
+			   
+			   Startup("127.0.0.1", 7071, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
 		   }
 
 	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1407,6 +1422,8 @@ private:
 	}
 private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
 	All_Books();
+}
+private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }

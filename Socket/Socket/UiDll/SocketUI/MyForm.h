@@ -347,7 +347,7 @@ namespace SocketUI {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(884, 24);
+			this->menuStrip1->Size = System::Drawing::Size(861, 28);
 			this->menuStrip1->TabIndex = 40;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -355,7 +355,7 @@ namespace SocketUI {
 			// 
 			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ServerMode });
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(50, 20);
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(62, 24);
 			this->fileToolStripMenuItem->Text = L"Mode";
 			// 
 			// ServerMode
@@ -363,7 +363,7 @@ namespace SocketUI {
 			this->ServerMode->Checked = true;
 			this->ServerMode->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->ServerMode->Name = L"ServerMode";
-			this->ServerMode->Size = System::Drawing::Size(106, 22);
+			this->ServerMode->Size = System::Drawing::Size(133, 26);
 			this->ServerMode->Text = L"Server";
 			this->ServerMode->Click += gcnew System::EventHandler(this, &MyForm::ServerMode_Click);
 			// 
@@ -371,7 +371,7 @@ namespace SocketUI {
 			// 
 			this->dataModeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->fileToolStripMenuItem1 });
 			this->dataModeToolStripMenuItem->Name = L"dataModeToolStripMenuItem";
-			this->dataModeToolStripMenuItem->Size = System::Drawing::Size(57, 20);
+			this->dataModeToolStripMenuItem->Size = System::Drawing::Size(72, 24);
 			this->dataModeToolStripMenuItem->Text = L"Upload";
 			this->dataModeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::dataModeToolStripMenuItem_Click);
 			// 
@@ -381,14 +381,14 @@ namespace SocketUI {
 			this->fileToolStripMenuItem1->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->fileToolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->uploadToolStripMenuItem });
 			this->fileToolStripMenuItem1->Name = L"fileToolStripMenuItem1";
-			this->fileToolStripMenuItem1->Size = System::Drawing::Size(92, 22);
+			this->fileToolStripMenuItem1->Size = System::Drawing::Size(115, 26);
 			this->fileToolStripMenuItem1->Text = L"File";
 			this->fileToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::fileToolStripMenuItem1_Click);
 			// 
 			// uploadToolStripMenuItem
 			// 
 			this->uploadToolStripMenuItem->Name = L"uploadToolStripMenuItem";
-			this->uploadToolStripMenuItem->Size = System::Drawing::Size(112, 22);
+			this->uploadToolStripMenuItem->Size = System::Drawing::Size(141, 26);
 			this->uploadToolStripMenuItem->Text = L"Upload";
 			this->uploadToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::uploadToolStripMenuItem_Click);
 			// 
@@ -396,13 +396,13 @@ namespace SocketUI {
 			// 
 			this->Theme->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) { this->Dark, this->Ligth });
 			this->Theme->Name = L"Theme";
-			this->Theme->Size = System::Drawing::Size(55, 20);
+			this->Theme->Size = System::Drawing::Size(68, 24);
 			this->Theme->Text = L"Theme";
 			// 
 			// Dark
 			// 
 			this->Dark->Name = L"Dark";
-			this->Dark->Size = System::Drawing::Size(101, 22);
+			this->Dark->Size = System::Drawing::Size(125, 26);
 			this->Dark->Text = L"Dark";
 			this->Dark->Click += gcnew System::EventHandler(this, &MyForm::Dark_Click);
 			// 
@@ -411,7 +411,7 @@ namespace SocketUI {
 			this->Ligth->Checked = true;
 			this->Ligth->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->Ligth->Name = L"Ligth";
-			this->Ligth->Size = System::Drawing::Size(101, 22);
+			this->Ligth->Size = System::Drawing::Size(125, 26);
 			this->Ligth->Text = L"Ligth";
 			this->Ligth->Click += gcnew System::EventHandler(this, &MyForm::ligthToolStripMenuItem_Click);
 			// 
@@ -442,7 +442,7 @@ namespace SocketUI {
 			this->autodownloadradio->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->autodownloadradio->Location = System::Drawing::Point(386, 25);
 			this->autodownloadradio->Name = L"autodownloadradio";
-			this->autodownloadradio->Size = System::Drawing::Size(136, 24);
+			this->autodownloadradio->Size = System::Drawing::Size(166, 29);
 			this->autodownloadradio->TabIndex = 51;
 			this->autodownloadradio->TabStop = true;
 			this->autodownloadradio->Text = L"Auto Download";
@@ -456,7 +456,7 @@ namespace SocketUI {
 			this->IP->ForeColor = System::Drawing::Color::Black;
 			this->IP->Location = System::Drawing::Point(47, 25);
 			this->IP->Name = L"IP";
-			this->IP->Size = System::Drawing::Size(71, 26);
+			this->IP->Size = System::Drawing::Size(71, 30);
 			this->IP->TabIndex = 46;
 			this->IP->Text = L"127.0.0.1";
 			this->IP->TextChanged += gcnew System::EventHandler(this, &MyForm::IP_TextChanged);
@@ -545,7 +545,7 @@ namespace SocketUI {
 			this->label2->ForeColor = System::Drawing::Color::Black;
 			this->label2->Location = System::Drawing::Point(141, 27);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(38, 20);
+			this->label2->Size = System::Drawing::Size(47, 25);
 			this->label2->TabIndex = 47;
 			this->label2->Text = L"Port";
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click_1);
@@ -572,7 +572,7 @@ namespace SocketUI {
 			this->Port->ForeColor = System::Drawing::Color::Black;
 			this->Port->Location = System::Drawing::Point(185, 25);
 			this->Port->Name = L"Port";
-			this->Port->Size = System::Drawing::Size(51, 26);
+			this->Port->Size = System::Drawing::Size(51, 30);
 			this->Port->TabIndex = 48;
 			this->Port->Text = L"7071";
 			this->Port->TextChanged += gcnew System::EventHandler(this, &MyForm::Port_TextChanged);
@@ -586,7 +586,7 @@ namespace SocketUI {
 			this->Clients->FormattingEnabled = true;
 			this->Clients->Location = System::Drawing::Point(262, 24);
 			this->Clients->Name = L"Clients";
-			this->Clients->Size = System::Drawing::Size(92, 28);
+			this->Clients->Size = System::Drawing::Size(92, 33);
 			this->Clients->TabIndex = 49;
 			this->Clients->Text = L"Client";
 			this->Clients->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::Clients_SelectedIndexChanged);
@@ -600,7 +600,7 @@ namespace SocketUI {
 			this->label1->ForeColor = System::Drawing::Color::Black;
 			this->label1->Location = System::Drawing::Point(17, 28);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(24, 20);
+			this->label1->Size = System::Drawing::Size(30, 25);
 			this->label1->TabIndex = 45;
 			this->label1->Text = L"IP";
 			// 
@@ -625,7 +625,7 @@ namespace SocketUI {
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->pictureBox1);
-			this->header->Location = System::Drawing::Point(684, 38);
+			this->header->Location = System::Drawing::Point(663, 38);
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->MaximumSize = System::Drawing::Size(180, 1000);
 			this->header->MinimumSize = System::Drawing::Size(180, 1000);
@@ -642,7 +642,7 @@ namespace SocketUI {
 			this->label11->Location = System::Drawing::Point(39, 97);
 			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(89, 22);
+			this->label11->Size = System::Drawing::Size(112, 27);
 			this->label11->TabIndex = 12;
 			this->label11->Text = L"Amazon";
 			// 
@@ -674,10 +674,10 @@ namespace SocketUI {
 			this->label14->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label14->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label14->Location = System::Drawing::Point(81, 0);
+			this->label14->Location = System::Drawing::Point(66, 0);
 			this->label14->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(61, 24);
+			this->label14->Size = System::Drawing::Size(76, 29);
 			this->label14->TabIndex = 21;
 			this->label14->Text = L"نام کاربری";
 			// 
@@ -687,10 +687,10 @@ namespace SocketUI {
 			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox4->Location = System::Drawing::Point(6, 26);
+			this->textBox4->Location = System::Drawing::Point(6, 31);
 			this->textBox4->Margin = System::Windows::Forms::Padding(2);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(136, 28);
+			this->textBox4->Size = System::Drawing::Size(136, 34);
 			this->textBox4->TabIndex = 24;
 			// 
 			// label13
@@ -699,10 +699,10 @@ namespace SocketUI {
 			this->label13->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label13->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label13->Location = System::Drawing::Point(96, 56);
+			this->label13->Location = System::Drawing::Point(86, 67);
 			this->label13->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(46, 24);
+			this->label13->Size = System::Drawing::Size(56, 29);
 			this->label13->TabIndex = 22;
 			this->label13->Text = L"گذرواژه";
 			this->label13->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -713,11 +713,11 @@ namespace SocketUI {
 			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(6, 82);
+			this->textBox3->Location = System::Drawing::Point(6, 98);
 			this->textBox3->Margin = System::Windows::Forms::Padding(2);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->PasswordChar = '.';
-			this->textBox3->Size = System::Drawing::Size(136, 27);
+			this->textBox3->Size = System::Drawing::Size(136, 34);
 			this->textBox3->TabIndex = 25;
 			// 
 			// button4
@@ -728,7 +728,7 @@ namespace SocketUI {
 			this->button4->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button4->ForeColor = System::Drawing::Color::Black;
-			this->button4->Location = System::Drawing::Point(81, 113);
+			this->button4->Location = System::Drawing::Point(81, 136);
 			this->button4->Margin = System::Windows::Forms::Padding(2);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(61, 34);
@@ -745,7 +745,7 @@ namespace SocketUI {
 			this->button3->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
 			this->button3->ForeColor = System::Drawing::Color::Black;
-			this->button3->Location = System::Drawing::Point(33, 151);
+			this->button3->Location = System::Drawing::Point(33, 174);
 			this->button3->Margin = System::Windows::Forms::Padding(2);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(109, 34);
@@ -760,7 +760,7 @@ namespace SocketUI {
 			this->signin_panel->Controls->Add(this->pictureBox2);
 			this->signin_panel->Controls->Add(this->label5);
 			this->signin_panel->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->signin_panel->Location = System::Drawing::Point(0, 189);
+			this->signin_panel->Location = System::Drawing::Point(0, 212);
 			this->signin_panel->Margin = System::Windows::Forms::Padding(2);
 			this->signin_panel->Name = L"signin_panel";
 			this->signin_panel->Size = System::Drawing::Size(142, 37);
@@ -791,7 +791,7 @@ namespace SocketUI {
 			this->label5->Location = System::Drawing::Point(42, 4);
 			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(31, 24);
+			this->label5->Size = System::Drawing::Size(39, 29);
 			this->label5->TabIndex = 3;
 			this->label5->Text = L"ورود";
 			this->label5->Click += gcnew System::EventHandler(this, &MyForm::signin_panel_Click);
@@ -803,7 +803,7 @@ namespace SocketUI {
 			this->panel12->Controls->Add(this->pictureBox4);
 			this->panel12->Controls->Add(this->label3);
 			this->panel12->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel12->Location = System::Drawing::Point(0, 232);
+			this->panel12->Location = System::Drawing::Point(0, 255);
 			this->panel12->Margin = System::Windows::Forms::Padding(4);
 			this->panel12->Name = L"panel12";
 			this->panel12->Size = System::Drawing::Size(140, 37);
@@ -821,7 +821,7 @@ namespace SocketUI {
 			this->label4->Location = System::Drawing::Point(4, 4);
 			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(99, 24);
+			this->label4->Size = System::Drawing::Size(124, 29);
 			this->label4->TabIndex = 4;
 			this->label4->Text = L"اضافه کردن ادمین";
 			this->label4->Click += gcnew System::EventHandler(this, &MyForm::panel12_Click);
@@ -847,7 +847,7 @@ namespace SocketUI {
 			this->label3->Location = System::Drawing::Point(2, 72);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(60, 21);
+			this->label3->Size = System::Drawing::Size(70, 26);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"ورود ادمین ";
 			// 
@@ -857,7 +857,7 @@ namespace SocketUI {
 			this->panel3->Controls->Add(this->pictureBox5);
 			this->panel3->Controls->Add(this->label9);
 			this->panel3->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel3->Location = System::Drawing::Point(-12, 277);
+			this->panel3->Location = System::Drawing::Point(-12, 300);
 			this->panel3->Margin = System::Windows::Forms::Padding(4);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(152, 37);
@@ -889,7 +889,7 @@ namespace SocketUI {
 			this->label9->Location = System::Drawing::Point(45, 6);
 			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(54, 24);
+			this->label9->Size = System::Drawing::Size(68, 29);
 			this->label9->TabIndex = 3;
 			this->label9->Text = L"کتاب ها ";
 			this->label9->Click += gcnew System::EventHandler(this, &MyForm::panel3_Click);
@@ -900,7 +900,7 @@ namespace SocketUI {
 			this->panel18->Controls->Add(this->pictureBox7);
 			this->panel18->Controls->Add(this->label6);
 			this->panel18->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel18->Location = System::Drawing::Point(-12, 322);
+			this->panel18->Location = System::Drawing::Point(-12, 345);
 			this->panel18->Margin = System::Windows::Forms::Padding(4);
 			this->panel18->Name = L"panel18";
 			this->panel18->Size = System::Drawing::Size(152, 37);
@@ -933,7 +933,7 @@ namespace SocketUI {
 			this->label6->Location = System::Drawing::Point(41, 6);
 			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(57, 24);
+			this->label6->Size = System::Drawing::Size(73, 29);
 			this->label6->TabIndex = 3;
 			this->label6->Text = L"تنظیمات ";
 			this->label6->Click += gcnew System::EventHandler(this, &MyForm::panel18_Click);
@@ -944,7 +944,7 @@ namespace SocketUI {
 			this->panel23->Controls->Add(this->pictureBox9);
 			this->panel23->Controls->Add(this->label8);
 			this->panel23->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel23->Location = System::Drawing::Point(0, 367);
+			this->panel23->Location = System::Drawing::Point(0, 390);
 			this->panel23->Margin = System::Windows::Forms::Padding(4);
 			this->panel23->Name = L"panel23";
 			this->panel23->Size = System::Drawing::Size(140, 37);
@@ -974,7 +974,7 @@ namespace SocketUI {
 			this->label8->Location = System::Drawing::Point(13, 6);
 			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(87, 24);
+			this->label8->Size = System::Drawing::Size(109, 29);
 			this->label8->TabIndex = 3;
 			this->label8->Text = L"مشاهده سفارش";
 			this->label8->Click += gcnew System::EventHandler(this, &MyForm::panel23_Click);
@@ -985,7 +985,7 @@ namespace SocketUI {
 			this->category_panel->Controls->Add(this->category_icon);
 			this->category_panel->Controls->Add(this->category_label);
 			this->category_panel->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->category_panel->Location = System::Drawing::Point(0, 412);
+			this->category_panel->Location = System::Drawing::Point(0, 435);
 			this->category_panel->Margin = System::Windows::Forms::Padding(4);
 			this->category_panel->Name = L"category_panel";
 			this->category_panel->Size = System::Drawing::Size(140, 37);
@@ -1016,7 +1016,7 @@ namespace SocketUI {
 			this->category_label->Location = System::Drawing::Point(37, 6);
 			this->category_label->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->category_label->Name = L"category_label";
-			this->category_label->Size = System::Drawing::Size(38, 24);
+			this->category_label->Size = System::Drawing::Size(47, 29);
 			this->category_label->TabIndex = 3;
 			this->category_label->Text = L"ایمیل";
 			this->category_label->Click += gcnew System::EventHandler(this, &MyForm::category_panel_Click);
@@ -1027,7 +1027,7 @@ namespace SocketUI {
 			this->panel2->Controls->Add(this->label7);
 			this->panel2->Controls->Add(this->pictureBox3);
 			this->panel2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel2->Location = System::Drawing::Point(0, 457);
+			this->panel2->Location = System::Drawing::Point(0, 480);
 			this->panel2->Margin = System::Windows::Forms::Padding(4);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(140, 37);
@@ -1046,7 +1046,7 @@ namespace SocketUI {
 			this->label7->Location = System::Drawing::Point(23, 6);
 			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(72, 24);
+			this->label7->Size = System::Drawing::Size(92, 29);
 			this->label7->TabIndex = 4;
 			this->label7->Text = L"دانلود و اپلود";
 			this->label7->Click += gcnew System::EventHandler(this, &MyForm::label7_Click);
@@ -1069,7 +1069,7 @@ namespace SocketUI {
 			// MainPanel
 			// 
 			this->MainPanel->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->MainPanel->Location = System::Drawing::Point(8, 40);
+			this->MainPanel->Location = System::Drawing::Point(-3, 40);
 			this->MainPanel->MaximumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->MinimumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->Name = L"MainPanel";
@@ -1083,7 +1083,7 @@ namespace SocketUI {
 			this->AutoScroll = true;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-			this->ClientSize = System::Drawing::Size(901, 661);
+			this->ClientSize = System::Drawing::Size(882, 653);
 			this->Controls->Add(this->MainPanel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
@@ -1092,7 +1092,6 @@ namespace SocketUI {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(900, 700);
 			this->MinimumSize = System::Drawing::Size(900, 700);
-			this->Name = L"MyForm";
 			this->Opacity = 0.85;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);

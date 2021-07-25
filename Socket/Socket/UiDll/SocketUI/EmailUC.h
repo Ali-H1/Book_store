@@ -1,11 +1,14 @@
 ﻿#pragma once
-
+#include "EmailHandler.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
+using namespace System::Threading;
+using namespace System::IO;
+using namespace System::Runtime::InteropServices;
 
 
 namespace SocketUI {
@@ -35,20 +38,28 @@ namespace SocketUI {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ password_input;
 	protected:
-	private: System::Windows::Forms::TextBox^ textBox1;
+
+	private: System::Windows::Forms::TextBox^ username_input;
+	protected:
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::TextBox^ textBox4;
+	private: System::Windows::Forms::TextBox^ to_input;
+
+	private: System::Windows::Forms::TextBox^ sender_input;
+
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ textBox5;
+	private: System::Windows::Forms::TextBox^ subject_input;
+
 	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::RichTextBox^ richTextBox1;
+	private: System::Windows::Forms::RichTextBox^ text_input;
+
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::TextBox^ textBox6;
+	private: System::Windows::Forms::TextBox^ smtp_input;
+
 	private: System::Windows::Forms::Label^ label6;
 
 	protected:
@@ -66,46 +77,46 @@ namespace SocketUI {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->password_input = (gcnew System::Windows::Forms::TextBox());
+			this->username_input = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->to_input = (gcnew System::Windows::Forms::TextBox());
+			this->sender_input = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->subject_input = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
+			this->text_input = (gcnew System::Windows::Forms::RichTextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
+			this->smtp_input = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
-			// textBox2
+			// password_input
 			// 
-			this->textBox2->BackColor = System::Drawing::Color::Lime;
-			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->password_input->BackColor = System::Drawing::Color::Lime;
+			this->password_input->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->password_input->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(404, 193);
-			this->textBox2->Margin = System::Windows::Forms::Padding(2);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->PasswordChar = '.';
-			this->textBox2->Size = System::Drawing::Size(218, 27);
-			this->textBox2->TabIndex = 23;
+			this->password_input->Location = System::Drawing::Point(539, 238);
+			this->password_input->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->password_input->Name = L"password_input";
+			this->password_input->PasswordChar = '.';
+			this->password_input->Size = System::Drawing::Size(291, 34);
+			this->password_input->TabIndex = 23;
 			// 
-			// textBox1
+			// username_input
 			// 
-			this->textBox1->BackColor = System::Drawing::Color::Lime;
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->username_input->BackColor = System::Drawing::Color::Lime;
+			this->username_input->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->username_input->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(404, 127);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(218, 28);
-			this->textBox1->TabIndex = 22;
+			this->username_input->Location = System::Drawing::Point(539, 156);
+			this->username_input->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->username_input->Name = L"username_input";
+			this->username_input->Size = System::Drawing::Size(291, 34);
+			this->username_input->TabIndex = 22;
 			// 
 			// label3
 			// 
@@ -113,10 +124,9 @@ namespace SocketUI {
 			this->label3->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label3->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label3->Location = System::Drawing::Point(576, 167);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label3->Location = System::Drawing::Point(768, 206);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(46, 24);
+			this->label3->Size = System::Drawing::Size(56, 29);
 			this->label3->TabIndex = 21;
 			this->label3->Text = L"گذرواژه";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -127,37 +137,36 @@ namespace SocketUI {
 			this->label4->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label4->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label4->Location = System::Drawing::Point(561, 92);
-			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label4->Location = System::Drawing::Point(748, 113);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(61, 24);
+			this->label4->Size = System::Drawing::Size(76, 29);
 			this->label4->TabIndex = 20;
 			this->label4->Text = L"نام کاربری";
 			// 
-			// textBox3
+			// to_input
 			// 
-			this->textBox3->BackColor = System::Drawing::Color::Lime;
-			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->to_input->BackColor = System::Drawing::Color::Lime;
+			this->to_input->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->to_input->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(404, 328);
-			this->textBox3->Margin = System::Windows::Forms::Padding(2);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->PasswordChar = '.';
-			this->textBox3->Size = System::Drawing::Size(218, 27);
-			this->textBox3->TabIndex = 27;
+			this->to_input->Location = System::Drawing::Point(539, 404);
+			this->to_input->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->to_input->Name = L"to_input";
+			this->to_input->PasswordChar = '.';
+			this->to_input->Size = System::Drawing::Size(291, 34);
+			this->to_input->TabIndex = 27;
 			// 
-			// textBox4
+			// sender_input
 			// 
-			this->textBox4->BackColor = System::Drawing::Color::Lime;
-			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->sender_input->BackColor = System::Drawing::Color::Lime;
+			this->sender_input->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->sender_input->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox4->Location = System::Drawing::Point(404, 260);
-			this->textBox4->Margin = System::Windows::Forms::Padding(2);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(218, 28);
-			this->textBox4->TabIndex = 26;
+			this->sender_input->Location = System::Drawing::Point(539, 320);
+			this->sender_input->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->sender_input->Name = L"sender_input";
+			this->sender_input->Size = System::Drawing::Size(291, 34);
+			this->sender_input->TabIndex = 26;
 			// 
 			// label1
 			// 
@@ -165,10 +174,9 @@ namespace SocketUI {
 			this->label1->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label1->Location = System::Drawing::Point(579, 302);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(772, 372);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(43, 24);
+			this->label1->Size = System::Drawing::Size(52, 29);
 			this->label1->TabIndex = 25;
 			this->label1->Text = L"گیرنده";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -179,25 +187,24 @@ namespace SocketUI {
 			this->label2->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label2->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label2->Location = System::Drawing::Point(571, 234);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label2->Location = System::Drawing::Point(761, 288);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(51, 24);
+			this->label2->Size = System::Drawing::Size(63, 29);
 			this->label2->TabIndex = 24;
 			this->label2->Text = L"فرستنده";
 			// 
-			// textBox5
+			// subject_input
 			// 
-			this->textBox5->BackColor = System::Drawing::Color::Lime;
-			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox5->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->subject_input->BackColor = System::Drawing::Color::Lime;
+			this->subject_input->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->subject_input->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox5->Location = System::Drawing::Point(28, 128);
-			this->textBox5->Margin = System::Windows::Forms::Padding(2);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->PasswordChar = '.';
-			this->textBox5->Size = System::Drawing::Size(264, 27);
-			this->textBox5->TabIndex = 29;
+			this->subject_input->Location = System::Drawing::Point(37, 158);
+			this->subject_input->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->subject_input->Name = L"subject_input";
+			this->subject_input->PasswordChar = '.';
+			this->subject_input->Size = System::Drawing::Size(352, 34);
+			this->subject_input->TabIndex = 29;
 			// 
 			// label5
 			// 
@@ -205,47 +212,49 @@ namespace SocketUI {
 			this->label5->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label5->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label5->Location = System::Drawing::Point(249, 93);
-			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label5->Location = System::Drawing::Point(332, 114);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(43, 24);
+			this->label5->Size = System::Drawing::Size(55, 29);
 			this->label5->TabIndex = 28;
 			this->label5->Text = L"موضوع";
 			this->label5->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
-			// richTextBox1
+			// text_input
 			// 
-			this->richTextBox1->BackColor = System::Drawing::Color::MediumSeaGreen;
-			this->richTextBox1->Location = System::Drawing::Point(28, 194);
-			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(264, 162);
-			this->richTextBox1->TabIndex = 30;
-			this->richTextBox1->Text = L"";
+			this->text_input->BackColor = System::Drawing::Color::MediumSeaGreen;
+			this->text_input->Location = System::Drawing::Point(37, 239);
+			this->text_input->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->text_input->Name = L"text_input";
+			this->text_input->Size = System::Drawing::Size(351, 198);
+			this->text_input->TabIndex = 30;
+			this->text_input->Text = L"";
 			// 
 			// button1
 			// 
 			this->button1->BackColor = System::Drawing::Color::Lime;
 			this->button1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->button1->Location = System::Drawing::Point(124, 388);
+			this->button1->Location = System::Drawing::Point(165, 478);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(72, 34);
+			this->button1->Size = System::Drawing::Size(96, 42);
 			this->button1->TabIndex = 31;
 			this->button1->Text = L"ارسال ";
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &EmailUC::button1_Click);
 			// 
-			// textBox6
+			// smtp_input
 			// 
-			this->textBox6->BackColor = System::Drawing::Color::Lime;
-			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox6->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->smtp_input->BackColor = System::Drawing::Color::Lime;
+			this->smtp_input->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->smtp_input->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox6->Location = System::Drawing::Point(404, 394);
-			this->textBox6->Margin = System::Windows::Forms::Padding(2);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->PasswordChar = '.';
-			this->textBox6->Size = System::Drawing::Size(218, 27);
-			this->textBox6->TabIndex = 33;
+			this->smtp_input->Location = System::Drawing::Point(539, 485);
+			this->smtp_input->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->smtp_input->Name = L"smtp_input";
+			this->smtp_input->PasswordChar = '.';
+			this->smtp_input->Size = System::Drawing::Size(291, 34);
+			this->smtp_input->TabIndex = 33;
 			// 
 			// label6
 			// 
@@ -253,39 +262,63 @@ namespace SocketUI {
 			this->label6->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->label6->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->label6->Location = System::Drawing::Point(575, 368);
-			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label6->Location = System::Drawing::Point(767, 453);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(47, 24);
+			this->label6->Size = System::Drawing::Size(55, 29);
 			this->label6->TabIndex = 32;
 			this->label6->Text = L"smtp";
 			this->label6->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// EmailUC
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-			this->Controls->Add(this->textBox6);
+			this->Controls->Add(this->smtp_input);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->richTextBox1);
-			this->Controls->Add(this->textBox5);
+			this->Controls->Add(this->text_input);
+			this->Controls->Add(this->subject_input);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox4);
+			this->Controls->Add(this->to_input);
+			this->Controls->Add(this->sender_input);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->password_input);
+			this->Controls->Add(this->username_input);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label4);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"EmailUC";
-			this->Size = System::Drawing::Size(650, 550);
+			this->Size = System::Drawing::Size(867, 677);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+		String^ to, ^ subject, ^ mssg;
+		void send_mail()
+		{
+			if (to != "" && subject != "" && mssg != "")
+			{
+				Email mail;
+				mail.send_mail(to, subject, mssg);
+				MessageBox::Show("Mail Sent!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			else
+			{
+				MessageBox::Show("Invalid Input!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				
+			}
+
+		}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		mssg = to = subject = "";
+		to = to_input->Text;
+		subject = subject_input->Text;
+		mssg = text_input->Text;
+		Thread^ thread_send = gcnew Thread(gcnew ThreadStart(this, &EmailUC::send_mail));
+		thread_send->Start();
+	}
+};
 }
