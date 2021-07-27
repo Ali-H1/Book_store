@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "book store", "book store.vcxproj", "{662AFC6E-7C05-4AF9-B1EF-49B8F7D2A3D7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClientDLL", "..\ClientDLL\ClientDLL.vcxproj", "{422DEAD6-3584-4F9C-A9A1-3A9BC3E49DD1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CDA7D7E3-1012-4EC6-B1C5-6137C924C0E4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClientDLL", "ClientDLL\ClientDLL.vcxproj", "{422DEAD6-3584-4F9C-A9A1-3A9BC3E49DD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

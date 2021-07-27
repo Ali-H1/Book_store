@@ -76,10 +76,12 @@ namespace bookstore {
 		UINewRecieve^ Event_UINewRecieve;
 		DelCompelete^ Event_Compelete;
 		Delrequest^ Event_request;
+		Thread^ thread = gcnew Thread(gcnew ThreadStart(this, &MyForm::StartServer));
 
 		MyForm(void)
 		{
 			InitializeComponent();
+			
 			//
 			//TODO: Add the constructor code here
 			//
@@ -1414,17 +1416,18 @@ private:
 		   }
 
 	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
+
 		Thread^ thread = gcnew Thread(gcnew ThreadStart(this, &MyForm::StartServer));
 		thread->Start();
-		this->Enabled = false;
+		
 
 
 	}
-private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
-	All_Books();
-}
-private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
+	private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
+		All_Books();
+	}
+	private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
 };
 }
 
