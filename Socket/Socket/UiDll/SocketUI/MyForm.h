@@ -42,7 +42,7 @@ namespace SocketUI {
 	delegate void UINewRecieve(int Queueid, std::string Name, std::string Extention);
 
 
-
+	// delgate dll
 	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
 	void  Startup(std::string, int, UIChangeProgress^, UINewClient^, UINewRecieve^);
 
@@ -81,16 +81,6 @@ namespace SocketUI {
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button3;
-
-
-
-
-
-
-
-
-
-
 
 
 		   bool IsRunning;
@@ -347,7 +337,7 @@ namespace SocketUI {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(867, 24);
+			this->menuStrip1->Size = System::Drawing::Size(884, 24);
 			this->menuStrip1->TabIndex = 40;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -373,7 +363,7 @@ namespace SocketUI {
 			this->dataModeToolStripMenuItem->Name = L"dataModeToolStripMenuItem";
 			this->dataModeToolStripMenuItem->Size = System::Drawing::Size(57, 20);
 			this->dataModeToolStripMenuItem->Text = L"Upload";
-			this->dataModeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::dataModeToolStripMenuItem_Click);
+			
 			// 
 			// fileToolStripMenuItem1
 			// 
@@ -383,7 +373,7 @@ namespace SocketUI {
 			this->fileToolStripMenuItem1->Name = L"fileToolStripMenuItem1";
 			this->fileToolStripMenuItem1->Size = System::Drawing::Size(92, 22);
 			this->fileToolStripMenuItem1->Text = L"File";
-			this->fileToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::fileToolStripMenuItem1_Click);
+			
 			// 
 			// uploadToolStripMenuItem
 			// 
@@ -459,7 +449,7 @@ namespace SocketUI {
 			this->IP->Size = System::Drawing::Size(71, 26);
 			this->IP->TabIndex = 46;
 			this->IP->Text = L"127.0.0.1";
-			this->IP->TextChanged += gcnew System::EventHandler(this, &MyForm::IP_TextChanged);
+			
 			// 
 			// QueueList
 			// 
@@ -534,7 +524,7 @@ namespace SocketUI {
 			this->PBTreansfered->Name = L"PBTreansfered";
 			this->PBTreansfered->Size = System::Drawing::Size(466, 32);
 			this->PBTreansfered->TabIndex = 50;
-			this->PBTreansfered->Click += gcnew System::EventHandler(this, &MyForm::PBTreansfered_Click);
+
 			// 
 			// label2
 			// 
@@ -548,7 +538,7 @@ namespace SocketUI {
 			this->label2->Size = System::Drawing::Size(38, 20);
 			this->label2->TabIndex = 47;
 			this->label2->Text = L"Port";
-			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click_1);
+			
 			// 
 			// BTNStart
 			// 
@@ -575,7 +565,6 @@ namespace SocketUI {
 			this->Port->Size = System::Drawing::Size(51, 26);
 			this->Port->TabIndex = 48;
 			this->Port->Text = L"7071";
-			this->Port->TextChanged += gcnew System::EventHandler(this, &MyForm::Port_TextChanged);
 			// 
 			// Clients
 			// 
@@ -589,7 +578,7 @@ namespace SocketUI {
 			this->Clients->Size = System::Drawing::Size(92, 28);
 			this->Clients->TabIndex = 49;
 			this->Clients->Text = L"Client";
-			this->Clients->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::Clients_SelectedIndexChanged);
+			
 			// 
 			// label1
 			// 
@@ -625,7 +614,7 @@ namespace SocketUI {
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->pictureBox1);
-			this->header->Location = System::Drawing::Point(670, 35);
+			this->header->Location = System::Drawing::Point(676, 37);
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->MaximumSize = System::Drawing::Size(180, 1000);
 			this->header->MinimumSize = System::Drawing::Size(180, 1000);
@@ -767,7 +756,7 @@ namespace SocketUI {
 			this->signin_panel->TabIndex = 6;
 			this->signin_panel->Visible = false;
 			this->signin_panel->Click += gcnew System::EventHandler(this, &MyForm::signin_panel_Click);
-			this->signin_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::signin_panel_Paint);
+			
 			// 
 			// pictureBox2
 			// 
@@ -810,7 +799,7 @@ namespace SocketUI {
 			this->panel12->TabIndex = 6;
 			this->panel12->Visible = false;
 			this->panel12->Click += gcnew System::EventHandler(this, &MyForm::panel12_Click);
-			this->panel12->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel12_Paint);
+
 			// 
 			// label4
 			// 
@@ -907,7 +896,7 @@ namespace SocketUI {
 			this->panel18->TabIndex = 5;
 			this->panel18->Visible = false;
 			this->panel18->Click += gcnew System::EventHandler(this, &MyForm::panel18_Click);
-			this->panel18->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel18_Paint);
+		
 			// 
 			// pictureBox7
 			// 
@@ -992,7 +981,7 @@ namespace SocketUI {
 			this->category_panel->TabIndex = 9;
 			this->category_panel->Visible = false;
 			this->category_panel->Click += gcnew System::EventHandler(this, &MyForm::category_panel_Click);
-			this->category_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::category_panel_Paint);
+			
 			// 
 			// category_icon
 			// 
@@ -1034,7 +1023,7 @@ namespace SocketUI {
 			this->panel2->TabIndex = 10;
 			this->panel2->Visible = false;
 			this->panel2->Click += gcnew System::EventHandler(this, &MyForm::label7_Click);
-			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel2_Paint);
+			
 			this->panel2->DoubleClick += gcnew System::EventHandler(this, &MyForm::panel2_DoubleClick);
 			// 
 			// label7
@@ -1069,13 +1058,13 @@ namespace SocketUI {
 			// MainPanel
 			// 
 			this->MainPanel->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->MainPanel->Location = System::Drawing::Point(-1, 37);
+			this->MainPanel->Location = System::Drawing::Point(-19, 37);
 			this->MainPanel->MaximumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->MinimumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->Name = L"MainPanel";
 			this->MainPanel->Size = System::Drawing::Size(650, 550);
 			this->MainPanel->TabIndex = 46;
-			this->MainPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::MainPanel_Paint);
+			
 			// 
 			// MyForm
 			// 
@@ -1083,7 +1072,7 @@ namespace SocketUI {
 			this->AutoScroll = true;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-			this->ClientSize = System::Drawing::Size(884, 661);
+			this->ClientSize = System::Drawing::Size(901, 661);
 			this->Controls->Add(this->MainPanel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
@@ -1092,7 +1081,7 @@ namespace SocketUI {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(900, 700);
 			this->MinimumSize = System::Drawing::Size(900, 700);
-			this->Name = L"MyForm";
+			
 			this->Opacity = 0.85;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
@@ -1187,12 +1176,12 @@ namespace SocketUI {
 
 			}
 		}
-		void NewQueueRow(int Queueid, String^ Name, String^ Extention)
+		void NewQueueRow(int Queueid, String^ Name, String^ Extention)//radif upload 
 		{
 			array<String^>^ row = { Queueid.ToString() , Name , Extention , "0" , DateTime::Now.ToString() , "Upload" };
 			AddNewQueue(row);
 		}
-		void NewQueueRow(int Queueid, std::string Name, std::string Extention)
+		void NewQueueRow(int Queueid, std::string Name, std::string Extention)//radif download
 		{
 			array<String^>^ row = { Queueid.ToString() , gcnew String(Name.c_str()) , gcnew String(Extention.c_str()) , "0" , DateTime::Now.ToString() , "Download" };
 			Event_ADDQUEUE(row);
@@ -1239,7 +1228,7 @@ namespace SocketUI {
 			 //  auto temp = currentDir();
 			   Startup(ip, port, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
 		   }
-	private: System::Void uploadToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void uploadToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {//tarz kar upload
 		try
 		{
 			if (IsRunning && !IsTransfer)
@@ -1285,7 +1274,7 @@ namespace SocketUI {
 		SendFile(path, sock_name);
 
 	}
-	private: System::Void QueueList_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void QueueList_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {// jadval
 		if ((((ListView^)sender)->SelectedItems->Count == 1) && IsRunning && !IsTransfer)
 		{
 			ListViewItem^ item = ((ListView^)sender)->SelectedItems[0];
@@ -1340,66 +1329,29 @@ namespace SocketUI {
 
 
 	}
-	private: System::Void messageToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void Clients_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void Port_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
+	
+
+	
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void PBTreansfered_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void IP_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void category_label_Click(System::Object^ sender, System::EventArgs^ e) {
-
-
-	}
+	
+	
 	private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		panel1->Visible = true;
 
 	}
-	private: System::Void fileToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-	}
-	private: System::Void dataModeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void signin_panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-
-
-	}
-	private: System::Void category_panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-
-
-	}
 	
+
 	
-	private: System::Void panel18_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-
-
-
-	}
-	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-
-
-	}
-	private: System::Void category_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void category_panel_Click(System::Object^ sender, System::EventArgs^ e) {//user control 
 
 		MainPanel->Controls->Clear();
 		EmailUC^ Uc = gcnew EmailUC();
 		MainPanel->Controls->Add(Uc);
 
 	}
-	private: System::Void panel23_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void panel23_Click(System::Object^ sender, System::EventArgs^ e) {//user control 
 
 		MainPanel->Controls->Clear();
 		SeeUC1^ Uc1 = gcnew SeeUC1();
@@ -1407,28 +1359,28 @@ namespace SocketUI {
 
 
 	}
-	private: System::Void panel18_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void panel18_Click(System::Object^ sender, System::EventArgs^ e) {//user control 
 
 		MainPanel->Controls->Clear();
 		SettingUC^ Uc2 = gcnew SettingUC();
 		MainPanel->Controls->Add(Uc2);
 
 	}
-	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {//user control 
 
 		MainPanel->Controls->Clear();
 		SighinAdminUC^ Uc3 = gcnew SighinAdminUC();
 		MainPanel->Controls->Add(Uc3);
 
 	}
-	private: System::Void signin_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void signin_panel_Click(System::Object^ sender, System::EventArgs^ e) {//user control 
 
 		MainPanel->Controls->Clear();
 		EnterUC^ Uc4 = gcnew EnterUC();
 		MainPanel->Controls->Add(Uc4);
 
 	}
-    private: System::Void panel3_Click(System::Object^ sender, System::EventArgs^ e) {
+    private: System::Void panel3_Click(System::Object^ sender, System::EventArgs^ e) {//user control 
 
         MainPanel->Controls->Clear();
 	    BookUC^ Uc5 = gcnew BookUC();
@@ -1437,7 +1389,7 @@ namespace SocketUI {
 
     }
 
-	private: System::Void ligthToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void ligthToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {//ligth mood
 
 		Dark->Checked = false;
 		Ligth->Checked = true;
@@ -1492,7 +1444,7 @@ namespace SocketUI {
 
 
 	}
-	private: System::Void Dark_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void Dark_Click(System::Object^ sender, System::EventArgs^ e) {//dark moad
 
 		Dark->Checked = true;
 		Ligth->Checked = false;
@@ -1542,7 +1494,7 @@ namespace SocketUI {
 	}
 	
 
-	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {//visible kardan meno
 
 		panel12->Visible = true;
 		panel3->Visible = true;
@@ -1562,13 +1514,12 @@ namespace SocketUI {
 
 
 	}
-	private: System::Void panel2_DoubleClick(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void panel2_DoubleClick(System::Object^ sender, System::EventArgs^ e) { //false kardan meno
 
 		panel1->Visible = false;
 
 
 	}
-private: System::Void MainPanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
+
 };
 }
