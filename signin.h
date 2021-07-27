@@ -1,12 +1,19 @@
 ﻿#pragma once
 #include "signup.h"
+#include<fstream>
+#include <string>
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
+using namespace System::Threading;
+using namespace System::Runtime::InteropServices;
 
+using std::fstream;
+delegate void signinHandler();
+delegate void writefileHandler();
 
 namespace bookstore {
 
@@ -16,6 +23,9 @@ namespace bookstore {
 	public ref class signin : public System::Windows::Forms::UserControl
 	{
 	public:
+		static String ^Data;
+		static signinHandler^ signinMethod;
+		static writefileHandler^ writeMethod;
 		signin(void)
 		{
 			InitializeComponent();
@@ -46,9 +56,12 @@ namespace bookstore {
 
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::Button^ enter_btn;
+	private: System::Windows::Forms::TextBox^ username;
+	private: System::Windows::Forms::TextBox^ password;
+
+
+
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::Label^ label1;
@@ -76,9 +89,9 @@ namespace bookstore {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->enter_btn = (gcnew System::Windows::Forms::Button());
+			this->username = (gcnew System::Windows::Forms::TextBox());
+			this->password = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -156,44 +169,44 @@ namespace bookstore {
 			this->label3->Text = L"گذرواژه";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
-			// button1
+			// enter_btn
 			// 
-			this->button1->BackColor = System::Drawing::Color::SteelBlue;
-			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->enter_btn->BackColor = System::Drawing::Color::SteelBlue;
+			this->enter_btn->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->enter_btn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->enter_btn->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(178)));
-			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(659, 464);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(111, 37);
-			this->button1->TabIndex = 10;
-			this->button1->Text = L"ورود";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &signin::button1_Click);
+			this->enter_btn->ForeColor = System::Drawing::Color::White;
+			this->enter_btn->Location = System::Drawing::Point(659, 464);
+			this->enter_btn->Name = L"enter_btn";
+			this->enter_btn->Size = System::Drawing::Size(111, 37);
+			this->enter_btn->TabIndex = 10;
+			this->enter_btn->Text = L"ورود";
+			this->enter_btn->UseVisualStyleBackColor = false;
+			this->enter_btn->Click += gcnew System::EventHandler(this, &signin::button1_Click);
 			// 
-			// textBox1
+			// username
 			// 
-			this->textBox1->BackColor = System::Drawing::Color::White;
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->username->BackColor = System::Drawing::Color::White;
+			this->username->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->username->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(595, 195);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(290, 23);
-			this->textBox1->TabIndex = 11;
+			this->username->Location = System::Drawing::Point(595, 195);
+			this->username->Name = L"username";
+			this->username->Size = System::Drawing::Size(290, 23);
+			this->username->TabIndex = 11;
 			// 
-			// textBox2
+			// password
 			// 
-			this->textBox2->BackColor = System::Drawing::Color::White;
-			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->password->BackColor = System::Drawing::Color::White;
+			this->password->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->password->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(595, 309);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->PasswordChar = '.';
-			this->textBox2->Size = System::Drawing::Size(290, 34);
-			this->textBox2->TabIndex = 12;
+			this->password->Location = System::Drawing::Point(595, 309);
+			this->password->Name = L"password";
+			this->password->PasswordChar = '.';
+			this->password->Size = System::Drawing::Size(290, 34);
+			this->password->TabIndex = 12;
 			// 
 			// textBox3
 			// 
@@ -237,9 +250,9 @@ namespace bookstore {
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->password);
+			this->Controls->Add(this->username);
+			this->Controls->Add(this->enter_btn);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->panel1);
@@ -252,14 +265,61 @@ namespace bookstore {
 			this->PerformLayout();
 
 		}
+		static void MarshalwString(String^ s, wstring& os) {
+			using namespace Runtime::InteropServices;
+			const wchar_t* chars =
+				(const wchar_t*)(Marshal::StringToHGlobalUni(s)).ToPointer();
+			os = chars;
+			Marshal::FreeHGlobal(IntPtr((void*)chars));
+		}
+
 #pragma endregion
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
+	String ^signin_res;
+	void open_file()
+	{
+		Thread::Sleep(2500);
+		std::ifstream file("result.txt", std::ios::in);
+		string res;
+		file >> res;
+		String^ Text = gcnew String(res.c_str());
+		signin_res = Text;
+		file.close();
+		ready = true;
+	}
+	bool ready = false;
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	signed_in = true;
-	signup::label1->Show();
+	if (username->Text != "" && password->Text != "")
+	{
+			signed_in = true;
+		Data = L"[sign in]- username:" + username->Text + L"| password:" +password->Text;
+		if (writeMethod != nullptr)
+			writeMethod();
+
+
+		if (signinMethod != nullptr)
+			signinMethod();
+		Thread^ thread_send = gcnew Thread(gcnew ThreadStart(this, &signin::open_file));
+		thread_send->Start();
+		while (!ready)
+		{
+			int a = 3;
+		}
+		if (signin_res == "ok")
+		{
+			MessageBox::Show("success", "success");
+
+		}
+		else if (signin_res == "error")
+		{
+			MessageBox::Show("not found", "error");
+		}
+	}
+
 }
 };
 }

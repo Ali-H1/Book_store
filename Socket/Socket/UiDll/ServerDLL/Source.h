@@ -56,6 +56,7 @@ extern "C" UI_ALPI bool Insert(Database*, wstring, wstring, wstring);
 extern "C" UI_ALPI bool Insert_file_(Database*, wstring, wstring, wstring, int*, unsigned int, wstring*, unsigned int);
 extern "C" UI_ALPI void select_(Database*, vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>&, string, string, wstring, string);
 extern "C" UI_ALPI void select_admin(Database * db, vector<tuple<wstring, wstring>>&result, string table, string item, wstring condition, string order);
+extern "C" UI_ALPI void Update_(Database * db, wstring table, wstring listtitle, wstring condition);
 
 
 

@@ -10,7 +10,11 @@
 #include <vector>
 #include <string>
 #include <tuple>
-#define booklist vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>>
+#include <string>
+#include <codecvt>
+#include <locale>
+#include <fstream>
+#define booklist vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -19,14 +23,18 @@
 	using namespace System::Drawing;
 	using namespace System::Threading;
 	using namespace System::Runtime::InteropServices;
+	
 using std::vector;
 using std::string;
 using std::tuple;
 using std::make_tuple;
 using std::get;
 using std::to_string;
+using std::ifstream;
+using std::ofstream;
 
-vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>> alpha;
+
+vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>> alpha;
 
 		vector <wstring> Genres;
 		vector <wstring> Authors;
@@ -57,13 +65,16 @@ namespace bookstore {
 	void  Startup(std::string, int, UIChangeProgress^, UINewClient^, UINewRecieve^);
 
 	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
-	int SendFile(std::string path, std::string username);
+	int SendFile(std::string path);
 
 	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
 	int StartDownload(int queueid);
 
 	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
 	void thread_wait();
+
+	[DllImport("ClientDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	void write_file(wstring txt);
 
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
@@ -81,12 +92,19 @@ namespace bookstore {
 		MyForm(void)
 		{
 			InitializeComponent();
-			
 			//
 			//TODO: Add the constructor code here
 			//
 			set_book_test(set_book());
-			//set_data();
+			try
+			{
+				Thread^ thread = gcnew Thread(gcnew ThreadStart(this, &MyForm::StartServer));
+				thread->Start();
+			}
+			catch (...)
+			{
+			MessageBox::Show("server is down", "error");
+			}
 			Genres.push_back(L"روانشناسی");
 			Genres.push_back(L"فیزیک");
 			Genres.push_back(L"رمان");
@@ -116,6 +134,7 @@ namespace bookstore {
 			if (components)
 			{
 				delete components;
+				Environment::Exit(Environment::ExitCode);
 			}
 		}
 
@@ -834,78 +853,75 @@ private:
 			this->ResumeLayout(false);
 
 		}
+
 		bool drag = false;
 		Point start_point;
-		//void set_data()
-		//{
-		//	DataBase db("db.db");
-		//	db.Open();
-		//	string row = "(ID,Cover,Title,Author,Price)";
-
-		//	vector<tuple<std::string, std::string, std::string, string>> alpha;
-		//	alpha.push_back(make_tuple("covers\\3264_68232_normal.jpg", "پیرمرد و دریا", "ارنست همینگوی", "20,000"));
-		//	alpha.push_back(make_tuple("covers\\86104_42858_normal.jpg", "عقاید یک دلقک", "هاینریش بل", "26,000"));
-		//	alpha.push_back(make_tuple("covers\\1.jpg", "من پیش از تو", "جوجو مویز", "16,000"));
-		//	alpha.push_back(make_tuple("covers\\2.jpg", "کتاب مغازه خودکشی", "ژان تولی", "20,000"));
-		//	alpha.push_back(make_tuple("covers\\3.jpg", "جزء از کل", "استیو تولتز", "40,000"));
-		//	alpha.push_back(make_tuple("covers\\4.jpg", "مزرعه حیوانات", "جورج اورول", "17,000"));
-		//	alpha.push_back(make_tuple("covers\\5.jpg", "سمفونی مردگان", "عباس معروفی", "23,000"));
-		//	alpha.push_back(make_tuple("covers\\6.jpg", "مردی به نام اوه", "", "27,000"));
-		//	alpha.push_back(make_tuple("covers\\7.jpg", "چشم هایش", "بزرگ علوی", "30,000"));
-		//	alpha.push_back(make_tuple("covers\\8.jpg", "دور دنیا در 80 روز", "ژول ورن", "33,000"));
-		//	alpha.push_back(make_tuple("covers\\9.jpg", "قمارباز", "فئودور داستایوفسکی", "25,000"));
-		//	alpha.push_back(make_tuple("covers\\10.jpg", "استیو جابز", "والتر ایساکسون", "19,000"));
-		//	alpha.push_back(make_tuple("covers\\11.jpg", "ناتور دشت", "جی دی سلینجر", "34,000"));
-		//	alpha.push_back(make_tuple("covers\\12.jpg", "سینوهه", "میکا والتری", "67,000"));
-		//	alpha.push_back(make_tuple("covers\\13.jpg", "فانوس های لرزان", "نسرین تبریزی", "33,000"));
-		//	alpha.push_back(make_tuple("covers\\14.jpg", "جهان هولوگرافیک", "مایکل تالبوت", "54,000"));
-		//	alpha.push_back(make_tuple("covers\\15.jpg", "آدم آهنی", "نادر ابراهیمی", "43,000"));
-		//	alpha.push_back(make_tuple("covers\\16.jpg", "تکنیک های بازار یابی", "حسین یاغچی", "23,000"));
-		//	alpha.push_back(make_tuple("covers\\17.jpg", "بازار یابی و فروش نرم افزار", "خدایار عبداللهی", "17,000"));
-		//	alpha.push_back(make_tuple("covers\\18.jpg", "تحلیل تکنیکال بازار سرمایه", "جان مورفی", "27,000"));
-		//	alpha.push_back(make_tuple("covers\\19.jpg", "", "", ""));
-		//	alpha.push_back(make_tuple("covers\\20.jpg", "", "", ""));
-		//	int a = 0;
-
-		//	while (a < alpha.size() - 1)
-		//	{
-
-		//		string value = "(" + to_string(db.generating_id(1000, 9000)) + "," + get<0>(alpha[a]).c_str() + "," + get<1>(alpha[a]).c_str() + "," + get<2>(alpha[a]).c_str() + "," + get<3>(alpha[a]).c_str() + ")";
-		//		db.Insert("Book_Detail", row, value);
-
-		//		a++;
-		//		//MessageBox::Show("added : "+a, "added");
-		//	}
-
-		//}
-
-		vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>> set_book()
+		void decode_recent_books()
 		{
-			alpha.push_back(make_tuple(L"covers\\1.jpg", L"من پیش از تو", L"جوجو مویز", L"16,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\3264_68232_normal.jpg", L"پیرمرد و دریا", L"ارنست همینگوی", L"20,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\86104_42858_normal.jpg", L"عقاید یک دلقک", L"هاینریش بل", L"26,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\2.jpg", L"کتاب مغازه خودکشی", L"ژان تولی", L"20,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\3.jpg", L"جزء از کل", L"استیو تولتز", L"40,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\4.jpg", L"مزرعه حیوانات", L"جورج اورول", L"17,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\5.jpg", L"سمفونی مردگان", L"عباس معروفی", L"23,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\6.jpg", L"مردی به نام اوه", L"فردریک بکمن", L"27,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\7.jpg", L"چشم هایش", L"بزرگ علوی", L"30,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\8.jpg", L"دور دنیا در 80 روز", L"ژول ورن", L"33,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\9.jpg", L"قمارباز", L"فئودور داستایوفسکی", L"25,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\10.jpg", L"استیو جابز", L"والتر ایساکسون", L"19,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\11.jpg", L"ناتور دشت", L"جی دی سلینجر", L"34,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\12.jpg", L"سینوهه", L"میکا والتری", L"67,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\13.jpg", L"فانوس های لرزان", L"نسرین تبریزی", L"33,000", L"روانشناسی", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\14.jpg", L"جهان هولوگرافیک", L"مایکل تالبوت", L"54,000", L"فیزیک", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\15.jpg", L"آدم آهنی", L"نادر ابراهیمی", L"43,000", L"روانسناسی", L"انتشارات افق", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\16.jpg", L"تکنیک های بازار یابی", L"حسین یاغچی", L"23,000", L"بازاریابی", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\17.jpg", L"بازار یابی و فروش نرم افزار", L"خدایار عبداللهی", L"17,000", L"بازاریابی", L"انتشارات افق", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\18.jpg", L"تحلیل تکنیکال بازار سرمایه", L"جان مورفی", L"27,000", L"بازاریابی", L"انتشارات مردارید", L"اسد الله امرایی", L""));
-			alpha.push_back(make_tuple(L"covers\\19.jpg", L"", L"", L"", L"", L"", L"", L""));
-			alpha.push_back(make_tuple(L"covers\\20.jpg", L"", L"", L"", L"", L"", L"", L""));
+			wstring id, title, author, genre, year, edition, translator, price, publisher, language, summery, digital, cover;
+			wstring end = L"[[End]]", id_ = L"id=", title_ = L"title=", author_ = L"author=", genre_ = L"genre=", year_ = L"year=",
+				edition_ = L"edition=", translator_ = L"translator=", price_ = L"price=", publisher_ = L"publisher=", language_ = L"language=",
+				summery_ = L"summery=", digital_ = L"digital=", cover_ = L"cover=";
+
+			std::ifstream file("result.txt", std::ios::binary);
+			int size = file.seekg(0, std::ios::end).tellg();
+			char* buffer = new char[size];
+			file.read(buffer, size);
+			std::wstring req = std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(buffer);
+			int num_of_results = 0;
+			for (int i = 0; i < req.length() - 6; i++)
+			{
+				if (req[i] == '[' && req[i + 1] == '[' && req[i + 2] == 'E' && req[i + 3] == 'n' && req[i + 4] == 'd' && req[i + 5] == ']' && req[i + 6] == ']')
+					num_of_results++;
+			}
+			for (int i = 0; i < num_of_results; i++)
+			{
+				id = req.substr(req.find(id_) + 3, req.find(title_) - req.find(id_) - 4);
+				title = req.substr(req.find(title_) + 6, req.find(author_) - req.find(title_) - 7);
+				author = req.substr(req.find(author_) + 7, req.find(genre_) - req.find(author_) - 8);
+				genre = req.substr(req.find(genre_) + 6, req.find(year_) - req.find(genre_) - 7);
+				year = req.substr(req.find(year_) + 5, req.find(edition_) - req.find(year_) - 6);
+				edition = req.substr(req.find(edition_) + 8, req.find(translator_) - req.find(edition_) - 9);
+				translator = req.substr(req.find(translator_) + 11, req.find(price_) - req.find(translator_) - 12);
+				price = req.substr(req.find(price_) + 6, req.find(publisher_) - req.find(price_) - 7);
+				publisher = req.substr(req.find(publisher_) + 10, req.find(language_) - req.find(publisher_) - 11);
+				language = req.substr(req.find(language_) + 9, req.find(summery_) - req.find(language) - 10);
+				summery = req.substr(req.find(summery_) + 8, req.find(digital_) - req.find(summery_) - 9);
+				digital = req.substr(req.find(digital_) + 8, req.find(cover_) - req.find(digital_) - 9);
+				cover = req.substr(req.find(cover_) + 6, req.find(end) - req.find(cover_) - 7);
+				alpha.push_back(make_tuple(cover, title, author, price, genre, publisher, translator, id, year, language, summery, digital, cover));
+
+
+			}
+
+		}
+		vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>> set_book()
+		{
+			alpha.push_back(make_tuple(L"covers\\1.jpg", L"من پیش از تو", L"جوجو مویز", L"16,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L"",L"",L"",L"",L"",L""));
+			alpha.push_back(make_tuple(L"covers\\3264_68232_normal.jpg", L"پیرمرد و دریا", L"ارنست همینگوی", L"20,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\86104_42858_normal.jpg", L"عقاید یک دلقک", L"هاینریش بل", L"26,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\2.jpg", L"کتاب مغازه خودکشی", L"ژان تولی", L"20,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\3.jpg", L"جزء از کل", L"استیو تولتز", L"40,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\4.jpg", L"مزرعه حیوانات", L"جورج اورول", L"17,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\5.jpg", L"سمفونی مردگان", L"عباس معروفی", L"23,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\6.jpg", L"مردی به نام اوه", L"فردریک بکمن", L"27,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\7.jpg", L"چشم هایش", L"بزرگ علوی", L"30,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\8.jpg", L"دور دنیا در 80 روز", L"ژول ورن", L"33,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\9.jpg", L"قمارباز", L"فئودور داستایوفسکی", L"25,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\10.jpg", L"استیو جابز", L"والتر ایساکسون", L"19,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\11.jpg", L"ناتور دشت", L"جی دی سلینجر", L"34,000", L"رمان", L"انتشارات مردارید", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\12.jpg", L"سینوهه", L"میکا والتری", L"67,000", L"رمان", L"انتشارات افق", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\13.jpg", L"فانوس های لرزان", L"نسرین تبریزی", L"33,000", L"روانشناسی", L"انتشارات مردارید", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\14.jpg", L"جهان هولوگرافیک", L"مایکل تالبوت", L"54,000", L"فیزیک", L"انتشارات مردارید", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\15.jpg", L"آدم آهنی", L"نادر ابراهیمی", L"43,000", L"روانسناسی", L"انتشارات افق", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\16.jpg", L"تکنیک های بازار یابی", L"حسین یاغچی", L"23,000", L"بازاریابی", L"انتشارات مردارید", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\17.jpg", L"بازار یابی و فروش نرم افزار", L"خدایار عبداللهی", L"17,000", L"بازاریابی", L"انتشارات افق", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\18.jpg", L"تحلیل تکنیکال بازار سرمایه", L"جان مورفی", L"27,000", L"بازاریابی", L"انتشارات مردارید", L"اسد الله امرایی", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\19.jpg", L"", L"", L"", L"", L"", L"", L"", L"", L"", L"", L"", L""));
+			alpha.push_back(make_tuple(L"covers\\20.jpg", L"", L"", L"", L"", L"", L"", L"", L"", L"", L"", L"", L""));
 			return alpha;
 		}
-		void set_book_test(vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring>> alpha)
+		void set_book_test(vector<tuple<std::wstring, std::wstring, std::wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>> alpha)
 		{
 
 			int a = 0;
@@ -1093,6 +1109,7 @@ private:
 		  //////////////////////////////////////////////////////////////////////////////////////////////////
 	private: System::Void exitbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
+		Environment::Exit(Environment::ExitCode);
 	}
 	private: System::Void minbtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->WindowState = FormWindowState::Minimized;
@@ -1182,6 +1199,12 @@ private:
 		form2->Text = "sign in";
 		form2->Controls->Add(page);
 		form2->Show();
+		for each (Button ^ btn in page->Controls->Find("enter_btn", true))
+		{
+			page->signinMethod += gcnew signinHandler(send_req);
+			page->writeMethod += gcnew writefileHandler(write_on_file);
+
+		}
 
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1192,6 +1215,13 @@ private:
 		form2->Text = "sign in";
 		form2->Controls->Add(page);
 		form2->Show();
+		for each (Button ^ btn in page->Controls->Find("enter_btn", true))
+		{
+			page->signinMethod += gcnew signinHandler(send_req);
+			page->writeMethod += gcnew writefileHandler(write_on_file);
+
+		}
+
 
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1202,6 +1232,13 @@ private:
 		form2->Text = "sign in";
 		form2->Controls->Add(page);
 		form2->Show();
+		for each (Button ^ btn in page->Controls->Find("enter_btn", true))
+		{
+			page->signinMethod += gcnew signinHandler(send_req);
+			page->writeMethod += gcnew writefileHandler(write_on_file);
+
+		}
+
 
 
 	}
@@ -1234,6 +1271,15 @@ private:
 		set_book_test(result);
 		recent_books->Show();
 	}
+		   static void MarshalwString(String^ s, wstring& os) {
+			   using namespace Runtime::InteropServices;
+			   const wchar_t* chars =
+				   (const wchar_t*)(Marshal::StringToHGlobalUni(s)).ToPointer();
+			   os = chars;
+			   Marshal::FreeHGlobal(IntPtr((void*)chars));
+		   }
+
+
 	private: Void Author_button_Click(System::Object^ sender, System::EventArgs^ e) {
 		Button^ btn = (Button^)sender;
 		String^ Author = btn->Text;
@@ -1411,6 +1457,13 @@ private:
 
 
 	}
+		   void func()
+		   {
+			   Thread::Sleep(3000);
+			   decode_recent_books();
+			   set_book_test(alpha);
+
+		   }
 	private: System::Void panel13_Click(System::Object^ sender, System::EventArgs^ e) {
 		author_click();
 	}
@@ -1418,13 +1471,20 @@ private:
 		   {
 			   
 			   Startup("127.0.0.1", 7071, Event_UIChangeProgress, Event_UINewClient, Event_UINewRecieve);
+
+
 		   }
 
 	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		Thread^ thread = gcnew Thread(gcnew ThreadStart(this, &MyForm::StartServer));
 		thread->Start();
-		
+		//signin::Data = L"[recent books]";
+		//write_on_file();
+		//send_req();
+		//Thread^ thread2 = gcnew Thread(gcnew ThreadStart(this, &MyForm::func));
+		//thread2->Start();
+
 
 
 	}
@@ -1435,6 +1495,19 @@ private:
 	}
 private: System::Void signup_panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
+	public: static void send_req()
+	{
+	  
+	  int queueid = SendFile("..\\request.txt");
+
+
+	}
+	public:static void write_on_file()
+	{
+		wstring data;
+		MarshalwString(signin::Data, data);
+		write_file(data);
+	}
 };
 }
 

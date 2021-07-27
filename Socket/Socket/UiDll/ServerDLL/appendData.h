@@ -22,6 +22,7 @@ private:
 	const char* dbname;
 	static vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>list;
 	vector<tuple< wstring, wstring>> adminlist;
+	vector<tuple< wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>userlist;
 	static int callback(void* , int , char** , char**);
 
 public:
@@ -33,8 +34,9 @@ public:
 	bool Insert_file(wstring, wstring, wstring, int* , unsigned int , wstring* , unsigned int );
 	void Select(vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring,wstring, wstring, wstring, wstring, wstring, wstring, wstring>>& ,string , string , wstring, string);
 	void Select_admin(vector<tuple< wstring, wstring>>& result, string table, string item = "*", wstring condition = L"", string order = "");
+	bool Update(wstring, wstring, wstring);
+	void Select_users(vector<tuple< wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>& result, string table, string item, wstring condition, string order);
 
 	int generating_id(int , int );
 	int decode_respond(string, int id_length);
-	int df;
 };

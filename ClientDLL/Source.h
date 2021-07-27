@@ -9,7 +9,7 @@
 #include <mutex>
 #include "Queue.h"
 #include <algorithm>
-
+#include<string>
 CleintConnection tcpConnection;
 std::mutex ClientLiatDoor;
 std::mutex QueueListDoor;
@@ -47,6 +47,7 @@ extern "C" UI_ALPI void StartDownload(int socketid, int queueid);
 extern "C" UI_ALPI void sendmessage();
 extern "C" UI_ALPI void thread_wait();
 extern "C" UI_ALPI void SendFile(string path);
+extern "C" UI_ALPI void write_file(std::wstring txt);
 
 
 #endif // !SOURCE_H

@@ -19,13 +19,30 @@ bool Database::Open()
 	return res;
 
 }
+bool Database::Update(wstring table, wstring listtitle, wstring condition)
+{
+	sqlite3_stmt* stmt = NULL;
+	sql = L"UPDATE " + table + L" " + listtitle + condition + L"; ";
+	res = sqlite3_prepare16_v2(db, sql.c_str(), -1, &stmt, NULL);
+	res = sqlite3_step(stmt);
 
+	if (res != SQLITE_DONE)
+	{
+		string err = sqlite3_errmsg(db);
+		return 0;
+
+	}
+	sqlite3_finalize(stmt);
+	return 1;
+
+}
 bool Database::Insert(wstring table, wstring listtitle, wstring values)
 {
 	sqlite3_stmt* stmt = NULL;
 	sql = L"INSERT INTO " + table + L" " + listtitle + L" VALUES" + values + L"; ";
 	res = sqlite3_prepare16_v2(db, sql.c_str(), -1, &stmt, NULL);
 	res = sqlite3_step(stmt);
+
 	if (res != SQLITE_DONE)
 	{
 	string err = sqlite3_errmsg(db);
@@ -195,6 +212,49 @@ void Database::Select_admin(vector<tuple< wstring, wstring>>& result, string tab
 	//sqlite3_close(db);
 	return;
 }
+void Database::Select_users(vector<tuple< wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>& result, string table, string item, wstring condition, string order)
+{
+	sqlite3_stmt* res;
+	userlist.clear();
+	wstring sql2;
+	std::wstring Item = std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(item);
+	std::wstring Table = std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(table);
+	std::wstring Order = std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(order);
+
+	sql2 = L"SELECT " + Item + L" from " + Table + L" " + condition + L" " + Order;
+	char data[] = "Callback function called";
+	char* err;
+	const wchar_t* we = sql2.c_str();
+	int rc = sqlite3_prepare16_v2(db, sql2.c_str(), -1, &res, 0);
+
+	if (rc != SQLITE_OK) {
+
+		fprintf(stderr, "Failed to fetch data: %s\n", sqlite3_errmsg(db));
+
+		return;
+	}
+
+
+	while (sqlite3_step(res) == SQLITE_ROW)
+	{
+		wstring a = static_cast<const wchar_t*>(sqlite3_column_text16(res, 1));
+		userlist.push_back(std::make_tuple(static_cast<const wchar_t*>(sqlite3_column_text16(res, 0)), static_cast<const wchar_t*>(sqlite3_column_text16(res, 1)),
+			static_cast<const wchar_t*>(sqlite3_column_text16(res, 2)), static_cast<const wchar_t*>(sqlite3_column_text16(res, 3)),
+			static_cast<const wchar_t*>(sqlite3_column_text16(res, 4)),
+			static_cast<const wchar_t*>(sqlite3_column_text16(res, 5)), static_cast<const wchar_t*>(sqlite3_column_text16(res, 6)),
+			static_cast<const wchar_t*>(sqlite3_column_text16(res, 7)), static_cast<const wchar_t*>(sqlite3_column_text16(res, 8)),
+			static_cast<const wchar_t*>(sqlite3_column_text16(res, 9))));
+
+
+	}
+
+	sqlite3_finalize(res);
+
+	//res = sqlite3_exec(db, we, callback, (void*)data, &err);
+	result = userlist;
+	//sqlite3_close(db);
+	return;
+}
 
 wstring s2ws(const string& str)
 {
@@ -215,7 +275,7 @@ int Database::decode_respond(string txt, int id_length)
 	try
 	{
 		socket_id = mssg.substr(0, id_length);
-		request_type = mssg.substr(mssg.find_first_of('_') + 1, mssg.find_first_of('-') - mssg.find_first_of('_') - 1);
+		request_type = mssg.substr(mssg.find_first_of('_') + 1, mssg.find_first_of('-') - mssg.find_first_of('_') - 2);
 		req = mssg.substr(mssg.find_first_of('-') + 1, mssg.length() - mssg.find_first_of('-') - 2);
 	}
 	catch (const std::exception&)
@@ -223,46 +283,47 @@ int Database::decode_respond(string txt, int id_length)
 		return 0;
 	}
 
-	if (request_type == L"[genre select]" || request_type == L"[recent books]")
+	if (request_type == L"[genre select]" || request_type == L"[recent books]\n")
 	{
-		wstring id, title, author, genre, year, edition, translator, price, publisher, language, summery, digital, cover;
-		wstring end = L"[[End]]", id_ = L"id=", title_ = L"title=", author_ = L"author=", genre_ = L"genre=", year_ = L"year=",
-			edition_ = L"edition=", translator_ = L"translator=", price_ = L"price=", publisher_ = L"publisher=", language_ = L"language=",
-			summery_ = L"summery=", digital_ = L"digital=", cover_ = L"cover=";
-		int num_of_results = 0;
-		for (int i = 0; i < req.length() - 6; i++)
+		ifstream file(L"respond" + socket_id + L".txt", std::ios::trunc | std::ios::out | std::ios::binary);
+		req = req.substr(1, req.length() - 3);
+		Select(result, "Books", "*", L"", "");
+		for (int i = 0; i < result.size(); i++)
 		{
-			if (req[i] == '[' && req[i + 1] == '[' && req[i + 2] == 'E' && req[i + 3] == 'n' && req[i + 4] == 'd' && req[i + 5] == ']' && req[i + 6] == ']')
-				num_of_results++;
-		}
-		for (int i = 0; i < num_of_results; i++)
-		{
-			id = req.substr(req.find(id_) + 3, req.find(title_) - req.find(id_) - 4);
-			title = req.substr(req.find(title_) + 6, req.find(author_) - req.find(title_) - 7);
-			author = req.substr(req.find(author_) + 7, req.find(genre_) - req.find(author_) - 8);
-			genre = req.substr(req.find(genre_) + 6, req.find(year_) - req.find(genre_) - 7);
-			year = req.substr(req.find(year_) + 5, req.find(edition_) - req.find(year_) - 6);
-			edition = req.substr(req.find(edition_) + 8, req.find(translator_) - req.find(edition_) - 9);
-			translator = req.substr(req.find(translator_) + 11, req.find(price_) - req.find(translator_) - 12);
-			price = req.substr(req.find(price_) + 6, req.find(publisher_) - req.find(price_) - 7);
-			publisher = req.substr(req.find(publisher_) + 10, req.find(language_) - req.find(publisher_) - 11);
-			language = req.substr(req.find(language_) + 9, req.find(summery_) - req.find(language) - 10);
-			summery = req.substr(req.find(summery_) + 8, req.find(digital_) - req.find(summery_) - 9);
-			digital = req.substr(req.find(digital_) + 8, req.find(cover_) - req.find(digital_) - 9);
-			cover = req.substr(req.find(cover_) + 6, req.find(end) - req.find(cover_) - 7);
-			result.push_back(make_tuple(id, title, author, genre, year, edition, translator, price, publisher, language, summery, digital, cover));
 
-
+			wstring data = L"id="+ std::get<0>(result[i]) + L"title="+ std::get<1>(result[i]) + L"author="+ std::get<2>(result[i]) + L"genre="+std::get<3>(result[i]) + L"year="+
+				std::get<4>(result[i]) + L"edition="+ std::get<5>(result[i]) + L"translator="+ std::get<6>(result[i]) + L"price="+ std::get<7>(result[i]) + L"publisher="+ std::get<8>(result[i]) + L"language="+
+				std::get<9>(result[i]) + L"summery="+ std::get<10>(result[i]) + L"digital="+ std::get<11>(result[i]) + L"cover="+L"\n";
+			std::string wstr_turned_to_str = std::wstring_convert<std::codecvt_utf8<wchar_t>>().to_bytes(data);
+			file >> wstr_turned_to_str;
 		}
+		string end = "[[END]]";
+		file >> end;
+		file.close();
 	}
 
 	else if (request_type == L"[sign in]")
 	{
 		req = mssg.substr(mssg.find_first_of('-') + 1, mssg.length() - 2 - mssg.find_first_of('-'));
-		//wstring email = req.substr(req.find_first_of(':') + 1, req.find_first_of('|') - 1 - req.find_first_of(':'));
-		//wstring password = req.substr(req.find_last_of(':') + 1, req.length() - 1 - req.find_last_of(':'));
+		wstring email = req.substr(req.find_first_of(':') + 1, req.find_first_of('|') - 1 - req.find_first_of(':'));
+		wstring password = req.substr(req.find_last_of(':') + 1, req.length() - 1 - req.find_last_of(':'));
+		vector<tuple< wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>> result;
+		result.clear();
+		wstring cond = L" WHERE Username = '" + email + L"' AND Password = '" + password + L"'";
+		Select_users(result, "users", "*",cond ,"");
+		if (result.size() != 0)
+		{
+			std::wfstream file(L"respond" + socket_id + L".txt", std::ios::trunc | std::ios::out | std::ios::in);
+			file << L"_[sign in]-signed in";
+			file.close();
+		}
+		else
+		{
+			std::fstream file(L"respond" + socket_id + L".txt", std::ios::trunc | std::ios::out | std::ios::in);
+			file << "_[sign in]-notsigned in";
+			file.close();
 
-
+		}
 	}
 	else if (request_type == L"[forgot passsword]")
 	{

@@ -147,10 +147,21 @@ int decode_respond(wstring mssg ,int id_length)
 	else if (request_type == L"[sign in]")
 	{
 		req = mssg.substr(mssg.find_first_of('-') + 1, mssg.length() - 2 - mssg.find_first_of('-'));
-		//wstring email = req.substr(req.find_first_of(':') + 1, req.find_first_of('|') - 1 - req.find_first_of(':'));
-		//wstring password = req.substr(req.find_last_of(':') + 1, req.length() - 1 - req.find_last_of(':'));
+		if (req == L"signed in")
+		{
+			std::fstream file(L"result.txt", std::ios::trunc | std::ios::out | std::ios::in);
+			file << "ok";
+			file.close();
+
+		}
+		else
+		{
+			std::fstream file(L"result.txt", std::ios::trunc | std::ios::out | std::ios::in);
+			file << "error";
+			file.close();
 
 
+		}
 	}
 	else if (request_type == L"[forgot passsword]")
 	{

@@ -247,6 +247,11 @@ void select_admin(Database* db, vector<tuple<wstring, wstring>>& result, string 
 {
 	db->Select_admin(result, table, item, condition, order);
 }
+void Update_(Database* db,wstring table, wstring listtitle, wstring condition)
+{
+	db->Update(table, listtitle, condition);
+}
+
 
 
 

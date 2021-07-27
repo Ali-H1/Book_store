@@ -12,6 +12,7 @@ using namespace System::Data;
 using namespace System::Drawing;
 
 	delegate void methodHandler();
+	delegate void editHandler();
 
 	/// <summary>
 	/// Summary for BookUC
@@ -19,21 +20,23 @@ using namespace System::Drawing;
 	public ref class BookUC : public System::Windows::Forms::UserControl
 	{
 	public :methodHandler ^ OnRunMethod;
+	public:editHandler^ editMethod;
 	static System::String^ title, ^ author, ^ genre, ^ year, ^ edition, ^ price, ^ translator, ^ publisher, ^ language, ^ summery, ^ coverpath, ^ filepath;
 	static int digital,avalable;
+	static String^ id;
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog2;
-	private: System::Windows::Forms::ListView^ QueueList;
-	private: System::Windows::Forms::ColumnHeader^ ID;
-	private: System::Windows::Forms::ColumnHeader^ columnHeader1;
-	private: System::Windows::Forms::ColumnHeader^ columnHeader2;
-	private: System::Windows::Forms::ColumnHeader^ columnHeader3;
-	private: System::Windows::Forms::ColumnHeader^ columnHeader4;
-	private: System::Windows::Forms::ColumnHeader^ columnHeader5;
-	private: System::Windows::Forms::ColumnHeader^ columnHeader6;
-	private: System::Windows::Forms::ColumnHeader^ columnHeader7;
-	private: System::Windows::Forms::ColumnHeader^ columnHeader8;
-	private: System::Windows::Forms::ColumnHeader^ columnHeader9;
-	private: System::Windows::Forms::ColumnHeader^ columnHeader10;
+
+
+
+
+
+
+
+
+
+
+
+
 	public:
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 	public:
@@ -289,18 +292,6 @@ private: System::Windows::Forms::Label^ cover_input;
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->openFileDialog2 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->QueueList = (gcnew System::Windows::Forms::ListView());
-			this->ID = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader1 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader2 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader3 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader4 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader5 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader6 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader7 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader8 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader9 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader10 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel3->SuspendLayout();
@@ -359,7 +350,6 @@ private: System::Windows::Forms::Label^ cover_input;
 			// panel1
 			// 
 			this->panel1->AutoScroll = true;
-			this->panel1->Controls->Add(this->QueueList);
 			this->panel1->Controls->Add(this->radioButton2);
 			this->panel1->Controls->Add(this->radioButton3);
 			this->panel1->Controls->Add(this->radioButton1);
@@ -391,6 +381,7 @@ private: System::Windows::Forms::Label^ cover_input;
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(809, 172);
 			this->dataGridView1->TabIndex = 6;
+			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &BookUC::dataGridView1_CellClick);
 			// 
 			// Column1
 			// 
@@ -574,6 +565,7 @@ private: System::Windows::Forms::Label^ cover_input;
 			this->change_button->TabIndex = 103;
 			this->change_button->Text = L"تغییر";
 			this->change_button->UseVisualStyleBackColor = false;
+			this->change_button->Click += gcnew System::EventHandler(this, &BookUC::change_button_Click);
 			// 
 			// add_button
 			// 
@@ -962,70 +954,6 @@ private: System::Windows::Forms::Label^ cover_input;
 			this->openFileDialog2->FileName = L"openFileDialog1";
 			this->openFileDialog2->Filter = L"pdf|*.pdf";
 			// 
-			// QueueList
-			// 
-			this->QueueList->BackColor = System::Drawing::Color::MediumSeaGreen;
-			this->QueueList->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(11) {
-				this->ID, this->columnHeader1,
-					this->columnHeader2, this->columnHeader3, this->columnHeader4, this->columnHeader5, this->columnHeader6, this->columnHeader7,
-					this->columnHeader8, this->columnHeader9, this->columnHeader10
-			});
-			this->QueueList->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->QueueList->ForeColor = System::Drawing::Color::Black;
-			this->QueueList->HideSelection = false;
-			this->QueueList->Location = System::Drawing::Point(40, 610);
-			this->QueueList->Name = L"QueueList";
-			this->QueueList->Size = System::Drawing::Size(747, 234);
-			this->QueueList->TabIndex = 43;
-			this->QueueList->UseCompatibleStateImageBehavior = false;
-			this->QueueList->View = System::Windows::Forms::View::Details;
-			// 
-			// ID
-			// 
-			this->ID->Text = L"ID";
-			this->ID->Width = 65;
-			// 
-			// columnHeader1
-			// 
-			this->columnHeader1->Text = L"Title";
-			// 
-			// columnHeader2
-			// 
-			this->columnHeader2->Text = L"Author";
-			// 
-			// columnHeader3
-			// 
-			this->columnHeader3->Text = L"Genre";
-			// 
-			// columnHeader4
-			// 
-			this->columnHeader4->Text = L"Publish Year";
-			// 
-			// columnHeader5
-			// 
-			this->columnHeader5->Text = L"Edition";
-			// 
-			// columnHeader6
-			// 
-			this->columnHeader6->Text = L"Translator";
-			// 
-			// columnHeader7
-			// 
-			this->columnHeader7->Text = L"Price";
-			// 
-			// columnHeader8
-			// 
-			this->columnHeader8->Text = L"Publisher";
-			// 
-			// columnHeader9
-			// 
-			this->columnHeader9->Text = L"Language";
-			// 
-			// columnHeader10
-			// 
-			this->columnHeader10->Text = L"Avalable";
-			// 
 			// BookUC
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -1114,6 +1042,30 @@ private: System::Void file_button_Click(System::Object^ sender, System::EventArg
 	{
 		file_input->Text = openFileDialog2->FileName;
 	}
+
+}
+private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	id = dataGridView1->SelectedRows[0]->Cells[0]->Value->ToString();
+}
+private: System::Void change_button_Click(System::Object^ sender, System::EventArgs^ e) {
+	title = title_input->Text;
+	author = author_input->Text;
+	genre = genre_input->Text;
+	year = year_input->Text;
+	edition = edition_input->Text;
+	price = price_input->Text;
+	publisher = publisher_input->Text;
+	language = language_input->Text;
+	summery = summery_input->Text;
+	translator = translator_input->Text;
+	coverpath = cover_input->Text;
+	filepath = file_input->Text;
+
+	avalable = avalable_input->Checked;
+	digital = digital_input->Checked;
+
+	if (editMethod != nullptr)
+		editMethod();
 
 }
 };

@@ -168,8 +168,14 @@ void  Startup(string ip, int port, UIChangeProgress  uiChangeprogress, UINewClie
 	}
 }
 void thread_wait() {
+
 	std::unique_lock<std::mutex> lck(mtx);
 	cv.wait(lck);
-	int a = 44;
 
+}
+void write_file(wstring txt)
+{
+	std::wfstream file("..\\request.txt", std::ios::trunc | std::ios::in | std::ios::out);
+	file << txt;
+	file.close();
 }
