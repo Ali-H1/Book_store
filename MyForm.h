@@ -163,9 +163,9 @@ namespace bookstore {
 	private: System::Windows::Forms::Label^ category_label;
 
 
-	private: System::Windows::Forms::Panel^ panel23;
-	private: System::Windows::Forms::PictureBox^ pictureBox9;
-	private: System::Windows::Forms::Label^ label8;
+
+
+
 	private: System::Windows::Forms::Panel^ panel12;
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	private: System::Windows::Forms::Label^ label3;
@@ -249,9 +249,6 @@ private:
 			this->category_panel = (gcnew System::Windows::Forms::Panel());
 			this->category_icon = (gcnew System::Windows::Forms::PictureBox());
 			this->category_label = (gcnew System::Windows::Forms::Label());
-			this->panel23 = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
-			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->panel13 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -304,8 +301,6 @@ private:
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox11))->BeginInit();
 			this->category_panel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->category_icon))->BeginInit();
-			this->panel23->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
 			this->panel13->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->panel18->SuspendLayout();
@@ -384,7 +379,6 @@ private:
 			this->flowLayoutPanel1->Controls->Add(this->Home_panel);
 			this->flowLayoutPanel1->Controls->Add(this->Shoping_cart_panel);
 			this->flowLayoutPanel1->Controls->Add(this->category_panel);
-			this->flowLayoutPanel1->Controls->Add(this->panel23);
 			this->flowLayoutPanel1->Controls->Add(this->panel13);
 			this->flowLayoutPanel1->Controls->Add(this->panel18);
 			this->flowLayoutPanel1->Controls->Add(this->panel12);
@@ -424,6 +418,7 @@ private:
 			resources->ApplyResources(this->Shoping_cart_panel, L"Shoping_cart_panel");
 			this->Shoping_cart_panel->Name = L"Shoping_cart_panel";
 			this->Shoping_cart_panel->Click += gcnew System::EventHandler(this, &MyForm::Shoping_cart_panel_Click);
+			this->Shoping_cart_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::Shoping_cart_panel_Paint);
 			// 
 			// pictureBox11
 			// 
@@ -462,27 +457,6 @@ private:
 			resources->ApplyResources(this->category_label, L"category_label");
 			this->category_label->Name = L"category_label";
 			this->category_label->Click += gcnew System::EventHandler(this, &MyForm::category_label_Click);
-			// 
-			// panel23
-			// 
-			this->panel23->BackColor = System::Drawing::Color::AliceBlue;
-			this->panel23->Controls->Add(this->pictureBox9);
-			this->panel23->Controls->Add(this->label8);
-			this->panel23->Cursor = System::Windows::Forms::Cursors::Hand;
-			resources->ApplyResources(this->panel23, L"panel23");
-			this->panel23->Name = L"panel23";
-			// 
-			// pictureBox9
-			// 
-			this->pictureBox9->BackColor = System::Drawing::Color::Transparent;
-			resources->ApplyResources(this->pictureBox9, L"pictureBox9");
-			this->pictureBox9->Name = L"pictureBox9";
-			this->pictureBox9->TabStop = false;
-			// 
-			// label8
-			// 
-			resources->ApplyResources(this->label8, L"label8");
-			this->label8->Name = L"label8";
 			// 
 			// panel13
 			// 
@@ -826,9 +800,6 @@ private:
 			this->category_panel->ResumeLayout(false);
 			this->category_panel->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->category_icon))->EndInit();
-			this->panel23->ResumeLayout(false);
-			this->panel23->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
 			this->panel13->ResumeLayout(false);
 			this->panel13->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
@@ -1416,10 +1387,6 @@ private:
 	}
 
 	private: System::Void Shoping_cart_panel_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (!signed_in)
-		{
-			return;
-		}
 		Control::ControlCollection^ ctrlCollection = CartPage::Cart->Controls;
 		int countChild = ctrlCollection->Count;
 
@@ -1506,6 +1473,8 @@ private: System::Void signup_panel_Paint(System::Object^ sender, System::Windows
 		MarshalwString(signin::Data, data);
 		write_file(data);
 	}
+private: System::Void Shoping_cart_panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
 };
 }
 
