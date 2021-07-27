@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
 typedef void(*Result)(std::string res);
 struct User
 {

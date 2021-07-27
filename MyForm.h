@@ -48,7 +48,6 @@ namespace bookstore {
 	/// </summary>
 	/// 
 	delegate void DelADDCLIENT(String^, bool);
-	delegate void DelADDQUEUE(array< String^>^);
 	delegate void DelProgressBar(int, int);
 	delegate void DelCompelete(int);
 	delegate void Delrequest();
@@ -80,7 +79,6 @@ namespace bookstore {
 	{
 	public:
 		DelADDCLIENT^ Event_ADDCLIENT;
-		DelADDQUEUE^ Event_ADDQUEUE;
 		DelProgressBar^ Event_Progress;
 		UIChangeProgress^ Event_UIChangeProgress;
 		UINewClient^ Event_UINewClient;

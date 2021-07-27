@@ -381,11 +381,7 @@ namespace SocketUI {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-<<<<<<< HEAD
-			this->menuStrip1->Size = System::Drawing::Size(861, 28);
-=======
 			this->menuStrip1->Size = System::Drawing::Size(884, 24);
->>>>>>> feb596b7d7384c05c9b7df16da8810cea464605a
 			this->menuStrip1->TabIndex = 40;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -660,11 +656,7 @@ namespace SocketUI {
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->pictureBox1);
-<<<<<<< HEAD
-			this->header->Location = System::Drawing::Point(663, 38);
-=======
 			this->header->Location = System::Drawing::Point(676, 37);
->>>>>>> feb596b7d7384c05c9b7df16da8810cea464605a
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->MaximumSize = System::Drawing::Size(180, 1000);
 			this->header->MinimumSize = System::Drawing::Size(180, 1000);
@@ -1109,12 +1101,8 @@ namespace SocketUI {
 			// MainPanel
 			// 
 			this->MainPanel->Anchor = System::Windows::Forms::AnchorStyles::Top;
-<<<<<<< HEAD
 			this->MainPanel->AutoSize = true;
 			this->MainPanel->Location = System::Drawing::Point(-21, 40);
-=======
-			this->MainPanel->Location = System::Drawing::Point(-19, 37);
->>>>>>> feb596b7d7384c05c9b7df16da8810cea464605a
 			this->MainPanel->MaximumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->MinimumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->Name = L"MainPanel";
@@ -1128,11 +1116,7 @@ namespace SocketUI {
 			this->AutoScroll = true;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-<<<<<<< HEAD
 			this->ClientSize = System::Drawing::Size(882, 653);
-=======
-			this->ClientSize = System::Drawing::Size(901, 661);
->>>>>>> feb596b7d7384c05c9b7df16da8810cea464605a
 			this->Controls->Add(this->MainPanel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
@@ -1141,10 +1125,6 @@ namespace SocketUI {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(900, 700);
 			this->MinimumSize = System::Drawing::Size(900, 700);
-<<<<<<< HEAD
-=======
-			
->>>>>>> feb596b7d7384c05c9b7df16da8810cea464605a
 			this->Opacity = 0.85;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
@@ -1429,7 +1409,6 @@ namespace SocketUI {
 		MainPanel->Controls->Add(Uc2);
 
 	}
-<<<<<<< HEAD
 	public: static void add_admin()
 	{
 		auto db = CreateObject("ServerDataBase.db");
@@ -1446,9 +1425,6 @@ namespace SocketUI {
 
 	}
 	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
-=======
-	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {//user control 
->>>>>>> feb596b7d7384c05c9b7df16da8810cea464605a
 
 		MainPanel->Controls->Clear();
 		SighinAdminUC^ Uc3 = gcnew SighinAdminUC();
@@ -1720,7 +1696,6 @@ public:static  void add_book()
 	}
 	
 
-<<<<<<< HEAD
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 		auto db = CreateObject("ServerDataBase.db");
 		Open_(db);
@@ -1733,9 +1708,6 @@ public:static  void add_book()
 			username->Text = "";
 			password->Text = "";
 
-=======
-	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {//visible kardan meno
->>>>>>> feb596b7d7384c05c9b7df16da8810cea464605a
 
 			return;
 
@@ -1764,7 +1736,6 @@ public:static  void add_book()
 
 
 	}
-<<<<<<< HEAD
 private: System::Void MainPanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1772,8 +1743,5 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	mail.send_mail("host.h154@gmail.com", "Forgotten Password", "Username : admin \n password : admin");
 
 }
-=======
-
->>>>>>> feb596b7d7384c05c9b7df16da8810cea464605a
 };
 }
