@@ -76,10 +76,12 @@ namespace bookstore {
 		UINewRecieve^ Event_UINewRecieve;
 		DelCompelete^ Event_Compelete;
 		Delrequest^ Event_request;
+		Thread^ thread = gcnew Thread(gcnew ThreadStart(this, &MyForm::StartServer));
 
 		MyForm(void)
 		{
 			InitializeComponent();
+			
 			//
 			//TODO: Add the constructor code here
 			//
@@ -569,6 +571,7 @@ private:
 			resources->ApplyResources(this->signup_panel, L"signup_panel");
 			this->signup_panel->Name = L"signup_panel";
 			this->signup_panel->Click += gcnew System::EventHandler(this, &MyForm::panel24_Click);
+			this->signup_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::signup_panel_Paint);
 			// 
 			// pictureBox10
 			// 
@@ -1418,16 +1421,19 @@ private:
 		   }
 
 	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
+
 		Thread^ thread = gcnew Thread(gcnew ThreadStart(this, &MyForm::StartServer));
 		thread->Start();
-		//this->Enabled = false;
+		
 
 
 	}
-private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
-	All_Books();
-}
-private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
+		All_Books();
+	}
+	private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+private: System::Void signup_panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }

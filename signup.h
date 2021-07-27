@@ -687,6 +687,7 @@ namespace bookstore {
 private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void signup_bttn_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	String^ fname, ^ lname, ^ email, ^ password, ^ password2, ^ gender,^address,^postcode; //dont forget birth date !!!
 	fname = user_input_fname->Text;
 	lname = user_input_lname->Text;
