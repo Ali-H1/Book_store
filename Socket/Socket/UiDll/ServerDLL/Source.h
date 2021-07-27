@@ -1,7 +1,7 @@
 #ifndef SOURCE_H
 #define SOURCE_H
 #include <windows.h>
-
+#include "appendData.h"
 #include "TCPListener.h"
 #include "Serialize.h"
 #include <thread>
@@ -49,4 +49,14 @@ extern "C" UI_ALPI void sendmessage();
 extern "C" UI_ALPI void thread_wait();
 extern "C" UI_ALPI void get_client_name(string & name , int id);
 extern "C" UI_ALPI int SendFile(string path, string username);
+
+extern "C" UI_ALPI Database * CreateObject(const char* k);
+extern "C" UI_ALPI bool Open_(Database*);
+extern "C" UI_ALPI bool Insert(Database*, wstring, wstring, wstring);
+extern "C" UI_ALPI bool Insert_file_(Database*, wstring, wstring, wstring, int*, unsigned int, wstring*, unsigned int);
+extern "C" UI_ALPI void select_(Database*, vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>&, string, string, wstring, string);
+extern "C" UI_ALPI void select_admin(Database * db, vector<tuple<wstring, wstring>>&result, string table, string item, wstring condition, string order);
+
+
+
 #endif // !SOURCE_H

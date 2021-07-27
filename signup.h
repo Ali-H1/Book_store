@@ -17,7 +17,7 @@ using std::wstring;
 
 
 namespace bookstore {
-	static bool signed_in = true;
+	static bool signed_in = false;
 
 	/// <summary>
 	/// Summary for MyUserControl

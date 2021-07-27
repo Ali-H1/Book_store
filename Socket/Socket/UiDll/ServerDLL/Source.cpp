@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Source.h"
 
-void  Client(int Socketid , bool flag)
+void  Client(int Socketid, bool flag)
 {
 	if (flag)
 	{
@@ -217,5 +217,36 @@ void get_client_name(string& name , int id)
 	}
 	name = client_revers.find(id)->second;
 }
+
+Database* CreateObject(const char* name)
+{
+	Database* me = new Database(name);
+	return	me;
+}
+
+bool Open_(Database* db)
+{
+	db->Open();
+	return 1;
+}
+bool Insert(Database* db, wstring a, wstring b, wstring c)
+{
+	db->Insert(a, b, c);
+	return 1;
+}
+bool Insert_file_(Database* db, wstring table, wstring listtitle, wstring values, int* index, unsigned int indlen, wstring* path, unsigned int pathlen)
+{
+	return 	db->Insert_file(table, listtitle, values, index, indlen, path, pathlen);
+
+}
+void select_(Database* db, vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>& result, string table, string item = "*", wstring condition = L"", string order = "")
+{
+	db->Select(result, table, item, condition, order);
+}
+void select_admin(Database* db, vector<tuple<wstring, wstring>>& result, string table, string item, wstring condition , string order)
+{
+	db->Select_admin(result, table, item, condition, order);
+}
+
 
 

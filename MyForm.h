@@ -1121,7 +1121,7 @@ private:
 
 	}
 	public: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		check_if_sighned_in();
+		//check_if_sighned_in();
 	}
 	private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -1369,6 +1369,10 @@ private:
 	}
 
 	private: System::Void Shoping_cart_panel_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (!signed_in)
+		{
+			return;
+		}
 		Control::ControlCollection^ ctrlCollection = CartPage::Cart->Controls;
 		int countChild = ctrlCollection->Count;
 
@@ -1416,7 +1420,7 @@ private:
 	private: System::Void panel12_Click(System::Object^ sender, System::EventArgs^ e) {
 		Thread^ thread = gcnew Thread(gcnew ThreadStart(this, &MyForm::StartServer));
 		thread->Start();
-		this->Enabled = false;
+		//this->Enabled = false;
 
 
 	}

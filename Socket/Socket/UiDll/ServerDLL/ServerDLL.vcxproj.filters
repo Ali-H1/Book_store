@@ -45,6 +45,9 @@
     <ClInclude Include="..\..\..\..\..\..\DataBaseDLL\sqlite3ext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="appendData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -60,6 +63,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TCPListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="appendData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

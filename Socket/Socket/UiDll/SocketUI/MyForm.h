@@ -13,6 +13,26 @@
 #include "SighinAdminUC.h"
 #include "BookUC.h"
 
+[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+extern IntPtr CreateObject(const char* k);
+
+[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+extern bool Open_(IntPtr);
+
+[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+extern bool Insert(IntPtr, wstring, wstring, wstring);
+
+[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+extern bool Insert_file_(IntPtr, wstring, wstring, wstring, int*, unsigned int, wstring*, unsigned int);
+
+[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+extern void select_(IntPtr, vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>&, string, string, wstring, string);
+
+[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+extern void select_admin(IntPtr, vector<tuple<wstring, wstring>>&, string, string, wstring, string);
+
+delegate void methodHandler();
+
 namespace SocketUI {
 
 	using namespace System;
@@ -32,7 +52,6 @@ namespace SocketUI {
 	delegate void DelProgressBar(int, int);
 	delegate void DelCompelete(int);
 	delegate void Delrequest();
-
 
 	[UnmanagedFunctionPointerAttribute(CallingConvention::Cdecl)]
 	delegate void UIChangeProgress(int queueid, int value);
@@ -58,6 +77,23 @@ namespace SocketUI {
 	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
 	void get_client_name(string& name, int id);
 
+	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	extern IntPtr CreateObject(const char* k);
+
+	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	extern bool Open_(IntPtr);
+
+	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	extern bool Insert(IntPtr, wstring, wstring, wstring);
+
+	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	extern bool Insert_file_(IntPtr, wstring, wstring, wstring, int*, unsigned int, wstring*, unsigned int);
+
+	[DllImport("ServerDLL.dll", CallingConvention = CallingConvention::Cdecl)]
+	extern void select_(IntPtr, vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>>&, string, string, wstring, string);
+
+
+
 
 	string path;
 	string sock_name;
@@ -76,9 +112,11 @@ namespace SocketUI {
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label14;
-	private: System::Windows::Forms::TextBox^ textBox4;
+	private: System::Windows::Forms::TextBox^ username;
+
 	private: System::Windows::Forms::Label^ label13;
-	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::TextBox^ password;
+
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button3;
 
@@ -103,6 +141,7 @@ namespace SocketUI {
 			Rigster();
 			IsRunning = false;
 			IsTransfer = false;
+
 
 
 		}
@@ -260,9 +299,9 @@ namespace SocketUI {
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->username = (gcnew System::Windows::Forms::TextBox());
 			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->password = (gcnew System::Windows::Forms::TextBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->signin_panel = (gcnew System::Windows::Forms::Panel());
@@ -347,7 +386,7 @@ namespace SocketUI {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(861, 28);
+			this->menuStrip1->Size = System::Drawing::Size(861, 30);
 			this->menuStrip1->TabIndex = 40;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -436,7 +475,7 @@ namespace SocketUI {
 			// autodownloadradio
 			// 
 			this->autodownloadradio->AutoSize = true;
-			this->autodownloadradio->BackColor = System::Drawing::Color::SpringGreen;
+			this->autodownloadradio->BackColor = System::Drawing::Color::Lime;
 			this->autodownloadradio->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->autodownloadradio->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
@@ -450,7 +489,7 @@ namespace SocketUI {
 			// 
 			// IP
 			// 
-			this->IP->BackColor = System::Drawing::Color::SpringGreen;
+			this->IP->BackColor = System::Drawing::Color::Lime;
 			this->IP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->IP->ForeColor = System::Drawing::Color::Black;
@@ -528,7 +567,7 @@ namespace SocketUI {
 			// 
 			// PBTreansfered
 			// 
-			this->PBTreansfered->BackColor = System::Drawing::Color::SpringGreen;
+			this->PBTreansfered->BackColor = System::Drawing::Color::Lime;
 			this->PBTreansfered->ForeColor = System::Drawing::Color::Black;
 			this->PBTreansfered->Location = System::Drawing::Point(14, 369);
 			this->PBTreansfered->Name = L"PBTreansfered";
@@ -566,7 +605,7 @@ namespace SocketUI {
 			// 
 			// Port
 			// 
-			this->Port->BackColor = System::Drawing::Color::SpringGreen;
+			this->Port->BackColor = System::Drawing::Color::Lime;
 			this->Port->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Port->ForeColor = System::Drawing::Color::Black;
@@ -579,7 +618,7 @@ namespace SocketUI {
 			// 
 			// Clients
 			// 
-			this->Clients->BackColor = System::Drawing::Color::SpringGreen;
+			this->Clients->BackColor = System::Drawing::Color::Lime;
 			this->Clients->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Clients->ForeColor = System::Drawing::Color::Black;
@@ -619,13 +658,12 @@ namespace SocketUI {
 			// 
 			// header
 			// 
-			this->header->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Right));
 			this->header->BackColor = System::Drawing::Color::MediumSeaGreen;
 			this->header->Controls->Add(this->label11);
 			this->header->Controls->Add(this->flowLayoutPanel1);
 			this->header->Controls->Add(this->pictureBox1);
-			this->header->Location = System::Drawing::Point(663, 38);
+			this->header->Dock = System::Windows::Forms::DockStyle::Right;
+			this->header->Location = System::Drawing::Point(681, 30);
 			this->header->Margin = System::Windows::Forms::Padding(2);
 			this->header->MaximumSize = System::Drawing::Size(180, 1000);
 			this->header->MinimumSize = System::Drawing::Size(180, 1000);
@@ -649,9 +687,9 @@ namespace SocketUI {
 			// flowLayoutPanel1
 			// 
 			this->flowLayoutPanel1->Controls->Add(this->label14);
-			this->flowLayoutPanel1->Controls->Add(this->textBox4);
+			this->flowLayoutPanel1->Controls->Add(this->username);
 			this->flowLayoutPanel1->Controls->Add(this->label13);
-			this->flowLayoutPanel1->Controls->Add(this->textBox3);
+			this->flowLayoutPanel1->Controls->Add(this->password);
 			this->flowLayoutPanel1->Controls->Add(this->button4);
 			this->flowLayoutPanel1->Controls->Add(this->button3);
 			this->flowLayoutPanel1->Controls->Add(this->signin_panel);
@@ -661,7 +699,7 @@ namespace SocketUI {
 			this->flowLayoutPanel1->Controls->Add(this->panel23);
 			this->flowLayoutPanel1->Controls->Add(this->category_panel);
 			this->flowLayoutPanel1->Controls->Add(this->panel2);
-			this->flowLayoutPanel1->Location = System::Drawing::Point(29, 148);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(7, 153);
 			this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(2);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
 			this->flowLayoutPanel1->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
@@ -681,17 +719,17 @@ namespace SocketUI {
 			this->label14->TabIndex = 21;
 			this->label14->Text = L"نام کاربری";
 			// 
-			// textBox4
+			// username
 			// 
-			this->textBox4->BackColor = System::Drawing::Color::SpringGreen;
-			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->username->BackColor = System::Drawing::Color::Lime;
+			this->username->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->username->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox4->Location = System::Drawing::Point(6, 31);
-			this->textBox4->Margin = System::Windows::Forms::Padding(2);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(136, 34);
-			this->textBox4->TabIndex = 24;
+			this->username->Location = System::Drawing::Point(6, 31);
+			this->username->Margin = System::Windows::Forms::Padding(2);
+			this->username->Name = L"username";
+			this->username->Size = System::Drawing::Size(136, 34);
+			this->username->TabIndex = 24;
 			// 
 			// label13
 			// 
@@ -707,22 +745,22 @@ namespace SocketUI {
 			this->label13->Text = L"گذرواژه";
 			this->label13->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
-			// textBox3
+			// password
 			// 
-			this->textBox3->BackColor = System::Drawing::Color::SpringGreen;
-			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->password->BackColor = System::Drawing::Color::Lime;
+			this->password->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->password->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(6, 98);
-			this->textBox3->Margin = System::Windows::Forms::Padding(2);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->PasswordChar = '.';
-			this->textBox3->Size = System::Drawing::Size(136, 34);
-			this->textBox3->TabIndex = 25;
+			this->password->Location = System::Drawing::Point(6, 98);
+			this->password->Margin = System::Windows::Forms::Padding(2);
+			this->password->Name = L"password";
+			this->password->PasswordChar = '.';
+			this->password->Size = System::Drawing::Size(136, 34);
+			this->password->TabIndex = 25;
 			// 
 			// button4
 			// 
-			this->button4->BackColor = System::Drawing::Color::SpringGreen;
+			this->button4->BackColor = System::Drawing::Color::Lime;
 			this->button4->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button4->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -739,7 +777,7 @@ namespace SocketUI {
 			// 
 			// button3
 			// 
-			this->button3->BackColor = System::Drawing::Color::SpringGreen;
+			this->button3->BackColor = System::Drawing::Color::Lime;
 			this->button3->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button3->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -752,6 +790,7 @@ namespace SocketUI {
 			this->button3->TabIndex = 26;
 			this->button3->Text = L"فراموشی رمز عبور";
 			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// signin_panel
 			// 
@@ -1069,7 +1108,8 @@ namespace SocketUI {
 			// MainPanel
 			// 
 			this->MainPanel->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->MainPanel->Location = System::Drawing::Point(8, 40);
+			this->MainPanel->AutoSize = true;
+			this->MainPanel->Location = System::Drawing::Point(-10, 40);
 			this->MainPanel->MaximumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->MinimumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->Name = L"MainPanel";
@@ -1083,7 +1123,7 @@ namespace SocketUI {
 			this->AutoScroll = true;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-			this->ClientSize = System::Drawing::Size(901, 661);
+			this->ClientSize = System::Drawing::Size(882, 653);
 			this->Controls->Add(this->MainPanel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
@@ -1092,6 +1132,7 @@ namespace SocketUI {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(900, 700);
 			this->MinimumSize = System::Drawing::Size(900, 700);
+			this->Name = L"MyForm";
 			this->Opacity = 0.85;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
@@ -1431,10 +1472,111 @@ namespace SocketUI {
 
         MainPanel->Controls->Clear();
 	    BookUC^ Uc5 = gcnew BookUC();
+		auto db = CreateObject("ServerDataBase.db");
+		Open_(db);
+		vector<tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring>> found;
+		found.clear();
+
+		select_(db, found, "Books", "*", L"", "ORDER BY Title ASC");
+
+		for each (DataGridView ^ ctrl in Uc5->Controls->Find("dataGridView1", true))
+		{
+			ctrl->Rows->Clear();
+
+			for (int i = 0; i < found.size(); i++)
+			{
+				tuple<wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring, wstring> temp = found[i];
+
+				String^ item1 = gcnew String(std::get<0>(temp).c_str());
+				String^ item2 = gcnew String(std::get<1>(temp).c_str());
+				String^ item3 = gcnew String(std::get<2>(temp).c_str());
+				String^ item4 = gcnew String(std::get<3>(temp).c_str());
+				String^ item5 = gcnew String(std::get<4>(temp).c_str());
+				String^ item6 = gcnew String(std::get<5>(temp).c_str());
+				String^ item7 = gcnew String(std::get<6>(temp).c_str());
+				String^ item8 = gcnew String(std::get<7>(temp).c_str());
+				String^ item9 = gcnew String(std::get<8>(temp).c_str());
+				String^ item10 = gcnew String(std::get<9>(temp).c_str());
+				String^ item11 = gcnew String(std::get<10>(temp).c_str());
+				String^ item12 = gcnew String(std::get<11>(temp).c_str());
+				String^ item13 = gcnew String(std::get<12>(temp).c_str());
+
+
+				ctrl->Rows->Add(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12);
+			}
+
+		}
+		for each (RadioButton ^ ctrl in Uc5->Controls->Find("radioButton3", true))
+		{
+			ctrl->Checked = true;
+		}
+		for each (Button ^ ctrl in Uc5->Controls->Find("add_button", true))
+		{
+			Uc5->OnRunMethod += gcnew methodHandler(add_book);
+		}
+
 	    MainPanel->Controls->Add(Uc5);
 
 
     }
+		   static void MarshalwString(String^ s, wstring& os) {
+			   using namespace Runtime::InteropServices;
+			   const wchar_t* chars =
+				   (const wchar_t*)(Marshal::StringToHGlobalUni(s)).ToPointer();
+			   os = chars;
+			   Marshal::FreeHGlobal(IntPtr((void*)chars));
+		   }
+public:static  void add_book()
+{
+	wstring name, author_st, category, year_st, ver_st, Price_st, translator_st, publisher_st, language_st, summery_st, coverpath_st, file_path = L"NULL";
+	MarshalwString(BookUC::title, name);
+	MarshalwString(BookUC::author, author_st);
+	MarshalwString(BookUC::genre, category);
+	MarshalwString(BookUC::year, year_st);
+	MarshalwString(BookUC::edition, ver_st);
+	MarshalwString(BookUC::translator, translator_st);
+	MarshalwString(BookUC::price, Price_st);
+	MarshalwString(BookUC::publisher, publisher_st);
+	MarshalwString(BookUC::language, language_st);
+	MarshalwString(BookUC::summery, summery_st);
+	MarshalwString(BookUC::coverpath, coverpath_st);
+	MarshalwString(BookUC::filepath, file_path);
+
+
+	if (name != L"" && author_st != L"" && category != L"" && year_st != L"" && ver_st != L"" && Price_st != L"" && publisher_st != L"" && language_st != L"" && summery_st != L"")
+	{
+		auto db = CreateObject("ServerDataBase.db");
+		Open_(db);
+
+		int year, ver;
+		//year = stoi(year_st);
+		//ver  = stoi(ver_st);
+		wstring row = L"(ID,Title,Author,Genre,Publish_Year,Edition,Translator,Price,Publisher,language,Summery,Avalable,Digital,Cover,Cover_size,File,File_Size)";
+
+		Random^ random = gcnew Random();
+		auto answer = random->Next(1000, 6000);
+		String^ num = gcnew String(to_string(answer).c_str());
+
+		wstring ID = std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(to_string(answer));
+		wstring Avalable = std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(to_string(BookUC::avalable));
+		wstring Digital = std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(to_string(BookUC::digital));
+
+		wstring value = L"(" + ID + L",'" + name + L"','" + author_st + L"','" + category + L"','" + year_st + L"','" +
+			ver_st + L"','" + translator_st + L"','" + Price_st + L"','" + publisher_st + L"','" + language_st + L"','" + summery_st + L"'," + Avalable + L"," + Digital + L",?,?,?,?)";
+		int indexarr[2] = { 1,3 };
+		wstring patharr[2] = { coverpath_st,file_path };
+		bool isinsert = Insert_file_(db, L"Books", row, value, indexarr, 2, patharr, 2);
+		MessageBox::Show("show:" + num + "\n insert : " + isinsert);
+		//MessageBox::Show("Added Book", "succesfull", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+
+	}
+	else
+		MessageBox::Show("invalid input", "error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+
+
+
+}
 
 	private: System::Void ligthToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1447,15 +1589,15 @@ namespace SocketUI {
 
 
 		this->BackColor = System::Drawing::Color::GhostWhite;
-		this->PBTreansfered->BackColor = System::Drawing::Color::SpringGreen;
-		this->Clients->BackColor = System::Drawing::Color::SpringGreen;
-		this->Port->BackColor = System::Drawing::Color::SpringGreen;
+		this->PBTreansfered->BackColor = System::Drawing::Color::Lime;
+		this->Clients->BackColor = System::Drawing::Color::Lime;
+		this->Port->BackColor = System::Drawing::Color::Lime;
 		this->label2->BackColor = System::Drawing::Color::GhostWhite;
-		this->IP->BackColor = System::Drawing::Color::SpringGreen;
+		this->IP->BackColor = System::Drawing::Color::Lime;
 		this->label1->BackColor = System::Drawing::Color::GhostWhite;
-		this->BTNStart->BackColor = System::Drawing::Color::SpringGreen;
-		this->BTNDonwload->BackColor = System::Drawing::Color::SpringGreen;
-		this->autodownloadradio->BackColor = System::Drawing::Color::SpringGreen;
+		this->BTNStart->BackColor = System::Drawing::Color::Lime;
+		this->BTNDonwload->BackColor = System::Drawing::Color::Lime;
+		this->autodownloadradio->BackColor = System::Drawing::Color::Lime;
 		this->QueueList->BackColor = System::Drawing::Color::MediumSeaGreen;
 
 
@@ -1542,7 +1684,21 @@ namespace SocketUI {
 	
 
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+		auto db = CreateObject("ServerDataBase.db");
+		Open_(db);
+		vector<tuple<wstring, wstring>> result;
+		wstring username_st, password_st;
+		MarshalwString(username->Text, username_st);
+		select_admin(db, result, "admins", "*", L"WHERE username = '" + username_st + L"'", "");
+		if (result.size() == 0)
+		{
+			username->Text = "";
+			password->Text = "";
 
+
+			return;
+
+		}
 		panel12->Visible = true;
 		panel3->Visible = true;
 		panel18->Visible = true;
@@ -1550,8 +1706,8 @@ namespace SocketUI {
 		panel2->Visible = true;
 		category_panel->Visible = true;
 
-		textBox3->Visible = false;
-		textBox4->Visible = false;
+		username->Visible = false;
+		password->Visible = false;
 
 		label13->Visible = false;
 		label14->Visible = false;
@@ -1568,6 +1724,11 @@ namespace SocketUI {
 
 	}
 private: System::Void MainPanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	Email mail;
+	mail.send_mail("host.h154@gmail.com", "Forgotten Password", "Username : admin \n password : admin");
+
 }
 };
 }
