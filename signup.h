@@ -2,6 +2,7 @@
 #include "Headers/check_validity.h"
 #include <string>
 #include<regex>
+#include "SigninSorce.h"
 //#include <msclr\marshal.h>
 //#include <msclr\marshal_cppstd.h>
 
@@ -682,13 +683,20 @@ namespace bookstore {
 			Marshal::FreeHGlobal(IntPtr((void*)chars));
 		}
 #pragma endregion
+
+
+
+
+
 	private: System::Void MyUserControl_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void signup_bttn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	String^ fname, ^ lname, ^ email, ^ password, ^ password2, ^ gender,^address,^postcode; //dont forget birth date !!!
+	
+
+	/*String^ fname, ^ lname, ^ email, ^ password, ^ password2, ^ gender,^address,^postcode; //dont forget birth date !!!
 	fname = user_input_fname->Text;
 	lname = user_input_lname->Text;
 	email = user_input_email->Text;
@@ -813,7 +821,7 @@ private: System::Void signup_bttn_Click(System::Object^ sender, System::EventArg
 		signed_in = true;
 
 	}
-
+	*/
 
 }
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {

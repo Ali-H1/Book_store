@@ -166,6 +166,7 @@
     <ClInclude Include="ShoppingCart.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="SigninSorce.h" />
     <ClInclude Include="signup.h">
       <FileType>CppControl</FileType>
     </ClInclude>
