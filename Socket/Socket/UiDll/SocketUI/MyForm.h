@@ -436,7 +436,7 @@ namespace SocketUI {
 			// autodownloadradio
 			// 
 			this->autodownloadradio->AutoSize = true;
-			this->autodownloadradio->BackColor = System::Drawing::Color::Lime;
+			this->autodownloadradio->BackColor = System::Drawing::Color::SpringGreen;
 			this->autodownloadradio->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->autodownloadradio->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
@@ -450,7 +450,7 @@ namespace SocketUI {
 			// 
 			// IP
 			// 
-			this->IP->BackColor = System::Drawing::Color::Lime;
+			this->IP->BackColor = System::Drawing::Color::SpringGreen;
 			this->IP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->IP->ForeColor = System::Drawing::Color::Black;
@@ -528,7 +528,7 @@ namespace SocketUI {
 			// 
 			// PBTreansfered
 			// 
-			this->PBTreansfered->BackColor = System::Drawing::Color::Lime;
+			this->PBTreansfered->BackColor = System::Drawing::Color::SpringGreen;
 			this->PBTreansfered->ForeColor = System::Drawing::Color::Black;
 			this->PBTreansfered->Location = System::Drawing::Point(14, 369);
 			this->PBTreansfered->Name = L"PBTreansfered";
@@ -566,7 +566,7 @@ namespace SocketUI {
 			// 
 			// Port
 			// 
-			this->Port->BackColor = System::Drawing::Color::Lime;
+			this->Port->BackColor = System::Drawing::Color::SpringGreen;
 			this->Port->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Port->ForeColor = System::Drawing::Color::Black;
@@ -579,7 +579,7 @@ namespace SocketUI {
 			// 
 			// Clients
 			// 
-			this->Clients->BackColor = System::Drawing::Color::Lime;
+			this->Clients->BackColor = System::Drawing::Color::SpringGreen;
 			this->Clients->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Clients->ForeColor = System::Drawing::Color::Black;
@@ -683,7 +683,7 @@ namespace SocketUI {
 			// 
 			// textBox4
 			// 
-			this->textBox4->BackColor = System::Drawing::Color::Lime;
+			this->textBox4->BackColor = System::Drawing::Color::SpringGreen;
 			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -709,7 +709,7 @@ namespace SocketUI {
 			// 
 			// textBox3
 			// 
-			this->textBox3->BackColor = System::Drawing::Color::Lime;
+			this->textBox3->BackColor = System::Drawing::Color::SpringGreen;
 			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -722,7 +722,7 @@ namespace SocketUI {
 			// 
 			// button4
 			// 
-			this->button4->BackColor = System::Drawing::Color::Lime;
+			this->button4->BackColor = System::Drawing::Color::SpringGreen;
 			this->button4->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button4->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -739,7 +739,7 @@ namespace SocketUI {
 			// 
 			// button3
 			// 
-			this->button3->BackColor = System::Drawing::Color::Lime;
+			this->button3->BackColor = System::Drawing::Color::SpringGreen;
 			this->button3->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button3->Font = (gcnew System::Drawing::Font(L"B Nazanin", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -1069,7 +1069,7 @@ namespace SocketUI {
 			// MainPanel
 			// 
 			this->MainPanel->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->MainPanel->Location = System::Drawing::Point(-3, 40);
+			this->MainPanel->Location = System::Drawing::Point(8, 40);
 			this->MainPanel->MaximumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->MinimumSize = System::Drawing::Size(650, 550);
 			this->MainPanel->Name = L"MainPanel";
@@ -1083,7 +1083,7 @@ namespace SocketUI {
 			this->AutoScroll = true;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::GhostWhite;
-			this->ClientSize = System::Drawing::Size(882, 653);
+			this->ClientSize = System::Drawing::Size(901, 661);
 			this->Controls->Add(this->MainPanel);
 			this->Controls->Add(this->header);
 			this->Controls->Add(this->panel1);
@@ -1447,15 +1447,15 @@ namespace SocketUI {
 
 
 		this->BackColor = System::Drawing::Color::GhostWhite;
-		this->PBTreansfered->BackColor = System::Drawing::Color::Lime;
-		this->Clients->BackColor = System::Drawing::Color::Lime;
-		this->Port->BackColor = System::Drawing::Color::Lime;
+		this->PBTreansfered->BackColor = System::Drawing::Color::SpringGreen;
+		this->Clients->BackColor = System::Drawing::Color::SpringGreen;
+		this->Port->BackColor = System::Drawing::Color::SpringGreen;
 		this->label2->BackColor = System::Drawing::Color::GhostWhite;
-		this->IP->BackColor = System::Drawing::Color::Lime;
+		this->IP->BackColor = System::Drawing::Color::SpringGreen;
 		this->label1->BackColor = System::Drawing::Color::GhostWhite;
-		this->BTNStart->BackColor = System::Drawing::Color::Lime;
-		this->BTNDonwload->BackColor = System::Drawing::Color::Lime;
-		this->autodownloadradio->BackColor = System::Drawing::Color::Lime;
+		this->BTNStart->BackColor = System::Drawing::Color::SpringGreen;
+		this->BTNDonwload->BackColor = System::Drawing::Color::SpringGreen;
+		this->autodownloadradio->BackColor = System::Drawing::Color::SpringGreen;
 		this->QueueList->BackColor = System::Drawing::Color::MediumSeaGreen;
 
 
