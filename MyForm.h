@@ -571,6 +571,7 @@ private:
 			resources->ApplyResources(this->signup_panel, L"signup_panel");
 			this->signup_panel->Name = L"signup_panel";
 			this->signup_panel->Click += gcnew System::EventHandler(this, &MyForm::panel24_Click);
+			this->signup_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::signup_panel_Paint);
 			// 
 			// pictureBox10
 			// 
@@ -1428,6 +1429,8 @@ private:
 	}
 	private: System::Void panel12_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
+private: System::Void signup_panel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
 };
 }
 
